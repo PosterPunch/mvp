@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Most Valuable Promotions | Boxing's Future</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -75,7 +76,7 @@
         }
         
         section {
-            padding: 10rem 0;
+            padding: 12rem 0; /* Increased section padding */
             position: relative;
         }
         
@@ -93,7 +94,7 @@
         .section-title {
             font-size: 3.5rem;
             color: var(--gold);
-            margin-bottom: 5rem;
+            margin-bottom: 6rem; /* Increased margin */
             text-align: center;
             position: relative;
         }
@@ -125,12 +126,13 @@
         }
         
         header.hidden {
-            transform: translateY(-100%);
+            transform: translateY(-70px); /* Changed to match header height */
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black */
         }
         
         .logo {
-            height: 5px;
-            filter: brightness(250) drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+            height: 30px;
+            filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
             margin-right: auto;
         }
         
@@ -146,6 +148,11 @@
             position: relative;
             padding: 5px 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease;
+        }
+        
+        header.hidden .nav-links a {
+            color: var(--white); /* White text when header is hidden */
         }
         
         .nav-links a:after {
@@ -159,6 +166,10 @@
             transition: var(--transition);
         }
         
+        header.hidden .nav-links a:after {
+            background-color: var(--gold); /* Gold underline when header is hidden */
+        }
+        
         .nav-links a:hover:after,
         .nav-links a.active:after {
             width: 100%;
@@ -169,6 +180,11 @@
             cursor: pointer;
             font-size: 1.5rem;
             color: var(--black);
+            transition: color 0.3s ease;
+        }
+        
+        header.hidden .hamburger {
+            color: var(--white); /* White hamburger when header is hidden */
         }
         
         /* ===== HERO SECTION ===== */
@@ -176,15 +192,15 @@
     	    height: 100vh;
     	    min-height: 800px;
             background: var(--black) url('taylorserranotop.png') no-repeat center center;
-    	    background-size: auto 100%; /* Height fits perfectly */
+    	    background-size: auto 100%;
     	    display: flex;
     	    flex-direction: column;
-    	    justify-content: flex-end;
- 	    align-items: flex-start;
-   	    padding: 0 0 100px 100px;
+    	    justify-content: center; /* Changed to center */
+    	    align-items: flex-start;
+   	    padding: 0 0 150px 100px; /* Increased bottom padding */
 	    position: relative;
  	    margin-top: 90px;
-}
+        }
         
         .hero:before {
             content: '';
@@ -201,9 +217,10 @@
             z-index: 1;
             width: 100%;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-	    margin-top: 80px;
+            flex-direction: column; /* Changed to column */
+            align-items: flex-start;
+            gap: 3rem; /* Added gap between elements */
+	    margin-top: 0; /* Removed margin */
         }
         
         .countdown {
@@ -327,13 +344,15 @@
     	    position: absolute;
     	    top: 20px;
     	    right: 20px;
-    	    font-family: 'Montserrat', sans-serif;
-    	    font-size: 0.7rem;
+    	    font-family: 'Bebas Neue', sans-serif; /* Changed to Bebas Neue */
+    	    font-size: 1rem; /* Increased font size */
     	    color: var(--gold);
     	    z-index: 4;
     	    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     	    writing-mode: vertical-rl;
     	    text-orientation: mixed;
+    	    letter-spacing: 2px; /* Added letter spacing */
+    	    line-height: 1.2; /* Adjusted line height */
 	}
 
         
@@ -510,7 +529,7 @@
         /* ===== SOCIAL SECTION ===== */
         .social-section {
             text-align: center;
-            padding: 8rem 0;
+            padding: 10rem 0; /* Increased padding */
             background-color: rgba(212, 175, 55, 0.05);
         }
         
@@ -548,7 +567,7 @@
         /* ===== PARTNERS SECTION ===== */
         .partners {
             text-align: center;
-            padding: 8rem 0;
+            padding: 10rem 0; /* Increased padding */
         }
         
         .partners h3 {
@@ -583,7 +602,7 @@
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
-            padding: 5rem 0 3rem;
+            padding: 6rem 0 3rem; /* Increased padding */
             border-top: 1px solid var(--gold);
         }
         
@@ -594,9 +613,9 @@
         }
         
         .footer-logo {
-            height: 40px;
+            height: 30px; /* Made same size as header logo */
             margin-bottom: 2rem;
-            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+            filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(212, 175, 55, 0.5)); /* White logo */
         }
         
         .mission-statement {
@@ -728,16 +747,16 @@
             }
             
             section {
-                padding: 8rem 0;
+                padding: 10rem 0; /* Adjusted padding */
             }
             
             .social-section,
             .partners {
-                padding: 6rem 0;
+                padding: 8rem 0; /* Adjusted padding */
             }
             
             footer {
-                padding: 4rem 0 3rem;
+                padding: 5rem 0 3rem; /* Adjusted padding */
             }
         }
         
@@ -768,6 +787,7 @@
             
             .hero {
                 padding: 0 0 80px 40px;
+                min-height: 700px;
             }
             
             .nav-links {
@@ -790,10 +810,6 @@
             
             .hamburger {
                 display: block;
-            }
-            
-            .hero {
-                min-height: 700px;
             }
             
             .countdown {
@@ -869,12 +885,16 @@
             }
             
             section {
-                padding: 6rem 0;
+                padding: 8rem 0; /* Adjusted padding */
             }
             
             .social-section,
             .partners {
-                padding: 6rem 0;
+                padding: 8rem 0; /* Adjusted padding */
+            }
+            
+            .footer-logo {
+                height: 22px; /* Match mobile header logo size */
             }
         }
         
@@ -909,12 +929,12 @@
             }
             
             section {
-                padding: 4rem 0;
+                padding: 6rem 0; /* Adjusted padding */
             }
             
             .social-section,
             .partners {
-                padding: 4rem 0;
+                padding: 6rem 0; /* Adjusted padding */
             }
             
             .scroll-top {
@@ -1062,14 +1082,14 @@
                 <div class="fighter-info">
                     <div class="fighter-name">
                         <span class="fighter-first-name">ALYCIA</span>
-                        <span class="fighter-last-name">BAUMGAR...</span>
+                        <span class="fighter-last-name">BAUMGARDNER</span>
                     </div>
                 </div>
                 
                 <div class="fighter-overlay">
                     <div class="fighter-name">
-                        <span class="fighter-first-name">ALYCIA</span>
-                        <span class="fighter-last-name">BAUMGAR...</span>
+                        <span class="fighter-first-name">Alycia</span>
+                        <span class="fighter-last-name">BAUMGARDNER</span>
                     </div>
                     <div class="fighter-stats">
                         <p>Record: <span>15-1 (7 KOs)</span></p>
@@ -1083,7 +1103,7 @@
     
     <!-- ===== EVENTS SECTION ===== -->
     <section class="container">
-        <h2 class="section-title animate">Upcoming Events</h2>
+        <h2 class="section-title animate">MVP Events</h2>
         
         <div class="events-container">
             <!-- MVP Event 1 -->
