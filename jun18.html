@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News | Most Valuable Promotions</title>
+    <title>Paul vs Perry & Serrano vs Morgan Announced | MVP</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,106 +150,70 @@
             transition: color 0.3s ease;
         }
         
-        /* ===== NEWS HERO ===== */
-        .news-hero {
+        /* ===== NEWS ARTICLE ===== */
+        .news-article {
             padding: 10rem 0 5rem;
-            position: relative;
             margin-top: 70px;
+        }
+        
+        .article-header {
             text-align: center;
+            margin-bottom: 4rem;
         }
         
-        .news-title {
-            font-size: 4rem;
+        .article-title {
+            font-size: 3.5rem;
             color: var(--gold);
-            margin-bottom: 2rem;
-            line-height: 1;
-        }
-        
-        .news-categories {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .news-category {
-            padding: 0.5rem 1.5rem;
-            background-color: rgba(212, 175, 55, 0.1);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1.1rem;
-        }
-        
-        .news-category:hover,
-        .news-category.active {
-            background-color: var(--gold);
-            color: var(--black);
-        }
-        
-        /* ===== NEWS GRID ===== */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .news-card {
-            background-color: #0a0a0a;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
-            border-color: var(--gold);
-        }
-        
-        .news-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .news-content {
-            padding: 2rem;
-        }
-        
-        .news-date {
-            color: var(--gold);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .news-headline {
-            font-size: 1.5rem;
             margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .article-subtitle {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 2rem;
             line-height: 1.3;
         }
         
-        .read-more {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background-color: var(--gold);
-            color: var(--black);
-            border-radius: 30px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            transition: var(--transition);
+        .article-date {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            display: block;
         }
         
-        .read-more:hover {
-            background-color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-content p {
+            margin-bottom: 2rem;
+        }
+        
+        .fight-details {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 2rem;
+            border-radius: 5px;
+            margin: 3rem 0;
+        }
+        
+        .fight-card {
+            margin: 3rem 0;
+        }
+        
+        .fighter-name {
+            color: var(--gold);
+            font-weight: bold;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 2rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--gold);
         }
         
         /* ===== SOCIAL SECTION ===== */
@@ -358,6 +322,29 @@
             line-height: 1.8;
             margin-top: 0.5rem;
             opacity: 0.9;
+        }
+        
+        .about-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        
+        .about-link:hover {
+            color: var(--white);
+        }
+        
+        .about-link i {
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .about-link:hover i {
+            transform: translateX(5px);
         }
         
         .footer-links-col-1 {
@@ -474,8 +461,12 @@
                 grid-template-columns: 1fr 1fr;
             }
             
-            .news-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            .article-title {
+                font-size: 3rem;
+            }
+            
+            .article-subtitle {
+                font-size: 1.8rem;
             }
         }
         
@@ -515,16 +506,16 @@
                 display: block;
             }
             
-            .news-hero {
+            .news-article {
                 padding: 8rem 0 3rem;
             }
             
-            .news-title {
-                font-size: 3rem;
+            .article-title {
+                font-size: 2.5rem;
             }
             
-            .news-categories {
-                gap: 1rem;
+            .article-subtitle {
+                font-size: 1.5rem;
             }
             
             .footer-content {
@@ -566,12 +557,16 @@
         }
         
         @media (max-width: 480px) {
-            .news-title {
-                font-size: 2.5rem;
+            .article-title {
+                font-size: 2rem;
             }
             
-            .news-grid {
-                grid-template-columns: 1fr;
+            .article-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .article-date {
+                font-size: 1rem;
             }
             
             .social-icons {
@@ -603,12 +598,11 @@
         
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="/athletes">Athletes</a>
-            <a href="/events">Events</a>
-            <a href="/news" class="active">News</a>
-            <a href="/media">Media</a>
+            <a href="box.html">Athletes</a>
+            <a href="events.html">Events</a>
+            <a href="news.html">News</a>
             <a href="about.html">About</a>
-            <a href="/contact">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
         </nav>
         
         <div class="hamburger">
@@ -616,98 +610,55 @@
         </div>
     </header>
     
-    <!-- ===== NEWS HERO ===== -->
-    <section class="news-hero">
+    <!-- ===== NEWS ARTICLE ===== -->
+    <section class="news-article">
         <div class="container">
-            <h1 class="news-title">News</h1>
+            <div class="article-header">
+                <h1 class="article-title">Jake Paul vs Mike Perry & Amanda Serrano vs Stevie Morgan Announced</h1>
+                <h2 class="article-subtitle">"Fear No Man" Event Set for July 20 at Amalie Arena in Tampa, FL</h2>
+                <span class="article-date">June 18, 2024</span>
+            </div>
             
-            <div class="news-categories">
-                <div class="news-category active">All</div>
-                <div class="news-category">Events</div>
-                <div class="news-category">Athletes</div>
-                <div class="news-category">Community</div>
+            <div class="article-content">
+                <p>MVP's international superstar <span class="fighter-name">Jake "El Gallo" Paul</span> returns to the ring against his most dangerous opponent to date, bare knuckle boxing champion and MMA star <span class="fighter-name">"Platinum" Mike Perry</span> on Saturday, July 20 at Amalie Arena in Tampa, FL, for "Fear No Man" live on DAZN pay-per-view globally.</p>
+                
+                <p>Boxing trailblazer and unified featherweight champion <span class="fighter-name">Amanda "The Real Deal" Serrano</span> to face top-10 IBF, WBO, and WBA ranked <span class="fighter-name">Stevie Morgan</span> in co-main event. Undefeated Florida talents and MVP's Most Valuable Prospects series standouts <span class="fighter-name">Tony Aguilar</span> and <span class="fighter-name">Corey Marksman</span> to rematch in 8 round lightweight bout.</p>
+                
+                <div class="fight-details">
+                    <h3>Event Details:</h3>
+                    <p><strong>Main Event:</strong> Jake Paul vs. Mike Perry (8 rounds, cruiserweight)</p>
+                    <p><strong>Co-Main:</strong> Amanda Serrano vs. Stevie Morgan (10 rounds, super lightweight)</p>
+                    <p><strong>Date:</strong> Saturday, July 20, 2024</p>
+                    <p><strong>Location:</strong> Amalie Arena, Tampa, FL</p>
+                    <p><strong>Broadcast:</strong> DAZN Pay-Per-View</p>
+                    <p><strong>Tickets:</strong> On sale June 19 at 12pm ET via Ticketmaster</p>
+                </div>
+                
+                <h3>NEW YORK, NY – June 18, 2024</h3>
+                <p>Today, MVP announced that international superstar <span class="fighter-name">Jake "El Gallo" Paul</span> (9-1, 6 KOs) will return to the ring for "Fear No Man," a cruiserweight battle against the incredibly dangerous bare knuckle champion boxer and MMA star <span class="fighter-name">"Platinum" Mike Perry</span> (5-0, 3 KOs BKFC) on Saturday, July 20 at Amalie Arena in Tampa, Florida, live on DAZN pay-per-view.</p>
+                
+                <p>Paul vs. Perry will be an eight round cruiserweight bout, as Paul faces his most dangerous opponent to date and puts it all on the line in an incredibly risky fight against the baddest bare knuckle boxer of all time ahead of his bout with the Baddest Man on the Planet, Mike Tyson.</p>
+                
+                <p>Boxing trailblazer and unified featherweight champion <span class="fighter-name">Amanda "The Real Deal" Serrano</span> (46-2-1, 30 KOs) will also return to the ring against Tampa, Florida's top-10 ranked IBF, WBO, and WBA talent and KO artist, <span class="fighter-name">Stevie "Sledgehammer" Morgan</span> (14-1, 13 KOs) in the co-main event. Serrano vs. Morgan will be a super lightweight battle, contested over 10, two-minute rounds as Serrano aims to display her power at super lightweight against the powerful puncher, Morgan, ahead of her clash with Katie Taylor on Friday, November 15.</p>
+                
+                <p class="quote">"When Paul vs. Tyson was rescheduled, I knew immediately that I wanted to still fight on Saturday, July 20. Now, as I prepare for my fight against Iron Mike, there's no better opponent for me than Mike Perry," said Jake Paul. "He's a proven knockout artist who has shown to be a maniac in and out of the ring. This is the perfect experience for me to gain in advance of facing Mike Tyson. But getting that experience comes with risk. Those who know me know I'm a risk taker and while 'Platinum' Perry might try to end me, I'm Titanium Jake Paul and I fear no man."</p>
+                
+                <p class="quote">"Jake Paul claims he fears no man, but on Saturday, July 20, the world will see the truth: he just made the worst mistake of his life in trying to get through me before Iron Mike," said Mike Perry. "I'm going to make it look easy on Saturday July 20th, and I'm going to teach Jake Paul the most he's ever learned about fighting."</p>
+                
+                <p class="quote">"I've already been preparing for a fight on Saturday, July 20, and even though I'll now be waiting a little longer for my rematch with Katie Taylor, this is an opportunity for me to face another tough boxer in Stevie Morgan in Tampa," said Amanda Serrano. "My opponent has 13 KOs, more than almost every other active female boxer, but I fear no woman – I embrace the war."</p>
+                
+                <p class="quote">"We've been training for an opportunity like this, and I want to give full respect to Amanda for all she has done in her career and for women's boxing," said Stevie Morgan. "In this sport, though, in order to make a name, you have to take a name. I have 13 KOs and nothing will be sweeter than making Amanda Serrano number 14."</p>
+                
+                <p>"Fear No Man" is presented by CELSIUS Live Fit Essential Energy. The undercard will also feature the rematch of Crescent City, Florida's <span class="fighter-name">Tony Aguilar</span> (12-0-1, 4 KOs) vs. Orlando, Florida's <span class="fighter-name">Corey "2Smoove" Marksman</span> (9-0-1, 7 KOs) in an 8-round lightweight bout. Further undercard fights will be announced in the coming days.</p>
+                
+                <p>Paul vs. Perry and Serrano vs. Morgan: "Fear No Man" is produced and marketed by MVP with Boxlab Promotions serving as the official licensed promoter and is distributed by DAZN pay-per–view. CELSIUS Live Fit Essential Energy, maker of lifestyle energy drink, is the exclusive energy drink sponsor of MVP.</p>
+                
+                <p>For more information, follow on X via @MostVPromotions and @DAZNBoxing or on Instagram via @MostValuablePromotions and @DAZNBoxing.</p>
             </div>
         </div>
     </section>
 
-    <!-- First Banner - Upcoming Events -->
-    <div class="banner-container">
-        <div class="banner">
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-        </div>
-    </div>
-    
-    <!-- ===== NEWS GRID ===== -->
-    <section class="container">
-        <div class="news-grid">
-            <!-- News Item 1 -->
-            <a href="news-feb7-2025.html" class="news-card">
-                <img src="feb7.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">February 07, 2025</span>
-                    <h3 class="news-headline">STATEMENT FROM MOST VALUABLE PROMOTIONS REGARDING JAKE PAUL AND CANELO ALVAREZ</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-            
-            <!-- News Item 2 -->
-            <a href="news-nov19-2024.html" class="news-card">
-                <img src="nov19.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">November 19, 2024</span>
-                    <h3 class="news-headline">Netflix and Most Valuable Promotions' Jake Paul vs Mike Tyson Mega-Event Makes History With Over 108 Million Live Global Viewers</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-            
-            <!-- News Item 3 -->
-            <a href="news-jun18-2024.html" class="news-card">
-                <img src="jun18.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">June 18, 2024</span>
-                    <h3 class="news-headline">Jake Paul vs. Mike Perry and Amanda Serrano vs. Stevie Morgan: Fear No Man – Live on DAZN PPV, July 20 at Amalie Arena</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-            
-            <!-- News Item 4 -->
-            <a href="news-jun7-2024.html" class="news-card">
-                <img src="jun7.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">June 07, 2024</span>
-                    <h3 class="news-headline">Jake Paul vs. Mike Tyson & Katie Taylor vs. Amanda Serrano Rescheduled for Friday, November 15th</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-            
-            <!-- News Item 5 -->
-            <a href="news-may31-2024.html" class="news-card">
-                <img src="may31.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">May 31, 2024</span>
-                    <h3 class="news-headline">Official Statement on Paul vs. Tyson Event</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Second Banner - MVP Logos -->
+    <!-- Banner - MVP Logos -->
     <div class="banner-container">
         <div class="banner">
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
@@ -823,9 +774,9 @@
                 <div class="footer-col">
                     <div class="footer-links-col-1">
                         <a href="index.html">Home</a>
-                        <a href="/athletes">Athletes</a>
-                        <a href="/events">Events</a>
-                        <a href="/news">News</a>
+                        <a href="box.html">Athletes</a>
+                        <a href="events.html">Events</a>
+                        <a href="news.html" class="active">News</a>
                     </div>
                 </div>
                 
@@ -879,17 +830,6 @@
                 } else {
                     link.classList.remove('active');
                 }
-            });
-
-            // News category filtering
-            const categories = document.querySelectorAll('.news-category');
-            categories.forEach(category => {
-                category.addEventListener('click', function() {
-                    categories.forEach(c => c.classList.remove('active'));
-                    this.classList.add('active');
-                    // Here you would filter the news items based on category
-                    // For now we're just toggling the active class
-                });
             });
         });
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News | Most Valuable Promotions</title>
+    <title>Paul vs Tyson & Taylor vs Serrano Rescheduled | MVP</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,103 +150,84 @@
             transition: color 0.3s ease;
         }
         
-        /* ===== NEWS HERO ===== */
-        .news-hero {
+        /* ===== NEWS ARTICLE ===== */
+        .news-article {
             padding: 10rem 0 5rem;
-            position: relative;
             margin-top: 70px;
+        }
+        
+        .article-header {
             text-align: center;
+            margin-bottom: 4rem;
         }
         
-        .news-title {
-            font-size: 4rem;
+        .article-title {
+            font-size: 3.5rem;
             color: var(--gold);
-            margin-bottom: 2rem;
-            line-height: 1;
-        }
-        
-        .news-categories {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .news-category {
-            padding: 0.5rem 1.5rem;
-            background-color: rgba(212, 175, 55, 0.1);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1.1rem;
-        }
-        
-        .news-category:hover,
-        .news-category.active {
-            background-color: var(--gold);
-            color: var(--black);
-        }
-        
-        /* ===== NEWS GRID ===== */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .news-card {
-            background-color: #0a0a0a;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
-            border-color: var(--gold);
-        }
-        
-        .news-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .news-content {
-            padding: 2rem;
-        }
-        
-        .news-date {
-            color: var(--gold);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .news-headline {
-            font-size: 1.5rem;
             margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .article-subtitle {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 2rem;
             line-height: 1.3;
         }
         
-        .read-more {
+        .article-date {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-content p {
+            margin-bottom: 2rem;
+        }
+        
+        .event-details {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 2rem;
+            border-radius: 5px;
+            margin: 3rem 0;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 2rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--gold);
+        }
+        
+        .ticket-info {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold);
+        }
+        
+        .btn {
             display: inline-block;
-            padding: 0.5rem 1.5rem;
+            padding: 0.8rem 2rem;
             background-color: var(--gold);
             color: var(--black);
             border-radius: 30px;
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             letter-spacing: 1px;
             transition: var(--transition);
+            margin-top: 1rem;
         }
         
-        .read-more:hover {
+        .btn:hover {
             background-color: var(--white);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
@@ -358,6 +339,29 @@
             line-height: 1.8;
             margin-top: 0.5rem;
             opacity: 0.9;
+        }
+        
+        .about-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        
+        .about-link:hover {
+            color: var(--white);
+        }
+        
+        .about-link i {
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .about-link:hover i {
+            transform: translateX(5px);
         }
         
         .footer-links-col-1 {
@@ -474,8 +478,12 @@
                 grid-template-columns: 1fr 1fr;
             }
             
-            .news-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            .article-title {
+                font-size: 3rem;
+            }
+            
+            .article-subtitle {
+                font-size: 1.8rem;
             }
         }
         
@@ -515,16 +523,16 @@
                 display: block;
             }
             
-            .news-hero {
+            .news-article {
                 padding: 8rem 0 3rem;
             }
             
-            .news-title {
-                font-size: 3rem;
+            .article-title {
+                font-size: 2.5rem;
             }
             
-            .news-categories {
-                gap: 1rem;
+            .article-subtitle {
+                font-size: 1.5rem;
             }
             
             .footer-content {
@@ -566,12 +574,16 @@
         }
         
         @media (max-width: 480px) {
-            .news-title {
-                font-size: 2.5rem;
+            .article-title {
+                font-size: 2rem;
             }
             
-            .news-grid {
-                grid-template-columns: 1fr;
+            .article-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .article-date {
+                font-size: 1rem;
             }
             
             .social-icons {
@@ -603,12 +615,11 @@
         
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="/athletes">Athletes</a>
-            <a href="/events">Events</a>
-            <a href="/news" class="active">News</a>
-            <a href="/media">Media</a>
+            <a href="box.html">Athletes</a>
+            <a href="events.html">Events</a>
+            <a href="news.html">News</a>
             <a href="about.html">About</a>
-            <a href="/contact">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
         </nav>
         
         <div class="hamburger">
@@ -616,98 +627,47 @@
         </div>
     </header>
     
-    <!-- ===== NEWS HERO ===== -->
-    <section class="news-hero">
+    <!-- ===== NEWS ARTICLE ===== -->
+    <section class="news-article">
         <div class="container">
-            <h1 class="news-title">News</h1>
+            <div class="article-header">
+                <h1 class="article-title">Jake Paul vs. Mike Tyson & Katie Taylor vs. Amanda Serrano Rescheduled</h1>
+                <h2 class="article-subtitle">Mega-Event Now Set for Friday, November 15 at AT&T Stadium</h2>
+                <span class="article-date">June 07, 2024</span>
+            </div>
             
-            <div class="news-categories">
-                <div class="news-category active">All</div>
-                <div class="news-category">Events</div>
-                <div class="news-category">Athletes</div>
-                <div class="news-category">Community</div>
+            <div class="article-content">
+                <p>The highly anticipated heavyweight fight between <strong>Jake Paul</strong> and <strong>Mike Tyson</strong> and the most anticipated rematch in women's boxing history, <strong>Katie Taylor vs. Amanda Serrano</strong>, is rescheduled for <strong>Friday, November 15, 2024</strong> at <strong>AT&T Stadium</strong> in Arlington, Texas.</p>
+                
+                <div class="event-details">
+                    <h3>Rescheduled Event Details:</h3>
+                    <p><strong>Main Event:</strong> Jake Paul vs. Mike Tyson</p>
+                    <p><strong>Co-Main:</strong> Katie Taylor vs. Amanda Serrano II</p>
+                    <p><strong>New Date:</strong> Friday, November 15, 2024</p>
+                    <p><strong>Location:</strong> AT&T Stadium, Arlington, TX</p>
+                    <p><strong>Broadcast:</strong> Live globally on Netflix</p>
+                    <a href="#" class="btn">GET TICKETS</a>
+                </div>
+                
+                <p class="quote">"Our team has worked diligently with all parties involved to reschedule this monumental fight to a date that ensures both Jake Paul and Mike Tyson are fully prepared, with equal training time, as well as allowing us to keep the event at AT&T stadium in the midst of the Cowboys season," said <strong>Nakisa Bidarian</strong>, Co-Founder of Most Valuable Promotions. "Paul vs. Tyson is the most cross generational sporting event in history, and we are committed to providing fans worldwide with this unforgettable night of boxing, live globally on Netflix."</p>
+                
+                <p class="quote">"Although we had to postpone the fight, I will resume training shortly. I am thankful to the medical staff that treated me and to MVP, Netflix, and AT&T Stadium for working diligently to find the best reschedule date for all parties," said <strong>Mike Tyson</strong>. "While we have a new date, the result will be the same no matter when we fight. Jake Paul is getting knocked out."</p>
+                
+                <div class="ticket-info">
+                    <h3>Ticket Information:</h3>
+                    <p><strong>Existing Tickets:</strong> All previously purchased tickets will be honored for the new date (November 15). No action is required.</p>
+                    <p><strong>Refunds:</strong> Those unable to attend the rescheduled date are eligible for refund at their original point of purchase until July 8, 2024.</p>
+                    <p><strong>How to Request Refund:</strong> Email <a href="mailto:dallascowboys@seatgeek.com">dallascowboys@seatgeek.com</a> with subject line "Paul vs. Tyson"</p>
+                    <p><strong>New Tickets:</strong> Still available for purchase</p>
+                    <a href="#" class="btn">BUY TICKETS</a>
+                </div>
+                
+                <p>Thank you for your understanding and continued support of this historic boxing event.</p>
             </div>
         </div>
     </section>
 
-    <!-- First Banner - Upcoming Events -->
-    <div class="banner-container">
-        <div class="banner">
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-        </div>
-    </div>
-    
-    <!-- ===== NEWS GRID ===== -->
-    <section class="container">
-        <div class="news-grid">
-            <!-- News Item 1 -->
-            <a href="news-feb7-2025.html" class="news-card">
-                <img src="feb7.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">February 07, 2025</span>
-                    <h3 class="news-headline">STATEMENT FROM MOST VALUABLE PROMOTIONS REGARDING JAKE PAUL AND CANELO ALVAREZ</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-            
-            <!-- News Item 2 -->
-            <a href="news-nov19-2024.html" class="news-card">
-                <img src="nov19.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">November 19, 2024</span>
-                    <h3 class="news-headline">Netflix and Most Valuable Promotions' Jake Paul vs Mike Tyson Mega-Event Makes History With Over 108 Million Live Global Viewers</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-            
-            <!-- News Item 3 -->
-            <a href="news-jun18-2024.html" class="news-card">
-                <img src="jun18.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">June 18, 2024</span>
-                    <h3 class="news-headline">Jake Paul vs. Mike Perry and Amanda Serrano vs. Stevie Morgan: Fear No Man – Live on DAZN PPV, July 20 at Amalie Arena</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-            
-            <!-- News Item 4 -->
-            <a href="news-jun7-2024.html" class="news-card">
-                <img src="jun7.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">June 07, 2024</span>
-                    <h3 class="news-headline">Jake Paul vs. Mike Tyson & Katie Taylor vs. Amanda Serrano Rescheduled for Friday, November 15th</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-            
-            <!-- News Item 5 -->
-            <a href="news-may31-2024.html" class="news-card">
-                <img src="may31.png" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <span class="news-date">May 31, 2024</span>
-                    <h3 class="news-headline">Official Statement on Paul vs. Tyson Event</h3>
-                    <span class="read-more">READ MORE</span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Second Banner - MVP Logos -->
+    <!-- Banner - MVP Logos -->
     <div class="banner-container">
         <div class="banner">
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
@@ -823,9 +783,9 @@
                 <div class="footer-col">
                     <div class="footer-links-col-1">
                         <a href="index.html">Home</a>
-                        <a href="/athletes">Athletes</a>
-                        <a href="/events">Events</a>
-                        <a href="/news">News</a>
+                        <a href="box.html">Athletes</a>
+                        <a href="events.html">Events</a>
+                        <a href="news.html" class="active">News</a>
                     </div>
                 </div>
                 
@@ -879,17 +839,6 @@
                 } else {
                     link.classList.remove('active');
                 }
-            });
-
-            // News category filtering
-            const categories = document.querySelectorAll('.news-category');
-            categories.forEach(category => {
-                category.addEventListener('click', function() {
-                    categories.forEach(c => c.classList.remove('active'));
-                    this.classList.add('active');
-                    // Here you would filter the news items based on category
-                    // For now we're just toggling the active class
-                });
             });
         });
 

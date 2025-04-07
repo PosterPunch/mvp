@@ -76,25 +76,14 @@
         }
         
         section {
-            padding: 12rem 0; /* Increased section padding */
+            padding: 12rem 0;
             position: relative;
-        }
-        
-        section:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0.3;
         }
         
         .section-title {
             font-size: 3.5rem;
             color: var(--gold);
-            margin-bottom: 6rem; /* Increased margin */
+            margin-bottom: 6rem;
             text-align: center;
             position: relative;
         }
@@ -107,6 +96,45 @@
             background-color: var(--gold);
             margin: 25px auto;
             transition: var(--transition);
+        }
+        
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 2rem 0;
+        }
+        
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner 30s linear infinite;
+        }
+        
+        .banner-item {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .banner-logo {
+            height: 60px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         
         /* ===== HEADER ===== */
@@ -126,14 +154,15 @@
         }
         
         header.hidden {
-            transform: translateY(-70px); /* Changed to match header height */
-            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black */
+            transform: translateY(-70px);
+            background-color: rgba(0, 0, 0, 0.9);
         }
         
-        .logo {
-            height: 30px;
-            filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+        .header-logo {
+            height: 120px;
+            filter: brightness(0);
             margin-right: auto;
+            cursor: pointer;
         }
         
         .nav-links {
@@ -152,7 +181,7 @@
         }
         
         header.hidden .nav-links a {
-            color: var(--white); /* White text when header is hidden */
+            color: var(--white);
         }
         
         .nav-links a:after {
@@ -167,7 +196,7 @@
         }
         
         header.hidden .nav-links a:after {
-            background-color: var(--gold); /* Gold underline when header is hidden */
+            background-color: var(--gold);
         }
         
         .nav-links a:hover:after,
@@ -184,43 +213,33 @@
         }
         
         header.hidden .hamburger {
-            color: var(--white); /* White hamburger when header is hidden */
+            color: var(--white);
         }
         
         /* ===== HERO SECTION ===== */
         .hero {
-    	    height: 100vh;
-    	    min-height: 800px;
+            height: 100vh;
+            min-height: 800px;
             background: var(--black) url('taylorserranotop.png') no-repeat center center;
-    	    background-size: auto 100%;
-    	    display: flex;
-    	    flex-direction: column;
-    	    justify-content: center; /* Changed to center */
-    	    align-items: flex-start;
-   	    padding: 0 0 150px 100px; /* Increased bottom padding */
-	    position: relative;
- 	    margin-top: 90px;
+            background-size: auto 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 0 0 200px 100px;
+            position: relative;
+            margin-top: 90px;
         }
         
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
-        }
         
         .hero-content {
-            position: relative;
             z-index: 1;
             width: 100%;
             display: flex;
-            flex-direction: column; /* Changed to column */
+            flex-direction: column;
             align-items: flex-start;
-            gap: 3rem; /* Added gap between elements */
-	    margin-top: 0; /* Removed margin */
+            gap: 3rem;
+            margin-top: 0;
         }
         
         .countdown {
@@ -260,12 +279,14 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
+            justify-items: center;
         }
         
         .fighter-card {
             position: relative;
             height: 400px;
             width: 100%;
+            max-width: 300px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -308,7 +329,6 @@
             padding: 2rem;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
             z-index: 3;
-
         }
         
         .fighter-name {
@@ -320,41 +340,40 @@
         
         .fighter-first-name {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             letter-spacing: 2px;
             color: var(--gold);
             margin-bottom: 5px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-	    margin-left: -20px;
+            margin-left: -25px;
         }
         
         .fighter-last-name {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 3px;
             color: var(--white);
             text-transform: uppercase;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
             margin-top: 5px;
-	    margin-left: -20px;
+            margin-left: -25px;
         }
         
         .fighter-nickname {
-    	    position: absolute;
-    	    top: 20px;
-    	    right: 20px;
-    	    font-family: 'Bebas Neue', sans-serif; /* Changed to Bebas Neue */
-    	    font-size: 1rem; /* Increased font size */
-    	    color: var(--gold);
-    	    z-index: 4;
-    	    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-    	    writing-mode: vertical-rl;
-    	    text-orientation: mixed;
-    	    letter-spacing: 2px; /* Added letter spacing */
-    	    line-height: 1.2; /* Adjusted line height */
-	}
-
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            color: var(--gold);
+            z-index: 4;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
         
         .fighter-overlay {
             position: absolute;
@@ -379,10 +398,12 @@
         
         .fighter-stats {
             margin-top: 1.5rem;
+            margin-left: 0px;
         }
         
         .fighter-stats p {
             margin-bottom: 0.8rem;
+            margin-left: 0px;
             font-size: 1.1rem;
         }
         
@@ -529,7 +550,7 @@
         /* ===== SOCIAL SECTION ===== */
         .social-section {
             text-align: center;
-            padding: 10rem 0; /* Increased padding */
+            padding: 8rem 0;
             background-color: rgba(212, 175, 55, 0.05);
         }
         
@@ -542,18 +563,18 @@
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 2rem;
         }
         
         .social-icons a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background-color: rgba(212, 175, 55, 0.1);
-            font-size: 2rem;
+            font-size: 1.5rem;
             transition: var(--transition);
         }
         
@@ -567,7 +588,7 @@
         /* ===== PARTNERS SECTION ===== */
         .partners {
             text-align: center;
-            padding: 10rem 0; /* Increased padding */
+            padding: 10rem 0;
         }
         
         .partners h3 {
@@ -577,6 +598,13 @@
         }
         
         .partner-logos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .partner-logos-top, .partner-logos-bottom {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -591,7 +619,8 @@
         }
         
         .partner-logos img[src="dazn.png"],
-        .partner-logos img[src="clogo.png"] {
+        .partner-logos img[src="clogo.png"],
+        .partner-logos img[src="netflix.png"] {
             filter: brightness(0) invert(1);
         }
         
@@ -602,26 +631,27 @@
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
-            padding: 6rem 0 3rem; /* Increased padding */
+            padding: 6rem 0 3rem;
             border-top: 1px solid var(--gold);
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 5rem;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
         }
         
         .footer-logo {
-            height: 30px; /* Made same size as header logo */
-            margin-bottom: 2rem;
-            filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(212, 175, 55, 0.5)); /* White logo */
+            height: 165px;
+            margin-bottom: 0.5rem;
+            filter: brightness(0) invert(1);
         }
         
         .mission-statement {
             font-size: 1rem;
             line-height: 1.8;
-            margin-bottom: 2rem;
+            margin-top: 0.5rem;
             opacity: 0.9;
         }
         
@@ -666,6 +696,23 @@
             width: 10px;
         }
         
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
         .legal {
             display: flex;
             justify-content: space-between;
@@ -677,6 +724,10 @@
             opacity: 0.7;
         }
         
+        .legal a {
+            transition: var(--transition);
+        }
+        
         .legal a:hover {
             color: var(--gold);
         }
@@ -684,7 +735,7 @@
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {
             position: fixed;
-            bottom: 3rem;
+            bottom: 8rem;
             right: 3rem;
             width: 70px;
             height: 70px;
@@ -747,16 +798,16 @@
             }
             
             section {
-                padding: 10rem 0; /* Adjusted padding */
+                padding: 10rem 0;
             }
             
             .social-section,
             .partners {
-                padding: 8rem 0; /* Adjusted padding */
+                padding: 8rem 0;
             }
             
             footer {
-                padding: 5rem 0 3rem; /* Adjusted padding */
+                padding: 5rem 0 3rem;
             }
         }
         
@@ -777,7 +828,7 @@
                 height: 60px;
             }
             
-            .logo {
+            .header-logo {
                 height: 22px;
             }
             
@@ -885,16 +936,16 @@
             }
             
             section {
-                padding: 8rem 0; /* Adjusted padding */
+                padding: 8rem 0;
             }
             
             .social-section,
             .partners {
-                padding: 8rem 0; /* Adjusted padding */
+                padding: 8rem 0;
             }
             
             .footer-logo {
-                height: 22px; /* Match mobile header logo size */
+                height: 22px;
             }
         }
         
@@ -929,12 +980,12 @@
             }
             
             section {
-                padding: 6rem 0; /* Adjusted padding */
+                padding: 6rem 0;
             }
             
             .social-section,
             .partners {
-                padding: 6rem 0; /* Adjusted padding */
+                padding: 6rem 0;
             }
             
             .scroll-top {
@@ -950,18 +1001,17 @@
 <body>
     <!-- ===== HEADER ===== -->
     <header id="main-header">
-        <a href="/" class="logo">
-            <img src="mvplo.png" alt="MVP Logo">
+        <a href="index.html" class="header-logo">
+            <img src="mvplo.png" alt="MVP Logo" class="header-logo">
         </a>
         
         <nav class="nav-links">
             <a href="/" class="active">Home</a>
             <a href="/athletes">Athletes</a>
             <a href="/events">Events</a>
-            <a href="/news">News</a>
-            <a href="/media">Media</a>
+            <a href="news.html">News</a>
             <a href="about.html">About</a>
-            <a href="/contact">Contact</a>
+            <a href="contact.html">Contact</a>
         </nav>
         
         <div class="hamburger">
@@ -994,6 +1044,33 @@
             <a href="https://www.mostvaluablepromotions.com/taylorserrano/" class="btn animate delay-1"><span>Sign Up for Presale</span></a>
         </div>
     </section>
+    
+    <!-- BANNER BETWEEN SECTIONS -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <!-- Duplicate items for seamless looping -->
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+        </div>
+    </div>
     
     <!-- ===== FIGHTERS SECTION ===== -->
     <section class="container">
@@ -1100,6 +1177,36 @@
             </a>
         </div>
     </section>
+
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
     
     <!-- ===== EVENTS SECTION ===== -->
     <section class="container">
@@ -1159,7 +1266,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+        </div>
+    </div>
+       
     
+       
     <!-- ===== VIDEO SECTION ===== -->
     <section class="container">
         <h2 class="section-title animate">MVP Series</h2>
@@ -1220,20 +1351,57 @@
         </div>
     </section>
     
+
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+    
     <!-- ===== PARTNERS SECTION ===== -->
     <section class="partners">
         <div class="container">
             <h3 class="animate">Official Partners</h3>
             
             <div class="partner-logos">
-                <img src="dazn.png" alt="DAZN" class="animate">
-                <img src="clogo.png" alt="Celsius" class="animate delay-1">
-                <img src="boxlablogo.png" alt="Boxlab" class="animate delay-2">
-                <img src="crlogo.png" alt="Caribe Royale" class="animate delay-3">
+                <div class="partner-logos-top">
+                    <img src="dazn.png" alt="DAZN" class="animate">
+                    <img src="nf.png" alt="Netflix" class="animate delay-1" style="background-color: var(--black); padding: 10px;">
+                </div>
+                <div class="partner-logos-bottom">
+                    <img src="clogo.png" alt="Celsius" class="animate delay-2">
+                    <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
+                    <img src="crlogo.png" alt="Caribe Royale" class="animate">
+                </div>
             </div>
         </div>
     </section>
-    
+            
+
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
@@ -1249,25 +1417,24 @@
                 
                 <div class="footer-col">
                     <div class="footer-links-col-1">
-                        <a href="/" class="animate">Home</a>
-                        <a href="/athletes" class="animate delay-1">Athletes</a>
-                        <a href="/events" class="animate delay-2">Events</a>
-                        <a href="/news" class="animate delay-3">News</a>
+                        <a href="index.html" class="animate">Home</a>
+                        <a href="box.html" class="animate delay-1">Athletes</a>
+                        <a href="events.html" class="animate delay-2">Events</a>
+                        <a href="news.html" class="animate delay-3">News</a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
                     <div class="footer-links-col-2">
-                        <a href="/media" class="animate">Media</a>
-			<a href="about.html" class="animate delay-3">About</a>
-
+                        <a href="about.html" class="animate">About</a>
+                        <a href="contact.html" class="animate delay-1">Contact</a>
                     </div>
                     
-                    <a href="/contact" class="btn animate delay-3" style="margin-top: 2rem;">Contact Us</a>
                     <div class="contact-info" style="margin-top: 2rem;">
-                        <p class="animate">info@mostvaluablepromotions.com</p>
+                        <p>For general inquiries:</p>
+                        <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
                         <p class="animate delay-1">For press inquiries:</p>
-                        <p class="animate delay-2">pr@mostvaluablepromotions.com</p>
+                        <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
                     </div>
                 </div>
             </div>
@@ -1276,7 +1443,7 @@
                 <span class="animate">©2025 Most Valuable Promotions. All rights reserved.</span>
                 <div>
                     <a href="terms.html" class="animate delay-3">Terms</a>
-    		    <a href="pp.html" class="animate delay-4">Privacy</a>
+                    <a href="pp.html" class="animate delay-4">Privacy</a>
                 </div>
             </div>
         </div>
@@ -1287,8 +1454,6 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
-
-
     <script>
         // Mobile Menu Toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
@@ -1333,27 +1498,13 @@
             });
         });
         
-        // Header Scroll Behavior
-        let lastScroll = 0;
-        const header = document.getElementById('main-header');
-        
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                header.classList.remove('hidden');
-                return;
-            }
-            
-            if (currentScroll > lastScroll && !header.classList.contains('hidden')) {
-                // Scroll down
-                header.classList.add('hidden');
-            } else if (currentScroll < lastScroll && header.classList.contains('hidden')) {
-                // Scroll up
-                header.classList.remove('hidden');
-            }
-            
-            lastScroll = currentScroll;
+        // Header logo scroll to top
+        document.querySelector('.header-logo').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         
         // Scroll Animations
