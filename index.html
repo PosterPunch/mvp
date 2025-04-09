@@ -421,8 +421,9 @@
         
         .event-card {
             position: relative;
-            height: 340px;
-            width: 272px;
+            height: 400px;
+            width: 100%;
+            max-width: 300px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -947,9 +948,9 @@
             .footer-logo {
                 height: 22px;
             }
-        }
+            
         
-        @media (max-width: 480px) {
+            @media (max-width: 480px) {
             .container {
                 padding: 0 1rem;
             }
@@ -995,6 +996,73 @@
                 bottom: 2rem;
                 right: 2rem;
             }
+
+
+
+	    /* ===== UPDATED HERO & COUNTDOWN ===== */
+	    .hero {
+	        justify-content: flex-end;
+	        align-items: center; /* Center horizontally */
+	        padding: 0 0 100px; /* Reduced bottom padding */
+	    }
+
+	    .hero-content {
+  	      align-items: center; /* Center content */
+ 	       width: 100%;
+ 	       max-width: 1200px;
+ 	       padding: 0 2rem;
+	    }
+
+	    .countdown {
+ 	       justify-content: center; /* Center timer */
+	        width: 100%;
+    		margin-top: 2rem;
+    		flex-wrap: wrap; /* Wrap on small screens */
+	    }
+
+	    /* ===== IMPROVED EVENT CARDS ===== */
+	    .events-container {
+ 	       grid-template-columns: repeat(4, 1fr); /* 4 cards on desktop */
+	        gap: 3rem;
+  	      justify-items: center;
+	    }
+
+	    .event-card {
+ 	       height: 400px; /* Match fighter cards */
+ 	       max-width: 300px;
+	    }
+
+	    /* Mobile touch overlay */
+	    @media (hover: none) {
+	        .event-card.active .event-overlay,
+	        .fighter-card.active .fighter-overlay {
+	            opacity: 1 !important;
+  	      }
+	    }
+
+	    /* ===== RESPONSIVE ADJUSTMENTS ===== */
+	    @media (max-width: 1024px) {
+  	      .events-container, .fighters-grid {
+ 	           grid-template-columns: repeat(2, 1fr); /* 2 cards on tablet/mobile */
+ 	       }
+	    }
+
+	    @media (max-width: 768px) {
+  	      .fighter-card, 
+  	      .event-card {
+  	          height: 350px; /* Slightly smaller cards */
+   	      }
+	    }
+
+	    @media (max-width: 480px) {
+    	    .fighter-card,
+   	     .event-card {
+   	         height: 280px; /* Compact mobile size */
+  	     }
+	    }
+
+
+
         }
     </style>
 </head>
@@ -1041,7 +1109,7 @@
                 </div>
             </div>
             
-            <a href="https://www.mostvaluablepromotions.com/taylorserrano/" class="btn animate delay-1"><span>Sign Up for Presale</span></a>
+            <a href="https://www.ticketmaster.com/mvp-katie-taylor-v-amanda-serrano-new-york-new-york-07-11-2025/event/3B00626509B31AD4" class="btn animate delay-1"><span>PURCHASE TICKETS</span></a>
         </div>
     </section>
     
@@ -1282,7 +1350,7 @@
                     <h3 class="event-main">Taylor vs Serrano 3</h3>
                     <p class="event-date">July 11, 2025</p>
                     <p class="event-venue">Madison Square Garden • Netflix</p>
-                    <a href="/events/taylor-serrano-3" class="btn"><span>Event Details</span></a>
+                    <a href="ts3.html" class="btn"><span>Event Details</span></a>
                 </div>
             </div>
             
@@ -1295,7 +1363,7 @@
                     <h3 class="event-main">Paul vs Tyson</h3>
                     <p class="event-date">November 15, 2024</p>
                     <p class="event-venue">AT&T Stadium • Netflix</p>
-                    <a href="/events/paul-tyson" class="btn"><span>Event Report</span></a>
+                    <a href="jmd.html" class="btn"><span>Event Report</span></a>
                 </div>
             </div>
             
