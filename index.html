@@ -421,9 +421,8 @@
         
         .event-card {
             position: relative;
-            height: 400px;
-            width: 100%;
-            max-width: 300px;
+            height: 340px;
+            width: 272px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -948,9 +947,14 @@
             .footer-logo {
                 height: 22px;
             }
-            
+        }
         
-            @media (max-width: 480px) {
+        @media (max-width: 480px) {
+
+            .header-logo {
+                height: 22px;
+            }
+
             .container {
                 padding: 0 1rem;
             }
@@ -997,71 +1001,9 @@
                 right: 2rem;
             }
 
-
-
-	    /* ===== UPDATED HERO & COUNTDOWN ===== */
-	    .hero {
-	        justify-content: flex-end;
-	        align-items: center; /* Center horizontally */
-	        padding: 0 0 100px; /* Reduced bottom padding */
-	    }
-
-	    .hero-content {
-  	      align-items: center; /* Center content */
- 	       width: 100%;
- 	       max-width: 1200px;
- 	       padding: 0 2rem;
-	    }
-
-	    .countdown {
- 	       justify-content: center; /* Center timer */
-	        width: 100%;
-    		margin-top: 2rem;
-    		flex-wrap: wrap; /* Wrap on small screens */
-	    }
-
-	    /* ===== IMPROVED EVENT CARDS ===== */
-	    .events-container {
- 	       grid-template-columns: repeat(4, 1fr); /* 4 cards on desktop */
-	        gap: 3rem;
-  	      justify-items: center;
-	    }
-
-	    .event-card {
- 	       height: 400px; /* Match fighter cards */
- 	       max-width: 300px;
-	    }
-
-	    /* Mobile touch overlay */
-	    @media (hover: none) {
-	        .event-card.active .event-overlay,
-	        .fighter-card.active .fighter-overlay {
-	            opacity: 1 !important;
-  	      }
-	    }
-
-	    /* ===== RESPONSIVE ADJUSTMENTS ===== */
-	    @media (max-width: 1024px) {
-  	      .events-container, .fighters-grid {
- 	           grid-template-columns: repeat(2, 1fr); /* 2 cards on tablet/mobile */
- 	       }
-	    }
-
-	    @media (max-width: 768px) {
-  	      .fighter-card, 
-  	      .event-card {
-  	          height: 350px; /* Slightly smaller cards */
-   	      }
-	    }
-
-	    @media (max-width: 480px) {
-    	    .fighter-card,
-   	     .event-card {
-   	         height: 280px; /* Compact mobile size */
-  	     }
-	    }
-
-
+            .footer-logo {
+                height: 22px;
+            }
 
         }
     </style>
