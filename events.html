@@ -268,8 +268,8 @@
         
         .event-card {
             position: relative;
-            height: 340px;
-            width: 272px;
+	    aspect-ratio: 4/5;
+            width: 100%;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -605,6 +605,7 @@
 	    .subsection-title {
 	        font-size: 1.8rem;
 	        padding-left: 1.5rem;
+		grid-template-columns: repeat(2, 1fr)
 	    }
 	    
 	    .subsection-title:before {
@@ -634,6 +635,14 @@
         	grid-template-columns: repeat(2, 1fr); /* Force 2 cards per row */
    	        gap: 0.5rem; /* Smaller gap for tiny screens */
     	    }
+
+	    .event-overlay {
+        	padding: 1rem;
+	    }
+
+	    .event-main {
+	        font-size: 1.4rem;
+	    }
 
             .social-icons {
                 gap: 1.5rem;
