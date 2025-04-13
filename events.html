@@ -630,6 +630,11 @@
 	        height: 25px;
 	    }
 
+	    .events-container {
+        	grid-template-columns: repeat(2, 1fr); /* Force 2 cards per row */
+   	        gap: 0.5rem; /* Smaller gap for tiny screens */
+    	    }
+
             .social-icons {
                 gap: 1.5rem;
             }
@@ -708,9 +713,9 @@
             }
             
             .events-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+	        grid-template-columns: repeat(2, 1fr); /* Force 2 cards per row */
+    	        gap: 0.5rem; /* Smaller gap for tiny screens */
+     	    }
             
             .event-card {
 		flex: 1 1 calc(50% - 0.5rem);
@@ -1058,7 +1063,7 @@
 
     <!-- ===== MOST VALUABLE PROSPECTS SECTION ===== -->
     <section class="container">
-            <h2 class="subsection-title">MVP Events</h2>
+            <h2 class="subsection-title">Most Valuable Prospects</h2>
 	    <div class="subsection-line"></div>
 
         <div class="events-container">
