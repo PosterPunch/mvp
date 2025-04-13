@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Most Valuable Promotions</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --black: #000000;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .nav-links a, .footer-links a {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 2rem 0;
+        }
+        
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner 8s linear infinite;
+        }
+        
+        .banner-item {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .banner-logo {
+            height: 60px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--gold);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+        
+        .header-logo {
+            height: 120px;
+            filter: brightness(0);
+            margin-right: auto;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--black);
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--black);
+            transition: color 0.3s ease;
+        }
+        
+        /* ===== PRIVACY HERO ===== */
+        .privacy-hero {
+            padding: 10rem 0 5rem;
+            position: relative;
+            margin-top: 70px;
+            text-align: center;
+        }
+        
+        .privacy-title {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+        
+        .privacy-date {
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+        
+        /* ===== PRIVACY CONTENT ===== */
+        .privacy-content {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 4rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 5rem;
+            position: relative;
+            border: 2px solid var(--gold);
+        }
+
+        .privacy-content:before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 2%;
+            right: 2%;
+            height: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 50%;
+            filter: blur(10px);
+            z-index: -1;
+        }
+        
+        .privacy-section {
+            margin-bottom: 3rem;
+        }
+        
+        .privacy-section h2 {
+            font-size: 1.8rem;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 0.5rem;
+        }
+        
+        .privacy-section h3 {
+            font-size: 1.4rem;
+            color: var(--black);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .privacy-section p, 
+        .privacy-section ul {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .privacy-section ul {
+            padding-left: 2rem;
+        }
+        
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background-color: rgba(0,0,0,0.1);
+            border-left: 4px solid var(--black);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Instagram Embed Styles */
+        .instagram-embed-container {
+            margin: 6rem auto 0;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .instagram-embed-title {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .instagram-embed {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        /* ===== SOCIAL SECTION ===== */
+        .social-section {
+            text-align: center;
+            padding: 8rem 0;
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .social-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--gold);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(212, 175, 55, 0.1);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* ===== PARTNERS SECTION ===== */
+        .partners {
+            text-align: center;
+            padding: 10rem 0;
+        }
+        
+        .partners h3 {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--gold);
+        }
+        
+        .partner-logos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .partner-logos-top, .partner-logos-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+        
+        .partner-logos img {
+            height: 70px;
+            opacity: 1;
+            transition: var(--transition);
+        }
+        
+        .partner-logos img[src="dazn.png"],
+        .partner-logos img[src="clogo.png"],
+        .partner-logos img[src="netflix.png"] {
+            filter: brightness(0) invert(1);
+        }
+        
+        .partner-logos img:hover {
+            transform: scale(1.15);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #0a0a0a;
+            padding: 6rem 0 3rem;
+            border-top: 1px solid var(--gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .footer-logo {
+            height: 165px;
+            margin-bottom: 0.5rem;
+            filter: brightness(0) invert(1);
+        }
+        
+        .mission-statement {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links-col-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links-col-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            transition: var(--transition);
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 25px;
+        }
+        
+        .footer-links a:hover:before {
+            width: 10px;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .legal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .legal a {
+            transition: var(--transition);
+        }
+        
+        .legal a:hover {
+            color: var(--gold);
+        }
+        
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 8rem;
+            right: 3rem;
+            width: 70px;
+            height: 70px;
+            background-color: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-8px) scale(1.1);
+        }
+        
+        /* ===== MOBILE RESPONSIVENESS ===== */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 0 1.5rem;
+                height: 60px;
+            }
+            
+            .header-logo {
+                height: 22px;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--gold);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .privacy-hero {
+                padding: 8rem 0 3rem;
+            }
+            
+            .privacy-title {
+                font-size: 3rem;
+            }
+            
+            .privacy-content {
+                padding: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .footer-links-col-1,
+            .footer-links-col-2 {
+                align-items: center;
+            }
+            
+            .footer-links a {
+                padding-left: 0;
+            }
+            
+            .footer-links a:before {
+                display: none;
+            }
+            
+            .footer-links a:hover {
+                padding-left: 0;
+            }
+            
+            .legal {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 3rem;
+            }
+            
+            .scroll-top {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 2rem;
+                right: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+
+
+
+            .header-logo {
+                height: 66px;
+            }
+
+
+            .privacy-title {
+                font-size: 2.5rem;
+            }
+            
+            .privacy-content {
+                padding: 1.5rem;
+            }
+            
+            .social-icons {
+                gap: 1.5rem;
+            }
+            
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .partner-logos {
+                gap: 2rem;
+            }
+            
+            .partner-logos img {
+                height: 50px;
+            }
+
+
+            .footer-logo {
+                height: 198px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="main-header">
+        <a href="index.html" class="header-logo">
+            <img src="mvplo.png" alt="MVP Logo" class="header-logo">
+        </a>
+        
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="box.html">Athletes</a>
+            <a href="events.html">Events</a>
+            <a href="news.html">News</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+        
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    
+    <!-- ===== PRIVACY HERO ===== -->
+    <section class="privacy-hero">
+        <div class="container">
+            <h1 class="privacy-title">Privacy Policy</h1>
+            <p class="privacy-date">Last Updated: July 2, 2023</p>
+        </div>
+    </section>
+
+    
+    
+    <!-- ===== PRIVACY CONTENT ===== -->
+    <section class="container">
+        <div class="privacy-content">
+            <div class="privacy-section">
+                <p>Most Valuable Promotions Ltd is committed to protecting and respecting your privacy. We handle all personal data in compliance with applicable data protection laws, including the General Data Protection Regulation (GDPR) and the Data Protection Act 1998 (DPA).</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>Your Rights</h2>
+                <p>At any time, you have the right to:</p>
+                <ul>
+                    <li>Access the personal data we hold about you</li>
+                    <li>Correct or update your information</li>
+                    <li>Request the deletion of your data</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Fight Pass Members</strong> can log into their accounts to view and update their personal information.</p>
+                    <p><strong>Email subscribers</strong> can manage preferences and access personal data via the links found at the bottom of our emails.</p>
+                </div>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>Information We Collect</h2>
+                <p>We collect personal data directly from you, which may include:</p>
+                <ul>
+                    <li>Name</li>
+                    <li>Address</li>
+                    <li>Email address</li>
+                    <li>Date of birth</li>
+                </ul>
+                <p>For any purchases or transactions, payment data is securely processed and stored by trusted third-party providers using encrypted SSL technology. We do not store your payment details directly.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>How We Use Your Information</h2>
+                <p>We use your data to:</p>
+                <ul>
+                    <li>Personalize our website and communications</li>
+                    <li>Improve and protect our services and content</li>
+                    <li>Send you relevant marketing emails (only where permitted)</li>
+                </ul>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>Data Storage</h2>
+                <p>All personal data is stored on secure servers located in the United Kingdom.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>Cookies</h2>
+                <p>Our website uses cookies to enhance user experience and help us understand how visitors interact with our site. Cookies are small files stored on your device that track browsing behavior.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about this policy or how we handle your data, you can contact us at:</p>
+                <p><strong>Email:</strong> info@mostvaluablepromotions.com</p>
+                <p>We may ask for identification to verify your request.</p>
+                <p>Most Valuable Promotions Ltd reserves the right to update this privacy policy at any time. Please check our website periodically for the latest version.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Banner Below Privacy Section -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+    
+    <!-- ===== SOCIAL SECTION ===== -->
+    <section class="social-section">
+        <div class="container">
+            <h3>Follow MVP</h3>
+            
+            <div class="social-icons">
+                <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://x.com/MostVpromotions" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Banner Between Social and Partners -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+    
+    <!-- ===== PARTNERS SECTION ===== -->
+    <section class="partners">
+        <div class="container">
+            <h3>Official Partners</h3>
+            
+            <div class="partner-logos">
+                <div class="partner-logos-top">
+                    <img src="dazn.png" alt="DAZN">
+                    <img src="nf.png" alt="Netflix" style="background-color: var(--black); padding: 10px;">
+                </div>
+                <div class="partner-logos-bottom">
+                    <img src="clogo.png" alt="Celsius">
+                    <img src="boxlablogo.png" alt="Boxlab">
+                    <img src="crlogo.png" alt="Caribe Royale">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
+                    <p class="mission-statement">
+                        Most Valuable Promotions is committed to empowering fighters with enhanced creative control. 
+                        The organization focuses on strategically identifying, developing, and maximizing the value 
+                        of its events and talent partnerships to ensure optimal returns.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-1">
+                        <a href="index.html">Home</a>
+                        <a href="box.html">Athletes</a>
+                        <a href="events.html">Events</a>
+                        <a href="news.html" class="active">News</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-2">
+                        <a href="/media">Media</a>
+                        <a href="about.html">About</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <p>General inquiries:</p>
+                        <p><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
+                        <p>Press:</p>
+                        <p><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal">
+                <span>©2025 Most Valuable Promotions. All rights reserved.</span>
+                <div>
+                    <a href="terms.html">Terms</a>
+                    <a href="pp.html">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== SCROLL TO TOP ===== -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Set active page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href').split('/').pop();
+                if (currentPage === linkPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('active');
+            } else {
+                scrollTop.classList.remove('active');
+            }
+        });
+        
+        document.querySelector('.scroll-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

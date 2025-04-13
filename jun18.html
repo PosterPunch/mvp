@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul vs Perry & Serrano vs Morgan Announced | MVP</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --black: #000000;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .nav-links a, .footer-links a {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 2rem 0;
+        }
+        
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner s linear infinite;
+        }
+        
+        .banner-item {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .banner-logo {
+            height: 60px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--gold);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+        
+        .header-logo {
+            height: 120px;
+            filter: brightness(0);
+            margin-right: auto;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--black);
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--black);
+            transition: color 0.3s ease;
+        }
+        
+        /* ===== NEWS ARTICLE ===== */
+        .news-article {
+            padding: 10rem 0 5rem;
+            margin-top: 70px;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .article-title {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .article-subtitle {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+        
+        .article-date {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-content p {
+            margin-bottom: 2rem;
+        }
+        
+        .fight-details {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 2rem;
+            border-radius: 5px;
+            margin: 3rem 0;
+        }
+        
+        .fight-card {
+            margin: 3rem 0;
+        }
+        
+        .fighter-name {
+            color: var(--gold);
+            font-weight: bold;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 2rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--gold);
+        }
+        
+        /* ===== SOCIAL SECTION ===== */
+        .social-section {
+            text-align: center;
+            padding: 8rem 0;
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .social-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--gold);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(212, 175, 55, 0.1);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* ===== PARTNERS SECTION ===== */
+        .partners {
+            text-align: center;
+            padding: 10rem 0;
+        }
+        
+        .partners h3 {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--gold);
+        }
+        
+        .partner-logos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .partner-logos-top, .partner-logos-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+        
+        .partner-logos img {
+            height: 70px;
+            opacity: 1;
+            transition: var(--transition);
+        }
+        
+        .partner-logos img[src="dazn.png"],
+        .partner-logos img[src="clogo.png"],
+        .partner-logos img[src="netflix.png"] {
+            filter: brightness(0) invert(1);
+        }
+        
+        .partner-logos img:hover {
+            transform: scale(1.15);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #0a0a0a;
+            padding: 6rem 0 3rem;
+            border-top: 1px solid var(--gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .footer-logo {
+            height: 165px;
+            margin-bottom: 0.5rem;
+            filter: brightness(0) invert(1);
+        }
+        
+        .mission-statement {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .about-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        
+        .about-link:hover {
+            color: var(--white);
+        }
+        
+        .about-link i {
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .about-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        .footer-links-col-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links-col-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            transition: var(--transition);
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 25px;
+        }
+        
+        .footer-links a:hover:before {
+            width: 10px;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .legal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .legal a {
+            transition: var(--transition);
+        }
+        
+        .legal a:hover {
+            color: var(--gold);
+        }
+        
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 8rem;
+            right: 3rem;
+            width: 70px;
+            height: 70px;
+            background-color: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-8px) scale(1.1);
+        }
+        
+        /* ===== MOBILE RESPONSIVENESS ===== */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .article-title {
+                font-size: 3rem;
+            }
+            
+            .article-subtitle {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 0 1.5rem;
+                height: 60px;
+            }
+            
+            .header-logo {
+                height: 22px;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--gold);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .news-article {
+                padding: 8rem 0 3rem;
+            }
+            
+            .article-title {
+                font-size: 2.5rem;
+            }
+            
+            .article-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .footer-links-col-1,
+            .footer-links-col-2 {
+                align-items: center;
+            }
+            
+            .footer-links a {
+                padding-left: 0;
+            }
+            
+            .footer-links a:before {
+                display: none;
+            }
+            
+            .footer-links a:hover {
+                padding-left: 0;
+            }
+            
+            .legal {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 3rem;
+            }
+            
+            .scroll-top {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 2rem;
+                right: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .article-date {
+                font-size: 1rem;
+            }
+            
+            .social-icons {
+                gap: 1.5rem;
+            }
+            
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .partner-logos {
+                gap: 2rem;
+            }
+            
+            .partner-logos img {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="main-header">
+        <a href="index.html" class="header-logo">
+            <img src="mvplo.png" alt="MVP Logo" class="header-logo">
+        </a>
+        
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="box.html">Athletes</a>
+            <a href="events.html">Events</a>
+            <a href="news.html">News</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+        
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    
+    <!-- ===== NEWS ARTICLE ===== -->
+    <section class="news-article">
+        <div class="container">
+            <div class="article-header">
+                <h1 class="article-title">Jake Paul vs Mike Perry & Amanda Serrano vs Stevie Morgan Announced</h1>
+                <h2 class="article-subtitle">"Fear No Man" Event Set for July 20 at Amalie Arena in Tampa, FL</h2>
+                <span class="article-date">June 18, 2024</span>
+            </div>
+            
+            <div class="article-content">
+                <p>MVP's international superstar <span class="fighter-name">Jake "El Gallo" Paul</span> returns to the ring against his most dangerous opponent to date, bare knuckle boxing champion and MMA star <span class="fighter-name">"Platinum" Mike Perry</span> on Saturday, July 20 at Amalie Arena in Tampa, FL, for "Fear No Man" live on DAZN pay-per-view globally.</p>
+                
+                <p>Boxing trailblazer and unified featherweight champion <span class="fighter-name">Amanda "The Real Deal" Serrano</span> to face top-10 IBF, WBO, and WBA ranked <span class="fighter-name">Stevie Morgan</span> in co-main event. Undefeated Florida talents and MVP's Most Valuable Prospects series standouts <span class="fighter-name">Tony Aguilar</span> and <span class="fighter-name">Corey Marksman</span> to rematch in 8 round lightweight bout.</p>
+                
+                <div class="fight-details">
+                    <h3>Event Details:</h3>
+                    <p><strong>Main Event:</strong> Jake Paul vs. Mike Perry (8 rounds, cruiserweight)</p>
+                    <p><strong>Co-Main:</strong> Amanda Serrano vs. Stevie Morgan (10 rounds, super lightweight)</p>
+                    <p><strong>Date:</strong> Saturday, July 20, 2024</p>
+                    <p><strong>Location:</strong> Amalie Arena, Tampa, FL</p>
+                    <p><strong>Broadcast:</strong> DAZN Pay-Per-View</p>
+                    <p><strong>Tickets:</strong> On sale June 19 at 12pm ET via Ticketmaster</p>
+                </div>
+                
+                <h3>NEW YORK, NY – June 18, 2024</h3>
+                <p>Today, MVP announced that international superstar <span class="fighter-name">Jake "El Gallo" Paul</span> (9-1, 6 KOs) will return to the ring for "Fear No Man," a cruiserweight battle against the incredibly dangerous bare knuckle champion boxer and MMA star <span class="fighter-name">"Platinum" Mike Perry</span> (5-0, 3 KOs BKFC) on Saturday, July 20 at Amalie Arena in Tampa, Florida, live on DAZN pay-per-view.</p>
+                
+                <p>Paul vs. Perry will be an eight round cruiserweight bout, as Paul faces his most dangerous opponent to date and puts it all on the line in an incredibly risky fight against the baddest bare knuckle boxer of all time ahead of his bout with the Baddest Man on the Planet, Mike Tyson.</p>
+                
+                <p>Boxing trailblazer and unified featherweight champion <span class="fighter-name">Amanda "The Real Deal" Serrano</span> (46-2-1, 30 KOs) will also return to the ring against Tampa, Florida's top-10 ranked IBF, WBO, and WBA talent and KO artist, <span class="fighter-name">Stevie "Sledgehammer" Morgan</span> (14-1, 13 KOs) in the co-main event. Serrano vs. Morgan will be a super lightweight battle, contested over 10, two-minute rounds as Serrano aims to display her power at super lightweight against the powerful puncher, Morgan, ahead of her clash with Katie Taylor on Friday, November 15.</p>
+                
+                <p class="quote">"When Paul vs. Tyson was rescheduled, I knew immediately that I wanted to still fight on Saturday, July 20. Now, as I prepare for my fight against Iron Mike, there's no better opponent for me than Mike Perry," said Jake Paul. "He's a proven knockout artist who has shown to be a maniac in and out of the ring. This is the perfect experience for me to gain in advance of facing Mike Tyson. But getting that experience comes with risk. Those who know me know I'm a risk taker and while 'Platinum' Perry might try to end me, I'm Titanium Jake Paul and I fear no man."</p>
+                
+                <p class="quote">"Jake Paul claims he fears no man, but on Saturday, July 20, the world will see the truth: he just made the worst mistake of his life in trying to get through me before Iron Mike," said Mike Perry. "I'm going to make it look easy on Saturday July 20th, and I'm going to teach Jake Paul the most he's ever learned about fighting."</p>
+                
+                <p class="quote">"I've already been preparing for a fight on Saturday, July 20, and even though I'll now be waiting a little longer for my rematch with Katie Taylor, this is an opportunity for me to face another tough boxer in Stevie Morgan in Tampa," said Amanda Serrano. "My opponent has 13 KOs, more than almost every other active female boxer, but I fear no woman – I embrace the war."</p>
+                
+                <p class="quote">"We've been training for an opportunity like this, and I want to give full respect to Amanda for all she has done in her career and for women's boxing," said Stevie Morgan. "In this sport, though, in order to make a name, you have to take a name. I have 13 KOs and nothing will be sweeter than making Amanda Serrano number 14."</p>
+                
+                <p>"Fear No Man" is presented by CELSIUS Live Fit Essential Energy. The undercard will also feature the rematch of Crescent City, Florida's <span class="fighter-name">Tony Aguilar</span> (12-0-1, 4 KOs) vs. Orlando, Florida's <span class="fighter-name">Corey "2Smoove" Marksman</span> (9-0-1, 7 KOs) in an 8-round lightweight bout. Further undercard fights will be announced in the coming days.</p>
+                
+                <p>Paul vs. Perry and Serrano vs. Morgan: "Fear No Man" is produced and marketed by MVP with Boxlab Promotions serving as the official licensed promoter and is distributed by DAZN pay-per–view. CELSIUS Live Fit Essential Energy, maker of lifestyle energy drink, is the exclusive energy drink sponsor of MVP.</p>
+                
+                <p>For more information, follow on X via @MostVPromotions and @DAZNBoxing or on Instagram via @MostValuablePromotions and @DAZNBoxing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner - MVP Logos -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+    
+    <!-- ===== SOCIAL SECTION ===== -->
+    <section class="social-section">
+        <div class="container">
+            <h3>Follow MVP</h3>
+            
+            <div class="social-icons">
+                <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://x.com/MostVpromotions" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Banner Between Social and Partners -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+    
+    <!-- ===== PARTNERS SECTION ===== -->
+    <section class="partners">
+        <div class="container">
+            <h3>Official Partners</h3>
+            
+            <div class="partner-logos">
+                <div class="partner-logos-top">
+                    <img src="dazn.png" alt="DAZN">
+                    <img src="nf.png" alt="Netflix" style="background-color: var(--black); padding: 10px;">
+                </div>
+                <div class="partner-logos-bottom">
+                    <img src="clogo.png" alt="Celsius">
+                    <img src="boxlablogo.png" alt="Boxlab">
+                    <img src="crlogo.png" alt="Caribe Royale">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
+                    <p class="mission-statement">
+                        Most Valuable Promotions is committed to empowering fighters with enhanced creative control. 
+                        The organization focuses on strategically identifying, developing, and maximizing the value 
+                        of its events and talent partnerships to ensure optimal returns.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-1">
+                        <a href="index.html">Home</a>
+                        <a href="box.html">Athletes</a>
+                        <a href="events.html">Events</a>
+                        <a href="news.html" class="active">News</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-2">
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <p>General inquiries:</p>
+                        <p><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
+                        <p>Press:</p>
+                        <p><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal">
+                <span>©2025 Most Valuable Promotions. All rights reserved.</span>
+                <div>
+                    <a href="terms.html">Terms</a>
+                    <a href="pp.html">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== SCROLL TO TOP ===== -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Set active page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href').split('/').pop();
+                if (currentPage === linkPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('active');
+            } else {
+                scrollTop.classList.remove('active');
+            }
+        });
+        
+        document.querySelector('.scroll-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
