@@ -262,14 +262,16 @@
         /* ===== EVENTS SECTION ===== */
         .events-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.7rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            justify-items: center;
         }
         
         .event-card {
             position: relative;
-	    aspect-ratio: 4/5;
             width: 100%;
+            max-width: 280px;
+            height: 350px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -591,84 +593,11 @@
         }
         
         @media (max-width: 1024px) {
-            .events-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
-	        }
+        }
 
-
-	@media (max-width: 768px) {
-	    .subsection-title {
-	        font-size: 1.8rem;
-	        padding-left: 1.5rem;
-		grid-template-columns: repeat(2, 1fr)
-	    }
-	    
-	    .subsection-title:before {
-	        width: 6px;
-	        height: 30px;
-	    }
-	}
-
-	@media (max-width: 480px) {
-
-
-            .header-logo {
-                height: 66px;
-            }
-
-	    .subsection-title {
-	        font-size: 1.5rem;
-	        padding-left: 1rem;
-	    }
-	    
-	    .subsection-title:before {
-	        width: 4px;
-	        height: 25px;
-	    }
-
-	    .events-container {
-        	grid-template-columns: repeat(2, 1fr); /* Force 2 cards per row */
-   	        gap: 0.5rem; /* Smaller gap for tiny screens */
-    	    }
-
-	    .event-overlay {
-        	padding: 1rem;
-	    }
-
-	    .event-main {
-	        font-size: 1.4rem;
-	    }
-
-            .social-icons {
-                gap: 1.5rem;
-            }
-            
-            .social-icons a {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            .partner-logos {
-                gap: 2rem;
-            }
-            
-            .partner-logos img {
-                height: 50px;
-            }
-
-
-            .footer-logo {
-                height: 198px;
-            }
-
-	}
-        
         @media (max-width: 768px) {
             header {
                 padding: 0 1.5rem;
@@ -722,14 +651,20 @@
             }
             
             .events-container {
-	        grid-template-columns: repeat(2, 1fr); /* Force 2 cards per row */
-    	        gap: 0.5rem; /* Smaller gap for tiny screens */
-     	    }
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.7rem;
+            }
             
             .event-card {
-		flex: 1 1 calc(50% - 0.5rem);
-                height: 225px;
-                width: 50%;
+                height: 250px;
+            }
+            
+            .event-overlay {
+                padding: 1.5rem;
+            }
+            
+            .event-main {
+                font-size: 1.5rem;
             }
             
             .footer-content {
@@ -795,9 +730,15 @@
             }
 
             .event-card {
-		flex: 1 1 calc(50% - 0.5rem);
-                height: 225px;
-                width: 50%;
+                height: 200px;
+            }
+            
+            .event-overlay {
+                padding: 1rem;
+            }
+            
+            .event-main {
+                font-size: 1.3rem;
             }
             
             .social-section,
@@ -811,6 +752,34 @@
                 font-size: 1.5rem;
                 bottom: 2rem;
                 right: 2rem;
+            }
+
+            .subsection-title {
+                font-size: 1.5rem;
+                padding-left: 1rem;
+            }
+            
+            .subsection-title:before {
+                width: 4px;
+                height: 25px;
+            }
+
+            .social-icons {
+                gap: 1.5rem;
+            }
+            
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .partner-logos {
+                gap: 2rem;
+            }
+            
+            .partner-logos img {
+                height: 50px;
             }
         }
     </style>
