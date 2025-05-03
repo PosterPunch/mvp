@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taylor vs Serrano 3 | Most Valuable Promotions</title>
+    <title>MVP Renews Partnership with Event Tickets Center | MVP News</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ===== GLOBAL STYLES ===== */
@@ -45,90 +45,48 @@
         
         .container {
             width: 100%;
-            max-width: 1440px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 4rem;
+            padding: 0 2rem;
         }
         
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background-color: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
+            width: 100%;
             overflow: hidden;
-            transform: skewX(-20deg);
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 2rem 0;
         }
         
-        .btn:hover {
-            background-color: var(--gold);
-            color: var(--black);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner 8s linear infinite;
         }
         
-        .btn span {
-            display: inline-block;
-        }
-        
-        section {
-            padding: 8rem 0;
-            position: relative;
-        }
-        
-        .section-title {
-            font-size: 3.5rem;
-            color: var(--gold);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 120px;
-            height: 4px;
-            background-color: var(--gold);
-            margin: 25px auto;
-            transition: var(--transition);
-        }
-
-        .subsection-header {
+        .banner-item {
             display: flex;
             align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .subsection-title {
-            font-size: 2.2rem;
+            margin: 0 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            padding-left: 2rem;
-            margin-right: 2rem;
-        }
-
-        .subsection-title:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 40px;
-            background-color: var(--gold);
+            flex-shrink: 0;
         }
         
-        .subsection-line {
-            flex-grow: 1;
-            height: 1px;
-            background-color: rgba(212, 175, 55, 0.3);
+        .banner-logo {
+            height: 60px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         
         /* ===== HEADER ===== */
@@ -144,12 +102,6 @@
             align-items: center;
             padding: 0 2rem;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-            transition: all 0.3s ease;
-        }
-        
-        header.hidden {
-            transform: translateY(-70px);
-            background-color: rgba(0, 0, 0, 0.9);
         }
         
         .header-logo {
@@ -174,10 +126,6 @@
             transition: color 0.3s ease;
         }
         
-        header.hidden .nav-links a {
-            color: var(--white);
-        }
-        
         .nav-links a:after {
             content: '';
             position: absolute;
@@ -187,10 +135,6 @@
             height: 2px;
             background-color: var(--black);
             transition: var(--transition);
-        }
-        
-        header.hidden .nav-links a:after {
-            background-color: var(--gold);
         }
         
         .nav-links a:hover:after,
@@ -206,98 +150,133 @@
             transition: color 0.3s ease;
         }
         
-        header.hidden .hamburger {
-            color: var(--white);
+        /* ===== NEWS ARTICLE ===== */
+        .news-article {
+            padding: 10rem 0 5rem;
+            margin-top: 70px;
         }
         
-        /* ===== EVENT HERO SECTION ===== */
-        .event-hero {
-            padding-top: 15rem;
+        .article-header {
             text-align: center;
+            margin-bottom: 4rem;
         }
         
-        .event-hero-poster {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            border: 3px solid var(--gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-        }
-        
-        .event-hero-title {
-            font-size: 4rem;
+        .article-title {
+            font-size: 3.5rem;
             color: var(--gold);
             margin-bottom: 1.5rem;
-            line-height: 1;
+            line-height: 1.1;
         }
         
-        .event-hero-subtitle {
+        .article-subtitle {
             font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-family: 'Bebas Neue', sans-serif;
         }
         
-        .event-hero-date {
-            font-size: 1.5rem;
+        .article-date {
             color: var(--gold);
-            margin-bottom: 2rem;
-        }
-        
-        .event-hero-venue {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-        }
-        
-        /* ===== EVENT DETAIL SECTION ===== */
-        .event-detail {
-            background-color: rgba(212, 175, 55, 0.05);
-            padding: 6rem 0;
-        }
-        
-        .event-detail-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .event-detail-text {
             font-size: 1.2rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
             line-height: 1.8;
+        }
+        
+        .article-content p {
             margin-bottom: 2rem;
         }
         
-        .fight-card {
-            margin: 4rem 0;
-        }
-        
-        .fight-card-title {
+        .article-content h2 {
             font-size: 2rem;
             color: var(--gold);
-            margin-bottom: 2rem;
-            text-align: center;
+            margin: 3rem 0 1.5rem;
+            font-family: 'Bebas Neue', sans-serif;
         }
         
-        .fight-card-item {
-            background-color: rgba(255, 255, 255, 0.05);
+        .article-content blockquote {
+            border-left: 3px solid var(--gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        .article-content .highlight-box {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
             padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .article-content .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .article-content .event-detail {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .article-content .event-detail i {
+            font-size: 2rem;
+            color: var(--gold);
             margin-bottom: 1rem;
+        }
+        
+        .article-content .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        
+        .article-content .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .executive-quote {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.3);
             border-left: 4px solid var(--gold);
         }
         
-        .fight-card-bout {
-            font-size: 1.3rem;
+        .executive-quote h3 {
             color: var(--gold);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
-        
-        .fight-card-details {
-            font-size: 1rem;
-            opacity: 0.9;
+
+        .partner-logo {
+            max-width: 300px;
+            margin: 2rem auto;
+            display: block;
         }
         
         /* ===== SOCIAL SECTION ===== */
         .social-section {
             text-align: center;
-            padding: 6rem 0;
+            padding: 8rem 0;
             background-color: rgba(212, 175, 55, 0.05);
         }
         
@@ -335,7 +314,7 @@
         /* ===== PARTNERS SECTION ===== */
         .partners {
             text-align: center;
-            padding: 6rem 0;
+            padding: 10rem 0;
         }
         
         .partners h3 {
@@ -510,51 +489,17 @@
             transform: translateY(-8px) scale(1.1);
         }
         
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-        
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-        
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-        
         /* ===== MOBILE RESPONSIVENESS ===== */
-        @media (max-width: 1200px) {
-            .container {
-                padding: 0 3rem;
-            }
-            
-            section {
-                padding: 6rem 0;
-            }
-        }
-        
         @media (max-width: 1024px) {
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
+            
+            .article-title {
+                font-size: 3rem;
+            }
         }
-
+        
         @media (max-width: 768px) {
             header {
                 padding: 0 1.5rem;
@@ -562,7 +507,7 @@
             }
             
             .header-logo {
-                height: 66px;
+                height: 22px;
             }
             
             .container {
@@ -591,17 +536,16 @@
                 display: block;
             }
             
-            .section-title {
-                font-size: 2.8rem;
-                margin-bottom: 2rem;
+            .news-article {
+                padding: 8rem 0 3rem;
             }
             
-            .event-hero-title {
-                font-size: 3rem;
+            .article-title {
+                font-size: 2.5rem;
             }
             
-            .event-hero-subtitle {
-                font-size: 1.5rem;
+            .article-subtitle {
+                font-size: 1.4rem;
             }
             
             .footer-content {
@@ -633,38 +577,28 @@
                 margin-top: 3rem;
             }
             
-            .footer-logo {
-                height: 198px;
+            .scroll-top {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 2rem;
+                right: 2rem;
             }
         }
         
         @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
+            .article-title {
+                font-size: 2rem;
             }
             
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .event-hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .event-hero-subtitle {
+            .article-subtitle {
                 font-size: 1.2rem;
             }
             
-            .subsection-title {
-                font-size: 1.5rem;
-                padding-left: 1rem;
+            .article-date {
+                font-size: 1rem;
             }
             
-            .subsection-title:before {
-                width: 4px;
-                height: 25px;
-            }
-
             .social-icons {
                 gap: 1.5rem;
             }
@@ -683,12 +617,8 @@
                 height: 50px;
             }
             
-            .scroll-top {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-                bottom: 2rem;
-                right: 2rem;
+            .article-content .event-details {
+                flex-direction: column;
             }
         }
     </style>
@@ -713,111 +643,163 @@
             <i class="fas fa-bars"></i>
         </div>
     </header>
-
-    <!-- ===== EVENT HERO SECTION ===== -->
-    <section class="event-hero">
+    
+    <!-- ===== NEWS ARTICLE ===== -->
+    <section class="news-article">
         <div class="container">
-            <img src="ts.png" alt="Taylor vs Serrano 3" class="event-hero-poster animate">
-            <h1 class="event-hero-title animate delay-1">Katie Taylor vs Amanda Serrano III</h1>
-            <h2 class="event-hero-subtitle animate delay-1">Live Globally on Netflix</h2>
-            <p class="event-hero-date animate delay-2">July 11, 2025</p>
-            <p class="event-hero-venue animate delay-2">Madison Square Garden • New York City</p>
-            <a href="#" class="btn animate delay-3"><span>Get Reminder</span></a>
-        </div>
-    </section>
-
-    <!-- ===== EVENT DETAIL SECTION ===== -->
-    <section class="event-detail">
-        <div class="container">
-            <div class="event-detail-content">
-                <h2 class="section-title animate">The Trilogy</h2>
+            <div class="article-header">
+                <h1 class="article-title">MVP Renews Partnership with Event Tickets Center</h1>
+                <h2 class="article-subtitle">Official Secondary Ticketing and Marketplace Resell Partner</h2>
+                <span class="article-date">April 23, 2025</span>
+            </div>
+            
+            <div class="article-content">
+                <p><strong>New York, NY</strong> — Most Valuable Promotions (MVP) has officially renewed its multi-year partnership with Event Tickets Center (ETC), one of the most trusted secondary marketplaces for live event tickets. As MVP's <strong>Official Secondary Ticketing and Marketplace Resell Partner</strong>, ETC—alongside Prolific 1—will continue to provide boxing fans with seamless access to the most sought-after tickets leading up to MVP's record-breaking events in 2025 and beyond.</p>
                 
-                <p class="event-detail-text animate delay-1">
-                    On July 11, history continues as Katie Taylor and Amanda Serrano meet for the third time in New York City in what's being called the biggest trilogy in women's boxing. This highly anticipated main event will stream live on Netflix to a global audience — and for the first time ever, it's backed by an all-women's championship card, curated by Most Valuable Promotions.
-                </p>
+                <img src="etc-logo.png" alt="Event Tickets Center Logo" class="partner-logo">
                 
-                <p class="event-detail-text animate delay-2">
-                    This groundbreaking night features six world champions, multiple unification bouts, and the pro debut of a two-time Olympian. This isn't just a boxing card — it's a movement. One night. All champions. Only on Netflix.
-                </p>
+                <p>MVP has rapidly become a leader in live sports entertainment, breaking ticket sales records across the globe. In November 2024, the <strong>Jake Paul vs. Mike Tyson and Katie Taylor vs. Amanda Serrano 2</strong> mega-event at AT&T Stadium in Arlington, Texas drew over <strong>72,300 fans</strong> and generated over <strong>$18.1 million</strong> in gate revenue—the highest-grossing combat sports event in Texas history, and the largest ever held outside Las Vegas.</p>
                 
-                <div class="fight-card animate delay-3">
-                    <h3 class="fight-card-title">Full Fight Card</h3>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Main Event: Katie Taylor vs. Amanda Serrano III</h4>
-                        <p class="fight-card-details">Undisputed Lightweight Championship • 10 Rounds</p>
+                <div class="highlight-box">
+                    <p>"As passionate live event supporters, we're thrilled to continue our partnership with MVP, helping fans access tickets to the most electrifying boxing matches around the world," said <strong>Ben Kruger</strong>, Chief Marketing Officer at Event Tickets Center.</p>
+                </div>
+                
+                <h2>Historic 2025 Events</h2>
+                
+                <p>Building on this momentum, MVP's 2025 slate is poised for more historic milestones, including:</p>
+                
+                <div class="event-details">
+                    <div class="event-detail">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>June 28</h4>
+                        <p>Jake Paul vs. Julio Cesar Chavez Jr. at Honda Center in Anaheim</p>
                     </div>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Co-Main: Alycia Baumgardner vs. Jennifer Miranda</h4>
-                        <p class="fight-card-details">Undisputed Super Featherweight Championship • 10 Rounds</p>
+                    <div class="event-detail">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>July 11</h4>
+                        <p>Katie Taylor vs. Amanda Serrano trilogy at Madison Square Garden</p>
                     </div>
+                </div>
+                
+                <p>The <strong>Taylor vs. Serrano trilogy</strong>—the first all-women's fight card at Madison Square Garden—has already surpassed the total revenue of their original 2022 bout within just 24 hours of ticket sales opening.</p>
+                
+                <div class="executive-quote">
+                    <h3>Mitch Glaser, Head of Finance & Strategy at MVP</h3>
+                    <p>"Our goal at MVP is to create unforgettable live moments. ETC's trusted platform helps meet the massive demand for our events. We're proud to extend our partnership and grow together in 2025 and beyond."</p>
+                </div>
+                
+                <h2>Enhanced Fan Experience</h2>
+                
+                <p>As part of the renewed partnership, ETC will be integrated across MVP's digital, broadcast, and social media channels, ensuring fans have a secure, trusted platform to purchase resale tickets all the way up to fight night.</p>
+                
+                <p>The collaboration will also include:</p>
+                
+                <ul style="margin: 2rem 0; padding-left: 2rem; line-height: 1.8;">
+                    <li>Joint promotions for MVP's <em>Uncut</em> docuseries</li>
+                    <li>Ticket giveaways benefiting Jake Paul's <em>Boxing Bullies</em> nonprofit</li>
+                    <li>Exclusive pre-sale opportunities for ETC members</li>
+                    <li>Enhanced mobile ticketing experience</li>
+                </ul>
+                
+                <a href="https://www.eventticketscenter.com/" class="cta-button">VISIT EVENT TICKETS CENTER</a>
+                
+                <h2>About the Partners</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>Event Tickets Center (ETC)</strong> is one of the largest and most trusted secondary marketplaces for tickets to sports, concerts, and theater events across North America. Learn more at <a href="https://www.eventticketscenter.com/" style="color: var(--gold);">eventticketscenter.com</a></p>
+                </div>
+                
+                <div class="highlight-box">
+                    <p><strong>Most Valuable Promotions (MVP)</strong> was founded in 2021 by Jake Paul and Nakisa Bidarian to give athletes more control and opportunity within the boxing industry. MVP has produced six global pay-per-view events and signed major talent like Amanda Serrano. Their events have streamed to over 108 million global viewers.</p>
+                </div>
+                
+                <h2>Press Contacts</h2>
+                
+                <div style="margin: 2rem 0;">
+                    <p><strong>Most Valuable Promotions (MVP)</strong><br>
+                    Michael Goldberg — <a href="mailto:michaelpr@mostvaluablepromotions.com" style="color: var(--gold);">michaelpr@mostvaluablepromotions.com</a><br>
+                    Liz Keller — <a href="mailto:liz@mostvaluablepromotions.com" style="color: var(--gold);">liz@mostvaluablepromotions.com</a></p>
                     
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Ellie Scotney vs. Yamileth Mercado</h4>
-                        <p class="fight-card-details">Super Bantamweight Unification • 10 Rounds</p>
-                    </div>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Dina Thorslund vs. Shurretta Metcalf</h4>
-                        <p class="fight-card-details">Bantamweight Unification • 10 Rounds</p>
-                    </div>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Tamm Thibeault vs. Mary Casamassa</h4>
-                        <p class="fight-card-details">Middleweight • 6 Rounds (Pro Debut)</p>
-                    </div>
+                    <p style="margin-top: 1rem;"><strong>Event Tickets Center (ETC)</strong><br>
+                    Cara Sutherlan — <a href="mailto:cara@jmgpr.com" style="color: var(--gold);">cara@jmgpr.com</a></p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Banner - MVP Logos -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+    
     <!-- ===== SOCIAL SECTION ===== -->
     <section class="social-section">
         <div class="container">
-            <h3 class="animate">Follow MVP</h3>
+            <h3>Follow MVP</h3>
             
             <div class="social-icons">
-                <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank" class="animate">
+                <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://x.com/MostVpromotions" target="_blank" class="animate delay-1">
+                <a href="https://x.com/MostVpromotions" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank" class="animate delay-2">
+                <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank">
                     <i class="fab fa-tiktok"></i>
                 </a>
-                <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank" class="animate delay-3">
+                <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank">
                     <i class="fab fa-youtube"></i>
                 </a>
             </div>
         </div>
     </section>
-
+    
     <!-- ===== PARTNERS SECTION ===== -->
     <section class="partners">
         <div class="container">
-            <h3 class="animate">Official Partners</h3>
+            <h3>Official Partners</h3>
             
             <div class="partner-logos">
                 <div class="partner-logos-top">
-                    <img src="dazn.png" alt="DAZN" class="animate">
-                    <img src="nf.png" alt="Netflix" class="animate delay-1" style="background-color: var(--black); padding: 10px;">
+                    <img src="dazn.png" alt="DAZN">
+                    <img src="nf.png" alt="Netflix" style="background-color: var(--black); padding: 10px;">
+                    <img src="etc-logo.png" alt="Event Tickets Center">
                 </div>
                 <div class="partner-logos-bottom">
-                    <img src="clogo.png" alt="Celsius" class="animate delay-2">
-                    <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
-                    <img src="crlogo.png" alt="Caribe Royale" class="animate">
+                    <img src="clogo.png" alt="Celsius">
+                    <img src="boxlablogo.png" alt="Boxlab">
+                    <img src="crlogo.png" alt="Caribe Royale">
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-col animate">
+                <div class="footer-col">
                     <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
                     <p class="mission-statement">
                         Most Valuable Promotions is committed to empowering fighters with enhanced creative control. 
@@ -828,33 +810,33 @@
                 
                 <div class="footer-col">
                     <div class="footer-links-col-1">
-                        <a href="index.html" class="animate">Home</a>
-                        <a href="box.html" class="animate delay-1">Athletes</a>
-                        <a href="events.html" class="animate delay-2">Events</a>
-                        <a href="news.html" class="animate delay-3">News</a>
+                        <a href="index.html">Home</a>
+                        <a href="box.html">Athletes</a>
+                        <a href="events.html">Events</a>
+                        <a href="news.html" class="active">News</a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
                     <div class="footer-links-col-2">
-                        <a href="about.html" class="animate">About</a>
-                        <a href="contact.html" class="animate delay-1">Contact</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
                     </div>
                     
                     <div class="contact-info">
-                        <p>For general inquiries:</p>
-                        <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
-                        <p class="animate delay-1">For press inquiries:</p>
-                        <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
+                        <p>General inquiries:</p>
+                        <p><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
+                        <p>Press:</p>
+                        <p><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
                     </div>
                 </div>
             </div>
             
             <div class="legal">
-                <span class="animate">©2025 Most Valuable Promotions. All rights reserved.</span>
+                <span>©2025 Most Valuable Promotions. All rights reserved.</span>
                 <div>
-                    <a href="terms.html" class="animate delay-3">Terms</a>
-                    <a href="pp.html" class="animate delay-4">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="pp.html">Privacy</a>
                 </div>
             </div>
         </div>
@@ -864,14 +846,29 @@
     <div class="scroll-top">
         <i class="fas fa-arrow-up"></i>
     </div>
-    
+
     <script>
         // Mobile Menu Toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
             this.querySelector('i').classList.toggle('fa-times');
         });
-        
+
+        // Set active page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href').split('/').pop();
+                if (currentPage === linkPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+
         // Scroll to Top Button
         window.addEventListener('scroll', function() {
             const scrollTop = document.querySelector('.scroll-top');
@@ -887,32 +884,6 @@
                 top: 0,
                 behavior: 'smooth'
             });
-        });
-        
-        // Header logo scroll to top
-        document.querySelector('.header-logo').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Scroll Animations
-        const animateElements = document.querySelectorAll('.animate');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fadeInUp');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        animateElements.forEach(el => {
-            observer.observe(el);
         });
     </script>
 </body>

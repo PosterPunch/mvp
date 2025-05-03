@@ -293,7 +293,6 @@
             transition: var(--transition);
         }
         
-
         .event-overlay {
             position: absolute;
             top: 0;
@@ -309,7 +308,8 @@
             transition: var(--transition);
         }
         
-        .event-card:hover .event-overlay {
+        .event-card:hover .event-overlay,
+        .event-card.active .event-overlay {
             opacity: 1;
         }
         
@@ -327,6 +327,18 @@
         .event-venue {
             font-size: 1rem;
             margin-bottom: 1.5rem;
+        }
+
+        /* ===== UPCOMING EVENTS SECTION ===== */
+        .upcoming-section {
+            padding-top: 15rem;
+        }
+
+        .upcoming-events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            justify-items: center;
         }
         
         /* ===== SOCIAL SECTION ===== */
@@ -651,7 +663,8 @@
                 height: 3px;
             }
             
-            .events-container {
+            .events-container,
+            .upcoming-events-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.7rem;
             }
@@ -796,7 +809,7 @@
         </a>
         
         <nav class="nav-links">
-            <a href="/">Home</a>
+            <a href="index.html">Home</a>
             <a href="box.html">Athletes</a>
             <a href="events.html" class="active">Events</a>
             <a href="news.html">News</a>
@@ -809,6 +822,174 @@
         </div>
     </header>
 
+
+    <!-- ===== MAIN TITLE ===== -->
+    <section class="container" style="padding-top: 15rem;">
+        <h1 class="section-title animate">EVENTS</h1>
+    </section>
+
+
+    <!-- ===== UPCOMING EVENTS SECTION ===== -->
+    <section class="container">
+            <h2 class="subsection-title">Upcoming Events</h2>
+	    <div class="subsection-line"></div>
+            
+            <div class="upcoming-events-container">
+                <!-- Paul vs Chavez -->
+                <div class="event-card animate">
+                    <img src="pc.png" alt="Paul vs Chavez Jr." class="event-poster">
+                    <div class="event-overlay">
+                        <h3 class="event-main">Paul vs Chavez</h3>
+                        <p class="event-date">June 28, 2025</p>
+                        <p class="event-venue">Honda Center • DAZN PPV</p>
+                        <a href="pc.html" class="btn"><span>Event Details</span></a>
+                    </div>
+                </div>
+
+                <!-- Taylor vs Serrano 3 -->
+                <div class="event-card animate">
+                    <img src="ts.png" alt="Taylor vs Serrano 3" class="event-poster">
+                    <div class="event-overlay">
+                        <h3 class="event-main">Taylor vs Serrano 3</h3>
+                        <p class="event-date">July 11, 2025</p>
+                        <p class="event-venue">Madison Square Garden • Netflix</p>
+                        <a href="ts3d.html" class="btn"><span>Event Details</span></a>
+               	    </div>
+                </div>
+                
+                <!-- Prospects 12 -->
+                <div class="event-card animate delay-1">
+                    <img src="p12.png" alt="Prospects 12" class="event-poster">
+                    <div class="event-overlay">
+                        <h3 class="event-main">Pero vs Navarro</h3>
+                        <p class="event-date">May 9, 2025</p>
+                        <p class="event-venue">Caribe Royale Orlando • DAZN</p>
+                        <a href="p12.html" class="btn"><span>Event Details</span></a>
+                    </div>
+                </div>
+                
+                <!-- Prospects 13 -->
+                <div class="event-card animate delay-2">
+                    <img src="p13.png" alt="Prospects 13" class="event-poster">
+                    <div class="event-overlay">
+                        <h3 class="event-main">Ferreira vs Ferreyra</h3>
+                        <p class="event-date">July 20, 2025</p>
+                        <p class="event-venue">Caribe Royale Orlando • DAZN</p>
+                        <a href="p13.html" class="btn"><span>Event Details</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+	    <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+        </div>
+    </div>
+
     <!-- ===== MAIN TITLE ===== -->
     <section class="container" style="padding-top: 15rem;">
         <h1 class="section-title animate">EVENTS</h1>
@@ -816,20 +997,11 @@
 
     <!-- ===== MVP EVENTS SECTION ===== -->
     <section class="container">
-            <h2 class="subsection-title">MVP Events</h2>
+            <h2 class="subsection-title">MVP Past Events</h2>
 	    <div class="subsection-line"></div>
 
         <div class="events-container">
-            <!-- Taylor vs Serrano 3 -->
-            <div class="event-card animate">
-                <img src="ts.png" alt="Taylor vs Serrano 3" class="event-poster">
-                <div class="event-overlay">
-                    <h3 class="event-main">Taylor vs Serrano 3</h3>
-                    <p class="event-date">July 11, 2025</p>
-                    <p class="event-venue">Madison Square Garden • Netflix</p>
-                    <a href="ts3d.html" class="btn"><span>Event Details</span></a>
-                </div>
-            </div>
+
             
             <!-- Paul vs Tyson -->
             <div class="event-card animate delay-1">
@@ -960,106 +1132,110 @@
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+	    <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
         </div>
     </div>
 
     <!-- ===== MOST VALUABLE PROSPECTS SECTION ===== -->
     <section class="container">
-            <h2 class="subsection-title">Most Valuable Prospects</h2>
+            <h2 class="subsection-title">Most Valuable Prospects Past Events</h2>
 	    <div class="subsection-line"></div>
 
         <div class="events-container">
-            <!-- Prospects 12 -->
-            <div class="event-card animate">
-                <img src="p12.png" alt="Prospects 12" class="event-poster">
-                <div class="event-overlay">
-                    <h3 class="event-main">Pero vs Navarro</h3>
-                    <p class="event-date">May 9, 2025</p>
-                    <p class="event-venue">Caribe Royale Orlando • DAZN</p>
-                    <a href="p12.html" class="btn"><span>Event Details</span></a>
-                </div>
-            </div>
-            
             <!-- Prospects 11 -->
-            <div class="event-card animate delay-1">
+            <div class="event-card animate">
                 <img src="p11.png" alt="Prospects 11" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Bahdi vs Racaza</h3>
@@ -1070,7 +1246,7 @@
             </div>
             
             <!-- Prospects 10 -->
-            <div class="event-card animate delay-2">
+            <div class="event-card animate delay-1">
                 <img src="p10.png" alt="Prospects 10" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Walton vs Hanley</h3>
@@ -1081,7 +1257,7 @@
             </div>
             
             <!-- Prospects 9 -->
-            <div class="event-card animate delay-3">
+            <div class="event-card animate delay-2">
                 <img src="p9.png" alt="Prospects 9" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Rivera vs Beltran</h3>
@@ -1092,7 +1268,7 @@
             </div>
             
             <!-- Prospects 8 -->
-            <div class="event-card animate">
+            <div class="event-card animate delay-3">
                 <img src="p8.png" alt="Prospects 8" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Brown vs Bauza</h3>
@@ -1103,7 +1279,7 @@
             </div>
             
             <!-- Prospects 7 -->
-            <div class="event-card animate delay-1">
+            <div class="event-card animate">
                 <img src="p7.png" alt="Prospects 7" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Rivera vs Goodson</h3>
@@ -1114,7 +1290,7 @@
             </div>
             
             <!-- Prospects 6 -->
-            <div class="event-card animate delay-2">
+            <div class="event-card animate delay-1">
                 <img src="p6.png" alt="Prospects 6" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Tellez vs Jackson</h3>
@@ -1125,7 +1301,7 @@
             </div>
             
             <!-- Prospects 5 -->
-            <div class="event-card animate delay-3">
+            <div class="event-card animate delay-2">
                 <img src="p5.png" alt="Prospects 5" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Sylve vs Falcao</h3>
@@ -1136,7 +1312,7 @@
             </div>
             
             <!-- Prospects 4 -->
-            <div class="event-card animate">
+            <div class="event-card animate delay-3">
                 <img src="p4.png" alt="Prospects 4" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Paul vs August</h3>
@@ -1147,7 +1323,7 @@
             </div>
             
             <!-- Prospects 3 -->
-            <div class="event-card animate delay-1">
+            <div class="event-card animate">
                 <img src="p3.png" alt="Prospects 3" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Serrano vs Ramos</h3>
@@ -1158,7 +1334,7 @@
             </div>
             
             <!-- Prospects 2 -->
-            <div class="event-card animate delay-2">
+            <div class="event-card animate delay-1">
                 <img src="p2.png" alt="Prospects 2" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Bravo vs Madera</h3>
@@ -1169,7 +1345,7 @@
             </div>
             
             <!-- Prospects 1 -->
-            <div class="event-card animate delay-3">
+            <div class="event-card animate delay-2">
                 <img src="p1.png" alt="Prospects 1" class="event-poster">
                 <div class="event-overlay">
                     <h3 class="event-main">Sylve vs Kipenga</h3>
@@ -1185,71 +1361,95 @@
     <div class="banner-container">
         <div class="banner">
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+	    <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS SERIES 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+	    <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
         </div>
     </div>
     
@@ -1278,6 +1478,7 @@
     <!-- Moving Banner Between Sections -->
     <div class="banner-container">
         <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
@@ -1451,6 +1652,17 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+        
+        // Touch support for event cards
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.classList.add('active');
+            });
+            
+            card.addEventListener('touchend', function() {
+                this.classList.remove('active');
             });
         });
     </script>
