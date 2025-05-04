@@ -31,7 +31,7 @@
             overflow-x: hidden;
         }
         
-        h1, h2, h3, h4, .nav-links a, .footer-links a {
+        h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title {
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -76,19 +76,28 @@
         }
         
         section {
-            padding: 8rem 0;
+            padding: 12rem 0;
             position: relative;
         }
         
         .section-title {
             font-size: 3.5rem;
             color: var(--gold);
-            margin-bottom: 3rem;
+            margin-bottom: 6rem;
             text-align: center;
             position: relative;
         }
         
-        .section-title:after {
+        .section-subtitle {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after,
+        .section-subtitle:after {
             content: '';
             display: block;
             width: 120px;
@@ -98,23 +107,117 @@
             transition: var(--transition);
         }
 
-        .subsection-header {
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 2rem 0;
+        }
+        
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner 8s linear infinite;
+        }
+        
+        .banner-item {
             display: flex;
             align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .subsection-title {
-            font-size: 2.2rem;
+            margin: 0 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            padding-left: 2rem;
-            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .banner-logo {
+            height: 60px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .subsection-title:before {
+        /* ===== EVENT HEADER ===== */
+        .event-header {
+            position: relative;
+            width: 100%;
+            padding: 8rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 70px;
+            text-align: center;
+        }
+        
+        .event-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+        }
+        
+        .event-header-title {
+            font-size: 5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .event-header-subtitle {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .event-header-date {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            color: var(--gold);
+        }
+        
+        /* ===== EVENT DETAILS ===== */
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+        
+        .event-main-content {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .event-sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .event-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+        
+        .fight-card {
+            margin-top: 4rem;
+        }
+        
+        .fight-card-title {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .fight-card-title:before {
             content: '';
             position: absolute;
             left: 0;
@@ -125,10 +228,83 @@
             background-color: var(--gold);
         }
         
-        .subsection-line {
-            flex-grow: 1;
-            height: 1px;
-            background-color: rgba(212, 175, 55, 0.3);
+        .fight-card-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 1.5rem;
+        }
+        
+        .fight-card-main-event {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
+        }
+        
+        .fight-card-bout {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+        
+        .fight-card-details {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .event-info-box {
+            background-color: rgba(212, 175, 55, 0.05);
+            padding: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 2rem;
+        }
+        
+        .event-info-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .event-info-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .event-info-label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        /* Event Info with Poster */
+        .event-info-with-poster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .event-info-content {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .event-poster-container {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .event-poster {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-poster-caption {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            color: var(--gold);
+            font-style: italic;
         }
         
         /* ===== HEADER ===== */
@@ -210,132 +386,10 @@
             color: var(--white);
         }
         
-        /* ===== EVENT HERO SECTION ===== */
-        .event-hero {
-            padding-top: 15rem;
-            text-align: center;
-        }
-        
-        .event-hero-poster {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            border: 3px solid var(--gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-        }
-        
-        .event-hero-title {
-            font-size: 4rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            line-height: 1;
-        }
-        
-        .event-hero-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-        
-        .event-hero-date {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 2rem;
-        }
-        
-        .event-hero-venue {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-        }
-        
-        /* ===== EVENT DETAIL SECTION ===== */
-        .event-detail {
-            background-color: rgba(212, 175, 55, 0.05);
-            padding: 6rem 0;
-        }
-        
-        .event-detail-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .event-detail-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-        
-        .fight-card {
-            margin: 4rem 0;
-        }
-        
-        .fight-card-title {
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .fight-card-item {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--gold);
-        }
-        
-        .fight-card-bout {
-            font-size: 1.3rem;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-        
-        .fight-card-details {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        /* ===== SOCIAL SECTION ===== */
-        .social-section {
-            text-align: center;
-            padding: 6rem 0;
-            background-color: rgba(212, 175, 55, 0.05);
-        }
-        
-        .social-section h3 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--gold);
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(212, 175, 55, 0.1);
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-        
-        .social-icons a:hover {
-            background-color: var(--gold);
-            color: var(--black);
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-        }
-        
         /* ===== PARTNERS SECTION ===== */
         .partners {
             text-align: center;
-            padding: 6rem 0;
+            padding: 10rem 0;
         }
         
         .partners h3 {
@@ -363,6 +417,10 @@
             height: 70px;
             opacity: 1;
             transition: var(--transition);
+        }
+
+        .partner-logos img[src="msg.png"] {
+            height: 160px;
         }
         
         .partner-logos img[src="dazn.png"],
@@ -478,6 +536,29 @@
         .legal a:hover {
             color: var(--gold);
         }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+	.footer-social {
+	    display: flex;
+	    gap: 1.5rem;
+	    margin-top: 2rem;
+	}
+	
+	.footer-social a {
+	    color: var(--gold);
+	    font-size: 1.5rem;
+    	transition: var(--transition);
+	}
+
+	.footer-social a:hover {
+	    opacity: 0.8;
+	    transform: translateY(-2px);
+	}
         
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {
@@ -545,13 +626,29 @@
             }
             
             section {
-                padding: 6rem 0;
+                padding: 10rem 0;
+            }
+            
+            .partners {
+                padding: 8rem 0;
+            }
+            
+            footer {
+                padding: 5rem 0 3rem;
+            }
+            
+            .event-header-title {
+                font-size: 4rem;
             }
         }
         
         @media (max-width: 1024px) {
             .footer-content {
                 grid-template-columns: 1fr 1fr;
+            }
+            
+            .event-details {
+                flex-direction: column;
             }
         }
 
@@ -593,15 +690,42 @@
             
             .section-title {
                 font-size: 2.8rem;
-                margin-bottom: 2rem;
+                margin-bottom: 4rem;
             }
             
-            .event-hero-title {
+            .section-subtitle {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .section-title:after,
+            .section-subtitle:after {
+                width: 80px;
+                height: 3px;
+            }
+            
+            .event-header {
+                padding: 6rem 0;
+            }
+            
+            .event-header-title {
                 font-size: 3rem;
             }
             
-            .event-hero-subtitle {
+            .event-header-subtitle {
                 font-size: 1.5rem;
+            }
+            
+            .event-header-date {
+                font-size: 1.3rem;
+            }
+            
+            .fight-card-title {
+                font-size: 1.8rem;
+            }
+            
+            .fight-card-bout {
+                font-size: 1.2rem;
             }
             
             .footer-content {
@@ -612,7 +736,11 @@
             
             .footer-links-col-1,
             .footer-links-col-2 {
-                align-items: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                text-align: left;
+                padding: 0 2rem;
             }
             
             .footer-links a {
@@ -633,8 +761,29 @@
                 margin-top: 3rem;
             }
             
+            section {
+                padding: 8rem 0;
+            }
+            
+            .partners {
+                padding: 8rem 0;
+            }
+            
             .footer-logo {
                 height: 198px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .event-info-with-poster {
+                flex-direction: column;
+            }
+
+            .event-poster-container {
+                order: -1;
+                margin-bottom: 1.5rem;
             }
         }
         
@@ -645,42 +794,37 @@
             
             .section-title {
                 font-size: 2.2rem;
+                margin-bottom: 3rem;
             }
             
-            .event-hero-title {
-                font-size: 2.5rem;
+            .section-subtitle {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
             }
             
-            .event-hero-subtitle {
+            .section {
+                padding: 6rem 0;
+            }
+            
+            .event-header {
+                padding: 4rem 0;
+                margin-top: 60px;
+            }
+            
+            .event-header-title {
+                font-size: 2.2rem;
+            }
+            
+            .event-header-subtitle {
                 font-size: 1.2rem;
             }
             
-            .subsection-title {
-                font-size: 1.5rem;
-                padding-left: 1rem;
+            .event-header-date {
+                font-size: 1rem;
             }
             
-            .subsection-title:before {
-                width: 4px;
-                height: 25px;
-            }
-
-            .social-icons {
-                gap: 1.5rem;
-            }
-            
-            .social-icons a {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            .partner-logos {
-                gap: 2rem;
-            }
-            
-            .partner-logos img {
-                height: 50px;
+            .partners {
+                padding: 6rem 0;
             }
             
             .scroll-top {
@@ -689,6 +833,23 @@
                 font-size: 1.5rem;
                 bottom: 2rem;
                 right: 2rem;
+            }
+
+            .partner-logos {
+                gap: 2rem;
+            }
+            
+            .partner-logos img {
+                height: 50px;
+            }
+
+            .partner-logos img[src="msg.png"] {
+                height: 100px;
+            }
+
+            .footer-links-col-1,
+            .footer-links-col-2 {
+                padding: 0;
             }
         }
     </style>
@@ -714,105 +875,208 @@
         </div>
     </header>
 
-    <!-- ===== EVENT HERO SECTION ===== -->
-    <section class="event-hero">
-        <div class="container">
-            <img src="ts.png" alt="Taylor vs Serrano 3" class="event-hero-poster animate">
-            <h1 class="event-hero-title animate delay-1">Katie Taylor vs Amanda Serrano III</h1>
-            <h2 class="event-hero-subtitle animate delay-1">Live Globally on Netflix</h2>
-            <p class="event-hero-date animate delay-2">July 11, 2025</p>
-            <p class="event-hero-venue animate delay-2">Madison Square Garden • New York City</p>
-            <a href="#" class="btn animate delay-3"><span>Get Reminder</span></a>
+    <!-- ===== EVENT HEADER ===== -->
+    <div class="event-header">
+        <div class="event-header-content">
+            <h1 class="event-header-title animate">Taylor vs Serrano III</h1>
+            <p class="event-header-subtitle animate delay-1">The Biggest Trilogy in Women's Boxing</p>
+            <p class="event-header-date animate delay-2">July 11, 2025 • Madison Square Garden</p>
         </div>
-    </section>
+    </div>
 
-    <!-- ===== EVENT DETAIL SECTION ===== -->
-    <section class="event-detail">
-        <div class="container">
-            <div class="event-detail-content">
-                <h2 class="section-title animate">The Trilogy</h2>
+    <!-- ===== EVENT DETAILS ===== -->
+    <section class="container">
+        <div class="event-details">
+            <div class="event-main-content">
+                <h2 class="section-title animate">Event Details</h2>
                 
-                <p class="event-detail-text animate delay-1">
-                    On July 11, history continues as Katie Taylor and Amanda Serrano meet for the third time in New York City in what's being called the biggest trilogy in women's boxing. This highly anticipated main event will stream live on Netflix to a global audience — and for the first time ever, it's backed by an all-women's championship card, curated by Most Valuable Promotions.
-                </p>
+                <div class="event-description animate delay-1">
+                    <p>On July 11, history continues as Katie Taylor and Amanda Serrano meet for the third time in New York City in what's being called the biggest trilogy in women's boxing. This highly anticipated main event will stream live on Netflix to a global audience — and for the first time ever, it's backed by an all-women's championship card, curated by Most Valuable Promotions.</p>
+                    
+                    <p>This groundbreaking night features six world champions, multiple unification bouts, and the pro debut of a two-time Olympian. This isn't just a boxing card — it's a movement. One night. All champions. Only on Netflix.</p>
+                </div>
                 
-                <p class="event-detail-text animate delay-2">
-                    This groundbreaking night features six world champions, multiple unification bouts, and the pro debut of a two-time Olympian. This isn't just a boxing card — it's a movement. One night. All champions. Only on Netflix.
-                </p>
+                <div class="fight-card">
+                    <h3 class="fight-card-title animate delay-2">Fight Card</h3>
+                    
+                    <div class="fight-card-item fight-card-main-event animate delay-3">
+                        <div class="fight-card-bout">Katie Taylor vs. Amanda Serrano III</div>
+                        <div class="fight-card-details">12 Rounds - Undisputed Lightweight Championship</div>
+                    </div>
+                    
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Alycia Baumgardner vs. Jennifer Miranda</div>
+                        <div class="fight-card-details">10 Rounds - Undisputed Super Featherweight Championship</div>
+                    </div>
+                    
+                    <div class="fight-card-item animate delay-1">
+                        <div class="fight-card-bout">Ellie Scotney vs. Yamileth Mercado</div>
+                        <div class="fight-card-details">10 Rounds - Super Bantamweight Unification</div>
+                    </div>
+                    
+                    <div class="fight-card-item animate delay-2">
+                        <div class="fight-card-bout">Dina Thorslund vs. Shurretta Metcalf</div>
+                        <div class="fight-card-details">10 Rounds - Bantamweight Unification</div>
+                    </div>
+                    
+                    <div class="fight-card-item animate delay-3">
+                        <div class="fight-card-bout">Tamm Thibeault vs. Mary Casamassa</div>
+                        <div class="fight-card-details">6 Rounds - Middleweight (Pro Debut)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-sidebar">
+                <div class="event-info-box animate">
+                    <div class="event-info-with-poster">
+                        <div class="event-info-content">
+                            <h4 class="event-info-title">Event Information</h4>
+
+                            <div class="event-poster-container">
+                                <img src="ts.png" alt="Taylor vs Serrano 3 Poster" class="event-poster">
+                                <p class="event-poster-caption">Official Event Poster</p>
+                            </div>
+                            
+                            <div class="event-info-item">
+                                <div class="event-info-label">Date</div>
+                                <div>July 11, 2025</div>
+                            </div>
+                            
+                            <div class="event-info-item">
+                                <div class="event-info-label">Location</div>
+                                <div>Madison Square Garden<br>New York City, NY</div>
+                            </div>
+                            
+                            <div class="event-info-item">
+                                <div class="event-info-label">Broadcast</div>
+                                <div>Live Globally on Netflix</div>
+                            </div>
+                            
+                            <div class="event-info-item">
+                                <div class="event-info-label">Doors Open</div>
+                                <div>6:00 PM ET</div>
+                            </div>
+                            
+                            <div class="event-info-item">
+                                <div class="event-info-label">Main Event</div>
+                                <div>Approx. 10:30 PM ET</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
                 
-                <div class="fight-card animate delay-3">
-                    <h3 class="fight-card-title">Full Fight Card</h3>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Main Event: Katie Taylor vs. Amanda Serrano III</h4>
-                        <p class="fight-card-details">Undisputed Lightweight Championship • 10 Rounds</p>
-                    </div>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Co-Main: Alycia Baumgardner vs. Jennifer Miranda</h4>
-                        <p class="fight-card-details">Undisputed Super Featherweight Championship • 10 Rounds</p>
-                    </div>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Ellie Scotney vs. Yamileth Mercado</h4>
-                        <p class="fight-card-details">Super Bantamweight Unification • 10 Rounds</p>
-                    </div>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Dina Thorslund vs. Shurretta Metcalf</h4>
-                        <p class="fight-card-details">Bantamweight Unification • 10 Rounds</p>
-                    </div>
-                    
-                    <div class="fight-card-item">
-                        <h4 class="fight-card-bout">Tamm Thibeault vs. Mary Casamassa</h4>
-                        <p class="fight-card-details">Middleweight • 6 Rounds (Pro Debut)</p>
-                    </div>
+                <div class="event-info-box animate delay-1">
+                    <h4 class="event-info-title">Tickets</h4>
+                    <p>Tickets for this historic event are available now through Ticketmaster and the Madison Square Garden box office.</p>
+                    <a href="https://www.ticketmaster.com/mvp-katie-taylor-v-amanda-serrano-new-york-new-york-07-11-2025/event/3B00626509B31AD4" target="_blank" class="btn" style="width: 100%; text-align: center; margin-top: 1.5rem;"><span>Buy Tickets</span></a>
+                    <a href="https://www.netflix.com/ca/title/82035642" target="_blank" class="btn" style="width: 100%; text-align: center; margin-top: 1rem; background-color: var(--gold); color: var(--black);"><span>Watch on Netflix</span></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SOCIAL SECTION ===== -->
-    <section class="social-section">
-        <div class="container">
-            <h3 class="animate">Follow MVP</h3>
-            
-            <div class="social-icons">
-                <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank" class="animate">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://x.com/MostVpromotions" target="_blank" class="animate delay-1">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank" class="animate delay-2">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank" class="animate delay-3">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
+    <!-- View All Events Button -->
+    <div class="container" style="text-align: center; margin: 4rem auto;">
+        <a href="events.html" class="btn animate"><span>View All Events</span></a>
+    </div>
+
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
         </div>
-    </section>
+    </div>
 
     <!-- ===== PARTNERS SECTION ===== -->
     <section class="partners">
         <div class="container">
-            <h3 class="animate">Official Partners</h3>
+            <h3 class="animate">Event Partners</h3>
             
             <div class="partner-logos">
                 <div class="partner-logos-top">
-                    <img src="dazn.png" alt="DAZN" class="animate">
-                    <img src="nf.png" alt="Netflix" class="animate delay-1" style="background-color: var(--black); padding: 10px;">
+                    <img src="nf.png" alt="Netflix" class="animate">
+                    <img src="etc-logo.png" alt="Event Tickets Center" class="animate delay-1">
                 </div>
                 <div class="partner-logos-bottom">
-                    <img src="clogo.png" alt="Celsius" class="animate delay-2">
-                    <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
-                    <img src="crlogo.png" alt="Caribe Royale" class="animate">
+                    <img src="msg.png" alt="MSG" class="animate delay-2">
+                    <img src="clogo.png" alt="Celsius" class="animate delay-3">
                 </div>
             </div>
         </div>
     </section>
-
+            
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
@@ -824,6 +1088,12 @@
                         The organization focuses on strategically identifying, developing, and maximizing the value 
                         of its events and talent partnerships to ensure optimal returns.
                     </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/MostVpromotions" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
                 
                 <div class="footer-col">
@@ -841,7 +1111,7 @@
                         <a href="contact.html" class="animate delay-1">Contact</a>
                     </div>
                     
-                    <div class="contact-info">
+                    <div class="contact-info" style="margin-top: 2rem;">
                         <p>For general inquiries:</p>
                         <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
                         <p class="animate delay-1">For press inquiries:</p>
@@ -913,6 +1183,17 @@
         
         animateElements.forEach(el => {
             observer.observe(el);
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
