@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Paul | Most Valuable Promotions</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --black: #000000;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, .nav-links a, .footer-links a {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: var(--transition);
+            cursor: pointer;
+            border-radius: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+        }
+        
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background-color: var(--gold);
+            margin: 25px auto;
+            transition: var(--transition);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--gold);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .header-logo {
+            height: 120px;
+            filter: brightness(0);
+            margin-right: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--black);
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--black);
+            transition: color 0.3s ease;
+        }
+
+        /* ===== FIGHTER PROFILE SECTION ===== */
+        .fighter-profile-section {
+            margin-top: 70px;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .fighter-card-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fighter-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--gold);
+            padding: 0;
+            width: 400px;
+            height: 500px;
+            position: relative;
+            box-shadow: 0 5px 30px rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fighter-card-image {
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .fighter-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fighter-card-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .fighter-name {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .fighter-nickname {
+            font-size: 1.5rem;
+            color: var(--white);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .fighter-meta {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        .fighter-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-left: 3rem;
+        }
+
+        .stats-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 3rem;
+            justify-content: flex-start;
+        }
+
+        .stat-label {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: var(--white);
+            text-align: left;
+            min-width: 80px;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            color: var(--gold);
+            font-weight: bold;
+            text-align: left;
+            line-height: 1;
+            min-width: 80px;
+        }
+
+        .fighter-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .fighter-social a {
+            color: var(--gold);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .fighter-social a:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 4rem 0;
+        }
+        
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner 10s linear infinite;
+        }
+        
+        .banner-item {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .banner-logo {
+            height: 40px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            width: 100%;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .polaroid-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .polaroid {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--gold);
+            padding: 1rem;
+            color: var(--white);
+            transition: var(--transition);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .polaroid img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid var(--gold);
+        }
+
+        .polaroid-info {
+            flex: 1;
+        }
+
+        .polaroid-opponent {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .polaroid-date {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* ===== CAREER SECTION ===== */
+        .career-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .career-table th {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        .career-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(212,175,55,0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        .career-table tr:hover td {
+            background-color: rgba(212,175,55,0.1);
+        }
+
+        .result-win {
+            color: #4CAF50;
+            font-weight: 700;
+        }
+
+        .result-loss {
+            color: #F44336;
+            font-weight: 700;
+        }
+
+        .view-more {
+            text-align: center;
+            margin-top: 5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* ===== INSTAGRAM SECTION ===== */
+        .instagram-section {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .instagram-embed {
+            width: 100%;
+            height: 500px;
+            border: 1px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        /* ===== VIEW ALL FIGHTERS ===== */
+        .view-all-fighters {
+            text-align: center;
+            margin: 6rem 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #0a0a0a;
+            padding: 6rem 0 3rem;
+            border-top: 1px solid var(--gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .footer-logo {
+            height: 165px;
+            margin-bottom: 0.5rem;
+            filter: brightness(0) invert(1);
+            transition: var(--transition);
+        }
+        
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .mission-statement {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links-col-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links-col-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            transition: var(--transition);
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 25px;
+        }
+        
+        .footer-links a:hover:before {
+            width: 10px;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-social a {
+            color: var(--gold);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+        
+        .legal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212,175,55,0.3);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .legal a {
+            transition: var(--transition);
+        }
+        
+        .legal a:hover {
+            color: var(--gold);
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            width: 60px;
+            height: 60px;
+            background-color: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            border: none;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-8px) scale(1.1);
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            section {
+                padding: 5rem 0;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .fighter-card-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            
+            .fighter-card {
+                width: 100%;
+                height: auto;
+            }
+            
+            .fighter-card-image {
+                height: 300px;
+            }
+            
+            .fighter-stats {
+                margin-left: 0;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .stats-row {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .polaroid {
+                flex-direction: column;
+            }
+
+            .polaroid img {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0 1.5rem;
+                height: 60px;
+            }
+            
+            .header-logo {
+                height: 66px;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--gold);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+                margin-bottom: 3rem;
+            }
+            
+            .section-title:after {
+                width: 80px;
+                height: 3px;
+            }
+            
+            .about-section {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .footer-links-col-1,
+            .footer-links-col-2 {
+                align-items: center;
+            }
+            
+            .footer-links a {
+                padding-left: 0;
+            }
+            
+            .footer-links a:before {
+                display: none;
+            }
+            
+            .footer-links a:hover {
+                padding-left: 0;
+            }
+            
+            .legal {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 3rem;
+            }
+            
+            .footer-logo {
+                height: 198px;
+                margin: 0 auto 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .fighter-name {
+                font-size: 2rem;
+            }
+            
+            .instagram-embed {
+                height: 400px;
+            }
+            
+            .scroll-top {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                bottom: 2rem;
+                right: 2rem;
+            }
+
+            .stat-label {
+                font-size: 1.2rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .stats-row {
+                gap: 1.5rem;
+            }
+
+            .polaroid {
+                flex-direction: column;
+            }
+
+            .polaroid img {
+                width: 100%;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="main-header">
+        <a href="index.html" class="header-logo">
+            <img src="mvplo.png" alt="MVP Logo" class="header-logo">
+        </a>
+        
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="box.html">Athletes</a>
+            <a href="events.html">Events</a>
+            <a href="news.html">News</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- ===== FIGHTER PROFILE SECTION ===== -->
+    <section class="fighter-profile-section">
+        <div class="container">
+            <div class="fighter-card-container">
+                <div class="fighter-card">
+                    <div class="fighter-card-image">
+                        <img src="jp.png" alt="Jake Paul">
+                    </div>
+                    <div class="fighter-card-info">
+                        <h2 class="fighter-name">Jake Paul</h2>
+                        <p class="fighter-nickname">"The Problem Child"</p>
+                        <p class="fighter-meta">Age: 28 • From: Cleveland, Ohio</p>
+                    </div>
+                </div>
+                
+                <div class="fighter-stats">
+                    <div class="stats-row">
+                        <div class="stats-group">
+                            <span class="stat-label">W</span>
+                            <span class="stat-label">KO</span>
+                            <span class="stat-label">L</span>
+                            <span class="stat-label">D</span>
+                        </div>
+                        <div class="stats-group">
+                            <span class="stat-value">24</span>
+                            <span class="stat-value">6</span>
+                            <span class="stat-value">1</span>
+                            <span class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stats-group">
+                            <span class="stat-label">Stance</span>
+                            <span class="stat-label">Height</span>
+                            <span class="stat-label">Reach</span>
+                        </div>
+                        <div class="stats-group">
+                            <span class="stat-value">Orthodox</span>
+                            <span class="stat-value">6'1"</span>
+                            <span class="stat-value">76"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fighter-social">
+                <a href="https://instagram.com/jakepaul" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/jakepaul" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://tiktok.com/@jakepaul" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/jakepaul" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Banner -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MVP ATHLETE</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">THE PROBLEM CHILD</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MVP ATHLETE</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="container">
+        <h2 class="section-title">About The Fighter</h2>
+        <div class="about-section">
+            <div class="about-content">
+                <p>Nicknamed "The Problem Child," Jake Paul made a sensational professional debut in January 2020, securing a first-round TKO against AnEsonGib. Since then, he has achieved an impressive 11-1 record, with notable victories over former MMA stars such as Ben Askren, Tyron Woodley (twice), Anderson Silva, and Nate Diaz.</p>
+                <p>In November 2024, Paul secured a unanimous decision win over boxing legend Mike Tyson, further solidifying his status in the boxing world. Known for his dynamic presence and commitment to the sport, Paul continues to be a compelling and influential figure in modern boxing.</p>
+                <p>Born in Cleveland, Ohio, Paul now resides and trains in Dorado, Puerto Rico. Standing 6'1" with a 76" reach, the orthodox fighter has shown continuous improvement since transitioning from social media fame to professional boxing.</p>
+            </div>
+            
+            <div class="polaroid-gallery">
+                <div class="polaroid">
+                    <img src="jp.png" alt="Jake Paul vs Mike Tyson">
+                    <div class="polaroid-info">
+                        <div class="polaroid-opponent">vs Mike Tyson</div>
+                        <div class="polaroid-date">2024-11-15</div>
+                    </div>
+                </div>
+                
+                <div class="polaroid">
+                    <img src="jp.png" alt="Jake Paul vs Nate Diaz">
+                    <div class="polaroid-info">
+                        <div class="polaroid-opponent">vs Nate Diaz</div>
+                        <div class="polaroid-date">2023-08-05</div>
+                    </div>
+                </div>
+                
+                <div class="polaroid">
+                    <img src="jp.png" alt="Jake Paul vs Tyron Woodley">
+                    <div class="polaroid-info">
+                        <div class="polaroid-opponent">vs Tyron Woodley</div>
+                        <div class="polaroid-date">2021-12-18</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Banner -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MVP ATHLETE</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">THE PROBLEM CHILD</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MVP ATHLETE</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+
+    <!-- ===== CAREER SECTION ===== -->
+    <section class="container">
+        <h2 class="section-title">Career Highlights</h2>
+        
+        <table class="career-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Opponent</th>
+                    <th>Venue</th>
+                    <th>Result</th>
+                    <th>Round</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-06-28</td>
+                    <td>Julio Cesar Chavez Jr</td>
+                    <td>Honda Center, Anaheim</td>
+                    <td class="result-win">W</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>2024-11-15</td>
+                    <td>Mike Tyson</td>
+                    <td>AT&T Stadium, Arlington</td>
+                    <td class="result-win">W-UD</td>
+                    <td>8/8</td>
+                </tr>
+                <tr>
+                    <td>2024-07-20</td>
+                    <td>Michael Perry</td>
+                    <td>Amalie Arena, Tampa</td>
+                    <td class="result-win">W-TKO</td>
+                    <td>6/8</td>
+                </tr>
+                <tr>
+                    <td>2024-03-02</td>
+                    <td>Ryan Bourland</td>
+                    <td>Coliseo Jose Miguel Agrelot, San Juan</td>
+                    <td class="result-win">W-TKO</td>
+                    <td>1/8</td>
+                </tr>
+                <tr>
+                    <td>2023-12-15</td>
+                    <td>Andre August</td>
+                    <td>Caribe Royale Orlando, Orlando</td>
+                    <td class="result-win">W-KO</td>
+                    <td>1/8</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="view-more">
+            <button class="btn">View Full Career</button>
+        </div>
+    </section>
+
+    <!-- ===== INSTAGRAM SECTION ===== -->
+    <section class="instagram-section container">
+        <h2 class="section-title">Instagram</h2>
+        
+        <div class="instagram-embed">
+            <iframe src="https://www.instagram.com/jakepaul/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+    </section>
+
+    <!-- ===== VIEW ALL FIGHTERS ===== -->
+    <div class="view-all-fighters">
+        <a href="box.html" class="btn">View All Fighters</a>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
+                    <p class="mission-statement">
+                        Most Valuable Promotions is committed to empowering fighters with enhanced creative control. 
+                        The organization focuses on strategically identifying, developing, and maximizing the value 
+                        of its events and talent partnerships to ensure optimal returns.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/MostVpromotions" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-1">
+                        <a href="index.html">Home</a>
+                        <a href="box.html">Athletes</a>
+                        <a href="events.html">Events</a>
+                        <a href="news.html">News</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-2">
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <p>For general inquiries:</p>
+                        <p><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
+                        <p>For press inquiries:</p>
+                        <p><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal">
+                <span>©2025 Most Valuable Promotions. All rights reserved.</span>
+                <div>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== SCROLL TO TOP ===== -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Scroll to Top Button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.scroll-top');
+            const header = document.getElementById('main-header');
+            
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('active');
+                header.classList.add('hidden');
+            } else {
+                scrollTop.classList.remove('active');
+                header.classList.remove('hidden');
+            }
+        });
+        
+        document.querySelector('.scroll-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Header logo scroll to top
+        document.querySelector('.header-logo').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // View Full Career functionality
+        document.querySelector('.view-more .btn').addEventListener('click', function() {
+            const tableBody = document.querySelector('.career-table tbody');
+            const hiddenFights = `
+                <tr>
+                    <td>2023-08-05</td>
+                    <td>Nate Diaz</td>
+                    <td>American Airlines Center, Dallas</td>
+                    <td class="result-win">W-UD</td>
+                    <td>10/10</td>
+                </tr>
+                <tr>
+                    <td>2023-02-26</td>
+                    <td>Tommy Fury</td>
+                    <td>Diriyah Arena, Diriyah</td>
+                    <td class="result-loss">L-SD</td>
+                    <td>8/8</td>
+                </tr>
+                <tr>
+                    <td>2022-10-29</td>
+                    <td>Anderson Silva</td>
+                    <td>Gila River Arena, Glendale</td>
+                    <td class="result-win">W-UD</td>
+                    <td>8/8</td>
+                </tr>
+                <tr>
+                    <td>2021-12-18</td>
+                    <td>Tyron Woodley</td>
+                    <td>Amalie Arena, Tampa</td>
+                    <td class="result-win">W-KO</td>
+                    <td>6/8</td>
+                </tr>
+                <tr>
+                    <td>2021-08-29</td>
+                    <td>Tyron Woodley</td>
+                    <td>Rocket Mortgage FieldHouse, Cleveland</td>
+                    <td class="result-win">W-SD</td>
+                    <td>8/8</td>
+                </tr>
+            `;
+            
+            if (this.textContent.includes('View')) {
+                tableBody.innerHTML += hiddenFights;
+                this.textContent = 'Show Less';
+            } else {
+                const rows = tableBody.querySelectorAll('tr');
+                for (let i = 5; i < rows.length; i++) {
+                    rows[i].remove();
+                }
+                this.textContent = 'View Full Career';
+            }
+        });
+    </script>
+</body>
+</html>

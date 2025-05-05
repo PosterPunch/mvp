@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fighters | Most Valuable Promotions</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --black: #000000;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform: skewX(-20deg);
+        }
+        
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+        }
+        
+        .btn span {
+            display: inline-block;
+        }
+        
+        section {
+            padding: 12rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 6rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-subtitle {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after,
+        .section-subtitle:after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background-color: var(--gold);
+            margin: 25px auto;
+            transition: var(--transition);
+        }
+
+        /* ===== SUBSECTION HEADERS ===== */
+        .subsection-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .subsection-title {
+            font-size: 2.2rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-left: 2rem;
+            margin-right: 2rem;
+        }
+
+        .subsection-title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 40px;
+            background-color: var(--gold);
+        }
+        
+        .subsection-line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 2rem 0;
+        }
+        
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner 8s linear infinite;
+        }
+        
+        .banner-item {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .banner-logo {
+            height: 60px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--gold);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        header.hidden {
+            transform: translateY(-70px);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .header-logo {
+            height: 120px;
+            filter: brightness(0);
+            margin-right: auto;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--black);
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease;
+        }
+        
+        header.hidden .nav-links a {
+            color: var(--white);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+        
+        header.hidden .nav-links a:after {
+            background-color: var(--gold);
+        }
+        
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--black);
+            transition: color 0.3s ease;
+        }
+        
+        header.hidden .hamburger {
+            color: var(--white);
+        }
+        
+        /* ===== FIGHTERS SECTION ===== */
+        .fighters-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            justify-items: center;
+        }
+        
+        .fighter-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+        }
+        
+        .fighter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+        
+        .fighter-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .fighter-name-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .fighter-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .fighter-card:hover .fighter-overlay,
+        .fighter-card.active .fighter-overlay {
+            opacity: 1;
+        }
+        
+        .fighter-card:hover .fighter-name-container,
+        .fighter-card.active .fighter-name-container {
+            opacity: 0;
+        }
+        
+        .fighter-nickname {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 0.8rem 0.3rem;
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            z-index: 2;
+            letter-spacing: 1px;
+        }
+        
+        .fighter-name {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .fighter-first-name {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--gold);
+            line-height: 1;
+        }
+        
+        .fighter-last-name {
+            display: block;
+            font-size: 2rem;
+            color: var(--white);
+            line-height: 1;
+        }
+        
+        .fighter-stats {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fighter-stats p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .fighter-stats span {
+            color: var(--gold);
+        }
+        
+        .fighter-profile-btn {
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 0.5rem 1rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+        
+        .fighter-profile-btn:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #0a0a0a;
+            padding: 6rem 0 3rem;
+            border-top: 1px solid var(--gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .footer-logo {
+            height: 165px;
+            margin-bottom: 0.5rem;
+            filter: brightness(0) invert(1);
+        }
+        
+        .mission-statement {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links-col-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links-col-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            transition: var(--transition);
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 25px;
+        }
+        
+        .footer-links a:hover:before {
+            width: 10px;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .legal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .legal a {
+            transition: var(--transition);
+        }
+        
+        .legal a:hover {
+            color: var(--gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-social a {
+            color: var(--gold);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 8rem;
+            right: 3rem;
+            width: 70px;
+            height: 70px;
+            background-color: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-8px) scale(1.1);
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* ===== MOBILE RESPONSIVENESS ===== */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 3rem;
+            }
+            
+            section {
+                padding: 10rem 0;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0 1.5rem;
+                height: 60px;
+            }
+            
+            .header-logo {
+                height: 66px;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--gold);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+                margin-bottom: 4rem;
+            }
+            
+            .section-subtitle {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .section-title:after,
+            .section-subtitle:after {
+                width: 80px;
+                height: 3px;
+            }
+            
+            .fighters-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.7rem;
+            }
+            
+            .fighter-card {
+                height: 250px;
+            }
+            
+            .fighter-overlay {
+                padding: 1.5rem;
+            }
+            
+            .fighter-first-name {
+                font-size: 1.2rem;
+            }
+            
+            .fighter-last-name {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .footer-links-col-1,
+            .footer-links-col-2 {
+                align-items: center;
+            }
+            
+            .footer-links a {
+                padding-left: 0;
+            }
+            
+            .footer-links a:before {
+                display: none;
+            }
+            
+            .footer-links a:hover {
+                padding-left: 0;
+            }
+            
+            .legal {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 3rem;
+            }
+            
+            section {
+                padding: 8rem 0;
+            }
+            
+            .footer-logo {
+                height: 198px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+            
+            .section {
+                padding: 6rem 0;
+            }
+
+            .subsection-title {
+                font-size: 1.5rem;
+                padding-left: 1rem;
+            }
+            
+            .subsection-title:before {
+                width: 4px;
+                height: 25px;
+            }
+
+            .fighter-card {
+                height: 200px;
+            }
+            
+            .fighter-overlay {
+                padding: 0.75rem;
+            }
+
+            .fighter-first-name {
+                font-size: 1rem;
+            }
+            
+            .fighter-last-name {
+                font-size: 1.2rem;
+            }
+            
+            .fighter-stats {
+                font-size: 0.8rem;
+            }
+            
+            .scroll-top {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 2rem;
+                right: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="main-header">
+        <a href="index.html" class="header-logo">
+            <img src="mvplo.png" alt="MVP Logo" class="header-logo">
+        </a>
+        
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="box.html" class="active">Athletes</a>
+            <a href="events.html">Events</a>
+            <a href="news.html">News</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- ===== MAIN TITLE ===== -->
+    <section class="container" style="padding-top: 15rem;">
+        <h1 class="section-title animate">MVP FIGHTERS</h1>
+    </section>
+
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+        </div>
+    </div>
+
+    <!-- ===== MEN'S FIGHTERS SECTION ===== -->
+    <section class="container">
+        <h2 class="subsection-title">Men's Division</h2>
+        <div class="subsection-line"></div>
+        
+        <div class="fighters-container">
+            <!-- Jake Paul -->
+            <a href="jp.html" class="fighter-card animate">
+                <img src="jp.png" alt="Jake Paul" class="fighter-img">
+                <div class="fighter-nickname">The Problem Child</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">JAKE</span>
+                        <span class="fighter-last-name">PAUL</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>11-1 (9 KOs)</span></p>
+                        <p>Weight Class: <span>Cruiserweight (200 lbs)</span></p>
+                        <p>Reach: <span>77"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- H2O Sylve -->
+            <a href="/athletes/h2o-sylve" class="fighter-card animate delay-1">
+                <img src="sh.png" alt="H2O Sylve" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">H2O</span>
+                        <span class="fighter-last-name">SYLVE</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>11-1 (9 KOs)</span></p>
+                        <p>Weight Class: <span>Lightweight (134 lbs)</span></p>
+                        <p>Reach: <span>72"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Javon Walton -->
+            <a href="/athletes/javon-walton" class="fighter-card animate delay-2">
+                <img src="walton.png" alt="Javon Walton" class="fighter-img">
+                <div class="fighter-nickname">Wanna</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">JAVON</span>
+                        <span class="fighter-last-name">WALTON</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>2-0-1 (1 KO)</span></p>
+                        <p>Weight Class: <span>Super Bantamweight (121 lbs)</span></p>
+                        <p>Reach: <span>68"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Neeraj Goyat -->
+            <a href="/athletes/neeraj-goyat" class="fighter-card animate delay-3">
+                <img src="goyat.png" alt="Neeraj Goyat" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">NEERAJ</span>
+                        <span class="fighter-last-name">GOYAT</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>19-4-2 (8 KOs)</span></p>
+                        <p>Weight Class: <span>Welterweight (147 lbs)</span></p>
+                        <p>Reach: <span>70"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Lucas Bahdi -->
+            <a href="/athletes/lucas-bahdi" class="fighter-card animate">
+                <img src="bahdi.png" alt="Lucas Bahdi" class="fighter-img">
+                <div class="fighter-nickname">Prince</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">LUCAS</span>
+                        <span class="fighter-last-name">BAHDI</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>19-0 (15 KOs)</span></p>
+                        <p>Weight Class: <span>Lightweight (134 lbs)</span></p>
+                        <p>Reach: <span>72"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Alexis Chaparro -->
+            <a href="/athletes/alexis-chaparro" class="fighter-card animate delay-1">
+                <img src="chopchop.png" alt="Alexis Chaparro" class="fighter-img">
+                <div class="fighter-nickname">Chop Chop</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">ALEXIS</span>
+                        <span class="fighter-last-name">CHAPARRO</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>3-0 (3 KOs)</span></p>
+                        <p>Weight Class: <span>Super Middleweight (165 lbs)</span></p>
+                        <p>Reach: <span>74"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Jan Paul Rivera -->
+            <a href="/athletes/jan-paul-rivera" class="fighter-card animate delay-2">
+                <img src="rivera.png" alt="Jan Paul Rivera" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">JAN PAUL</span>
+                        <span class="fighter-last-name">RIVERA</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>11-0 (6 KOs)</span></p>
+                        <p>Weight Class: <span>Featherweight (128 lbs)</span></p>
+                        <p>Reach: <span>68"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Alexander Gueche -->
+            <a href="/athletes/alexander-gueche" class="fighter-card animate">
+                <img src="gue.png" alt="Alexander Gueche" class="fighter-img">
+                <div class="fighter-nickname">The Alley Cat</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">ALEXANDER</span>
+                        <span class="fighter-last-name">GUECHE</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>7-0 (5 KOs)</span></p>
+                        <p>Weight Class: <span>Bantamweight (118 lbs)</span></p>
+                        <p>Reach: <span>69"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Keno Marley -->
+            <a href="/athletes/keno-marley" class="fighter-card animate delay-1">
+                <img src="marley.png" alt="Keno Marley" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">KENO</span>
+                        <span class="fighter-last-name">MARLEY</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>0-0</span></p>
+                        <p>Weight Class: <span>Cruiserweight (200 lbs)</span></p>
+                        <p>Reach: <span>78"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETES</div>
+        </div>
+    </div>
+
+    <!-- ===== WOMEN'S FIGHTERS SECTION ===== -->
+    <section class="container" style="padding-bottom: 15rem;">
+        <h2 class="subsection-title">Women's Division</h2>
+        <div class="subsection-line"></div>
+        
+        <div class="fighters-container">
+            <!-- Amanda Serrano -->
+            <a href="/athletes/amanda-serrano" class="fighter-card animate">
+                <img src="as.png" alt="Amanda Serrano" class="fighter-img">
+                <div class="fighter-nickname">The Real Deal</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">AMANDA</span>
+                        <span class="fighter-last-name">SERRANO</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>47-3-1 (31 KOs)</span></p>
+                        <p>Weight Class: <span>Featherweight (126 lbs)</span></p>
+                        <p>Reach: <span>67"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Alycia Baumgardner -->
+            <a href="/athletes/alycia-baumgardner" class="fighter-card animate delay-1">
+                <img src="ab.png" alt="Alycia Baumgardner" class="fighter-img">
+                <div class="fighter-nickname">The Bomb</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">ALYCIA</span>
+                        <span class="fighter-last-name">BAUMGARDNER</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>15-1 (7 KOs)</span></p>
+                        <p>Weight Class: <span>Super Featherweight (130 lbs)</span></p>
+                        <p>Reach: <span>69"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Shadasia Green -->
+            <a href="/athletes/shadasia-green" class="fighter-card animate delay-2">
+                <img src="green.png" alt="Shadasia Green" class="fighter-img">
+                <div class="fighter-nickname">The Sweet Terminator</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">SHADASIA</span>
+                        <span class="fighter-last-name">GREEN</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>14-1 (11 KOs)</span></p>
+                        <p>Weight Class: <span>Super Middleweight (168 lbs)</span></p>
+                        <p>Reach: <span>74"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Krystal Rosado -->
+            <a href="/athletes/krystal-rosado" class="fighter-card animate delay-3">
+                <img src="rosado.png" alt="Krystal Rosado" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">KRYSTAL</span>
+                        <span class="fighter-last-name">ROSADO</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>5-0 (2 KOs)</span></p>
+                        <p>Weight Class: <span>Super Flyweight (114 lbs)</span></p>
+                        <p>Reach: <span>66"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+
+            <!-- Tamm Thibeault -->
+            <a href="/athletes/tamm-thibeault" class="fighter-card animate delay-3">
+                <img src="thi.png" alt="Tamm Thibeault" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">TAMM</span>
+                        <span class="fighter-last-name">THIBEAULT</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>2-0 (1 KO)</span></p>
+                        <p>Weight Class: <span>Super Middleweight (165 lbs)</span></p>
+                        <p>Reach: <span>74"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Dina Thorslund -->
+            <a href="/athletes/dina-thorslund" class="fighter-card animate">
+                <img src="thors.png" alt="Dina Thorslund" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">DINA</span>
+                        <span class="fighter-last-name">THORSLUND</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>23-0 (9 KOs)</span></p>
+                        <p>Weight Class: <span>Bantamweight (118 lbs)</span></p>
+                        <p>Reach: <span>69"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Ramla Ali -->
+            <a href="/athletes/ramla-ali" class="fighter-card animate delay-1">
+                <img src="ali.png" alt="Ramla Ali" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">RAMLA</span>
+                        <span class="fighter-last-name">ALI</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>9-2</span></p>
+                        <p>Weight Class: <span>Super Bantamweight (122 lbs)</span></p>
+                        <p>Reach: <span>67"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Yokasta Valle -->
+            <a href="/athletes/yokasta-valle" class="fighter-card animate delay-2">
+                <img src="valle.png" alt="Yokasta Valle" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">YOKASTA</span>
+                        <span class="fighter-last-name">VALLE</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>14-0 (9 KOs)</span></p>
+                        <p>Weight Class: <span>Light Flyweight (108 lbs)</span></p>
+                        <p>Reach: <span>65"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Nat Dove -->
+            <a href="/athletes/nat-dove" class="fighter-card animate delay-3">
+                <img src="love.png" alt="Nat Dove" class="fighter-img">
+                <div class="fighter-nickname">No Love</div>
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">NAT</span>
+                        <span class="fighter-last-name">DOVE</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>5-0</span></p>
+                        <p>Weight Class: <span>Super Flyweight (115 lbs)</span></p>
+                        <p>Reach: <span>66"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Jennifer Miranda -->
+            <a href="/athletes/jennifer-miranda" class="fighter-card animate">
+                <img src="mir.png" alt="Jennifer Miranda" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">JENNIFER</span>
+                        <span class="fighter-last-name">MIRANDA</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>12-0 (1 KO)</span></p>
+                        <p>Weight Class: <span>Featherweight (126 lbs)</span></p>
+                        <p>Reach: <span>68"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Ellie Scotney -->
+            <a href="/athletes/ellie-scotney" class="fighter-card animate delay-1">
+                <img src="scot.png" alt="Ellie Scotney" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">ELLIE</span>
+                        <span class="fighter-last-name">SCOTNEY</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>10-0</span></p>
+                        <p>Weight Class: <span>Super Bantamweight (122 lbs)</span></p>
+                        <p>Reach: <span>66"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Shurretta Metcalf -->
+            <a href="/athletes/shurretta-metcalf" class="fighter-card animate delay-2">
+                <img src="met.png" alt="Shurretta Metcalf" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">SHURRETTA</span>
+                        <span class="fighter-last-name">METCALF</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>14-4-1 (2 KOs)</span></p>
+                        <p>Weight Class: <span>Bantamweight (118 lbs)</span></p>
+                        <p>Reach: <span>69"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+            
+            <!-- Elizabeth Oshoba -->
+            <a href="/athletes/elizabeth-oshoba" class="fighter-card animate delay-3">
+                <img src="oshoba.png" alt="Elizabeth Oshoba" class="fighter-img">
+                <div class="fighter-name-container">
+                    <div class="fighter-name">
+                        <span class="fighter-first-name">ELIZABETH</span>
+                        <span class="fighter-last-name">OSHABA</span>
+                    </div>
+                </div>
+                <div class="fighter-overlay">
+                    <div class="fighter-stats">
+                        <p>Record: <span>9-0 (5 KOs)</span></p>
+                        <p>Weight Class: <span>Featherweight (126 lbs)</span></p>
+                        <p>Reach: <span>68"</span></p>
+                    </div>
+                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Moving Banner Before Footer -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col animate">
+                    <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
+                    <p class="mission-statement">
+                        Most Valuable Promotions is committed to empowering fighters with enhanced creative control. 
+                        The organization focuses on strategically identifying, developing, and maximizing the value 
+                        of its events and talent partnerships to ensure optimal returns.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/MostVpromotions" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-1">
+                        <a href="index.html" class="animate">Home</a>
+                        <a href="box.html" class="animate delay-1">Athletes</a>
+                        <a href="events.html" class="animate delay-2">Events</a>
+                        <a href="news.html" class="animate delay-3">News</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-2">
+                        <a href="about.html" class="animate">About</a>
+                        <a href="contact.html" class="animate delay-1">Contact</a>
+                    </div>
+                    
+                    <div class="contact-info" style="margin-top: 2rem;">
+                        <p>For general inquiries:</p>
+                        <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
+                        <p class="animate delay-1">For press inquiries:</p>
+                        <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal">
+                <span class="animate">©2025 Most Valuable Promotions. All rights reserved.</span>
+                <div>
+                    <a href="terms.html" class="animate delay-3">Terms</a>
+                    <a href="pp.html" class="animate delay-4">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== SCROLL TO TOP ===== -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Scroll to Top Button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('active');
+            } else {
+                scrollTop.classList.remove('active');
+            }
+        });
+        
+        document.querySelector('.scroll-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Header logo scroll to top
+        document.querySelector('.header-logo').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll Animations
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fadeInUp');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Touch support for fighter cards
+        document.querySelectorAll('.fighter-card').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.classList.add('active');
+            });
+            
+            card.addEventListener('touchend', function() {
+                this.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

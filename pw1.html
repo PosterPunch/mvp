@@ -1,0 +1,1180 @@
+n<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Valuable Prospects 8 | Most Valuable Promotions</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --black: #000000;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform: skewX(-20deg);
+        }
+        
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+        }
+        
+        .btn span {
+            display: inline-block;
+        }
+        
+        section {
+            padding: 12rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 6rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-subtitle {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after,
+        .section-subtitle:after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background-color: var(--gold);
+            margin: 25px auto;
+            transition: var(--transition);
+        }
+
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 2rem 0;
+        }
+        
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner 8s linear infinite;
+        }
+        
+        .banner-item {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .banner-logo {
+            height: 60px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
+        }
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== EVENT HEADER ===== */
+        .event-header {
+            position: relative;
+            width: 100%;
+            padding: 8rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 70px;
+            text-align: center;
+        }
+        
+        .event-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+        }
+        
+        .event-header-title {
+            font-size: 5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .event-header-subtitle {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .event-header-date {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            color: var(--gold);
+        }
+        
+        /* ===== EVENT DETAILS ===== */
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+        
+        .event-main-content {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .event-sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .event-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+        
+        .fight-card {
+            margin-top: 4rem;
+        }
+        
+        .fight-card-title {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .fight-card-title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 40px;
+            background-color: var(--gold);
+        }
+        
+        .fight-card-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 1.5rem;
+        }
+        
+        .fight-card-main-event {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
+        }
+        
+        .fight-card-bout {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+        
+        .fight-card-details {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .event-info-box {
+            background-color: rgba(212, 175, 55, 0.05);
+            padding: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 2rem;
+        }
+        
+        .event-info-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .event-info-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .event-info-label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        /* Event Info with Poster */
+        .event-info-with-poster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .event-info-content {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .event-poster-container {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .event-poster {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-poster-caption {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            color: var(--gold);
+            font-style: italic;
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--gold);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        header.hidden {
+            transform: translateY(-70px);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .header-logo {
+            height: 120px;
+            filter: brightness(0);
+            margin-right: auto;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--black);
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease;
+        }
+        
+        header.hidden .nav-links a {
+            color: var(--white);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+        
+        header.hidden .nav-links a:after {
+            background-color: var(--gold);
+        }
+        
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--black);
+            transition: color 0.3s ease;
+        }
+        
+        header.hidden .hamburger {
+            color: var(--white);
+        }
+        
+        /* ===== PARTNERS SECTION ===== */
+        .partners {
+            text-align: center;
+            padding: 10rem 0;
+        }
+        
+        .partners h3 {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--gold);
+        }
+        
+        .partner-logos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .partner-logos-top, .partner-logos-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+        
+        .partner-logos img {
+            height: 70px;
+            opacity: 1;
+            transition: var(--transition);
+        }
+
+        .partner-logos img[src="msg.png"] {
+            height: 160px;
+        }
+        
+        .partner-logos img[src="dazn.png"],
+        .partner-logos img[src="clogo.png"],
+        .partner-logos img[src="netflix.png"] {
+            filter: brightness(0) invert(1);
+        }
+        
+        .partner-logos img:hover {
+            transform: scale(1.15);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #0a0a0a;
+            padding: 6rem 0 3rem;
+            border-top: 1px solid var(--gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .footer-logo {
+            height: 165px;
+            margin-bottom: 0.5rem;
+            filter: brightness(0) invert(1);
+        }
+        
+        .mission-statement {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links-col-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links-col-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            transition: var(--transition);
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 25px;
+        }
+        
+        .footer-links a:hover:before {
+            width: 10px;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .legal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .legal a {
+            transition: var(--transition);
+        }
+        
+        .legal a:hover {
+            color: var(--gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+	.footer-social {
+	    display: flex;
+	    gap: 1.5rem;
+	    margin-top: 2rem;
+	}
+	
+	.footer-social a {
+	    color: var(--gold);
+	    font-size: 1.5rem;
+    	transition: var(--transition);
+	}
+
+	.footer-social a:hover {
+	    opacity: 0.8;
+	    transform: translateY(-2px);
+	}
+        
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 8rem;
+            right: 3rem;
+            width: 70px;
+            height: 70px;
+            background-color: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-8px) scale(1.1);
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* ===== MOBILE RESPONSIVENESS ===== */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 3rem;
+            }
+            
+            section {
+                padding: 10rem 0;
+            }
+            
+            .partners {
+                padding: 8rem 0;
+            }
+            
+            footer {
+                padding: 5rem 0 3rem;
+            }
+            
+            .event-header-title {
+                font-size: 4rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .event-details {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0 1.5rem;
+                height: 60px;
+            }
+            
+            .header-logo {
+                height: 66px;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--gold);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+                margin-bottom: 4rem;
+            }
+            
+            .section-subtitle {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .section-title:after,
+            .section-subtitle:after {
+                width: 80px;
+                height: 3px;
+            }
+            
+            .event-header {
+                padding: 6rem 0;
+            }
+            
+            .event-header-title {
+                font-size: 3rem;
+            }
+            
+            .event-header-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .event-header-date {
+                font-size: 1.3rem;
+            }
+            
+            .fight-card-title {
+                font-size: 1.8rem;
+            }
+            
+            .fight-card-bout {
+                font-size: 1.2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .footer-links-col-1,
+            .footer-links-col-2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                text-align: left;
+                padding: 0 2rem;
+            }
+            
+            .footer-links a {
+                padding-left: 0;
+            }
+            
+            .footer-links a:before {
+                display: none;
+            }
+            
+            .footer-links a:hover {
+                padding-left: 0;
+            }
+            
+            .legal {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 3rem;
+            }
+            
+            section {
+                padding: 8rem 0;
+            }
+            
+            .partners {
+                padding: 8rem 0;
+            }
+            
+            .footer-logo {
+                height: 198px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .event-info-with-poster {
+                flex-direction: column;
+            }
+
+            .event-poster-container {
+                order: -1;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+            
+            .section {
+                padding: 6rem 0;
+            }
+            
+            .event-header {
+                padding: 4rem 0;
+                margin-top: 60px;
+            }
+            
+            .event-header-title {
+                font-size: 2.2rem;
+            }
+            
+            .event-header-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .event-header-date {
+                font-size: 1rem;
+            }
+            
+            .partners {
+                padding: 6rem 0;
+            }
+            
+            .scroll-top {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 2rem;
+                right: 2rem;
+            }
+
+            .partner-logos {
+                gap: 2rem;
+            }
+            
+            .partner-logos img {
+                height: 50px;
+            }
+
+            .partner-logos img[src="msg.png"] {
+                height: 100px;
+            }
+
+            .footer-links-col-1,
+            .footer-links-col-2 {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="main-header">
+        <a href="index.html" class="header-logo">
+            <img src="mvplo.png" alt="MVP Logo" class="header-logo">
+        </a>
+        
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="box.html">Athletes</a>
+            <a href="events.html">Events</a>
+            <a href="news.html">News</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- ===== EVENT HEADER ===== -->
+    <div class="event-header">
+        <div class="event-header-content">
+            <h1 class="event-header-title animate">MVP: Most Valuable Prospects 8</h1>
+            <p class="event-header-subtitle animate delay-1">September 6, 2024 • Caribe Royale Resort • Orlando, Florida</p>
+        </div>
+    </div>
+
+    <!-- ===== EVENT DETAILS ===== -->
+    <section class="container">
+        <div class="event-details">
+            <div class="event-main-content">
+                <h2 class="section-title animate">Event Recap</h2>
+                
+                <div class="event-description animate delay-1">
+                    <p>On Friday, September 6, MVP and Boxlab Promotions delivered another electrifying night of boxing at the Caribe Royale Resort in Orlando, Florida. The action was broadcast live on DAZN, with the prelims streamed on YouTube, giving fans around the world front-row access to rising stars across the sport.</p>
+                    
+                    <p>In the main event, <strong>Kevin Brown</strong> defended his WBA Continental Americas Super Lightweight Title in dominant fashion against <strong>John Bauza</strong>, earning a unanimous decision with scores of 96-93, 98-91, and 97-92. Brown dropped Bauza in the first round with a body shot and remained in control throughout, improving to 6-0 and continuing his ascent as a top contender.</p>
+
+                    <p>The co-main event saw <strong>Hendri "La Bazuca" Cedeno</strong> (14-0, 11 KOs) maintain his undefeated record with a fifth-round TKO over <strong>Enriko "Gudan" Gogokhia</strong>, who retired due to a shoulder injury.</p>
+                </div>
+                
+                <div class="fight-card">
+                    <h3 class="fight-card-title animate delay-2">Main Card Highlights</h3>
+                    
+                    <div class="fight-card-item fight-card-main-event animate delay-3">
+                        <div class="fight-card-bout">Kevin Brown vs. John Bauza</div>
+                        <div class="fight-card-details">10 Rounds – Super Lightweight<br>🏆 WBA Continental Americas Title<br>Winner: Kevin Brown by Unanimous Decision (96-93, 98-91, 97-92)</div>
+                    </div>
+                    
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Hendri Cedeno vs. Enriko Gogokhia</div>
+                        <div class="fight-card-details">10 Rounds – Super Lightweight<br>Winner: Hendri Cedeno by TKO (Retirement, Round 5)</div>
+                    </div>
+
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Yoelvis Gomez vs. Diego Ferreira</div>
+                        <div class="fight-card-details">8 Rounds – Middleweight<br>Winner: Yoelvis Gomez by TKO (Retirement, Round 4)</div>
+                    </div>
+
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Carlos Lebron vs. Luis Quiles</div>
+                        <div class="fight-card-details">6 Rounds – Bantamweight<br>Result: Majority Draw</div>
+                    </div>
+
+                    <h3 class="fight-card-title animate delay-2" style="margin-top: 3rem;">Preliminary Card Highlights</h3>
+
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Antraveous Ingram vs. Cruse Stewart</div>
+                        <div class="fight-card-details">6 Rounds – Super Welterweight<br>Winner: Antraveous Ingram by TKO (Round 5)</div>
+                    </div>
+
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Bree Howling vs. Beata Dudek</div>
+                        <div class="fight-card-details">6 Rounds – Featherweight<br>Winner: Bree Howling by Unanimous Decision (80-72 x3)</div>
+                    </div>
+
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Harley Mederos vs. Nikolai Buzolin</div>
+                        <div class="fight-card-details">6 Rounds – Lightweight<br>Winner: Harley Mederos by TKO (Round 3)</div>
+                    </div>
+
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Natalie Dove vs. Wendy Villegas</div>
+                        <div class="fight-card-details">4 Rounds – Super Flyweight<br>Winner: Natalie Dove by Unanimous Decision (40-36 x3)</div>
+                    </div>
+
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Christian Rivera vs. Rommel Toran</div>
+                        <div class="fight-card-details">4 Rounds – Featherweight<br>Winner: Christian Rivera by Unanimous Decision</div>
+                    </div>
+
+                    <h3 class="fight-card-title animate delay-2" style="margin-top: 3rem;">Cancelled Bouts</h3>
+                    <div class="fight-card-item animate">
+                        <div class="fight-card-bout">Javon Walton vs. Erik Hanley</div>
+                        <div class="fight-card-details">Cancelled due to illness</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-sidebar">
+                <div class="event-info-box animate">
+                    <h4 class="event-info-title">Event Details</h4>
+
+                    <div class="event-poster-container">
+                        <img src="p8.png" alt="Most Valuable Prospects 8 Poster" class="event-poster">
+                        <p class="event-poster-caption">Official Event Poster</p>  
+                    </div>
+                    
+                    
+                    
+                    <div class="event-info-item">
+                        <div class="event-info-label">Date</div>
+                        <div>September 6, 2024</div>
+                    </div>
+                    
+                    <div class="event-info-item">
+                        <div class="event-info-label">Location</div>
+                        <div>Caribe Royale Resort<br>Orlando, Florida</div>
+                    </div>
+                    
+                    <div class="event-info-item">
+                        <div class="event-info-label">Broadcast</div>
+                        <div>Live on DAZN | Prelims on YouTube</div>
+                    </div>
+                    
+                    <div class="event-info-item">
+                        <div class="event-info-label">Promoters</div>
+                        <div>Most Valuable Promotions & Boxlab Promotions</div>
+                    </div>
+
+                    <div class="event-info-item">
+                        <div class="event-info-label">Sponsor</div>
+                        <div>CELSIUS Live Fit</div>
+                    </div>
+
+                    <a href="https://www.dazn.com/en-CA/home" target="_blank" class="btn" style="width: 100%; text-align: center; margin-top: 1.5rem;"><span>Watch on DAZN</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- View All Events Button -->
+    <div class="container" style="text-align: center; margin: 4rem auto;">
+        <a href="events.html" class="btn animate"><span>View All Events</span></a>
+    </div>
+
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
+
+    <!-- ===== PARTNERS SECTION ===== -->
+    <section class="partners">
+        <div class="container">
+            <h3 class="animate">Event Partners</h3>
+            
+            <div class="partner-logos">
+                <div class="partner-logos-top">
+                    <img src="dazn.png" alt="DAZN" class="animate">
+                    <img src="etc-logo.png" alt="Event Tickets Center" class="animate delay-1">
+                    <img src="fansly.png" alt="Event Tickets Center" class="animate delay-1">
+                </div>
+                <div class="partner-logos-bottom">
+                    <img src="boxlablogo.png" alt="Boxlab Promotions" class="animate delay-2">
+                    <img src="crlogo.png" alt="Caribe Royale" class="animate delay-3">
+                    <img src="clogo.png" alt="CELSIUS" class="animate">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col animate">
+                    <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
+                    <p class="mission-statement">
+                        Most Valuable Promotions is committed to empowering fighters with enhanced creative control. 
+                        The organization focuses on strategically identifying, developing, and maximizing the value 
+                        of its events and talent partnerships to ensure optimal returns.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/MostVpromotions" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-1">
+                        <a href="index.html" class="animate">Home</a>
+                        <a href="box.html" class="animate delay-1">Athletes</a>
+                        <a href="events.html" class="animate delay-2">Events</a>
+                        <a href="news.html" class="animate delay-3">News</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <div class="footer-links-col-2">
+                        <a href="about.html" class="animate">About</a>
+                        <a href="contact.html" class="animate delay-1">Contact</a>
+                    </div>
+                    
+                    <div class="contact-info" style="margin-top: 2rem;">
+                        <p>For general inquiries:</p>
+                        <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
+                        <p class="animate delay-1">For press inquiries:</p>
+                        <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal">
+                <span class="animate">©2025 Most Valuable Promotions. All rights reserved.</span>
+                <div>
+                    <a href="terms.html" class="animate delay-3">Terms</a>
+                    <a href="pp.html" class="animate delay-4">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== SCROLL TO TOP ===== -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Scroll to Top Button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('active');
+            } else {
+                scrollTop.classList.remove('active');
+            }
+        });
+        
+        document.querySelector('.scroll-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Header logo scroll to top
+        document.querySelector('.header-logo').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll Animations
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fadeInUp');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
