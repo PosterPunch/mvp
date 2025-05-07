@@ -36,6 +36,7 @@
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 1px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         a {
@@ -47,12 +48,12 @@
             width: 100%;
             max-width: 1440px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 4rem;
         }
         
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 15px 32px;
             background-color: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
@@ -60,9 +61,8 @@
             text-transform: uppercase;
             transition: var(--transition);
             cursor: pointer;
+            font-size: 1.2rem;
             border-radius: 0;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1px;
         }
         
         .btn:hover {
@@ -94,6 +94,37 @@
             transition: var(--transition);
         }
 
+        /* ===== BACKGROUND EFFECTS ===== */
+        .fighter-profile-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.2) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .bg-text {
+            position: absolute;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--gold);
+            opacity: 0.7;
+            z-index: -1;
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 3px;
+            text-transform: uppercase;
+        }
+
+        .bg-text {
+            bottom: 10%;
+            right: 5%;
+            font-size: 15vw;
+        }
+
         /* ===== HEADER ===== */
         header {
             position: fixed;
@@ -108,6 +139,11 @@
             padding: 0 2rem;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
             transition: all 0.3s ease;
+        }
+        
+        header.hidden {
+            transform: translateY(-70px);
+            background-color: rgba(0, 0, 0, 0.9);
         }
         
         .header-logo {
@@ -129,7 +165,12 @@
             font-size: 1.1rem;
             position: relative;
             padding: 5px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
             transition: color 0.3s ease;
+        }
+        
+        header.hidden .nav-links a {
+            color: var(--white);
         }
         
         .nav-links a:after {
@@ -141,6 +182,10 @@
             height: 2px;
             background-color: var(--black);
             transition: var(--transition);
+        }
+        
+        header.hidden .nav-links a:after {
+            background-color: var(--gold);
         }
         
         .nav-links a:hover:after,
@@ -155,37 +200,61 @@
             color: var(--black);
             transition: color 0.3s ease;
         }
+        
+        header.hidden .hamburger {
+            color: var(--white);
+        }
 
         /* ===== FIGHTER PROFILE SECTION ===== */
         .fighter-profile-section {
             margin-top: 70px;
-            padding: 6rem 0;
+            padding: 6rem 0 2rem;
             position: relative;
         }
 
         .fighter-card-container {
             display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 3rem;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .fighter-main-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .fighter-main-content {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 3rem;
+                justify-content: center;
+            }
         }
 
         .fighter-card {
             background: rgba(0, 0, 0, 0.8);
             border: 1px solid var(--gold);
             padding: 0;
-            width: 400px;
-            height: 500px;
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            aspect-ratio: 4/5;
             position: relative;
             box-shadow: 0 5px 30px rgba(212, 175, 55, 0.2);
             display: flex;
             flex-direction: column;
+            margin: 0;
         }
 
         .fighter-card-image {
-            height: 400px;
+            height: 80%;
             width: 100%;
             overflow: hidden;
         }
@@ -194,38 +263,96 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
         }
 
         .fighter-card-info {
-            padding: 1.5rem;
+            padding: 1rem;
             text-align: center;
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
         }
 
         .fighter-name {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--gold);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             line-height: 1;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
         }
 
         .fighter-nickname {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             font-size: 1.5rem;
-            color: var(--white);
-            font-style: italic;
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            letter-spacing: 2px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 0.8rem 0.3rem;
         }
 
         .fighter-meta {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--white);
+        }
+
+        .fighter-flag {
+            height: 14px;
+            width: 20px;
+        }
+
+        .fighter-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .fighter-social a {
+            color: var(--gold);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .fighter-social a:hover {
+            transform: translateY(-5px);
+        }
+
+        .fighter-stats-container {
+            width: 100%;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .fighter-stats-container {
+                margin-top: 2rem;
+                max-width: 500px;
+            }
         }
 
         .fighter-stats {
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            margin-left: 3rem;
+            width: 100%;
         }
 
         .stats-group {
@@ -236,42 +363,32 @@
 
         .stats-row {
             display: flex;
+            flex-wrap: wrap;
             gap: 3rem;
-            justify-content: flex-start;
+            justify-content: center;
+        }
+
+        .stats-line {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
         }
 
         .stat-label {
             font-size: 1.5rem;
             text-transform: uppercase;
             color: var(--white);
-            text-align: left;
-            min-width: 80px;
+            text-align: center;
         }
 
         .stat-value {
             font-size: 3rem;
             color: var(--gold);
             font-weight: bold;
-            text-align: left;
+            text-align: center;
             line-height: 1;
-            min-width: 80px;
-        }
-
-        .fighter-social {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .fighter-social a {
-            color: var(--gold);
-            font-size: 2rem;
-            transition: var(--transition);
-        }
-
-        .fighter-social a:hover {
-            transform: translateY(-5px);
+            font-style: italic;
         }
 
         /* ===== BANNER STYLES ===== */
@@ -281,7 +398,7 @@
             background-color: var(--black);
             border-top: 1px solid var(--gold);
             border-bottom: 1px solid var(--gold);
-            padding: 10px 0;
+            padding: 15px 0;
             margin: 4rem 0;
         }
         
@@ -296,14 +413,14 @@
             align-items: center;
             margin: 0 20px;
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: var(--gold);
             text-transform: uppercase;
             flex-shrink: 0;
         }
         
         .banner-logo {
-            height: 40px;
+            height: 60px;
             margin: 0 15px;
             filter: brightness(0) invert(1);
         }
@@ -319,62 +436,102 @@
             flex-direction: column;
             gap: 3rem;
             width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 1024px) {
+            .about-section {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .about-content {
+                flex: 2;
+            }
+            
+            .polaroid-gallery {
+                flex: 1;
+                margin-top: 0;
+                padding-left: 3rem;
+            }
         }
 
         .about-content {
             flex: 1;
         }
 
-        .about-content h3 {
-            font-size: 1.8rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-        }
-
         .about-content p {
-            font-size: 1rem;
+            font-size: 1.3rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
             opacity: 0.9;
+            text-align: left;
         }
 
         .polaroid-gallery {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        @media (min-width: 768px) {
+            .polaroid-gallery {
+                justify-content: center;
+            }
         }
 
         .polaroid {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid var(--gold);
-            padding: 1rem;
-            color: var(--white);
+            background: var(--white);
+            padding: 1rem 1rem 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: rotate(-5deg);
+            width: calc(50% - 1rem);
             transition: var(--transition);
-            display: flex;
-            gap: 2rem;
-            align-items: center;
+            position: relative;
+            border: 1px solid var(--gold);
+            max-width: 280px;
+        }
+
+        .polaroid:nth-child(even) {
+            transform: rotate(3deg);
+        }
+
+        .polaroid:nth-child(3n) {
+            transform: rotate(7deg);
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
         }
 
         .polaroid img {
-            width: 300px;
+            width: 100%;
             height: 200px;
             object-fit: cover;
             border: 1px solid var(--gold);
+            margin-bottom: 1rem;
         }
 
         .polaroid-info {
-            flex: 1;
+            text-align: center;
+            color: var(--black);
         }
 
         .polaroid-opponent {
-            font-size: 1.8rem;
-            color: var(--gold);
+            font-size: 1.5rem;
+            color: var(--black);
             margin-bottom: 0.5rem;
             font-family: 'Bebas Neue', sans-serif;
         }
 
         .polaroid-date {
-            font-size: 1.2rem;
+            font-size: 1rem;
+            color: var(--black);
             opacity: 0.8;
         }
 
@@ -444,6 +601,8 @@
             background-color: #0a0a0a;
             padding: 6rem 0 3rem;
             border-top: 1px solid var(--gold);
+            position: relative;
+            z-index: 1;
         }
         
         .footer-content {
@@ -531,6 +690,7 @@
         
         .footer-social {
             display: flex;
+            justify-content: center;
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -568,24 +728,23 @@
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {
             position: fixed;
-            bottom: 3rem;
+            bottom: 8rem;
             right: 3rem;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background-color: var(--gold);
             color: var(--black);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
             z-index: 999;
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-            border: none;
         }
         
         .scroll-top.active {
@@ -600,7 +759,7 @@
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 1200px) {
             .container {
-                padding: 0 2rem;
+                padding: 0 3rem;
             }
             
             section {
@@ -615,40 +774,26 @@
         }
 
         @media (max-width: 900px) {
-            .fighter-card-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 2rem;
-            }
-            
             .fighter-card {
-                width: 100%;
                 height: auto;
             }
             
             .fighter-card-image {
-                height: 300px;
+                height: 80%;
             }
             
-            .fighter-stats {
-                margin-left: 0;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                width: 100%;
-            }
-
             .stats-row {
-                width: 100%;
                 justify-content: center;
             }
 
             .polaroid {
-                flex-direction: column;
+                transform: rotate(0deg) !important;
+                width: 100%;
+                max-width: 300px;
             }
 
-            .polaroid img {
-                width: 100%;
+            .polaroid:hover {
+                transform: scale(1.05) !important;
             }
         }
 
@@ -697,9 +842,15 @@
                 width: 80px;
                 height: 3px;
             }
-            
-            .about-section {
-                flex-direction: column;
+
+            .polaroid {
+                width: 100%;
+            }
+
+            .polaroid:nth-child(3) {
+                width: 100%;
+                max-width: 400px;
+                margin-top: 2rem;
             }
             
             .footer-content {
@@ -735,6 +886,41 @@
                 height: 198px;
                 margin: 0 auto 1rem;
             }
+
+            .stats-row {
+                justify-content: center;
+            }
+
+            .stats-line {
+                align-items: center;
+            }
+
+            .stat-label, .stat-value {
+                text-align: center;
+            }
+
+            .about-content p {
+                text-align: center;
+            }
+            
+            .banner-item {
+                font-size: 1.5rem;
+            }
+            
+            .banner-logo {
+                height: 40px;
+            }
+            
+            .btn {
+                padding: 12px 28px;
+                font-size: 1.1rem;
+            }
+
+            .fighter-nickname {
+                font-size: 1.2rem;
+                top: 5px;
+                right: 5px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -752,7 +938,15 @@
             }
             
             .fighter-name {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            
+            .fighter-nickname {
+                font-size: 1rem;
+            }
+            
+            .fighter-meta {
+                font-size: 0.8rem;
             }
             
             .instagram-embed {
@@ -779,13 +973,43 @@
                 gap: 1.5rem;
             }
 
-            .polaroid {
-                flex-direction: column;
+            .polaroid img {
+                height: 180px;
             }
 
-            .polaroid img {
-                width: 100%;
-                height: 150px;
+            .fighter-profile-section .container,
+            .about-section .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .fighter-main-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .fighter-card-image {
+                height: 80%;
+            }
+            
+            .banner-item {
+                font-size: 1.2rem;
+            }
+            
+            .banner-logo {
+                height: 30px;
+            }
+            
+            .about-content p {
+                font-size: 1.1rem;
+            }
+
+            .bg-text.jake,
+            .bg-text.paul {
+                font-size: 20vw;
             }
         }
     </style>
@@ -798,7 +1022,7 @@
         </a>
         
         <nav class="nav-links">
-            <a href="index.html">Home</a>
+            <a href="/" class="active">Home</a>
             <a href="box.html">Athletes</a>
             <a href="events.html">Events</a>
             <a href="news.html">News</a>
@@ -813,54 +1037,67 @@
 
     <!-- ===== FIGHTER PROFILE SECTION ===== -->
     <section class="fighter-profile-section">
+        <!-- Background text elements -->
+        <div class="bg-text">El Gallo</div>
+        
         <div class="container">
             <div class="fighter-card-container">
-                <div class="fighter-card">
-                    <div class="fighter-card-image">
-                        <img src="jp.png" alt="Jake Paul">
+                <div class="fighter-main-content">
+                    <div class="fighter-card">
+                        <div class="fighter-card-image">
+                            <img src="jp.png" alt="Jake Paul">
+                        </div>
+                        <div class="fighter-card-info">
+                            <h2 class="fighter-name">Jake Paul</h2>
+                            <p class="fighter-nickname">THE PROBLEM CHILD</p>
+                            <p class="fighter-meta">Age: 28 • Cleveland, OH<img src="usa.png" alt="USA Flag" class="fighter-flag"></p>
+                        </div>
                     </div>
-                    <div class="fighter-card-info">
-                        <h2 class="fighter-name">Jake Paul</h2>
-                        <p class="fighter-nickname">"The Problem Child"</p>
-                        <p class="fighter-meta">Age: 28 • From: Cleveland, Ohio</p>
+                    
+                    <div class="fighter-stats-container">
+                        <div class="fighter-stats">
+                            <div class="stats-row">
+                                <div class="stats-line">
+                                    <span class="stat-label">W</span>
+                                    <span class="stat-value">24</span>
+                                </div>
+                                <div class="stats-line">
+                                    <span class="stat-label">KO</span>
+                                    <span class="stat-value">6</span>
+                                </div>
+                                <div class="stats-line">
+                                    <span class="stat-label">L</span>
+                                    <span class="stat-value">1</span>
+                                </div>
+                                <div class="stats-line">
+                                    <span class="stat-label">D</span>
+                                    <span class="stat-value">0</span>
+                                </div>
+                            </div>
+                            <div class="stats-row">
+                                <div class="stats-line">
+                                    <span class="stat-label">Stance</span>
+                                    <span class="stat-value">Orthodox</span>
+                                </div>
+                                <div class="stats-line">
+                                    <span class="stat-label">Height</span>
+                                    <span class="stat-value">6'1"</span>
+                                </div>
+                                <div class="stats-line">
+                                    <span class="stat-label">Reach</span>
+                                    <span class="stat-value">76"</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="fighter-stats">
-                    <div class="stats-row">
-                        <div class="stats-group">
-                            <span class="stat-label">W</span>
-                            <span class="stat-label">KO</span>
-                            <span class="stat-label">L</span>
-                            <span class="stat-label">D</span>
-                        </div>
-                        <div class="stats-group">
-                            <span class="stat-value">24</span>
-                            <span class="stat-value">6</span>
-                            <span class="stat-value">1</span>
-                            <span class="stat-value">0</span>
-                        </div>
-                    </div>
-                    <div class="stats-row">
-                        <div class="stats-group">
-                            <span class="stat-label">Stance</span>
-                            <span class="stat-label">Height</span>
-                            <span class="stat-label">Reach</span>
-                        </div>
-                        <div class="stats-group">
-                            <span class="stat-value">Orthodox</span>
-                            <span class="stat-value">6'1"</span>
-                            <span class="stat-value">76"</span>
-                        </div>
-                    </div>
+                <div class="fighter-social">
+                    <a href="https://instagram.com/jakepaul" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/jakepaul" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://tiktok.com/@jakepaul" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/jakepaul" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
-            </div>
-            
-            <div class="fighter-social">
-                <a href="https://instagram.com/jakepaul" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/jakepaul" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://tiktok.com/@jakepaul" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://youtube.com/jakepaul" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </section>
@@ -893,7 +1130,7 @@
                     <img src="jp.png" alt="Jake Paul vs Mike Tyson">
                     <div class="polaroid-info">
                         <div class="polaroid-opponent">vs Mike Tyson</div>
-                        <div class="polaroid-date">2024-11-15</div>
+                        <div class="polaroid-date">2024-11-15 • AT&T Stadium</div>
                     </div>
                 </div>
                 
@@ -901,7 +1138,7 @@
                     <img src="jp.png" alt="Jake Paul vs Nate Diaz">
                     <div class="polaroid-info">
                         <div class="polaroid-opponent">vs Nate Diaz</div>
-                        <div class="polaroid-date">2023-08-05</div>
+                        <div class="polaroid-date">2023-08-05 • Dallas, TX</div>
                     </div>
                 </div>
                 
@@ -909,7 +1146,7 @@
                     <img src="jp.png" alt="Jake Paul vs Tyron Woodley">
                     <div class="polaroid-info">
                         <div class="polaroid-opponent">vs Tyron Woodley</div>
-                        <div class="polaroid-date">2021-12-18</div>
+                        <div class="polaroid-date">2021-12-18 • Tampa, FL</div>
                     </div>
                 </div>
             </div>
@@ -1022,33 +1259,33 @@
                 
                 <div class="footer-col">
                     <div class="footer-links-col-1">
-                        <a href="index.html">Home</a>
-                        <a href="box.html">Athletes</a>
-                        <a href="events.html">Events</a>
-                        <a href="news.html">News</a>
+                        <a href="index.html" class="animate">Home</a>
+                        <a href="box.html" class="animate delay-1">Athletes</a>
+                        <a href="events.html" class="animate delay-2">Events</a>
+                        <a href="news.html" class="animate delay-3">News</a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
                     <div class="footer-links-col-2">
-                        <a href="about.html">About</a>
-                        <a href="contact.html">Contact</a>
+                        <a href="about.html" class="animate">About</a>
+                        <a href="contact.html" class="animate delay-1">Contact</a>
                     </div>
                     
-                    <div class="contact-info">
+                    <div class="contact-info" style="margin-top: 2rem;">
                         <p>For general inquiries:</p>
-                        <p><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
-                        <p>For press inquiries:</p>
-                        <p><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
+                        <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
+                        <p class="animate delay-1">For press inquiries:</p>
+                        <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
                     </div>
                 </div>
             </div>
             
             <div class="legal">
-                <span>©2025 Most Valuable Promotions. All rights reserved.</span>
+                <span class="animate">©2025 Most Valuable Promotions. All rights reserved.</span>
                 <div>
-                    <a href="terms.html">Terms</a>
-                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html" class="animate delay-3">Terms</a>
+                    <a href="pp.html" class="animate delay-4">Privacy</a>
                 </div>
             </div>
         </div>
@@ -1120,7 +1357,7 @@
                     <td>Gila River Arena, Glendale</td>
                     <td class="result-win">W-UD</td>
                     <td>8/8</td>
-                </tr>
+                </tr>               
                 <tr>
                     <td>2021-12-18</td>
                     <td>Tyron Woodley</td>
