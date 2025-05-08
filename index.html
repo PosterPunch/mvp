@@ -31,7 +31,7 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name {
+h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name, .fighter-nickname {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -62,7 +62,7 @@ a {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transform: skewX(-20deg);
+    border-radius: 0;
 }
 
 .btn:hover {
@@ -159,11 +159,6 @@ header {
     transition: all 0.3s ease;
 }
 
-header.hidden {
-    transform: translateY(-70px);
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
 .header-logo {
     height: 120px;
     filter: brightness(0);
@@ -186,10 +181,6 @@ header.hidden {
     transition: color 0.3s ease;
 }
 
-header.hidden .nav-links a {
-    color: var(--white);
-}
-
 .nav-links a:after {
     content: '';
     position: absolute;
@@ -199,10 +190,6 @@ header.hidden .nav-links a {
     height: 2px;
     background-color: var(--black);
     transition: var(--transition);
-}
-
-header.hidden .nav-links a:after {
-    background-color: var(--gold);
 }
 
 .nav-links a:hover:after,
@@ -218,40 +205,39 @@ header.hidden .nav-links a:after {
     transition: color 0.3s ease;
 }
 
-header.hidden .hamburger {
-    color: var(--white);
-}
-
 /* ===== HERO SECTION ===== */
-.hero-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 90px;
-}
-
-.hero {
+.hero-slider {
+    position: relative;
     height: 100vh;
     min-height: 800px;
-    flex: 1;
-    min-width: 50%;
-    background: var(--black) no-repeat center center;
-    background-size: cover;
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 0 0 200px 100px;
-    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 150px;
 }
 
-.hero.taylor-serrano {
-    background-image: url('taylorserranotop.png');
+.hero-slide.active {
+    opacity: 1;
 }
 
-.hero.paul-chavez {
-    background-image: url('pchead.png');
-    background-size: contain;
-    background-position: center center;
+.hero-image {
+    max-width: 90%;
+    max-height: 60vh;
+    object-fit: contain;
+    margin-bottom: 2rem;
 }
 
 .hero-content {
@@ -259,18 +245,17 @@ header.hidden .hamburger {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 3rem;
-    padding-bottom: 10px;
-    margin-top: 0;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 20px;
+    text-align: center;
 }
 
 .countdown {
     display: flex;
     gap: 2rem;
     justify-content: center;
-    margin-top: auto;
-    margin-bottom: 50px;
+    margin-top: 1rem;
 }
 
 .countdown-item {
@@ -298,32 +283,6 @@ header.hidden .hamburger {
     color: var(--white);
     opacity: 0.9;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-}
-
-.hero-divider {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 2px;
-    height: 80%;
-    background-color: var(--gold);
-    z-index: 2;
-}
-
-.hero-divider-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg);
-    color: var(--gold);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    white-space: nowrap;
-    background-color: var(--black);
-    padding: 0 1rem;
-    z-index: 3;
 }
 
 /* ===== FIGHTERS SECTION ===== */
@@ -403,7 +362,7 @@ header.hidden .hamburger {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: var(--gold);
     z-index: 4;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
@@ -461,6 +420,7 @@ header.hidden .hamburger {
     font-size: 0.9rem;
     cursor: pointer;
     transition: var(--transition);
+    border-radius: 0;
 }
 
 .fighter-profile-btn:hover {
@@ -545,6 +505,25 @@ header.hidden .hamburger {
 .event-venue {
     font-size: 1rem;
     margin-bottom: 1.5rem;
+}
+
+.event-details-btn {
+    padding: 10px 20px;
+    background-color: var(--gold);
+    color: var(--black);
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 0;
+}
+
+.event-details-btn:hover {
+    background-color: var(--black);
+    color: var(--gold);
+    border: 1px solid var(--gold);
 }
 
 /* ===== VIDEO SECTION ===== */
@@ -720,6 +699,40 @@ footer {
     text-decoration: underline;
 }
 
+.partners {
+    width: 100%;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.partners-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+.partners-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.partner-logo {
+    height: 50px;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.partner-logo:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
 .legal {
     display: flex;
     justify-content: space-between;
@@ -827,10 +840,7 @@ footer {
     }
 
     .countdown {
-        display: flex;
-        gap: 2rem;
-        justify-content: center;
-        margin-bottom: 30px;
+        gap: 1.5rem;
     }
     
     section {
@@ -851,16 +861,13 @@ footer {
     .footer-content {
         grid-template-columns: 1fr 1fr;
     }
-
-    .countdown {
-        display: flex;
-        gap: 2rem;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
     
     .videos-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .partner-logo {
+        height: 40px;
     }
 }
 
@@ -878,18 +885,8 @@ footer {
         padding: 0 1.5rem;
     }
     
-    .hero {
+    .hero-slider {
         min-height: 600px;
-        padding: 0 0 80px 40px;
-        min-width: 100%;
-    }
-    
-    .hero-divider {
-        display: none;
-    }
-    
-    .hero-divider-text {
-        display: none;
     }
     
     .nav-links {
@@ -917,8 +914,6 @@ footer {
     .countdown {
         gap: 1rem;
         flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 30px;
     }
     
     .countdown-item {
@@ -999,6 +994,15 @@ footer {
     .footer-logo {
         height: 198px;
     }
+    
+    .partners-logos {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .partner-logo {
+        height: 30px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1010,9 +1014,9 @@ footer {
         padding: 0 1rem;
     }
     
-    .hero {
-        padding: 0 0 60px 20px;
+    .hero-slider {
         min-height: 500px;
+        padding-bottom: 80px;
     }
     
     .section-title {
@@ -1054,17 +1058,26 @@ footer {
     }
 
     .footer-social {
+        justify-content: center;
         gap: 1.5rem;
-    }
-    
-    .footer-social a {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
     }
     
     .footer-logo {
         height: 198px;
+        margin: 0 auto 1rem;
+    }
+    
+    .footer-links-col-1,
+    .footer-links-col-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .partners-logos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .partner-logo {
+        height: 25px;
     }
 }
     </style>
@@ -1077,7 +1090,7 @@ footer {
         </a>
         
         <nav class="nav-links">
-            <a href="/" class="active">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="box.html">Athletes</a>
             <a href="events.html">Events</a>
             <a href="news.html">News</a>
@@ -1090,10 +1103,11 @@ footer {
         </div>
     </header>
     
-    <!-- ===== HERO SECTION ===== -->
-    <div class="hero-container">
-        <!-- Taylor vs Serrano Hero -->
-        <section class="hero taylor-serrano">
+    <!-- ===== HERO SLIDER ===== -->
+    <div class="hero-slider">
+        <!-- Taylor vs Serrano Slide -->
+        <section class="hero-slide taylor-serrano active">
+            <img src="taylorserranotop.png" alt="Taylor vs Serrano" class="hero-image">
             <div class="hero-content">
                 <div class="countdown animate" id="taylor-serrano-countdown">
                     <div class="countdown-item">
@@ -1118,12 +1132,9 @@ footer {
             </div>
         </section>
         
-        <!-- Divider between hero sections -->
-        <div class="hero-divider"></div>
-        <div class="hero-divider-text">UPCOMING MVP EVENTS</div>
-        
-        <!-- Paul vs Chavez Hero -->
-        <section class="hero paul-chavez">
+        <!-- Paul vs Chavez Slide -->
+        <section class="hero-slide paul-chavez">
+            <img src="pchead.png" alt="Paul vs Chavez" class="hero-image">
             <div class="hero-content">
                 <div class="countdown animate" id="paul-chavez-countdown">
                     <div class="countdown-item">
@@ -1274,8 +1285,6 @@ footer {
         <div class="banner">
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 13 • LIVE ON DAZN • JUNE 7, 2025</div>
         </div>
     </div>
     
@@ -1292,7 +1301,7 @@ footer {
                     <h3 class="event-main">Taylor vs Serrano 3</h3>
                     <p class="event-date">July 11, 2025</p>
                     <p class="event-venue">Madison Square Garden • Netflix</p>
-                    <a href="ts3.html" class="btn"><span>Event Details</span></a>
+                    <a href="ts3.html" class="event-details-btn"><span>Event Details</span></a>
                 </div>
             </div>
             
@@ -1304,7 +1313,7 @@ footer {
                     <h3 class="event-main">Paul vs Chavez</h3>
                     <p class="event-date">June 28, 2025</p>
                     <p class="event-venue">Honda Center • DAZN PPV</p>
-                    <a href="pc.html" class="btn"><span>Event Report</span></a>
+                    <a href="pc.html" class="event-details-btn"><span>Event Details</span></a>
                 </div>
             </div>
             
@@ -1316,7 +1325,7 @@ footer {
                     <h3 class="event-main">Most Valuable Prospects 12</h3>
                     <p class="event-date">May 9, 2025</p>
                     <p class="event-venue">Caribe Royale Orlando• DAZN</p>
-                    <a href="/events/prospects-12" class="btn"><span>Event Details</span></a>
+                    <a href="/events/prospects-12" class="event-details-btn"><span>Event Details</span></a>
                 </div>
             </div>
             
@@ -1327,7 +1336,7 @@ footer {
                     <h3 class="event-main">Ferreira vs Ferreyra</h3>
                     <p class="event-date">July 20, 2025</p>
                     <p class="event-venue">Caribe Royale Orlando • DAZN</p>
-                    <a href="p13.html" class="btn"><span>Event Details</span></a>
+                    <a href="p13.html" class="event-details-btn"><span>Event Details</span></a>
                 </div>
             </div>
         </div>
@@ -1340,8 +1349,6 @@ footer {
     <!-- Moving Banner Between Sections -->
     <div class="banner-container">
         <div class="banner">
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">MOST VALUABLE PROSPECTS 13 • LIVE ON DAZN • JUNE 7, 2025</div>
         </div>
@@ -1398,7 +1405,7 @@ footer {
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col animate">
-                    <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
+                    <a href="index.html"><img src="mvplo.png" alt="MVP Logo" class="footer-logo"></a>
                     <p class="mission-statement">
                         Most Valuable Promotions is committed to empowering fighters with enhanced creative control. 
                         The organization focuses on strategically identifying, developing, and maximizing the value 
@@ -1428,12 +1435,24 @@ footer {
                         <a href="contact.html" class="animate delay-1">Contact</a>
                     </div>
                     
-                    <div class="contact-info" style="margin-top: 2rem;">
+                    <div class="contact-info">
                         <p>For general inquiries:</p>
                         <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
                         <p class="animate delay-1">For press inquiries:</p>
                         <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
                     </div>
+                </div>
+            </div>
+            
+            <div class="partners">
+                <h4 class="partners-title">OUR PARTNERS</h4>
+                <div class="partners-logos">
+                    <img src="clogo.png" alt="Celsius" class="partner-logo">
+                    <img src="nf.png" alt="Netflix" class="partner-logo">
+                    <img src="crlogo.png" alt="Caribe Royale" class="partner-logo">
+                    <img src="dazn.png" alt="DAZN" class="partner-logo">
+                    <img src="boxlablogo.png" alt="Boxing Lab" class="partner-logo">
+                    <img src="etc-logo.png" alt="ETC" class="partner-logo">
                 </div>
             </div>
             
@@ -1468,7 +1487,7 @@ footer {
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000;
             
             document.getElementById('ts-days').textContent = days.toString().padStart(2, '0');
             document.getElementById('ts-hours').textContent = hours.toString().padStart(2, '0');
@@ -1499,6 +1518,18 @@ footer {
         setInterval(updatePCCountdown, 1000);
         updatePCCountdown();
         
+        // Hero Slider Rotation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        
+        function rotateSlides() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        setInterval(rotateSlides, 8000);
+        
         // Scroll to Top Button
         window.addEventListener('scroll', function() {
             const scrollTop = document.querySelector('.scroll-top');
@@ -1517,11 +1548,15 @@ footer {
         });
         
         // Header logo scroll to top
-        document.querySelector('.header-logo').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        document.querySelectorAll('.header-logo, .footer-logo').forEach(logo => {
+            logo.addEventListener('click', function(e) {
+                if (this.closest('a').getAttribute('href') === 'index.html') {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
         
