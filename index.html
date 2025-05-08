@@ -652,15 +652,15 @@ footer {
     transform: translateY(-2px);
 }
 
-.footer-links-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+.footer-links-col-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.footer-links-col {
+.footer-links-col-2 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
@@ -975,10 +975,11 @@ footer {
         gap: 3rem;
     }
     
-    .footer-links-wrapper {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
-        width: 100%;
+    .footer-links-col-1,
+    .footer-links-col-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
         text-align: center;
     }
     
@@ -1081,10 +1082,6 @@ footer {
     .footer-logo {
         height: 198px;
         margin: 0 auto 1rem;
-    }
-    
-    .footer-links-wrapper {
-        grid-template-columns: 1fr 1fr;
     }
     
     .partners-logos {
@@ -1464,10 +1461,10 @@ footer {
                 <div class="partners-logos">
                     <img src="clogo.png" alt="Celsius" class="partner-logo">
                     <img src="nf.png" alt="Netflix" class="partner-logo">
-                    <img src="crlogo.png" alt="Caribe Royale" class="partner-logo">
                     <img src="dazn.png" alt="DAZN" class="partner-logo">
-                    <img src="boxlablogo.png" alt="Boxing Lab" class="partner-logo">
                     <img src="etc-logo.png" alt="ETC" class="partner-logo">
+                    <img src="crlogo.png" alt="Caribe Royale" class="partner-logo">
+                    <img src="boxlablogo.png" alt="Boxing Lab" class="partner-logo">
                 </div>
             </div>
             
