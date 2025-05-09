@@ -24,11 +24,16 @@
     box-sizing: border-box;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Roboto Condensed', sans-serif;
     background-color: var(--black);
     color: var(--white);
-    overflow-x: hidden;
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name, .fighter-nickname {
@@ -41,6 +46,12 @@ h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name, .fig
 a {
     text-decoration: none;
     color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .container {
@@ -63,6 +74,8 @@ a {
     position: relative;
     overflow: hidden;
     border-radius: 0;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .btn:hover {
@@ -164,12 +177,18 @@ header {
     filter: brightness(0);
     margin-right: auto;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
     display: flex;
     align-items: center;
     gap: 2rem;
+    transition: all 0.3s ease-out;
 }
 
 .nav-links a {
@@ -179,6 +198,11 @@ header {
     padding: 5px 0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     transition: color 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-links a:after {
@@ -203,12 +227,16 @@ header {
     font-size: 1.5rem;
     color: var(--black);
     transition: color 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ===== HERO SECTION ===== */
 .hero-slider {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 70px);
     min-height: 800px;
     margin-top: 70px;
     overflow: hidden;
@@ -269,6 +297,7 @@ header {
     display: flex;
     gap: 2rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .countdown-item {
@@ -310,7 +339,7 @@ header {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 125%; /* 4:5 aspect ratio */
+    padding-bottom: 125%;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.3);
     transition: var(--transition);
@@ -434,6 +463,8 @@ header {
     cursor: pointer;
     transition: var(--transition);
     border-radius: 0;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .fighter-profile-btn:hover {
@@ -454,7 +485,7 @@ header {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 125%; /* 4:5 aspect ratio */
+    padding-bottom: 125%;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.3);
     transition: var(--transition);
@@ -531,6 +562,8 @@ header {
     cursor: pointer;
     transition: var(--transition);
     border-radius: 0;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .event-details-btn:hover {
@@ -587,6 +620,8 @@ header {
     justify-content: center;
     font-size: 1.8rem;
     transition: var(--transition);
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .video-card:hover .play-button,
@@ -628,6 +663,11 @@ footer {
     height: 165px;
     margin-bottom: 0.5rem;
     filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
 }
 
 .mission-statement {
@@ -647,6 +687,11 @@ footer {
     color: var(--gold);
     font-size: 1.5rem;
     transition: var(--transition);
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-social a:hover {
@@ -672,6 +717,10 @@ footer {
     font-size: 1.1rem;
     position: relative;
     padding-left: 15px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
 .footer-links a:before {
@@ -759,6 +808,11 @@ footer {
 
 .legal a {
     transition: var(--transition);
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .legal a:hover {
@@ -846,7 +900,7 @@ footer {
     }
 }
 
-/* ===== MOBILE RESPONSIVENESS ===== */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
 @media (max-width: 1200px) {
     .container {
         padding: 0 3rem;
@@ -857,7 +911,7 @@ footer {
     }
     
     section {
-        padding: 10rem 0;
+        padding: 6rem 0;
     }
     
     footer {
@@ -885,13 +939,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .header {
+    header {
         padding: 0 1.5rem;
         height: 60px;
     }
     
     .header-logo {
-        height: 66px;
+        height: 80px;
     }
     
     .container {
@@ -925,12 +979,11 @@ footer {
     }
     
     .hamburger {
-        display: block;
+        display: flex;
     }
     
     .countdown {
         gap: 0.5rem;
-        flex-wrap: wrap;
     }
     
     .countdown-item {
@@ -987,6 +1040,7 @@ footer {
     
     .footer-links a {
         padding-left: 0;
+        justify-content: center;
     }
     
     .footer-links a:before {
@@ -1003,12 +1057,9 @@ footer {
         margin-top: 3rem;
     }
     
-    section {
-        padding: 8rem 0;
-    }
-    
     .footer-logo {
-        height: 198px;
+        height: 150px;
+        margin: 0 auto 1rem;
     }
     
     .partners-logos {
@@ -1019,11 +1070,19 @@ footer {
     .partner-logo {
         height: 30px;
     }
+    
+    .scroll-top {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        bottom: 2rem;
+        right: 2rem;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
     .header-logo {
-        height: 66px;
+        height: 60px;
     }
 
     .container {
@@ -1060,20 +1119,18 @@ footer {
     }
     
     section {
-        padding: 6rem 0;
+        padding: 4rem 0;
     }
 
     .event-card {
         height: 0;
-        padding-bottom: 125%;
+        padding-bottom: 150%;
     }            
 
-    .scroll-top {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-        bottom: 2rem;
-        right: 2rem;
+    .fighters-grid,
+    .events-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .footer-social {
@@ -1082,8 +1139,7 @@ footer {
     }
     
     .footer-logo {
-        height: 198px;
-        margin: 0 auto 1rem;
+        height: 120px;
     }
     
     .partners-logos {
@@ -1092,6 +1148,45 @@ footer {
     
     .partner-logo {
         height: 25px;
+    }
+}
+
+@media (max-width: 400px) {
+    .header-logo {
+        height: 50px;
+    }
+    
+    .hero-slider {
+        min-height: 450px;
+    }
+    
+    .countdown-item {
+        min-width: 50px;
+    }
+    
+    .countdown-value {
+        font-size: 1.8rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .scroll-top {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
     }
 }
     </style>
@@ -1492,6 +1587,14 @@ footer {
             this.querySelector('i').classList.toggle('fa-times');
         });
         
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.hamburger i').classList.remove('fa-times');
+            });
+        });
+        
         // Countdown Timer for Taylor vs Serrano (July 11, 2025)
         function updateTSCountdown() {
             const eventDate = new Date('July 11, 2025 20:00:00').getTime();
@@ -1603,13 +1706,13 @@ footer {
         });
         
         // Touchscreen support for all interactive elements
-        function handleTouchInteraction() {
-            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+        function setupTouchInteractions() {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             
             if (isTouchDevice) {
                 // Fighter cards
                 document.querySelectorAll('.fighter-card').forEach(card => {
-                    card.addEventListener('click', function(e) {
+                    card.addEventListener('touchstart', function() {
                         // Remove active class from all other fighter cards
                         document.querySelectorAll('.fighter-card').forEach(otherCard => {
                             if (otherCard !== this) {
@@ -1617,13 +1720,13 @@ footer {
                             }
                         });
                         
-                        this.classList.toggle('active');
-                    });
+                        this.classList.add('active');
+                    }, { passive: true });
                 });
                 
                 // Event cards
                 document.querySelectorAll('.event-card').forEach(card => {
-                    card.addEventListener('click', function(e) {
+                    card.addEventListener('touchstart', function() {
                         // Remove active class from all other event cards
                         document.querySelectorAll('.event-card').forEach(otherCard => {
                             if (otherCard !== this) {
@@ -1631,13 +1734,13 @@ footer {
                             }
                         });
                         
-                        this.classList.toggle('active');
-                    });
+                        this.classList.add('active');
+                    }, { passive: true });
                 });
                 
                 // Video cards
                 document.querySelectorAll('.video-card').forEach(card => {
-                    card.addEventListener('click', function(e) {
+                    card.addEventListener('touchstart', function() {
                         // Remove active class from all other video cards
                         document.querySelectorAll('.video-card').forEach(otherCard => {
                             if (otherCard !== this) {
@@ -1645,23 +1748,24 @@ footer {
                             }
                         });
                         
-                        this.classList.toggle('active');
-                    });
-                });
-                
-                // Close overlays when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.fighter-card') && !e.target.closest('.event-card') && !e.target.closest('.video-card')) {
-                        document.querySelectorAll('.fighter-card, .event-card, .video-card').forEach(card => {
-                            card.classList.remove('active');
-                        });
-                    }
+                        this.classList.add('active');
+                    }, { passive: true });
                 });
             }
         }
         
         // Initialize touch support
-        handleTouchInteraction();
+        setupTouchInteractions();
+        
+        // Adjust hero slider height based on viewport
+        function adjustHeroHeight() {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const heroSlider = document.querySelector('.hero-slider');
+            heroSlider.style.height = `calc(100vh - ${headerHeight}px)`;
+        }
+        
+        window.addEventListener('resize', adjustHeroHeight);
+        adjustHeroHeight();
     </script>
 </body>
 </html>
