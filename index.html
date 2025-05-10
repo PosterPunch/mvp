@@ -208,7 +208,7 @@ header {
 .nav-links a:after {
     content: '';
     position: absolute;
-    bottom: -3px;
+    bottom: -5px; /* Moved line closer to text */
     left: 0;
     width: 0;
     height: 2px;
@@ -447,7 +447,7 @@ header {
 
 .fighter-stats p {
     margin-bottom: 0.6rem;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Reduced font size */
 }
 
 .fighter-stats span {
@@ -456,25 +456,28 @@ header {
 }
 
 .fighter-profile-btn {
-    margin-top: 1rem;
-    padding: 6px 12px;
+    margin-top: 1.5rem;
+    padding: 10px 20px;
     background-color: var(--gold);
     color: var(--black);
     border: none;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: var(--transition);
     border-radius: 0;
     min-width: 44px;
     min-height: 44px;
+    display: inline-block;
+    text-align: center;
 }
 
 .fighter-profile-btn:hover {
     background-color: var(--black);
     color: var(--gold);
     border: 1px solid var(--gold);
+    transform: translateY(-2px);
 }
 
 /* ===== EVENTS SECTION ===== */
@@ -540,40 +543,44 @@ header {
 }
 
 .event-main {
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Reduced font size */
     color: var(--gold);
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .event-date {
-    font-size: 1.1rem;
+    font-size: 0.9rem; /* Reduced font size */
     margin-bottom: 1rem;
 }
 
 .event-venue {
-    font-size: 1rem;
+    font-size: 0.85rem; /* Reduced font size */
     margin-bottom: 1.5rem;
 }
 
 .event-details-btn {
-    padding: 6px 12px;
+    padding: 10px 20px;
     background-color: var(--gold);
     color: var(--black);
     border: none;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: var(--transition);
     border-radius: 0;
     min-width: 44px;
     min-height: 44px;
+    display: inline-block;
+    text-align: center;
 }
 
 .event-details-btn:hover {
     background-color: var(--black);
     color: var(--gold);
     border: 1px solid var(--gold);
+    transform: translateY(-2px);
 }
 
 /* ===== MVP EXCLUSIVE CONTENT SECTION ===== */
@@ -638,23 +645,40 @@ header {
 .video-info {
     padding: 1.5rem;
     background: rgba(0, 0, 0, 0.8);
+    position: relative;
 }
 
 .video-title {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--gold);
 }
 
 .video-desc {
     font-size: 1rem;
     opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.video-label {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    background-color: var(--gold);
+    color: var(--black);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
 }
 
 /* ===== FOOTER ===== */
 footer {
     background-color: #0a0a0a;
-    padding: 6rem 0 3rem;
+    padding: 4rem 0 2rem; /* Reduced padding */
+    margin-top: 1rem; /* Reduced space above footer */
 }
 
 .footer-content {
@@ -666,14 +690,14 @@ footer {
 
 .partners {
     width: 100%;
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
+    margin-bottom: 2rem; /* Reduced margin */
+    padding-bottom: 2rem; /* Reduced padding */
     border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .partners-title {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reduced margin */
     color: var(--gold);
     font-size: 1.5rem;
 }
@@ -804,12 +828,13 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 3rem;
-    padding-top: 3rem;
+    margin-top: 2rem; /* Reduced margin */
+    padding-top: 2rem; /* Reduced padding */
     border-top: 1px solid rgba(212, 175, 55, 0.3);
     font-size: 0.9rem;
     opacity: 0.7;
     flex-wrap: wrap;
+    gap: 0.5rem; /* Added gap */
 }
 
 .legal > div {
@@ -927,7 +952,7 @@ footer {
     }
     
     footer {
-        padding: 5rem 0 3rem;
+        padding: 4rem 0 2rem;
     }
 }
 
@@ -948,6 +973,10 @@ footer {
     .partner-logo {
         height: 40px;
     }
+    
+    .hero-slider {
+        height: 80vh; /* Larger hero on laptop */
+    }
 }
 
 @media (max-width: 768px) {
@@ -957,7 +986,7 @@ footer {
     }
     
     .header-logo {
-        height: 80px;
+        height: 140px; /* 75% larger on phone (from 80px) */
     }
     
     .container {
@@ -965,7 +994,8 @@ footer {
     }
     
     .hero-slider {
-        min-height: 500px;
+        min-height: 70vh; /* Expanded hero section 30% on phone */
+        height: auto;
     }
     
     .hero-image-container {
@@ -1044,8 +1074,8 @@ footer {
     
     .footer-links-col-1,
     .footer-links-col-2 {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns for footer links */
         gap: 1.5rem;
         text-align: center;
     }
@@ -1099,7 +1129,7 @@ footer {
 
 @media (max-width: 576px) {
     .header-logo {
-        height: 60px;
+        height: 140px; /* 75% larger on phone (from 80px) */
     }
 
     .container {
@@ -1107,7 +1137,7 @@ footer {
     }
     
     .hero-slider {
-        min-height: 80vh;
+        min-height: 70vh; /* Expanded hero section */
         justify-content: flex-start;
         padding-top: 2rem;
     }
@@ -1173,11 +1203,11 @@ footer {
 
 @media (max-width: 400px) {
     .header-logo {
-        height: 50px;
+        height: 140px; /* 75% larger on phone (from 80px) */
     }
     
     .hero-slider {
-        min-height: 85vh;
+        min-height: 70vh; /* Expanded hero section */
         padding-top: 1rem;
     }
     
@@ -1509,8 +1539,9 @@ footer {
                 </div>
                 
                 <div class="video-info">
-                    <h3 class="video-title">The Boxing Lab</h3>
-                    <p class="video-desc">Watch the Latest Episode of MVP Boxing Podcast</p>
+                    <div class="video-label">The Boxing Lab</div>
+                    <h3 class="video-title">MVP Boxing Podcast</h3>
+                    <p class="video-desc">Exclusive behind the scenes content</p>
                 </div>
             </a>
             
@@ -1524,8 +1555,9 @@ footer {
                 </div>
                 
                 <div class="video-info">
-                    <h3 class="video-title">MVP Uncut</h3>
-                    <p class="video-desc">MVP Behind The Scenes Exclusive Footage</p>
+                    <div class="video-label">MVP Uncut</div>
+                    <h3 class="video-title">Behind The Scenes</h3>
+                    <p class="video-desc">Exclusive behind the scenes content</p>
                 </div>
             </a>
         </div>
@@ -1577,14 +1609,14 @@ footer {
                         <a href="index.html" class="animate">Home</a>
                         <a href="box.html" class="animate delay-1">Athletes</a>
                         <a href="events.html" class="animate delay-2">Events</a>
-                        <a href="news.html" class="animate delay-3">News</a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
                     <div class="footer-links-col-2">
-                        <a href="about.html" class="animate">About</a>
-                        <a href="contact.html" class="animate delay-1">Contact</a>
+                        <a href="news.html" class="animate">News</a>
+                        <a href="about.html" class="animate delay-1">About</a>
+                        <a href="contact.html" class="animate delay-2">Contact</a>
                     </div>
                     
                     <div class="contact-info">
@@ -1666,10 +1698,10 @@ footer {
         setInterval(updatePCCountdown, 1000);
         updatePCCountdown();
         
-        // Hero Slider Rotation (5 seconds)
+        // Hero Slider Rotation (10 seconds)
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
-        const slideInterval = 5000; // 5 seconds
+        const slideInterval = 10000; // 10 seconds
         
         function rotateSlides() {
             slides[currentSlide].classList.remove('active');
