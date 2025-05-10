@@ -208,7 +208,7 @@ header {
 .nav-links a:after {
     content: '';
     position: absolute;
-    bottom: -5px; /* Moved line closer to text */
+    bottom: -2px; /* Brought line closer to text */
     left: 0;
     width: 0;
     height: 2px;
@@ -237,7 +237,7 @@ header {
 .hero-slider {
     position: relative;
     height: calc(100vh - 70px);
-    min-height: 500px;
+    min-height: 800px; /* Increased height */
     margin-top: 70px;
     overflow: hidden;
     background-color: #000;
@@ -266,8 +266,7 @@ header {
 
 .hero-image-container {
     width: 100%;
-    height: auto;
-    flex-grow: 1;
+    height: 80vh; /* Larger container */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -277,7 +276,7 @@ header {
 
 .hero-image {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 80vh; /* Larger image */
     width: auto;
     height: auto;
     object-fit: contain;
@@ -424,10 +423,10 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.15); /* 15% opacity */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end; /* Content at bottom */
     align-items: center;
     padding: 1.5rem;
     opacity: 0;
@@ -441,13 +440,20 @@ header {
     opacity: 1;
 }
 
+.fighter-overlay-content {
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+}
+
 .fighter-stats {
     margin-top: 1rem;
 }
 
 .fighter-stats p {
     margin-bottom: 0.6rem;
-    font-size: 0.9rem; /* Reduced font size */
+    font-size: 0.9rem;
 }
 
 .fighter-stats span {
@@ -478,6 +484,27 @@ header {
     color: var(--gold);
     border: 1px solid var(--gold);
     transform: translateY(-2px);
+}
+
+/* Title Rectangle */
+.title-rectangle {
+    background-color: var(--black);
+    width: 100%;
+    padding: 1rem;
+    margin-top: -5px;
+    text-align: center;
+}
+
+.title-rectangle .fighter-first-name {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.title-rectangle .fighter-last-name {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-top: 0;
 }
 
 /* ===== EVENTS SECTION ===== */
@@ -543,19 +570,19 @@ header {
 }
 
 .event-main {
-    font-size: 1.5rem; /* Reduced font size */
+    font-size: 1.5rem;
     color: var(--gold);
     margin-bottom: 1rem;
     line-height: 1.2;
 }
 
 .event-date {
-    font-size: 0.9rem; /* Reduced font size */
+    font-size: 0.9rem;
     margin-bottom: 1rem;
 }
 
 .event-venue {
-    font-size: 0.85rem; /* Reduced font size */
+    font-size: 0.85rem;
     margin-bottom: 1.5rem;
 }
 
@@ -677,8 +704,8 @@ header {
 /* ===== FOOTER ===== */
 footer {
     background-color: #0a0a0a;
-    padding: 4rem 0 2rem; /* Reduced padding */
-    margin-top: 1rem; /* Reduced space above footer */
+    padding: 4rem 0 2rem;
+    margin-top: 1rem;
 }
 
 .footer-content {
@@ -690,14 +717,14 @@ footer {
 
 .partners {
     width: 100%;
-    margin-bottom: 2rem; /* Reduced margin */
-    padding-bottom: 2rem; /* Reduced padding */
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .partners-title {
     text-align: center;
-    margin-bottom: 1.5rem; /* Reduced margin */
+    margin-bottom: 1.5rem;
     color: var(--gold);
     font-size: 1.5rem;
 }
@@ -828,13 +855,13 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2rem; /* Reduced margin */
-    padding-top: 2rem; /* Reduced padding */
+    margin-top: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(212, 175, 55, 0.3);
     font-size: 0.9rem;
     opacity: 0.7;
     flex-wrap: wrap;
-    gap: 0.5rem; /* Added gap */
+    gap: 0.5rem;
 }
 
 .legal > div {
@@ -975,7 +1002,7 @@ footer {
     }
     
     .hero-slider {
-        height: 80vh; /* Larger hero on laptop */
+        height: 80vh;
     }
 }
 
@@ -986,7 +1013,7 @@ footer {
     }
     
     .header-logo {
-        height: 140px; /* 75% larger on phone (from 80px) */
+        height: 84px; /* Reduced by 40% from 140px */
     }
     
     .container {
@@ -994,7 +1021,7 @@ footer {
     }
     
     .hero-slider {
-        min-height: 70vh; /* Expanded hero section 30% on phone */
+        min-height: 70vh;
         height: auto;
     }
     
@@ -1062,6 +1089,14 @@ footer {
         padding-bottom: 125%;
     }
     
+    .fighter-overlay {
+        padding: 1rem;
+    }
+    
+    .fighter-stats p {
+        font-size: 0.8rem;
+    }
+    
     .video-thumbnail {
         height: auto;
     }
@@ -1072,10 +1107,16 @@ footer {
         gap: 3rem;
     }
     
-    .footer-links-col-1,
+    .footer-links-col-1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
     .footer-links-col-2 {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Two columns for footer links */
+        grid-template-columns: 1fr;
         gap: 1.5rem;
         text-align: center;
     }
@@ -1129,7 +1170,7 @@ footer {
 
 @media (max-width: 576px) {
     .header-logo {
-        height: 140px; /* 75% larger on phone (from 80px) */
+        height: 84px;
     }
 
     .container {
@@ -1137,7 +1178,7 @@ footer {
     }
     
     .hero-slider {
-        min-height: 70vh; /* Expanded hero section */
+        min-height: 70vh;
         justify-content: flex-start;
         padding-top: 2rem;
     }
@@ -1203,11 +1244,11 @@ footer {
 
 @media (max-width: 400px) {
     .header-logo {
-        height: 140px; /* 75% larger on phone (from 80px) */
+        height: 84px;
     }
     
     .hero-slider {
-        min-height: 70vh; /* Expanded hero section */
+        min-height: 70vh;
         padding-top: 1rem;
     }
     
@@ -1277,7 +1318,9 @@ footer {
     <div class="hero-slider">
         <!-- Taylor vs Serrano Slide -->
         <section class="hero-slide taylor-serrano active">
-            <img src="taylorserranotop.png" alt="Taylor vs Serrano" class="hero-image">
+            <div class="hero-image-container">
+                <img src="taylorserranotop.png" alt="Taylor vs Serrano" class="hero-image">
+            </div>
             <div class="hero-content">
                 <div class="countdown animate" id="taylor-serrano-countdown">
                     <div class="countdown-item">
@@ -1304,7 +1347,9 @@ footer {
         
         <!-- Paul vs Chavez Slide -->
         <section class="hero-slide paul-chavez">
-            <img src="pchead.png" alt="Paul vs Chavez" class="hero-image">
+            <div class="hero-image-container">
+                <img src="pchead.png" alt="Paul vs Chavez" class="hero-image">
+            </div>
             <div class="hero-content">
                 <div class="countdown animate" id="paul-chavez-countdown">
                     <div class="countdown-item">
@@ -1358,15 +1403,21 @@ footer {
                 </div>
                 
                 <div class="fighter-overlay">
-                    <div class="fighter-name" style="margin-left: 0px;">
-                        <span class="fighter-first-name">JAKE</span>
-                        <span class="fighter-last-name">PAUL</span>
+                    <div class="fighter-overlay-content">
+                        <div class="fighter-name" style="margin-left: 0px;">
+                            <span class="fighter-first-name">JAKE</span>
+                            <span class="fighter-last-name">PAUL</span>
+                        </div>
+                        <div class="fighter-stats">
+                            <p>Record: <span>11-1 (9 KOs)</span></p>
+                            <p>Weight Class: <span>Cruiserweight</span></p>
+                        </div>
+                        <button class="fighter-profile-btn">View Profile</button>
                     </div>
-                    <div class="fighter-stats">
-                        <p>Record: <span>11-1 (9 KOs)</span></p>
-                        <p>Weight Class: <span>Cruiserweight</span></p>
-                    </div>
-                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+                <div class="title-rectangle">
+                    <div class="fighter-first-name">JAKE</div>
+                    <div class="fighter-last-name">PAUL</div>
                 </div>
             </a>
             
@@ -1383,15 +1434,21 @@ footer {
                 </div>
                 
                 <div class="fighter-overlay">
-                    <div class="fighter-name" style="margin-left: 0px;">
-                        <span class="fighter-first-name">AMANDA</span>
-                        <span class="fighter-last-name">SERRANO</span>
+                    <div class="fighter-overlay-content">
+                        <div class="fighter-name" style="margin-left: 0px;">
+                            <span class="fighter-first-name">AMANDA</span>
+                            <span class="fighter-last-name">SERRANO</span>
+                        </div>
+                        <div class="fighter-stats">
+                            <p>Record: <span>47-3-1 (30 KOs)</span></p>
+                            <p>Weight Class: <span>Featherweight</span></p>
+                        </div>
+                        <button class="fighter-profile-btn">View Profile</button>
                     </div>
-                    <div class="fighter-stats">
-                        <p>Record: <span>47-3-1 (30 KOs)</span></p>
-                        <p>Weight Class: <span>Featherweight</span></p>
-                    </div>
-                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+                <div class="title-rectangle">
+                    <div class="fighter-first-name">AMANDA</div>
+                    <div class="fighter-last-name">SERRANO</div>
                 </div>
             </a>
             
@@ -1407,15 +1464,21 @@ footer {
                 </div>
                 
                 <div class="fighter-overlay">
-                    <div class="fighter-name" style="margin-left: 0px;">
-                        <span class="fighter-first-name">H2O</span>
-                        <span class="fighter-last-name">SYLVE</span>
+                    <div class="fighter-overlay-content">
+                        <div class="fighter-name" style="margin-left: 0px;">
+                            <span class="fighter-first-name">H2O</span>
+                            <span class="fighter-last-name">SYLVE</span>
+                        </div>
+                        <div class="fighter-stats">
+                            <p>Record: <span>11-1 (9 KOs)</span></p>
+                            <p>Weight Class: <span>Lightweight</span></p>
+                        </div>
+                        <button class="fighter-profile-btn">View Profile</button>
                     </div>
-                    <div class="fighter-stats">
-                        <p>Record: <span>11-1 (9 KOs)</span></p>
-                        <p>Weight Class: <span>Lightweight</span></p>
-                    </div>
-                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+                <div class="title-rectangle">
+                    <div class="fighter-first-name">H2O</div>
+                    <div class="fighter-last-name">SYLVE</div>
                 </div>
             </a>
             
@@ -1432,15 +1495,21 @@ footer {
                 </div>
                 
                 <div class="fighter-overlay">
-                    <div class="fighter-name" style="margin-left: 0px;">
-                        <span class="fighter-first-name">Alycia</span>
-                        <span class="fighter-last-name">BAUMGARDNER</span>
+                    <div class="fighter-overlay-content">
+                        <div class="fighter-name" style="margin-left: 0px;">
+                            <span class="fighter-first-name">Alycia</span>
+                            <span class="fighter-last-name">BAUMGARDNER</span>
+                        </div>
+                        <div class="fighter-stats">
+                            <p>Record: <span>15-1 (7 KOs)</span></p>
+                            <p>Weight Class: <span>Super Featherweight</span></p>
+                        </div>
+                        <button class="fighter-profile-btn">View Profile</button>
                     </div>
-                    <div class="fighter-stats">
-                        <p>Record: <span>15-1 (7 KOs)</span></p>
-                        <p>Weight Class: <span>Super Featherweight</span></p>
-                    </div>
-                    <button class="fighter-profile-btn">View Profile</button>
+                </div>
+                <div class="title-rectangle">
+                    <div class="fighter-first-name">ALYCIA</div>
+                    <div class="fighter-last-name">BAUMGARDNER</div>
                 </div>
             </a>
         </div>
