@@ -398,6 +398,7 @@
             line-height: 0.9;
             margin-bottom: -1rem;
             text-align: center;
+            width: 100%;
         }
         
         .fighter-first-name {
@@ -425,7 +426,9 @@
             white-space: normal;
             overflow: visible;
             text-overflow: clip;
-            padding-left: 10px; /* Added to bump last names left */
+            padding-left: 0;
+            margin-left: -5px;
+            word-break: break-word;
         }
         
         .fighter-nickname {
@@ -565,17 +568,17 @@
         .event-main {
             font-size: 1.8rem;
             color: var(--gold);
-            margin-bottom: 0.5rem; /* Reduced spacing */
+            margin-bottom: 0.5rem;
         }
         
         .event-date {
             font-size: 1.1rem;
-            margin-bottom: 0.5rem; /* Reduced spacing */
+            margin-bottom: 0.5rem;
         }
         
         .event-venue {
             font-size: 1rem;
-            margin-bottom: 1rem; /* Reduced spacing */
+            margin-bottom: 1rem;
         }
 
         .event-details-btn {
@@ -588,7 +591,7 @@
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
-            width: 90%; /* Wider button */
+            width: 90%;
             max-width: 200px;
             margin: 0 auto;
             text-align: center;
@@ -951,7 +954,7 @@
             }
             
             .hero-slide.paul-chavez {
-                background-size: 50%;
+                background-size: 100%;
                 background-position: center 40%;
             }
             
@@ -1103,7 +1106,8 @@
 
             .fighter-last-name {
                 font-size: 1.2rem;
-                padding: 0 5px;
+                padding: 0;
+                margin-left: -3px;
             }
 
             .fighter-profile-btn {
@@ -1115,24 +1119,24 @@
             /* Event card adjustments */
             .event-main {
                 font-size: 1.3rem;
-                margin-bottom: 0.3rem; /* Reduced spacing on mobile */
+                margin-bottom: 0.3rem;
             }
 
             .event-date {
                 font-size: 0.9rem;
-                margin-bottom: 0.3rem; /* Reduced spacing on mobile */
+                margin-bottom: 0.3rem;
             }
 
             .event-venue {
                 font-size: 0.8rem;
-                margin-bottom: 0.8rem; /* Reduced spacing on mobile */
+                margin-bottom: 0.8rem;
             }
 
             .event-details-btn {
                 width: 100%;
-                padding: 10px;
+                padding: 10px 5px;
                 white-space: nowrap;
-                max-width: 180px;
+                max-width: 220px;
             }
 
             /* Center social icons only on mobile */
@@ -1166,7 +1170,7 @@
 
             .hero-slide.paul-chavez {
                 background-position: center 40%;
-                background-size: 60%;
+                background-size: 100%;
             }
             
             .section-title {
@@ -1236,7 +1240,7 @@
             
             .hero-slide.paul-chavez {
                 background-position: center 40%;
-                background-size: 40%;
+                background-size: 50%;
             }
         }
     </style>
