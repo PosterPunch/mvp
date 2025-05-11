@@ -256,7 +256,7 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-            padding-bottom: 180px; /* Increased padding to move content lower */
+            padding-bottom: 250px; /* Increased from 180px to move content lower */
         }
         
         .hero-slide.active {
@@ -354,7 +354,7 @@
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 125%; /* 5:4 aspect ratio (height:width) */
+            padding-bottom: 125%; /* 5:4 aspect ratio (height:width) - matches event cards */
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -407,6 +407,9 @@
             color: var(--gold);
             margin-bottom: 5px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .fighter-last-name {
@@ -418,8 +421,9 @@
             text-transform: uppercase;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
             margin-top: 5px;
-            word-break: break-word; /* Prevent name from cutting off */
-            padding: 0 10px; /* Added padding for Alycia's name */
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .fighter-nickname {
@@ -463,11 +467,15 @@
         
         .fighter-stats {
             margin-top: 1.5rem;
+            width: 100%;
         }
         
         .fighter-stats p {
             margin-bottom: 0.8rem;
             font-size: 1.1rem;
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .fighter-stats span {
@@ -559,16 +567,25 @@
             font-size: 1.8rem;
             color: var(--gold);
             margin-bottom: 1rem;
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .event-date {
             font-size: 1.1rem;
             margin-bottom: 1rem;
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .event-venue {
             font-size: 1rem;
             margin-bottom: 1.5rem;
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .event-details-btn {
@@ -690,7 +707,7 @@
         }
         
         .partner-logos img {
-            height: 40px;
+            height: 50px; /* Increased by 25% from 40px */
             transition: var(--transition);
         }
         
@@ -929,7 +946,7 @@
             
             /* Move counter and button lower on phone */
             .hero-slide {
-                padding-bottom: 150px; /* Increased from 120px to move content lower */
+                padding-bottom: 180px; /* Increased from 150px to move content lower */
             }
             
             .hero-slide.taylor-serrano {
@@ -940,7 +957,7 @@
             
             .hero-slide.paul-chavez {
                 background-size: 150%;
-                background-position: center 25%; /* Moved higher on mobile */
+                background-position: 55% 25%; /* Moved slightly to the right */
             }
             
             .nav-links {
@@ -1050,7 +1067,7 @@
             }
             
             .partner-logos img {
-                height: 30px;
+                height: 40px; /* Maintain same height as desktop (50px * 0.8) */
             }
 
             /* Mobile fighter card fixes */
@@ -1069,19 +1086,28 @@
                 margin-top: 1rem;
             }
 
-            /* Reduced font sizes for fighter and event cards on mobile */
+            /* Adjusted font sizes for fighter and event cards on mobile */
             .fighter-stats p {
                 margin-bottom: 0.6rem;
-                font-size: 0.9rem; /* Reduced from 1rem */
+                font-size: 0.85rem; /* Slightly reduced */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .fighter-first-name {
-                font-size: 1.1rem; /* Reduced from 1.2rem */
+                font-size: 1rem; /* Reduced from 1.1rem */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .fighter-last-name {
-                font-size: 1.3rem; /* Reduced from 1.4rem */
+                font-size: 1.2rem; /* Reduced from 1.3rem */
                 padding: 0 5px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .fighter-profile-btn {
@@ -1092,15 +1118,24 @@
 
             /* Event card adjustments */
             .event-main {
-                font-size: 1.5rem; /* Reduced from 1.8rem */
+                font-size: 1.3rem; /* Reduced from 1.5rem */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .event-date {
-                font-size: 1rem; /* Reduced from 1.1rem */
+                font-size: 0.9rem; /* Reduced from 1rem */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .event-venue {
-                font-size: 0.9rem; /* Reduced from 1rem */
+                font-size: 0.8rem; /* Reduced from 0.9rem */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             /* Center social icons only on mobile */
@@ -1124,7 +1159,7 @@
             }
             
             .hero-slide {
-                padding-bottom: 130px; /* Increased from 100px to move content lower */
+                padding-bottom: 160px; /* Increased from 130px to move content lower */
             }
             
             .section-title {
@@ -1141,11 +1176,11 @@
             }
             
             .fighter-first-name {
-                font-size: 1rem; /* Further reduced for very small screens */
+                font-size: 0.9rem; /* Further reduced for very small screens */
             }
             
             .fighter-last-name {
-                font-size: 1.2rem; /* Further reduced for very small screens */
+                font-size: 1.1rem; /* Further reduced for very small screens */
             }
             
             section {
@@ -1165,7 +1200,7 @@
             }
             
             .partner-logos img {
-                height: 25px;
+                height: 35px; /* Slightly larger for very small screens */
             }
 
             .footer-logo {
