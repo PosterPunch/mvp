@@ -62,6 +62,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            text-align: center; /* Centered button text */
         }
         
         .btn:hover {
@@ -255,7 +256,7 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-            padding-bottom: 150px; /* Moved content lower */
+            padding-bottom: 180px; /* Increased padding to move content lower */
         }
         
         .hero-slide.active {
@@ -264,15 +265,15 @@
         
         .hero-slide.taylor-serrano {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('taylorserranotop.png');
-            background-size: contain; /* Changed to contain to show only one centered image */
-            background-position: center;
+            background-size: contain;
+            background-position: center 30%; /* Moved higher up */
             background-repeat: no-repeat;
         }
         
         .hero-slide.paul-chavez {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('pchead.png');
-            background-size: 60%; /* Reduced size */
-            background-position: center;
+            background-size: 60%;
+            background-position: center 30%; /* Moved higher up */
             background-repeat: no-repeat;
         }
         
@@ -417,6 +418,8 @@
             text-transform: uppercase;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
             margin-top: 5px;
+            word-break: break-word; /* Prevent name from cutting off */
+            padding: 0 10px; /* Added padding for Alycia's name */
         }
         
         .fighter-nickname {
@@ -450,6 +453,7 @@
             transition: var(--transition);
             z-index: 5;
             text-align: center;
+            overflow-y: auto; /* Allow scrolling on mobile */
         }
         
         .fighter-card:hover .fighter-overlay,
@@ -482,6 +486,8 @@
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
+            width: auto; /* Allow button to size naturally */
+            text-align: center; /* Center button text */
         }
 
         .fighter-profile-btn:hover {
@@ -539,6 +545,7 @@
             padding: 2rem;
             opacity: 0;
             transition: var(--transition);
+            text-align: center; /* Center button text */
         }
         
         .event-card:hover .event-overlay {
@@ -574,8 +581,8 @@
             background: var(--black);
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            width: 100%; /* Changed to fit content */
-            max-width: 600px; /* Added max-width */
+            width: 100%;
+            max-width: 600px;
             margin: 0 auto;
         }
         
@@ -586,8 +593,8 @@
         
         .video-thumbnail {
             width: 100%;
-            height: 300px; /* Increased by 20% */
-            object-fit: cover; /* Changed to cover to fit frame */
+            height: 300px;
+            object-fit: cover;
             background-color: #000;
             transition: var(--transition);
             display: block;
@@ -638,12 +645,15 @@
         
         /* ===== PARTNERS SECTION ===== */
         .partners-title {
-            text-align: right;
-            font-size: 1.2rem;
+            text-align: center; /* Changed to center */
+            font-family: 'Bebas Neue', sans-serif; /* Added Bebas font */
+            font-size: 1.5rem; /* Increased size */
             color: var(--gold);
             margin-bottom: 1rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .partner-logos {
@@ -889,10 +899,13 @@
             
             .hero-slide.taylor-serrano {
                 background-size: contain;
+                background-position: center 25%; /* Moved higher on mobile */
+                background-size: 125%; /* 25% larger on phone */
             }
             
             .hero-slide.paul-chavez {
                 background-size: 150%;
+                background-position: center 25%; /* Moved higher on mobile */
             }
             
             .nav-links {
@@ -1007,7 +1020,7 @@
 
             /* Mobile fighter card fixes */
             .fighter-card {
-                padding-bottom: 140%; /* Slightly taller cards */
+                padding-bottom: 125%; /* Maintain 5:4 ratio */
             }
 
             .fighter-overlay {
@@ -1039,11 +1052,17 @@
 
             .fighter-last-name {
                 font-size: 1.4rem;
+                padding: 0 5px; /* Added padding for mobile */
             }
 
             /* Center social icons only on mobile */
             .social-icons {
                 justify-content: center;
+            }
+
+            /* Better touch support for fighter cards */
+            .fighter-card {
+                -webkit-tap-highlight-color: transparent;
             }
         }
         
@@ -1111,7 +1130,7 @@
 
             /* Adjust fighter cards for very small screens */
             .fighter-card {
-                padding-bottom: 150%;
+                padding-bottom: 125%; /* Maintain 5:4 ratio */
             }
 
             .fighter-overlay {
@@ -1484,18 +1503,6 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <!-- Partners Section -->
-            <div class="partners-title animate">OUR PARTNERS</div>
-            
-            <div class="partner-logos">
-                <img src="dazn.png" alt="DAZN" class="animate">
-                <img src="nf.png" alt="Netflix" class="animate delay-1">
-                <img src="clogo.png" alt="Celsius" class="animate delay-2">
-                <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
-                <img src="crlogo.png" alt="Caribe Royale" class="animate">
-                <img src="etc-logo.png" alt="ETC" class="animate">
-            </div>
-            
             <div class="footer-content">
                 <div class="footer-col animate">
                     <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
@@ -1542,6 +1549,18 @@
                         <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Moved Partners Section Here -->
+            <div class="partners-title animate">OUR PARTNERS</div>
+            
+            <div class="partner-logos">
+                <img src="dazn.png" alt="DAZN" class="animate">
+                <img src="nf.png" alt="Netflix" class="animate delay-1">
+                <img src="clogo.png" alt="Celsius" class="animate delay-2">
+                <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
+                <img src="crlogo.png" alt="Caribe Royale" class="animate">
+                <img src="etc-logo.png" alt="ETC" class="animate">
             </div>
             
             <div class="legal">
@@ -1690,22 +1709,41 @@
             });
         });
 
-        // Touchscreen support for fighter cards
+        // Enhanced touch support for fighter cards
         document.querySelectorAll('.fighter-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Only trigger for touch devices
-                if ('ontouchstart' in window || navigator.maxTouchPoints) {
+            let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+            
+            if (isTouchDevice) {
+                card.addEventListener('touchstart', function(e) {
+                    // Prevent triggering both touch and click events
                     e.preventDefault();
+                    
+                    // Close any other open cards first
+                    document.querySelectorAll('.fighter-card.active').forEach(activeCard => {
+                        if (activeCard !== this) {
+                            activeCard.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle this card
                     this.classList.toggle('active');
-                }
-            });
+                }, { passive: false });
+                
+                // Make sure profile buttons still work
+                card.querySelectorAll('.fighter-profile-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        window.location.href = this.closest('.fighter-card').getAttribute('href');
+                    });
+                });
+            }
         });
 
-        // Fix for fighter card buttons on mobile
-        document.querySelectorAll('.fighter-profile-btn').forEach(btn => {
+        // Fix for event card buttons on mobile
+        document.querySelectorAll('.event-card .btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                window.location.href = this.closest('.fighter-card').getAttribute('href');
+                window.location.href = this.getAttribute('href');
             });
         });
     </script>
