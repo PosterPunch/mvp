@@ -255,7 +255,7 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-            padding-bottom: 100px;
+            padding-bottom: 150px; /* Moved content lower */
         }
         
         .hero-slide.active {
@@ -264,13 +264,14 @@
         
         .hero-slide.taylor-serrano {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('taylorserranotop.png');
-            background-size: auto 100%;
+            background-size: contain; /* Changed to contain to show only one centered image */
             background-position: center;
+            background-repeat: no-repeat;
         }
         
         .hero-slide.paul-chavez {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('pchead.png');
-            background-size: 60%;
+            background-size: 60%; /* Reduced size */
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -573,7 +574,8 @@
             background: var(--black);
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            width: fit-content;
+            width: 100%; /* Changed to fit content */
+            max-width: 600px; /* Added max-width */
             margin: 0 auto;
         }
         
@@ -585,7 +587,7 @@
         .video-thumbnail {
             width: 100%;
             height: 300px; /* Increased by 20% */
-            object-fit: contain;
+            object-fit: cover; /* Changed to cover to fit frame */
             background-color: #000;
             transition: var(--transition);
             display: block;
@@ -635,19 +637,13 @@
         }
         
         /* ===== PARTNERS SECTION ===== */
-        .partners-section {
-            text-align: center;
-            padding: 3rem 0;
-            background-color: #0a0a0a;
-        }
-        
         .partners-title {
-            font-size: 1.5rem;
+            text-align: right;
+            font-size: 1.2rem;
             color: var(--gold);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gold);
         }
         
         .partner-logos {
@@ -656,7 +652,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 3rem;
-            padding: 2rem 0;
+            padding: 3rem 0;
         }
         
         .partner-logos img {
@@ -672,7 +668,7 @@
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
-            padding: 3rem 0 0;
+            padding: 3rem 0;
         }
         
         .footer-content {
@@ -757,7 +753,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 3rem;
+            margin-top: 5rem;
             padding-top: 3rem;
             border-top: 1px solid rgba(212, 175, 55, 0.3);
             font-size: 0.9rem;
@@ -776,7 +772,6 @@
             display: flex;
             gap: 1.5rem;
             margin-top: 2rem;
-            justify-content: center;
         }
         
         .social-icons a {
@@ -889,11 +884,11 @@
             }
             
             .hero-slide {
-                padding-bottom: 80px;
+                padding-bottom: 120px;
             }
             
             .hero-slide.taylor-serrano {
-                background-size: auto 100%;
+                background-size: contain;
             }
             
             .hero-slide.paul-chavez {
@@ -961,7 +956,7 @@
             }
             
             .video-thumbnail {
-                height: 240px; /* Increased by 20% */
+                height: 240px;
             }
             
             .footer-content {
@@ -1011,29 +1006,44 @@
             }
 
             /* Mobile fighter card fixes */
+            .fighter-card {
+                padding-bottom: 140%; /* Slightly taller cards */
+            }
+
             .fighter-overlay {
-                padding: 1rem;
+                padding: 1.5rem;
                 overflow-y: auto;
+                justify-content: flex-start;
+                padding-top: 2rem;
+            }
+
+            .fighter-stats {
+                margin-top: 1rem;
             }
 
             .fighter-stats p {
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.6rem;
                 font-size: 1rem;
             }
 
             .fighter-profile-btn {
                 margin-top: 1rem;
-                padding: 6px 12px;
-                font-size: 0.8rem;
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
 
-            /* Fix for Alycia's name */
+            /* Fix for names */
             .fighter-first-name {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .fighter-last-name {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+            }
+
+            /* Center social icons only on mobile */
+            .social-icons {
+                justify-content: center;
             }
         }
         
@@ -1047,7 +1057,7 @@
             }
             
             .hero-slide {
-                padding-bottom: 60px;
+                padding-bottom: 100px;
             }
             
             .section-title {
@@ -1064,11 +1074,11 @@
             }
             
             .fighter-first-name {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .fighter-last-name {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
             section {
@@ -1099,17 +1109,13 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            /* Mobile footer links in two columns */
-            .footer-links-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-                width: 100%;
+            /* Adjust fighter cards for very small screens */
+            .fighter-card {
+                padding-bottom: 150%;
             }
 
-            .footer-links-col-1,
-            .footer-links-col-2 {
-                gap: 1rem;
+            .fighter-overlay {
+                padding: 1rem;
             }
         }
     </style>
@@ -1458,10 +1464,38 @@
             </a>
         </div>
     </section>
+
+    <!-- New MVP Logo Banner After Videos -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+        </div>
+    </div>
     
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
+            <!-- Partners Section -->
+            <div class="partners-title animate">OUR PARTNERS</div>
+            
+            <div class="partner-logos">
+                <img src="dazn.png" alt="DAZN" class="animate">
+                <img src="nf.png" alt="Netflix" class="animate delay-1">
+                <img src="clogo.png" alt="Celsius" class="animate delay-2">
+                <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
+                <img src="crlogo.png" alt="Caribe Royale" class="animate">
+                <img src="etc-logo.png" alt="ETC" class="animate">
+            </div>
+            
             <div class="footer-content">
                 <div class="footer-col animate">
                     <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
@@ -1487,39 +1521,26 @@
                 </div>
                 
                 <div class="footer-col">
-                    <div class="footer-links-container">
-                        <div class="footer-links-col-1">
-                            <a href="index.html" class="animate">Home</a>
-                            <a href="box.html" class="animate delay-1">Athletes</a>
-                            <a href="events.html" class="animate delay-2">Events</a>
-                        </div>
-                        <div class="footer-links-col-2">
-                            <a href="news.html" class="animate delay-1">News</a>
-                            <a href="about.html" class="animate delay-2">About</a>
-                            <a href="contact.html" class="animate delay-3">Contact</a>
-                        </div>
+                    <div class="footer-links-col-1">
+                        <a href="index.html" class="animate">Home</a>
+                        <a href="box.html" class="animate delay-1">Athletes</a>
+                        <a href="events.html" class="animate delay-2">Events</a>
+                        <a href="news.html" class="animate delay-3">News</a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
+                    <div class="footer-links-col-2">
+                        <a href="about.html" class="animate">About</a>
+                        <a href="contact.html" class="animate delay-1">Contact</a>
+                    </div>
+                    
                     <div class="contact-info" style="margin-top: 2rem;">
                         <p>For general inquiries:</p>
                         <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
                         <p class="animate delay-1">For press inquiries:</p>
                         <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
                     </div>
-                </div>
-            </div>
-            
-            <div class="partners-section">
-                <h3 class="partners-title animate">OUR PARTNERS</h3>
-                <div class="partner-logos">
-                    <img src="dazn.png" alt="DAZN" class="animate">
-                    <img src="nf.png" alt="Netflix" class="animate delay-1">
-                    <img src="clogo.png" alt="Celsius" class="animate delay-2">
-                    <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
-                    <img src="crlogo.png" alt="Caribe Royale" class="animate">
-                    <img src="etc-logo.png" alt="ETC" class="animate">
                 </div>
             </div>
             
