@@ -73,6 +73,23 @@
         .btn span {
             display: inline-block;
         }
+
+        .view-all-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 3rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .view-all-btn:hover {
+            transform: translateX(5px);
+        }
         
         section {
             padding: 12rem 0;
@@ -247,11 +264,13 @@
         
         .hero-slide.taylor-serrano {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('taylorserranotop.png');
+            background-size: auto 100%;
+            background-position: center;
         }
         
         .hero-slide.paul-chavez {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('pchead.png');
-            background-size: contain;
+            background-size: 120%;
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -332,7 +351,8 @@
         .fighter-card {
             position: relative;
             width: 100%;
-            aspect-ratio: 5/4;
+            height: 0;
+            padding-bottom: 125%; /* 5:4 aspect ratio (height:width) */
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -345,10 +365,12 @@
         }
         
         .fighter-img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: relative;
             z-index: 2;
             transition: var(--transition);
         }
@@ -477,7 +499,8 @@
         .event-card {
             position: relative;
             width: 100%;
-            aspect-ratio: 5/4;
+            height: 0;
+            padding-bottom: 125%; /* 5:4 aspect ratio (height:width) */
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -489,6 +512,9 @@
         }
         
         .event-poster {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -543,10 +569,12 @@
         
         .video-card {
             position: relative;
-            border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
             background: var(--black);
             overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            width: fit-content;
+            margin: 0 auto;
         }
         
         .video-card:hover {
@@ -556,10 +584,11 @@
         
         .video-thumbnail {
             width: 100%;
-            height: 350px;
+            height: 250px;
             object-fit: contain;
             background-color: #000;
             transition: var(--transition);
+            display: block;
         }
         
         .video-card:hover .video-thumbnail {
@@ -588,9 +617,10 @@
         }
         
         .video-info {
-            padding: 2rem;
+            padding: 1.5rem;
             background: rgba(0, 0, 0, 0.8);
             text-align: center;
+            width: 100%;
         }
         
         .video-title {
@@ -604,64 +634,27 @@
             opacity: 0.9;
         }
         
-        /* ===== SOCIAL SECTION ===== */
-        .social-section {
-            text-align: center;
-            padding: 8rem 0;
-            background-color: rgba(212, 175, 55, 0.05);
-        }
-        
-        .social-section h3 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--gold);
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        .social-icons a {
-            color: var(--gold);
-            font-size: 1.8rem;
-            transition: var(--transition);
-        }
-        
-        .social-icons a:hover {
-            transform: translateY(-8px);
-        }
-        
         /* ===== PARTNERS SECTION ===== */
-        .partners {
-            text-align: center;
-            padding: 10rem 0;
-        }
-        
-        .partners h3 {
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
+        .partners-title {
+            text-align: right;
+            font-size: 1.2rem;
             color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gold);
         }
         
         .partner-logos {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-        }
-        
-        .partner-logos-top, .partner-logos-bottom {
-            display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 4rem;
+            gap: 3rem;
+            padding: 3rem 0;
         }
         
         .partner-logos img {
-            height: 50px;
+            height: 40px;
             filter: brightness(0) invert(1);
             transition: var(--transition);
         }
@@ -673,8 +666,7 @@
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
-            padding: 6rem 0 3rem;
-            border-top: 1px solid var(--gold);
+            padding: 3rem 0;
         }
         
         .footer-content {
@@ -774,6 +766,22 @@
             color: var(--gold);
         }
         
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-icons a {
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+        
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {
             position: fixed;
@@ -843,11 +851,6 @@
                 padding: 10rem 0;
             }
             
-            .social-section,
-            .partners {
-                padding: 8rem 0;
-            }
-            
             footer {
                 padding: 5rem 0 3rem;
             }
@@ -871,7 +874,7 @@
             }
             
             .header-logo {
-                height: 66px;
+                height: 88px;
             }
             
             .container {
@@ -880,6 +883,14 @@
             
             .hero-slide {
                 padding-bottom: 80px;
+            }
+            
+            .hero-slide.taylor-serrano {
+                background-size: auto 100%;
+            }
+            
+            .hero-slide.paul-chavez {
+                background-size: 150%;
             }
             
             .nav-links {
@@ -931,19 +942,19 @@
                 height: 3px;
             }
             
-            .fighters-grid {
+            .fighters-grid,
+            .events-container {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
             }
             
-            .events-container,
             .videos-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
             
             .video-thumbnail {
-                height: 300px;
+                height: 200px;
             }
             
             .footer-content {
@@ -979,23 +990,23 @@
                 padding: 8rem 0;
             }
             
-            .social-section,
-            .partners {
-                padding: 8rem 0;
-            }
-            
             .footer-logo {
                 height: 198px;
             }
             
-            .social-icons {
-                gap: 1.5rem;
+            .partner-logos {
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+            
+            .partner-logos img {
+                height: 30px;
             }
         }
         
         @media (max-width: 480px) {
             .header-logo {
-                height: 66px;
+                height: 88px;
             }
 
             .container {
@@ -1030,11 +1041,6 @@
             section {
                 padding: 6rem 0;
             }
-
-            .social-section,
-            .partners {
-                padding: 6rem 0;
-            }
             
             .scroll-top {
                 width: 60px;
@@ -1043,21 +1049,21 @@
                 bottom: 2rem;
                 right: 2rem;
             }
-
-            .social-icons {
+            
+            .partner-logos {
                 gap: 1.5rem;
             }
             
-            .partner-logos {
-                gap: 2rem;
-            }
-            
             .partner-logos img {
-                height: 40px;
+                height: 25px;
             }
 
             .footer-logo {
                 height: 198px;
+            }
+            
+            .events-container {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -1265,6 +1271,11 @@
                 </div>
             </a>
         </div>
+
+        <div class="view-all-btn animate delay-3">
+            <a href="box.html">VIEW ALL FIGHTERS</a>
+            <i class="fas fa-chevron-right"></i>
+        </div>
     </section>
 
     <!-- Moving Banner Between Sections -->
@@ -1316,29 +1327,34 @@
             
             <!-- Prospects Event 1 -->
             <div class="event-card animate delay-2">
-                <img src="p11.png" 
-                     alt="Prospects 11" class="event-poster">
+                <img src="p12.png" 
+                     alt="Prospects 12" class="event-poster">
                 
                 <div class="event-overlay">
-                    <h3 class="event-main">Most Valuable Prospects 11</h3>
-                    <p class="event-date">March 7, 2025</p>
-                    <p class="event-venue">Great Canadian Resort • DAZN</p>
-                    <a href="/events/prospects-11" class="btn"><span>Event Report</span></a>
+                    <h3 class="event-main">Most Valuable Prospects 12</h3>
+                    <p class="event-date">May 9, 2025</p>
+                    <p class="event-venue">Caribe Royale • DAZN</p>
+                    <a href="/events/prospects-12" class="btn"><span>Event Report</span></a>
                 </div>
             </div>
             
             <!-- Prospects Event 2 -->
             <div class="event-card animate delay-3">
-                <img src="p11.png" 
-                     alt="Prospects 11" class="event-poster">
+                <img src="p13.png" 
+                     alt="Prospects 13" class="event-poster">
                 
                 <div class="event-overlay">
-                    <h3 class="event-main">Most Valuable Prospects 11</h3>
-                    <p class="event-date">March 7, 2025</p>
-                    <p class="event-venue">Great Canadian Resort • DAZN</p>
-                    <a href="/events/prospects-11" class="btn"><span>Event Report</span></a>
+                    <h3 class="event-main">Most Valuable Prospects 13</h3>
+                    <p class="event-date">June 7, 2025</p>
+                    <p class="event-venue">Caribe Royale • DAZN</p>
+                    <a href="/events/prospects-13" class="btn"><span>Event Report</span></a>
                 </div>
             </div>
+        </div>
+
+        <div class="view-all-btn animate delay-3">
+            <a href="events.html">VIEW ALL EVENTS</a>
+            <i class="fas fa-chevron-right"></i>
         </div>
     </section>
 
@@ -1397,50 +1413,21 @@
         </div>
     </section>
     
-    <!-- ===== PARTNERS SECTION ===== -->
-    <section class="partners">
-        <div class="container">
-            <h3 class="animate">Official Partners</h3>
-            
-            <div class="partner-logos">
-                <div class="partner-logos-top">
-                    <img src="dazn.png" alt="DAZN" class="animate">
-                    <img src="nf.png" alt="Netflix" class="animate delay-1">
-                </div>
-                <div class="partner-logos-bottom">
-                    <img src="clogo.png" alt="Celsius" class="animate delay-2">
-                    <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
-                    <img src="crlogo.png" alt="Caribe Royale" class="animate">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===== SOCIAL SECTION ===== -->
-    <section class="social-section">
-        <div class="container">
-            <h3 class="animate">Follow MVP</h3>
-            
-            <div class="social-icons">
-                <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank" class="animate">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://x.com/MostVpromotions" target="_blank" class="animate delay-1">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank" class="animate delay-2">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank" class="animate delay-3">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
+            <!-- Partners Section -->
+            <div class="partners-title animate">OUR PARTNERS</div>
+            
+            <div class="partner-logos">
+                <img src="dazn.png" alt="DAZN" class="animate">
+                <img src="nf.png" alt="Netflix" class="animate delay-1">
+                <img src="clogo.png" alt="Celsius" class="animate delay-2">
+                <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
+                <img src="crlogo.png" alt="Caribe Royale" class="animate">
+                <img src="etc-logo.png" alt="ETC" class="animate">
+            </div>
+            
             <div class="footer-content">
                 <div class="footer-col animate">
                     <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
@@ -1449,7 +1436,7 @@
                         The organization focuses on strategically identifying, developing, and maximizing the value 
                         of its events and talent partnerships to ensure optimal returns.
                     </p>
-                    <div class="social-icons" style="justify-content: flex-start; margin-top: 2rem;">
+                    <div class="social-icons">
                         <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank" class="animate">
                             <i class="fab fa-instagram"></i>
                         </a>
