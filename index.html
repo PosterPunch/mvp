@@ -62,7 +62,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            text-align: center; /* Centered button text */
+            transform: skewX(-20deg);
         }
         
         .btn:hover {
@@ -73,23 +73,6 @@
         
         .btn span {
             display: inline-block;
-        }
-
-        .view-all-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 3rem;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            color: var(--gold);
-            transition: var(--transition);
-        }
-
-        .view-all-btn:hover {
-            transform: translateX(5px);
         }
         
         section {
@@ -233,64 +216,55 @@
             color: var(--white);
         }
         
-        /* ===== HERO SLIDER ===== */
-        .hero-slider {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            margin-top: 70px;
+        /* ===== HERO SECTION ===== */
+        .hero-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 90px;
         }
         
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            flex: 1;
+            min-width: 50%;
+            background: var(--black) no-repeat center center;
             background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            align-items: center;
-            padding-bottom: 180px; /* Increased padding to move content lower */
+            align-items: flex-start;
+            padding: 0 0 200px 100px;
+            position: relative;
         }
         
-        .hero-slide.active {
-            opacity: 1;
+        .hero.taylor-serrano {
+            background-image: url('taylorserranotop.png');
         }
         
-        .hero-slide.taylor-serrano {
-            background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('taylorserranotop.png');
-            background-size: contain;
-            background-position: center 30%; /* Moved higher up */
-            background-repeat: no-repeat;
-        }
-        
-        .hero-slide.paul-chavez {
-            background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('pchead.png');
-            background-size: 60%;
-            background-position: center 30%; /* Moved higher up */
-            background-repeat: no-repeat;
+        .hero.paul-chavez {
+            background-image: url('pchead.png');
+            background-size: contain; /* Changed from cover to contain */
+            background-position: center center;
         }
         
         .hero-content {
-            text-align: center;
+            z-index: 1;
             width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 3rem;
+            padding-bottom: 10px;
+            margin-top: 0;
         }
         
         .countdown {
             display: flex;
             gap: 2rem;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-top: auto; /* Move timer lower */
+            margin-bottom: 50px; /* Add space below timer */
         }
         
         .countdown-item {
@@ -320,28 +294,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
         }
         
-        .slider-dots {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 3;
-        }
-        
-        .slider-dot {
-            width: 40px;
-            height: 2px;
-            background-color: rgba(255,255,255,0.3);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .slider-dot.active {
-            background-color: var(--gold);
-        }
-        
         /* ===== FIGHTERS SECTION ===== */
         .fighters-grid {
             display: grid;
@@ -352,9 +304,9 @@
         
         .fighter-card {
             position: relative;
+            height: 400px;
             width: 100%;
-            height: 0;
-            padding-bottom: 125%; /* 5:4 aspect ratio (height:width) */
+            max-width: 300px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -366,13 +318,21 @@
             box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
         }
         
-        .fighter-img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .fighter-bg {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .fighter-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
             z-index: 2;
             transition: var(--transition);
         }
@@ -384,7 +344,7 @@
         
         .fighter-info {
             position: absolute;
-            bottom: 0;
+            bottom: 30px;
             left: 0;
             width: 100%;
             padding: 2rem;
@@ -418,8 +378,6 @@
             text-transform: uppercase;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
             margin-top: 5px;
-            word-break: break-word; /* Prevent name from cutting off */
-            padding: 0 10px; /* Added padding for Alycia's name */
         }
         
         .fighter-nickname {
@@ -453,7 +411,6 @@
             transition: var(--transition);
             z-index: 5;
             text-align: center;
-            overflow-y: auto; /* Allow scrolling on mobile */
         }
         
         .fighter-card:hover .fighter-overlay,
@@ -486,8 +443,6 @@
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
-            width: auto; /* Allow button to size naturally */
-            text-align: center; /* Center button text */
         }
 
         .fighter-profile-btn:hover {
@@ -505,9 +460,8 @@
         
         .event-card {
             position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 125%; /* 5:4 aspect ratio (height:width) */
+            height: 340px;
+            width: 272px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -519,9 +473,6 @@
         }
         
         .event-poster {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -545,7 +496,6 @@
             padding: 2rem;
             opacity: 0;
             transition: var(--transition);
-            text-align: center; /* Center button text */
         }
         
         .event-card:hover .event-overlay {
@@ -577,13 +527,10 @@
         
         .video-card {
             position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
             background: var(--black);
             overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
         }
         
         .video-card:hover {
@@ -593,15 +540,13 @@
         
         .video-thumbnail {
             width: 100%;
-            height: 300px;
+            height: 350px;
             object-fit: cover;
-            background-color: #000;
             transition: var(--transition);
-            display: block;
         }
         
         .video-card:hover .video-thumbnail {
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
         
         .play-button {
@@ -626,10 +571,8 @@
         }
         
         .video-info {
-            padding: 1.5rem;
+            padding: 2rem;
             background: rgba(0, 0, 0, 0.8);
-            text-align: center;
-            width: 100%;
         }
         
         .video-title {
@@ -643,42 +586,92 @@
             opacity: 0.9;
         }
         
-        /* ===== PARTNERS SECTION ===== */
-        .partners-title {
-            text-align: center; /* Changed to center */
-            font-family: 'Bebas Neue', sans-serif; /* Added Bebas font */
-            font-size: 1.5rem; /* Increased size */
+        /* ===== SOCIAL SECTION ===== */
+        .social-section {
+            text-align: center;
+            padding: 8rem 0;
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .social-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
             color: var(--gold);
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(212, 175, 55, 0.1);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* ===== PARTNERS SECTION ===== */
+        .partners {
+            text-align: center;
+            padding: 10rem 0;
+        }
+        
+        .partners h3 {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--gold);
         }
         
         .partner-logos {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .partner-logos-top, .partner-logos-bottom {
+            display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 3rem;
-            padding: 3rem 0;
+            gap: 4rem;
         }
         
         .partner-logos img {
-            height: 40px;
-            filter: brightness(0) invert(1);
+            height: 70px;
+            opacity: 1;
             transition: var(--transition);
         }
         
+        .partner-logos img[src="dazn.png"],
+        .partner-logos img[src="clogo.png"],
+        .partner-logos img[src="netflix.png"] {
+            filter: brightness(0) invert(1);
+        }
+        
         .partner-logos img:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
         
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
-            padding: 3rem 0;
+            padding: 6rem 0 3rem;
+            border-top: 1px solid var(--gold);
         }
         
         .footer-content {
@@ -778,22 +771,6 @@
             color: var(--gold);
         }
         
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .social-icons a {
-            color: var(--gold);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        .social-icons a:hover {
-            transform: translateY(-5px);
-        }
-        
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {
             position: fixed;
@@ -858,9 +835,21 @@
             .container {
                 padding: 0 3rem;
             }
+
+            .countdown {
+                display: flex;
+                gap: 2rem;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
             
             section {
                 padding: 10rem 0;
+            }
+            
+            .social-section,
+            .partners {
+                padding: 8rem 0;
             }
             
             footer {
@@ -877,6 +866,13 @@
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .countdown {
+                display: flex;
+                gap: 2rem;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -886,26 +882,17 @@
             }
             
             .header-logo {
-                height: 88px;
+                height: 66px;
             }
             
             .container {
                 padding: 0 1.5rem;
             }
             
-            .hero-slide {
-                padding-bottom: 120px;
-            }
-            
-            .hero-slide.taylor-serrano {
-                background-size: contain;
-                background-position: center 25%; /* Moved higher on mobile */
-                background-size: 125%; /* 25% larger on phone */
-            }
-            
-            .hero-slide.paul-chavez {
-                background-size: 150%;
-                background-position: center 25%; /* Moved higher on mobile */
+            .hero {
+                min-height: 600px;
+                padding: 0 0 80px 40px;
+                min-width: 100%;
             }
             
             .nav-links {
@@ -933,6 +920,8 @@
             .countdown {
                 gap: 1rem;
                 flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 30px;
             }
             
             .countdown-item {
@@ -957,19 +946,24 @@
                 height: 3px;
             }
             
-            .fighters-grid,
-            .events-container {
+            .fighters-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
             }
             
+            .events-container,
             .videos-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
             
+            .fighter-card,
+            .event-card {
+                height: 450px;
+            }
+            
             .video-thumbnail {
-                height: 240px;
+                height: 300px;
             }
             
             .footer-content {
@@ -1005,78 +999,28 @@
                 padding: 8rem 0;
             }
             
+            .social-section,
+            .partners {
+                padding: 8rem 0;
+            }
+            
             .footer-logo {
                 height: 198px;
-            }
-            
-            .partner-logos {
-                gap: 2rem;
-                padding: 2rem 0;
-            }
-            
-            .partner-logos img {
-                height: 30px;
-            }
-
-            /* Mobile fighter card fixes */
-            .fighter-card {
-                padding-bottom: 125%; /* Maintain 5:4 ratio */
-            }
-
-            .fighter-overlay {
-                padding: 1.5rem;
-                overflow-y: auto;
-                justify-content: flex-start;
-                padding-top: 2rem;
-            }
-
-            .fighter-stats {
-                margin-top: 1rem;
-            }
-
-            .fighter-stats p {
-                margin-bottom: 0.6rem;
-                font-size: 1rem;
-            }
-
-            .fighter-profile-btn {
-                margin-top: 1rem;
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-
-            /* Fix for names */
-            .fighter-first-name {
-                font-size: 1.2rem;
-            }
-
-            .fighter-last-name {
-                font-size: 1.4rem;
-                padding: 0 5px; /* Added padding for mobile */
-            }
-
-            /* Center social icons only on mobile */
-            .social-icons {
-                justify-content: center;
-            }
-
-            /* Better touch support for fighter cards */
-            .fighter-card {
-                -webkit-tap-highlight-color: transparent;
             }
         }
         
         @media (max-width: 480px) {
             .header-logo {
-                height: 88px;
+                height: 66px;
             }
 
             .container {
                 padding: 0 1rem;
             }
             
-            .hero-slide {
-                padding-bottom: 100px;
+            .hero {
+                padding: 0 0 60px 20px;
+                min-height: 500px;
             }
             
             .section-title {
@@ -1093,14 +1037,28 @@
             }
             
             .fighter-first-name {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .fighter-last-name {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             
             section {
+                padding: 6rem 0;
+            }
+
+            .event-card {
+                position: relative;
+                height: 340px;
+                width: 272px;
+                overflow: hidden;
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                transition: var(--transition);
+            }            
+
+            .social-section,
+            .partners {
                 padding: 6rem 0;
             }
             
@@ -1111,30 +1069,27 @@
                 bottom: 2rem;
                 right: 2rem;
             }
-            
-            .partner-logos {
+
+            .social-icons {
                 gap: 1.5rem;
             }
             
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .partner-logos {
+                gap: 2rem;
+            }
+            
             .partner-logos img {
-                height: 25px;
+                height: 50px;
             }
 
             .footer-logo {
                 height: 198px;
-            }
-            
-            .events-container {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            /* Adjust fighter cards for very small screens */
-            .fighter-card {
-                padding-bottom: 125%; /* Maintain 5:4 ratio */
-            }
-
-            .fighter-overlay {
-                padding: 1rem;
             }
         }
     </style>
@@ -1160,10 +1115,10 @@
         </div>
     </header>
     
-    <!-- ===== HERO SLIDER ===== -->
-    <div class="hero-slider">
+    <!-- ===== HERO SECTION ===== -->
+    <div class="hero-container">
         <!-- Taylor vs Serrano Hero -->
-        <div class="hero-slide taylor-serrano active">
+        <section class="hero taylor-serrano">
             <div class="hero-content">
                 <div class="countdown animate" id="taylor-serrano-countdown">
                     <div class="countdown-item">
@@ -1186,10 +1141,10 @@
                 
                 <a href="https://www.ticketmaster.com/mvp-katie-taylor-v-amanda-serrano-new-york-new-york-07-11-2025/event/3B00626509B31AD4" class="btn animate delay-1"><span>PURCHASE TICKETS</span></a>
             </div>
-        </div>
+        </section>
         
         <!-- Paul vs Chavez Hero -->
-        <div class="hero-slide paul-chavez">
+        <section class="hero paul-chavez">
             <div class="hero-content">
                 <div class="countdown animate" id="paul-chavez-countdown">
                     <div class="countdown-item">
@@ -1212,12 +1167,7 @@
                 
                 <a href="https://www.mostvaluablepromotions.com/paulchavezjr/" class="btn animate delay-1"><span>SIGN UP FOR PRESALE</span></a>
             </div>
-        </div>
-        
-        <div class="slider-dots">
-            <div class="slider-dot active" data-slide="0"></div>
-            <div class="slider-dot" data-slide="1"></div>
-        </div>
+        </section>
     </div>
     
     <!-- BANNER BETWEEN SECTIONS -->
@@ -1226,13 +1176,26 @@
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <!-- Duplicate items for seamless looping -->
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
         </div>
@@ -1324,6 +1287,7 @@
                 
                 <div class="fighter-info">
                     <div class="fighter-name">
+
                         <span class="fighter-first-name">ALYCIA</span>
                         <span class="fighter-last-name">BAUMGARDNER</span>
                     </div>
@@ -1331,7 +1295,7 @@
                 
                 <div class="fighter-overlay">
                     <div class="fighter-name" style="margin-left: 0px;">
-                        <span class="fighter-first-name">ALYCIA</span>
+                        <span class="fighter-first-name">Alycia</span>
                         <span class="fighter-last-name">BAUMGARDNER</span>
                     </div>
                     <div class="fighter-stats">
@@ -1342,16 +1306,72 @@
                 </div>
             </a>
         </div>
-
-        <div class="view-all-btn animate delay-3">
-            <a href="box.html">VIEW ALL FIGHTERS</a>
-            <i class="fas fa-chevron-right"></i>
-        </div>
     </section>
 
     <!-- Moving Banner Between Sections -->
     <div class="banner-container">
         <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
@@ -1392,7 +1412,7 @@
                     <h3 class="event-main">Paul vs Chavez</h3>
                     <p class="event-date">June 28, 2025</p>
                     <p class="event-venue">Honda Center • DAZN PPV</p>
-                    <a href="pc.html" class="btn"><span>Event Details</span></a>
+                    <a href="pc.html" class="btn"><span>Event Report</span></a>
                 </div>
             </div>
             
@@ -1404,28 +1424,23 @@
                 <div class="event-overlay">
                     <h3 class="event-main">Most Valuable Prospects 12</h3>
                     <p class="event-date">May 9, 2025</p>
-                    <p class="event-venue">Caribe Royale • DAZN</p>
+                    <p class="event-venue">Caribe Royale Orlando• DAZN</p>
                     <a href="/events/prospects-12" class="btn"><span>Event Details</span></a>
                 </div>
             </div>
             
             <!-- Prospects Event 2 -->
             <div class="event-card animate delay-3">
-                <img src="p13.png" 
-                     alt="Prospects 13" class="event-poster">
+                <img src="p11.png" 
+                     alt="Prospects 11" class="event-poster">
                 
                 <div class="event-overlay">
-                    <h3 class="event-main">Most Valuable Prospects 13</h3>
-                    <p class="event-date">June 7, 2025</p>
-                    <p class="event-venue">Caribe Royale • DAZN</p>
-                    <a href="/events/prospects-13" class="btn"><span>Event Details</span></a>
+                    <h3 class="event-main">Most Valuable Prospects 11</h3>
+                    <p class="event-date">March 7, 2025</p>
+                    <p class="event-venue">Great Canadian Resort • DAZN</p>
+                    <a href="/events/prospects-11" class="btn"><span>Event Report</span></a>
                 </div>
             </div>
-        </div>
-
-        <div class="view-all-btn animate delay-3">
-            <a href="events.html">VIEW ALL EVENTS</a>
-            <i class="fas fa-chevron-right"></i>
         </div>
     </section>
 
@@ -1435,13 +1450,61 @@
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
         </div>
@@ -1449,7 +1512,7 @@
        
     <!-- ===== VIDEO SECTION ===== -->
     <section class="container">
-        <h2 class="section-title animate">Exclusive MVP Content</h2>
+        <h2 class="section-title animate">MVP Series</h2>
         
         <div class="videos-grid">
             <!-- Video 1 -->
@@ -1469,6 +1532,7 @@
             
             <!-- Video 2 -->
             <a href="https://www.youtube.com/watch?v=beUsZz13nNM" target="_blank" class="video-card animate delay-1">
+
                 <img src="https://i.ytimg.com/vi/beUsZz13nNM/maxresdefault.jpg" 
                      alt="MVP Uncut" class="video-thumbnail">
                 
@@ -1483,23 +1547,200 @@
             </a>
         </div>
     </section>
+    
+    <!-- ===== SOCIAL SECTION ===== -->
+    <section class="social-section">
+        <div class="container">
+            <h3 class="animate">Follow MVP</h3>
+            
+            <div class="social-icons">
+                <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank" class="animate">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://x.com/MostVpromotions" target="_blank" class="animate delay-1">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank" class="animate delay-2">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank" class="animate delay-3">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
 
-    <!-- New MVP Logo Banner After Videos -->
+    <!-- Moving Banner Between Sections -->
     <div class="banner-container">
         <div class="banner">
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
         </div>
     </div>
     
+    <!-- ===== PARTNERS SECTION ===== -->
+    <section class="partners">
+        <div class="container">
+            <h3 class="animate">Official Partners</h3>
+            
+            <div class="partner-logos">
+                <div class="partner-logos-top">
+                    <img src="dazn.png" alt="DAZN" class="animate">
+                    <img src="nf.png" alt="Netflix" class="animate delay-1" style="background-color: var(--black); padding: 10px;">
+                </div>
+                <div class="partner-logos-bottom">
+                    <img src="clogo.png" alt="Celsius" class="animate delay-2">
+                    <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
+                    <img src="crlogo.png" alt="Caribe Royale" class="animate">
+                </div>
+            </div>
+        </div>
+    </section>
+            
+
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
@@ -1511,20 +1752,6 @@
                         The organization focuses on strategically identifying, developing, and maximizing the value 
                         of its events and talent partnerships to ensure optimal returns.
                     </p>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank" class="animate">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://x.com/MostVpromotions" target="_blank" class="animate delay-1">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank" class="animate delay-2">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank" class="animate delay-3">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
                 </div>
                 
                 <div class="footer-col">
@@ -1551,18 +1778,6 @@
                 </div>
             </div>
             
-            <!-- Moved Partners Section Here -->
-            <div class="partners-title animate">OUR PARTNERS</div>
-            
-            <div class="partner-logos">
-                <img src="dazn.png" alt="DAZN" class="animate">
-                <img src="nf.png" alt="Netflix" class="animate delay-1">
-                <img src="clogo.png" alt="Celsius" class="animate delay-2">
-                <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
-                <img src="crlogo.png" alt="Caribe Royale" class="animate">
-                <img src="etc-logo.png" alt="ETC" class="animate">
-            </div>
-            
             <div class="legal">
                 <span class="animate">©2025 Most Valuable Promotions. All rights reserved.</span>
                 <div>
@@ -1583,36 +1798,6 @@
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
             this.querySelector('i').classList.toggle('fa-times');
-        });
-        
-        // Hero Slider
-        const heroSlides = document.querySelectorAll('.hero-slide');
-        const sliderDots = document.querySelectorAll('.slider-dot');
-        let currentSlide = 0;
-        
-        function showSlide(index) {
-            heroSlides.forEach(slide => slide.classList.remove('active'));
-            sliderDots.forEach(dot => dot.classList.remove('active'));
-            
-            heroSlides[index].classList.add('active');
-            sliderDots[index].classList.add('active');
-            currentSlide = index;
-        }
-        
-        function nextSlide() {
-            let nextIndex = (currentSlide + 1) % heroSlides.length;
-            showSlide(nextIndex);
-        }
-        
-        // Auto slide every 10 seconds
-        setInterval(nextSlide, 10000);
-        
-        // Dot navigation
-        sliderDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const slideIndex = parseInt(this.getAttribute('data-slide'));
-                showSlide(slideIndex);
-            });
         });
         
         // Countdown Timer for Taylor vs Serrano
@@ -1709,41 +1894,14 @@
             });
         });
 
-        // Enhanced touch support for fighter cards
+        // Touchscreen support for fighter cards
         document.querySelectorAll('.fighter-card').forEach(card => {
-            let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
-            
-            if (isTouchDevice) {
-                card.addEventListener('touchstart', function(e) {
-                    // Prevent triggering both touch and click events
+            card.addEventListener('click', function(e) {
+                // Only trigger for touch devices
+                if ('ontouchstart' in window || navigator.maxTouchPoints) {
                     e.preventDefault();
-                    
-                    // Close any other open cards first
-                    document.querySelectorAll('.fighter-card.active').forEach(activeCard => {
-                        if (activeCard !== this) {
-                            activeCard.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle this card
                     this.classList.toggle('active');
-                }, { passive: false });
-                
-                // Make sure profile buttons still work
-                card.querySelectorAll('.fighter-profile-btn').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        window.location.href = this.closest('.fighter-card').getAttribute('href');
-                    });
-                });
-            }
-        });
-
-        // Fix for event card buttons on mobile
-        document.querySelectorAll('.event-card .btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                window.location.href = this.getAttribute('href');
+                }
             });
         });
     </script>
