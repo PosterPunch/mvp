@@ -62,7 +62,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            text-align: center; /* Centered button text */
+            text-align: center;
         }
         
         .btn:hover {
@@ -256,7 +256,7 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-            padding-bottom: 250px; /* Increased from 180px to move content lower */
+            padding-bottom: 250px;
         }
         
         .hero-slide.active {
@@ -266,14 +266,14 @@
         .hero-slide.taylor-serrano {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('taylorserranotop.png');
             background-size: contain;
-            background-position: center 30%; /* Moved higher up */
+            background-position: center 30%;
             background-repeat: no-repeat;
         }
         
         .hero-slide.paul-chavez {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('pchead.png');
             background-size: 60%;
-            background-position: center center; /* Centered the image */
+            background-position: center 40%;
             background-repeat: no-repeat;
         }
         
@@ -354,7 +354,7 @@
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 125%; /* 5:4 aspect ratio (height:width) - matches event cards */
+            padding-bottom: 125%;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -402,28 +402,29 @@
         
         .fighter-first-name {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
             color: var(--gold);
             margin-bottom: 5px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-            white-space: nowrap; /* Prevent line breaks */
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
+            line-height: 1.1;
         }
         
         .fighter-last-name {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             letter-spacing: 3px;
             color: var(--white);
             text-transform: uppercase;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
             margin-top: 5px;
-            white-space: nowrap; /* Prevent line breaks */
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
         }
         
         .fighter-nickname {
@@ -452,12 +453,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 1.5rem;
             opacity: 0;
             transition: var(--transition);
             z-index: 5;
             text-align: center;
-            overflow-y: auto; /* Allow scrolling on mobile */
+            overflow-y: auto;
         }
         
         .fighter-card:hover .fighter-overlay,
@@ -473,9 +474,6 @@
         .fighter-stats p {
             margin-bottom: 0.8rem;
             font-size: 1.1rem;
-            white-space: nowrap; /* Prevent line breaks */
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
         
         .fighter-stats span {
@@ -485,7 +483,7 @@
 
         .fighter-profile-btn {
             margin-top: 1.5rem;
-            padding: 8px 16px;
+            padding: 10px 20px;
             background-color: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
@@ -494,8 +492,8 @@
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
-            width: auto; /* Allow button to size naturally */
-            text-align: center; /* Center button text */
+            width: auto;
+            text-align: center;
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 1px;
         }
@@ -516,7 +514,7 @@
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 125%; /* 5:4 aspect ratio (height:width) */
+            padding-bottom: 125%;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -552,10 +550,10 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 2rem;
+            padding: 1.5rem;
             opacity: 0;
             transition: var(--transition);
-            text-align: center; /* Center button text */
+            text-align: center;
         }
         
         .event-card:hover .event-overlay,
@@ -567,29 +565,20 @@
             font-size: 1.8rem;
             color: var(--gold);
             margin-bottom: 1rem;
-            white-space: nowrap; /* Prevent line breaks */
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
         
         .event-date {
             font-size: 1.1rem;
             margin-bottom: 1rem;
-            white-space: nowrap; /* Prevent line breaks */
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
         
         .event-venue {
             font-size: 1rem;
             margin-bottom: 1.5rem;
-            white-space: nowrap; /* Prevent line breaks */
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .event-details-btn {
-            padding: 8px 16px;
+            padding: 10px 20px;
             background-color: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
@@ -602,6 +591,7 @@
             text-align: center;
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 1px;
+            margin: 0 auto;
         }
 
         .event-details-btn:hover {
@@ -688,13 +678,13 @@
         .partners-title {
             text-align: center;
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.2rem; /* Reduced by 20% */
+            font-size: 1.2rem;
             color: var(--gold);
             margin-bottom: 1rem;
-            padding-bottom: 0; /* Removed the line */
+            padding-bottom: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 2rem; /* Added space from other content */
+            margin-top: 2rem;
         }
         
         .partner-logos {
@@ -703,11 +693,11 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 3rem;
-            padding: 2rem 0; /* Reduced padding */
+            padding: 2rem 0;
         }
         
         .partner-logos img {
-            height: 50px; /* Increased by 25% from 40px */
+            height: 50px;
             transition: var(--transition);
         }
         
@@ -946,18 +936,18 @@
             
             /* Move counter and button lower on phone */
             .hero-slide {
-                padding-bottom: 180px; /* Increased from 150px to move content lower */
+                padding-bottom: 180px;
             }
             
             .hero-slide.taylor-serrano {
                 background-size: contain;
-                background-position: center 25%; /* Moved higher on mobile */
-                background-size: 125%; /* 25% larger on phone */
+                background-position: center 25%;
+                background-size: 125%;
             }
             
             .hero-slide.paul-chavez {
                 background-size: 150%;
-                background-position: 55% 25%; /* Moved slightly to the right */
+                background-position: 55% 25%;
             }
             
             .nav-links {
@@ -1032,8 +1022,18 @@
             
             .footer-links-col-1,
             .footer-links-col-2 {
-                align-items: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto auto;
+                gap: 1rem;
             }
+            
+            .footer-links-col-1 a:nth-child(1) { order: 1; }
+            .footer-links-col-1 a:nth-child(2) { order: 3; }
+            .footer-links-col-1 a:nth-child(3) { order: 5; }
+            .footer-links-col-1 a:nth-child(4) { order: 2; }
+            .footer-links-col-2 a:nth-child(1) { order: 4; }
+            .footer-links-col-2 a:nth-child(2) { order: 6; }
             
             .footer-links a {
                 padding-left: 0;
@@ -1067,12 +1067,12 @@
             }
             
             .partner-logos img {
-                height: 40px; /* Maintain same height as desktop (50px * 0.8) */
+                height: 40px;
             }
 
             /* Mobile fighter card fixes */
             .fighter-card {
-                padding-bottom: 125%; /* Maintain 5:4 ratio */
+                padding-bottom: 125%;
             }
 
             .fighter-overlay {
@@ -1089,53 +1089,41 @@
             /* Adjusted font sizes for fighter and event cards on mobile */
             .fighter-stats p {
                 margin-bottom: 0.6rem;
-                font-size: 0.85rem; /* Slightly reduced */
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                font-size: 0.85rem;
             }
 
             .fighter-first-name {
-                font-size: 1rem; /* Reduced from 1.1rem */
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                font-size: 1rem;
             }
 
             .fighter-last-name {
-                font-size: 1.2rem; /* Reduced from 1.3rem */
+                font-size: 1.2rem;
                 padding: 0 5px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
 
             .fighter-profile-btn {
                 margin-top: 1rem;
                 padding: 8px 16px;
-                font-size: 0.8rem; /* Reduced from 0.9rem */
+                font-size: 0.8rem;
             }
 
             /* Event card adjustments */
             .event-main {
-                font-size: 1.3rem; /* Reduced from 1.5rem */
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                font-size: 1.3rem;
             }
 
             .event-date {
-                font-size: 0.9rem; /* Reduced from 1rem */
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                font-size: 0.9rem;
             }
 
             .event-venue {
-                font-size: 0.8rem; /* Reduced from 0.9rem */
+                font-size: 0.8rem;
+            }
+
+            .event-details-btn {
+                width: 100%;
+                padding: 10px;
                 white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
 
             /* Center social icons only on mobile */
@@ -1146,6 +1134,11 @@
             /* Better touch support for fighter cards */
             .fighter-card {
                 -webkit-tap-highlight-color: transparent;
+            }
+
+            /* Larger partners title on mobile */
+            .partners-title {
+                font-size: 1.5rem;
             }
         }
         
@@ -1159,7 +1152,7 @@
             }
             
             .hero-slide {
-                padding-bottom: 160px; /* Increased from 130px to move content lower */
+                padding-bottom: 160px;
             }
             
             .section-title {
@@ -1176,11 +1169,11 @@
             }
             
             .fighter-first-name {
-                font-size: 0.9rem; /* Further reduced for very small screens */
+                font-size: 0.9rem;
             }
             
             .fighter-last-name {
-                font-size: 1.1rem; /* Further reduced for very small screens */
+                font-size: 1.1rem;
             }
             
             section {
@@ -1200,7 +1193,7 @@
             }
             
             .partner-logos img {
-                height: 35px; /* Slightly larger for very small screens */
+                height: 35px;
             }
 
             .footer-logo {
@@ -1213,11 +1206,23 @@
 
             /* Adjust fighter cards for very small screens */
             .fighter-card {
-                padding-bottom: 125%; /* Maintain 5:4 ratio */
+                padding-bottom: 125%;
             }
 
             .fighter-overlay {
                 padding: 1rem;
+            }
+        }
+
+        /* ===== LARGE SCREEN ADJUSTMENTS ===== */
+        @media (min-width: 769px) {
+            .hero-slide {
+                padding-bottom: 300px;
+            }
+            
+            .hero-slide.paul-chavez {
+                background-position: center 40%;
+                background-size: 70%;
             }
         }
     </style>
