@@ -270,7 +270,7 @@
         
         .hero-slide.paul-chavez {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('pchead.png');
-            background-size: 120%;
+            background-size: 60%;
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -584,7 +584,7 @@
         
         .video-thumbnail {
             width: 100%;
-            height: 250px;
+            height: 300px; /* Increased by 20% */
             object-fit: contain;
             background-color: #000;
             transition: var(--transition);
@@ -635,13 +635,19 @@
         }
         
         /* ===== PARTNERS SECTION ===== */
+        .partners-section {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: #0a0a0a;
+        }
+        
         .partners-title {
-            text-align: right;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--gold);
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--gold);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
         }
         
         .partner-logos {
@@ -650,7 +656,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 3rem;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
         
         .partner-logos img {
@@ -666,7 +672,7 @@
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
-            padding: 3rem 0;
+            padding: 3rem 0 0;
         }
         
         .footer-content {
@@ -751,7 +757,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 5rem;
+            margin-top: 3rem;
             padding-top: 3rem;
             border-top: 1px solid rgba(212, 175, 55, 0.3);
             font-size: 0.9rem;
@@ -770,6 +776,7 @@
             display: flex;
             gap: 1.5rem;
             margin-top: 2rem;
+            justify-content: center;
         }
         
         .social-icons a {
@@ -954,7 +961,7 @@
             }
             
             .video-thumbnail {
-                height: 200px;
+                height: 240px; /* Increased by 20% */
             }
             
             .footer-content {
@@ -1001,6 +1008,32 @@
             
             .partner-logos img {
                 height: 30px;
+            }
+
+            /* Mobile fighter card fixes */
+            .fighter-overlay {
+                padding: 1rem;
+                overflow-y: auto;
+            }
+
+            .fighter-stats p {
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+            }
+
+            .fighter-profile-btn {
+                margin-top: 1rem;
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            /* Fix for Alycia's name */
+            .fighter-first-name {
+                font-size: 1.1rem;
+            }
+
+            .fighter-last-name {
+                font-size: 1.3rem;
             }
         }
         
@@ -1064,6 +1097,19 @@
             
             .events-container {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            /* Mobile footer links in two columns */
+            .footer-links-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                width: 100%;
+            }
+
+            .footer-links-col-1,
+            .footer-links-col-2 {
+                gap: 1rem;
             }
         }
     </style>
@@ -1260,7 +1306,7 @@
                 
                 <div class="fighter-overlay">
                     <div class="fighter-name" style="margin-left: 0px;">
-                        <span class="fighter-first-name">Alycia</span>
+                        <span class="fighter-first-name">ALYCIA</span>
                         <span class="fighter-last-name">BAUMGARDNER</span>
                     </div>
                     <div class="fighter-stats">
@@ -1321,7 +1367,7 @@
                     <h3 class="event-main">Paul vs Chavez</h3>
                     <p class="event-date">June 28, 2025</p>
                     <p class="event-venue">Honda Center • DAZN PPV</p>
-                    <a href="pc.html" class="btn"><span>Event Report</span></a>
+                    <a href="pc.html" class="btn"><span>Event Details</span></a>
                 </div>
             </div>
             
@@ -1334,7 +1380,7 @@
                     <h3 class="event-main">Most Valuable Prospects 12</h3>
                     <p class="event-date">May 9, 2025</p>
                     <p class="event-venue">Caribe Royale • DAZN</p>
-                    <a href="/events/prospects-12" class="btn"><span>Event Report</span></a>
+                    <a href="/events/prospects-12" class="btn"><span>Event Details</span></a>
                 </div>
             </div>
             
@@ -1347,7 +1393,7 @@
                     <h3 class="event-main">Most Valuable Prospects 13</h3>
                     <p class="event-date">June 7, 2025</p>
                     <p class="event-venue">Caribe Royale • DAZN</p>
-                    <a href="/events/prospects-13" class="btn"><span>Event Report</span></a>
+                    <a href="/events/prospects-13" class="btn"><span>Event Details</span></a>
                 </div>
             </div>
         </div>
@@ -1416,18 +1462,6 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <!-- Partners Section -->
-            <div class="partners-title animate">OUR PARTNERS</div>
-            
-            <div class="partner-logos">
-                <img src="dazn.png" alt="DAZN" class="animate">
-                <img src="nf.png" alt="Netflix" class="animate delay-1">
-                <img src="clogo.png" alt="Celsius" class="animate delay-2">
-                <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
-                <img src="crlogo.png" alt="Caribe Royale" class="animate">
-                <img src="etc-logo.png" alt="ETC" class="animate">
-            </div>
-            
             <div class="footer-content">
                 <div class="footer-col animate">
                     <img src="mvplo.png" alt="MVP Logo" class="footer-logo">
@@ -1453,26 +1487,39 @@
                 </div>
                 
                 <div class="footer-col">
-                    <div class="footer-links-col-1">
-                        <a href="index.html" class="animate">Home</a>
-                        <a href="box.html" class="animate delay-1">Athletes</a>
-                        <a href="events.html" class="animate delay-2">Events</a>
-                        <a href="news.html" class="animate delay-3">News</a>
+                    <div class="footer-links-container">
+                        <div class="footer-links-col-1">
+                            <a href="index.html" class="animate">Home</a>
+                            <a href="box.html" class="animate delay-1">Athletes</a>
+                            <a href="events.html" class="animate delay-2">Events</a>
+                        </div>
+                        <div class="footer-links-col-2">
+                            <a href="news.html" class="animate delay-1">News</a>
+                            <a href="about.html" class="animate delay-2">About</a>
+                            <a href="contact.html" class="animate delay-3">Contact</a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="footer-col">
-                    <div class="footer-links-col-2">
-                        <a href="about.html" class="animate">About</a>
-                        <a href="contact.html" class="animate delay-1">Contact</a>
-                    </div>
-                    
                     <div class="contact-info" style="margin-top: 2rem;">
                         <p>For general inquiries:</p>
                         <p class="animate"><a href="mailto:info@mostvaluablepromotions.com">info@mostvaluablepromotions.com</a></p>
                         <p class="animate delay-1">For press inquiries:</p>
                         <p class="animate delay-2"><a href="mailto:pr@mostvaluablepromotions.com">pr@mostvaluablepromotions.com</a></p>
                     </div>
+                </div>
+            </div>
+            
+            <div class="partners-section">
+                <h3 class="partners-title animate">OUR PARTNERS</h3>
+                <div class="partner-logos">
+                    <img src="dazn.png" alt="DAZN" class="animate">
+                    <img src="nf.png" alt="Netflix" class="animate delay-1">
+                    <img src="clogo.png" alt="Celsius" class="animate delay-2">
+                    <img src="boxlablogo.png" alt="Boxlab" class="animate delay-3">
+                    <img src="crlogo.png" alt="Caribe Royale" class="animate">
+                    <img src="etc-logo.png" alt="ETC" class="animate">
                 </div>
             </div>
             
@@ -1630,6 +1677,14 @@
                     e.preventDefault();
                     this.classList.toggle('active');
                 }
+            });
+        });
+
+        // Fix for fighter card buttons on mobile
+        document.querySelectorAll('.fighter-profile-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                window.location.href = this.closest('.fighter-card').getAttribute('href');
             });
         });
     </script>
