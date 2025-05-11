@@ -273,7 +273,7 @@
         .hero-slide.paul-chavez {
             background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('pchead.png');
             background-size: 60%;
-            background-position: center 30%; /* Moved higher up */
+            background-position: center center; /* Centered the image */
             background-repeat: no-repeat;
         }
         
@@ -478,9 +478,9 @@
         .fighter-profile-btn {
             margin-top: 1.5rem;
             padding: 8px 16px;
-            background-color: var(--gold);
-            color: var(--black);
-            border: none;
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.9rem;
@@ -488,12 +488,13 @@
             transition: var(--transition);
             width: auto; /* Allow button to size naturally */
             text-align: center; /* Center button text */
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
         }
 
         .fighter-profile-btn:hover {
-            background-color: var(--black);
-            color: var(--gold);
-            border: 1px solid var(--gold);
+            background-color: var(--gold);
+            color: var(--black);
         }
         
         /* ===== EVENTS SECTION ===== */
@@ -513,7 +514,7 @@
             transition: var(--transition);
         }
         
-        .event-card:hover {
+        .event-card:hover, .event-card.active {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
         }
@@ -528,7 +529,8 @@
             transition: var(--transition);
         }
         
-        .event-card:hover .event-poster {
+        .event-card:hover .event-poster,
+        .event-card.active .event-poster {
             transform: scale(1.08);
         }
         
@@ -548,7 +550,8 @@
             text-align: center; /* Center button text */
         }
         
-        .event-card:hover .event-overlay {
+        .event-card:hover .event-overlay,
+        .event-card.active .event-overlay {
             opacity: 1;
         }
         
@@ -566,6 +569,27 @@
         .event-venue {
             font-size: 1rem;
             margin-bottom: 1.5rem;
+        }
+
+        .event-details-btn {
+            padding: 8px 16px;
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: auto;
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .event-details-btn:hover {
+            background-color: var(--gold);
+            color: var(--black);
         }
         
         /* ===== VIDEO SECTION ===== */
@@ -645,15 +669,15 @@
         
         /* ===== PARTNERS SECTION ===== */
         .partners-title {
-            text-align: center; /* Changed to center */
-            font-family: 'Bebas Neue', sans-serif; /* Added Bebas font */
-            font-size: 1.5rem; /* Increased size */
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem; /* Reduced by 20% */
             color: var(--gold);
             margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--gold);
+            padding-bottom: 0; /* Removed the line */
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-top: 2rem; /* Added space from other content */
         }
         
         .partner-logos {
@@ -662,13 +686,23 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 3rem;
-            padding: 3rem 0;
+            padding: 2rem 0; /* Reduced padding */
         }
         
         .partner-logos img {
             height: 40px;
-            filter: brightness(0) invert(1);
             transition: var(--transition);
+        }
+        
+        /* Specific partner logo styles to maintain original colors */
+        .partner-logos img:not([src="dazn.png"]):not([src="clogo.png"]) {
+            filter: none;
+        }
+        
+        /* DAZN and Celsius logos should be white */
+        .partner-logos img[src="dazn.png"],
+        .partner-logos img[src="clogo.png"] {
+            filter: brightness(0) invert(1);
         }
         
         .partner-logos img:hover {
@@ -893,8 +927,9 @@
                 padding: 0 1.5rem;
             }
             
+            /* Move counter and button lower on phone */
             .hero-slide {
-                padding-bottom: 120px;
+                padding-bottom: 150px; /* Increased from 120px to move content lower */
             }
             
             .hero-slide.taylor-serrano {
@@ -1034,25 +1069,38 @@
                 margin-top: 1rem;
             }
 
+            /* Reduced font sizes for fighter and event cards on mobile */
             .fighter-stats p {
                 margin-bottom: 0.6rem;
-                font-size: 1rem;
+                font-size: 0.9rem; /* Reduced from 1rem */
+            }
+
+            .fighter-first-name {
+                font-size: 1.1rem; /* Reduced from 1.2rem */
+            }
+
+            .fighter-last-name {
+                font-size: 1.3rem; /* Reduced from 1.4rem */
+                padding: 0 5px;
             }
 
             .fighter-profile-btn {
                 margin-top: 1rem;
-                padding: 10px 20px;
-                font-size: 0.9rem;
+                padding: 8px 16px;
+                font-size: 0.8rem; /* Reduced from 0.9rem */
             }
 
-            /* Fix for names */
-            .fighter-first-name {
-                font-size: 1.2rem;
+            /* Event card adjustments */
+            .event-main {
+                font-size: 1.5rem; /* Reduced from 1.8rem */
             }
 
-            .fighter-last-name {
-                font-size: 1.4rem;
-                padding: 0 5px; /* Added padding for mobile */
+            .event-date {
+                font-size: 1rem; /* Reduced from 1.1rem */
+            }
+
+            .event-venue {
+                font-size: 0.9rem; /* Reduced from 1rem */
             }
 
             /* Center social icons only on mobile */
@@ -1076,7 +1124,7 @@
             }
             
             .hero-slide {
-                padding-bottom: 100px;
+                padding-bottom: 130px; /* Increased from 100px to move content lower */
             }
             
             .section-title {
@@ -1093,11 +1141,11 @@
             }
             
             .fighter-first-name {
-                font-size: 1.1rem;
+                font-size: 1rem; /* Further reduced for very small screens */
             }
             
             .fighter-last-name {
-                font-size: 1.3rem;
+                font-size: 1.2rem; /* Further reduced for very small screens */
             }
             
             section {
@@ -1228,13 +1276,13 @@
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 13 • LIVE ON DAZN • JUNE 7, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 13 • LIVE ON DAZN • JUNE 7, 2025</div>
         </div>
     </div>
     
@@ -1379,7 +1427,7 @@
                     <h3 class="event-main">Taylor vs Serrano 3</h3>
                     <p class="event-date">July 11, 2025</p>
                     <p class="event-venue">Madison Square Garden • Netflix</p>
-                    <a href="ts3.html" class="btn"><span>Event Details</span></a>
+                    <button class="event-details-btn">View Event Details</button>
                 </div>
             </div>
             
@@ -1392,7 +1440,7 @@
                     <h3 class="event-main">Paul vs Chavez</h3>
                     <p class="event-date">June 28, 2025</p>
                     <p class="event-venue">Honda Center • DAZN PPV</p>
-                    <a href="pc.html" class="btn"><span>Event Details</span></a>
+                    <button class="event-details-btn">View Event Details</button>
                 </div>
             </div>
             
@@ -1405,7 +1453,7 @@
                     <h3 class="event-main">Most Valuable Prospects 12</h3>
                     <p class="event-date">May 9, 2025</p>
                     <p class="event-venue">Caribe Royale • DAZN</p>
-                    <a href="/events/prospects-12" class="btn"><span>Event Details</span></a>
+                    <button class="event-details-btn">View Event Details</button>
                 </div>
             </div>
             
@@ -1418,7 +1466,7 @@
                     <h3 class="event-main">Most Valuable Prospects 13</h3>
                     <p class="event-date">June 7, 2025</p>
                     <p class="event-venue">Caribe Royale • DAZN</p>
-                    <a href="/events/prospects-13" class="btn"><span>Event Details</span></a>
+                    <button class="event-details-btn">View Event Details</button>
                 </div>
             </div>
         </div>
@@ -1437,13 +1485,13 @@
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 13 • LIVE ON DAZN • JUNE 7, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">TAYLOR VS SERRANO 3 • LIVE ON NETFLIX • JULY 11, 2025</div>
             <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
             <div class="banner-item">PAUL VS CHAVEZ JR. • LIVE ON DAZN PPV • JUNE 28, 2025</div>
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">MOST VALUABLE PROSPECTS 13 • LIVE ON DAZN • JUNE 7, 2025</div>
         </div>
     </div>
        
@@ -1698,52 +1746,55 @@
             observer.observe(el);
         });
         
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+        // Enhanced touch support for fighter and event cards
+        function setupCardTouchSupport(cardSelector, overlaySelector) {
+            document.querySelectorAll(cardSelector).forEach(card => {
+                let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (isTouchDevice) {
+                    card.addEventListener('touchstart', function(e) {
+                        // Prevent triggering both touch and click events
+                        e.preventDefault();
+                        
+                        // Close any other open cards first
+                        document.querySelectorAll(cardSelector + '.active').forEach(activeCard => {
+                            if (activeCard !== this) {
+                                activeCard.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle this card
+                        this.classList.toggle('active');
+                    }, { passive: false });
+                    
+                    // Make sure buttons still work
+                    card.querySelectorAll('button').forEach(btn => {
+                        btn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            if (this.classList.contains('fighter-profile-btn')) {
+                                window.location.href = this.closest('.fighter-card').getAttribute('href');
+                            } else if (this.classList.contains('event-details-btn')) {
+                                window.location.href = this.closest('.event-card').querySelector('a').getAttribute('href');
+                            }
+                        });
+                    });
+                }
             });
-        });
+        }
 
-        // Enhanced touch support for fighter cards
-        document.querySelectorAll('.fighter-card').forEach(card => {
-            let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
-            
-            if (isTouchDevice) {
-                card.addEventListener('touchstart', function(e) {
-                    // Prevent triggering both touch and click events
-                    e.preventDefault();
-                    
-                    // Close any other open cards first
-                    document.querySelectorAll('.fighter-card.active').forEach(activeCard => {
-                        if (activeCard !== this) {
-                            activeCard.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle this card
-                    this.classList.toggle('active');
-                }, { passive: false });
-                
-                // Make sure profile buttons still work
-                card.querySelectorAll('.fighter-profile-btn').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        window.location.href = this.closest('.fighter-card').getAttribute('href');
-                    });
-                });
-            }
-        });
+        // Setup touch support for both fighter and event cards
+        setupCardTouchSupport('.fighter-card', '.fighter-overlay');
+        setupCardTouchSupport('.event-card', '.event-overlay');
 
-        // Fix for event card buttons on mobile
-        document.querySelectorAll('.event-card .btn').forEach(btn => {
+        // Add click handlers for event detail buttons
+        document.querySelectorAll('.event-details-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                window.location.href = this.getAttribute('href');
+                const eventCard = this.closest('.event-card');
+                const link = eventCard.querySelector('a');
+                if (link) {
+                    window.location.href = link.getAttribute('href');
+                }
             });
         });
     </script>
