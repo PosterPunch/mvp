@@ -31,7 +31,7 @@
             overflow-x: hidden;
         }
         
-        h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title {
+        h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name {
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -345,20 +345,18 @@
         /* ===== FIGHTERS SECTION ===== */
         .fighters-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
             justify-items: center;
         }
         
         .fighter-card {
             position: relative;
             width: 100%;
-            height: 0;
-            padding-bottom: 125%;
+            aspect-ratio: 4/5;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
-            cursor: pointer;
         }
         
         .fighter-card:hover, .fighter-card.active {
@@ -367,19 +365,10 @@
         }
         
         .fighter-img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 2;
             transition: var(--transition);
-        }
-        
-        .fighter-card:hover .fighter-img,
-        .fighter-card.active .fighter-img {
-            transform: scale(1.05);
         }
         
         .fighter-info {
@@ -387,63 +376,10 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 2rem;
+            padding: 1rem;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-            z-index: 3;
-        }
-        
-        .fighter-name {
-            display: flex;
-            flex-direction: column;
-            line-height: 0.9;
-            margin-bottom: -1rem;
             text-align: center;
-            width: 100%;
-        }
-        
-        .fighter-first-name {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-bottom: 5px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-            white-space: normal;
-            overflow: visible;
-            text-overflow: clip;
-            line-height: 1.1;
-        }
-        
-        .fighter-last-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.56rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--white);
-            text-transform: uppercase;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
-            margin-top: 5px;
-            white-space: normal;
-            overflow: visible;
-            text-overflow: clip;
-            padding-left: 0;
-            margin-left: -5px;
-            word-break: break-word;
-        }
-        
-        .fighter-nickname {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1rem;
-            color: var(--gold);
-            z-index: 4;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            letter-spacing: 2px;
-            line-height: 1.2;
+            transition: var(--transition);
         }
         
         .fighter-overlay {
@@ -452,17 +388,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 1.5rem;
+            justify-content: flex-end;
+            padding: 2rem;
             opacity: 0;
             transition: var(--transition);
             z-index: 5;
             text-align: center;
-            overflow-y: auto;
         }
         
         .fighter-card:hover .fighter-overlay,
@@ -470,38 +404,74 @@
             opacity: 1;
         }
         
+        .fighter-card:hover .fighter-info,
+        .fighter-card.active .fighter-info {
+            opacity: 0;
+        }
+        
+        .fighter-nickname {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 0.8rem 0.3rem;
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            z-index: 2;
+            letter-spacing: 1px;
+        }
+        
+        .fighter-name {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .fighter-first-name {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--gold);
+            line-height: 1;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        
+        .fighter-last-name {
+            display: block;
+            font-size: 2rem;
+            color: var(--white);
+            line-height: 1;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        
         .fighter-stats {
-            margin-top: 1.5rem;
-            width: 100%;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
         
         .fighter-stats p {
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
         }
         
         .fighter-stats span {
             color: var(--gold);
-            font-weight: 700;
         }
-
+        
         .fighter-profile-btn {
-            margin-top: 1.5rem;
-            padding: 10px 20px;
             background-color: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: var(--transition);
-            width: auto;
-            text-align: center;
-            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
             letter-spacing: 1px;
+            width: 100%;
         }
-
+        
         .fighter-profile-btn:hover {
             background-color: var(--gold);
             color: var(--black);
@@ -510,15 +480,17 @@
         /* ===== EVENTS SECTION ===== */
         .events-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.7rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            justify-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .event-card {
             position: relative;
             width: 100%;
-            height: 0;
-            padding-bottom: 125%;
+            aspect-ratio: 4/5;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             transition: var(--transition);
@@ -582,7 +554,7 @@
         }
 
         .event-details-btn {
-            padding: 12px 24px;
+            padding: 12px 30px;
             background-color: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
@@ -591,8 +563,8 @@
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
-            width: 90%;
-            max-width: 240px;
+            width: 100%;
+            max-width: 280px;
             margin: 0 auto;
             text-align: center;
             font-family: 'Bebas Neue', sans-serif;
@@ -727,7 +699,8 @@
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
-            padding: 3rem 0;
+            padding: 6rem 0 3rem;
+            border-top: 1px solid var(--gold);
         }
         
         .footer-content {
@@ -826,21 +799,22 @@
         .legal a:hover {
             color: var(--gold);
         }
-        
-        .social-icons {
+
+        .footer-social {
             display: flex;
             gap: 1.5rem;
             margin-top: 2rem;
         }
         
-        .social-icons a {
+        .footer-social a {
             color: var(--gold);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             transition: var(--transition);
         }
         
-        .social-icons a:hover {
-            transform: translateY(-5px);
+        .footer-social a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
         }
         
         /* ===== SCROLL TO TOP ===== */
@@ -911,23 +885,14 @@
             section {
                 padding: 10rem 0;
             }
-            
-            footer {
-                padding: 5rem 0 3rem;
-            }
         }
         
         @media (max-width: 1024px) {
-            .fighters-grid,
-            .events-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
         }
-        
+
         @media (max-width: 768px) {
             header {
                 padding: 0 1.5rem;
@@ -1010,7 +975,7 @@
             .fighters-grid,
             .events-container {
                 grid-template-columns: 1fr 1fr;
-                gap: 2rem;
+                gap: 1rem;
             }
             
             .videos-grid {
@@ -1080,7 +1045,7 @@
 
             /* Mobile fighter card fixes */
             .fighter-card {
-                padding-bottom: 125%;
+                aspect-ratio: 4/5;
             }
 
             .fighter-overlay {
@@ -1101,19 +1066,17 @@
             }
 
             .fighter-first-name {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
 
             .fighter-last-name {
-                font-size: 0.65rem;
-                padding: 0;
-                margin-left: -3px;
+                font-size: 1.5rem;
             }
 
             .fighter-profile-btn {
                 margin-top: 1rem;
                 padding: 8px 16px;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
 
             /* Event card adjustments */
@@ -1135,13 +1098,12 @@
             .event-details-btn {
                 width: 100%;
                 padding: 8px 12px;
-                font-size: 0.8rem;
-                white-space: nowrap;
+                font-size: 0.9rem;
                 max-width: 180px;
             }
 
             /* Center social icons only on mobile */
-            .social-icons {
+            .footer-social {
                 justify-content: center;
             }
 
@@ -1188,11 +1150,11 @@
             }
             
             .fighter-first-name {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             
             .fighter-last-name {
-                font-size: 0.5 rem;
+                font-size: 1.2rem;
             }
             
             section {
@@ -1220,12 +1182,12 @@
             }
             
             .events-container {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
 
             /* Adjust fighter cards for very small screens */
             .fighter-card {
-                padding-bottom: 125%;
+                aspect-ratio: 4/5;
             }
 
             .fighter-overlay {
@@ -1363,13 +1325,14 @@
                 </div>
                 
                 <div class="fighter-overlay">
-                    <div class="fighter-name" style="margin-left: 0px;">
+                    <div class="fighter-name">
                         <span class="fighter-first-name">JAKE</span>
                         <span class="fighter-last-name">PAUL</span>
                     </div>
                     <div class="fighter-stats">
                         <p>Record: <span>11-1 (9 KOs)</span></p>
-                        <p>Weight Class: <span>Cruiserweight</span></p>
+                        <p>Weight Class: <span>Cruiserweight (200 lbs)</span></p>
+                        <p>Reach: <span>77"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1388,13 +1351,14 @@
                 </div>
                 
                 <div class="fighter-overlay">
-                    <div class="fighter-name" style="margin-left: 0px;">
+                    <div class="fighter-name">
                         <span class="fighter-first-name">AMANDA</span>
                         <span class="fighter-last-name">SERRANO</span>
                     </div>
                     <div class="fighter-stats">
                         <p>Record: <span>47-3-1 (30 KOs)</span></p>
-                        <p>Weight Class: <span>Featherweight</span></p>
+                        <p>Weight Class: <span>Featherweight (126 lbs)</span></p>
+                        <p>Reach: <span>67"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1412,13 +1376,14 @@
                 </div>
                 
                 <div class="fighter-overlay">
-                    <div class="fighter-name" style="margin-left: 0px;">
+                    <div class="fighter-name">
                         <span class="fighter-first-name">H2O</span>
                         <span class="fighter-last-name">SYLVE</span>
                     </div>
                     <div class="fighter-stats">
                         <p>Record: <span>11-1 (9 KOs)</span></p>
-                        <p>Weight Class: <span>Lightweight</span></p>
+                        <p>Weight Class: <span>Lightweight (134 lbs)</span></p>
+                        <p>Reach: <span>72"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1437,13 +1402,14 @@
                 </div>
                 
                 <div class="fighter-overlay">
-                    <div class="fighter-name" style="margin-left: 0px;">
+                    <div class="fighter-name">
                         <span class="fighter-first-name">ALYCIA</span>
                         <span class="fighter-last-name">BAUMGARDNER</span>
                     </div>
                     <div class="fighter-stats">
                         <p>Record: <span>15-1 (7 KOs)</span></p>
-                        <p>Weight Class: <span>Super Featherweight</span></p>
+                        <p>Weight Class: <span>Super Featherweight (130 lbs)</span></p>
+                        <p>Reach: <span>69"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1605,19 +1571,11 @@
                         The organization focuses on strategically identifying, developing, and maximizing the value 
                         of its events and talent partnerships to ensure optimal returns.
                     </p>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank" class="animate">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://x.com/MostVpromotions" target="_blank" class="animate delay-1">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank" class="animate delay-2">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank" class="animate delay-3">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mostvaluablepromotions/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/MostVpromotions" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@mostvaluablepromotions" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/channel/UCGJlZUB-7b5s1wFynzpYU7Q" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
