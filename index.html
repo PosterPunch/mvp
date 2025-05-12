@@ -480,10 +480,10 @@
         /* ===== EVENTS SECTION ===== */
         .events-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
             justify-items: center;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
@@ -584,7 +584,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            margin-top: 4rem; /* Added spacing from events section */
+            margin-top: 4rem;
         }
         
         .video-card {
@@ -1466,6 +1466,19 @@
                     <h3 class="event-main">Paul vs Chavez</h3>
                     <p class="event-date">June 28, 2025</p>
                     <p class="event-venue">Honda Center • DAZN PPV</p>
+                    <button class="event-details-btn">View Event Details</button>
+                </div>
+            </div>
+            
+            <!-- Prospects Event -->
+            <div class="event-card animate delay-2">
+                <img src="p13.png" 
+                     alt="Prospects 13" class="event-poster">
+                
+                <div class="event-overlay">
+                    <h3 class="event-main">Most Valuable Prospects 13</h3>
+                    <p class="event-date">June 7, 2025</p>
+                    <p class="event-venue">Caribe Royale • DAZN</p>
                     <button class="event-details-btn">View Event Details</button>
                 </div>
             </div>
