@@ -386,53 +386,6 @@
             color: var(--white);
         }
         
-        /* ===== PARTNERS SECTION ===== */
-        .partners {
-            text-align: center;
-            padding: 10rem 0;
-        }
-        
-        .partners h3 {
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
-            color: var(--gold);
-        }
-        
-        .partner-logos {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-        }
-        
-        .partner-logos-top, .partner-logos-bottom {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 4rem;
-        }
-        
-        .partner-logos img {
-            height: 70px;
-            opacity: 1;
-            transition: var(--transition);
-        }
-
-        .partner-logos img[src="msg.png"] {
-            height: 160px;
-        }
-        
-        .partner-logos img[src="dazn.png"],
-        .partner-logos img[src="clogo.png"],
-        .partner-logos img[src="netflix.png"] {
-            filter: brightness(0) invert(1);
-        }
-        
-        .partner-logos img:hover {
-            transform: scale(1.15);
-        }
-        
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
@@ -539,26 +492,20 @@
 
         .footer-social {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
-
-	.footer-social {
-	    display: flex;
-	    gap: 1.5rem;
-	    margin-top: 2rem;
-	}
-	
-	.footer-social a {
-	    color: var(--gold);
-	    font-size: 1.5rem;
-    	transition: var(--transition);
-	}
-
-	.footer-social a:hover {
-	    opacity: 0.8;
-	    transform: translateY(-2px);
-	}
+        
+        .footer-social a {
+            color: var(--gold);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
         
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {

@@ -388,6 +388,49 @@
         .fighter-profile-btn:hover {
             background-color: var(--gold);
             color: var(--black);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+        }
+        
+        /* ===== PARTNERS SECTION ===== */
+        .partners-title {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+        }
+        
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .partner-logos img {
+            height: 50px;
+            transition: var(--transition);
+        }
+        
+        /* Specific partner logo styles to maintain original colors */
+        .partner-logos img:not([src="dazn.png"]):not([src="clogo.png"]) {
+            filter: none;
+        }
+        
+        /* DAZN and Celsius logos should be white */
+        .partner-logos img[src="dazn.png"],
+        .partner-logos img[src="clogo.png"] {
+            filter: brightness(0) invert(1);
+        }
+        
+        .partner-logos img:hover {
+            transform: scale(1.1);
         }
         
         /* ===== FOOTER ===== */
@@ -941,7 +984,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>11-1 (9 KOs)</span></p>
                         <p>Weight Class: <span>Cruiserweight (200 lbs)</span></p>
-                        <p>Reach: <span>77"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -960,7 +1002,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>11-1 (9 KOs)</span></p>
                         <p>Weight Class: <span>Lightweight (134 lbs)</span></p>
-                        <p>Reach: <span>72"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -980,7 +1021,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>2-0-1 (1 KO)</span></p>
                         <p>Weight Class: <span>Super Bantamweight (121 lbs)</span></p>
-                        <p>Reach: <span>68"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -999,7 +1039,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>19-4-2 (8 KOs)</span></p>
                         <p>Weight Class: <span>Welterweight (147 lbs)</span></p>
-                        <p>Reach: <span>70"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1019,7 +1058,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>19-0 (15 KOs)</span></p>
                         <p>Weight Class: <span>Lightweight (134 lbs)</span></p>
-                        <p>Reach: <span>72"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1039,7 +1077,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>3-0 (3 KOs)</span></p>
                         <p>Weight Class: <span>Super Middleweight (165 lbs)</span></p>
-                        <p>Reach: <span>74"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1058,7 +1095,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>11-0 (6 KOs)</span></p>
                         <p>Weight Class: <span>Featherweight (128 lbs)</span></p>
-                        <p>Reach: <span>68"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1078,7 +1114,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>7-0 (5 KOs)</span></p>
                         <p>Weight Class: <span>Bantamweight (118 lbs)</span></p>
-                        <p>Reach: <span>69"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1097,7 +1132,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>0-0</span></p>
                         <p>Weight Class: <span>Cruiserweight (200 lbs)</span></p>
-                        <p>Reach: <span>78"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1197,7 +1231,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>47-3-1 (31 KOs)</span></p>
                         <p>Weight Class: <span>Featherweight (126 lbs)</span></p>
-                        <p>Reach: <span>67"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1217,7 +1250,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>15-1 (7 KOs)</span></p>
                         <p>Weight Class: <span>Super Featherweight (130 lbs)</span></p>
-                        <p>Reach: <span>69"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1236,7 +1268,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>20-1 (8 KOs)</span></p>
                         <p>Weight Class: <span>Super Lightweight (137 lbs)</span></p>
-                        <p>Reach: <span>68"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1256,7 +1287,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>13-1 (10 KOs)</span></p>
                         <p>Weight Class: <span>Super Middleweight (165 lbs)</span></p>
-                        <p>Reach: <span>68"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1276,7 +1306,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>14-1 (11 KOs)</span></p>
                         <p>Weight Class: <span>Super Middleweight (168 lbs)</span></p>
-                        <p>Reach: <span>74"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1295,7 +1324,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>5-0 (2 KOs)</span></p>
                         <p>Weight Class: <span>Super Flyweight (114 lbs)</span></p>
-                        <p>Reach: <span>66"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1314,7 +1342,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>2-0 (1 KO)</span></p>
                         <p>Weight Class: <span>Super Middleweight (165 lbs)</span></p>
-                        <p>Reach: <span>74"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1333,7 +1360,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>23-0 (9 KOs)</span></p>
                         <p>Weight Class: <span>Bantamweight (118 lbs)</span></p>
-                        <p>Reach: <span>69"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1352,7 +1378,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>9-2</span></p>
                         <p>Weight Class: <span>Super Bantamweight (122 lbs)</span></p>
-                        <p>Reach: <span>67"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1371,7 +1396,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>14-0 (9 KOs)</span></p>
                         <p>Weight Class: <span>Light Flyweight (108 lbs)</span></p>
-                        <p>Reach: <span>65"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1391,7 +1415,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>5-0</span></p>
                         <p>Weight Class: <span>Super Flyweight (115 lbs)</span></p>
-                        <p>Reach: <span>66"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1410,7 +1433,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>12-0 (1 KO)</span></p>
                         <p>Weight Class: <span>Featherweight (126 lbs)</span></p>
-                        <p>Reach: <span>68"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1429,7 +1451,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>10-0</span></p>
                         <p>Weight Class: <span>Super Bantamweight (122 lbs)</span></p>
-                        <p>Reach: <span>66"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1448,7 +1469,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>14-4-1 (2 KOs)</span></p>
                         <p>Weight Class: <span>Bantamweight (118 lbs)</span></p>
-                        <p>Reach: <span>69"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1467,7 +1487,6 @@
                     <div class="fighter-stats">
                         <p>Record: <span>9-0 (5 KOs)</span></p>
                         <p>Weight Class: <span>Featherweight (126 lbs)</span></p>
-                        <p>Reach: <span>68"</span></p>
                     </div>
                     <button class="fighter-profile-btn">View Profile</button>
                 </div>
@@ -1475,158 +1494,6 @@
         </div>
     </section>
 
-    <!-- Moving Banner Before Footer -->
-    <div class="banner-container">
-        <div class="banner">
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-        </div>
-    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>

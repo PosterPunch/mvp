@@ -596,13 +596,53 @@
             margin: 6rem 0;
         }
 
+        /* ===== PARTNERS SECTION ===== */
+        .partners-title {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+        }
+        
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .partner-logos img {
+            height: 50px;
+            transition: var(--transition);
+        }
+        
+        /* Specific partner logo styles to maintain original colors */
+        .partner-logos img:not([src="dazn.png"]):not([src="clogo.png"]) {
+            filter: none;
+        }
+        
+        /* DAZN and Celsius logos should be white */
+        .partner-logos img[src="dazn.png"],
+        .partner-logos img[src="clogo.png"] {
+            filter: brightness(0) invert(1);
+        }
+        
+        .partner-logos img:hover {
+            transform: scale(1.1);
+        }
+        
         /* ===== FOOTER ===== */
         footer {
             background-color: #0a0a0a;
             padding: 6rem 0 3rem;
             border-top: 1px solid var(--gold);
-            position: relative;
-            z-index: 1;
         }
         
         .footer-content {
@@ -616,11 +656,6 @@
             height: 165px;
             margin-bottom: 0.5rem;
             filter: brightness(0) invert(1);
-            transition: var(--transition);
-        }
-        
-        .footer-logo:hover {
-            transform: scale(1.05);
         }
         
         .mission-statement {
@@ -688,9 +723,27 @@
             text-decoration: underline;
         }
         
+        .legal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .legal a {
+            transition: var(--transition);
+        }
+        
+        .legal a:hover {
+            color: var(--gold);
+        }
+
         .footer-social {
             display: flex;
-            justify-content: center;
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -704,25 +757,6 @@
         .footer-social a:hover {
             opacity: 0.8;
             transform: translateY(-2px);
-        }
-        
-        .legal {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 5rem;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(212,175,55,0.3);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-        
-        .legal a {
-            transition: var(--transition);
-        }
-        
-        .legal a:hover {
-            color: var(--gold);
         }
 
         /* ===== SCROLL TO TOP ===== */

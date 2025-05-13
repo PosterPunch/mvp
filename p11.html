@@ -387,50 +387,45 @@
         }
         
         /* ===== PARTNERS SECTION ===== */
-        .partners {
+        .partners-title {
             text-align: center;
-            padding: 10rem 0;
-        }
-        
-        .partners h3 {
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
             color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2rem;
         }
         
         .partner-logos {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-        }
-        
-        .partner-logos-top, .partner-logos-bottom {
-            display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 4rem;
+            gap: 3rem;
+            padding: 2rem 0;
         }
         
         .partner-logos img {
-            height: 70px;
-            opacity: 1;
+            height: 50px;
             transition: var(--transition);
         }
-
-        .partner-logos img[src="msg.png"] {
-            height: 160px;
+        
+        /* Specific partner logo styles to maintain original colors */
+        .partner-logos img:not([src="dazn.png"]):not([src="clogo.png"]) {
+            filter: none;
         }
         
+        /* DAZN and Celsius logos should be white */
         .partner-logos img[src="dazn.png"],
-        .partner-logos img[src="clogo.png"],
-        .partner-logos img[src="netflix.png"] {
+        .partner-logos img[src="clogo.png"] {
             filter: brightness(0) invert(1);
         }
         
         .partner-logos img:hover {
-            transform: scale(1.15);
+            transform: scale(1.1);
         }
         
         /* ===== FOOTER ===== */
@@ -539,26 +534,20 @@
 
         .footer-social {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
-
-	.footer-social {
-	    display: flex;
-	    gap: 1.5rem;
-	    margin-top: 2rem;
-	}
-	
-	.footer-social a {
-	    color: var(--gold);
-	    font-size: 1.5rem;
-    	transition: var(--transition);
-	}
-
-	.footer-social a:hover {
-	    opacity: 0.8;
-	    transform: translateY(-2px);
-	}
+        
+        .footer-social a {
+            color: var(--gold);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
         
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {
