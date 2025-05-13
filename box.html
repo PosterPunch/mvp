@@ -637,7 +637,7 @@
             }
             
             .header-logo {
-                height: 66px;
+                height: 88px;
             }
             
             .container {
@@ -665,22 +665,22 @@
             .hamburger {
                 display: block;
             }
-            
+
             .section-title {
                 font-size: 2.8rem;
                 margin-bottom: 4rem;
+            }
+            
+            .section-title:after {
+                width: 80px;
+                height: 3px;
             }
             
             .section-subtitle {
                 font-size: 2rem;
                 margin-bottom: 3rem;
             }
-            
-            .section-title:after,
-            .section-subtitle:after {
-                width: 80px;
-                height: 3px;
-            }
+
             
             .fighters-container {
                 grid-template-columns: repeat(2, 1fr);
@@ -711,8 +711,18 @@
             
             .footer-links-col-1,
             .footer-links-col-2 {
-                align-items: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto auto;
+                gap: 1rem;
             }
+            
+            .footer-links-col-1 a:nth-child(1) { order: 1; }
+            .footer-links-col-1 a:nth-child(2) { order: 3; }
+            .footer-links-col-1 a:nth-child(3) { order: 5; }
+            .footer-links-col-1 a:nth-child(4) { order: 2; }
+            .footer-links-col-2 a:nth-child(1) { order: 4; }
+            .footer-links-col-2 a:nth-child(2) { order: 6; }
             
             .footer-links a {
                 padding-left: 0;
@@ -739,9 +749,21 @@
             .footer-logo {
                 height: 198px;
             }
-        }
+            
+            .partner-logos {
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+            
+            .partner-logos img {
+                height: 40px;
+            }
         
         @media (max-width: 480px) {
+            .header-logo {
+                height: 88px;
+            }
+
             .container {
                 padding: 0 1rem;
             }
@@ -756,7 +778,7 @@
                 margin-bottom: 2rem;
             }
             
-            .section {
+            section {
                 padding: 6rem 0;
             }
 
@@ -768,6 +790,18 @@
             .subsection-title:before {
                 width: 4px;
                 height: 25px;
+            }
+
+            .partner-logos {
+                gap: 1.5rem;
+            }
+            
+            .partner-logos img {
+                height: 35px;
+            }
+
+            .footer-logo {
+                height: 198px;
             }
 
             .fighter-card {

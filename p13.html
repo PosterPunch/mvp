@@ -659,7 +659,7 @@
             }
             
             .header-logo {
-                height: 66px;
+                height: 88px;
             }
             
             .container {
@@ -738,10 +738,16 @@
             .footer-links-col-2 {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-                text-align: left;
-                padding: 0 2rem;
+                grid-template-rows: auto auto auto;
+                gap: 1rem;
             }
+            
+            .footer-links-col-1 a:nth-child(1) { order: 1; }
+            .footer-links-col-1 a:nth-child(2) { order: 3; }
+            .footer-links-col-1 a:nth-child(3) { order: 5; }
+            .footer-links-col-1 a:nth-child(4) { order: 2; }
+            .footer-links-col-2 a:nth-child(1) { order: 4; }
+            .footer-links-col-2 a:nth-child(2) { order: 6; }
             
             .footer-links a {
                 padding-left: 0;
@@ -765,16 +771,17 @@
                 padding: 8rem 0;
             }
             
-            .partners {
-                padding: 8rem 0;
-            }
-            
             .footer-logo {
                 height: 198px;
             }
-
-            .footer-social {
-                justify-content: center;
+            
+            .partner-logos {
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+            
+            .partner-logos img {
+                height: 40px;
             }
 
             .event-info-with-poster {
@@ -788,6 +795,10 @@
         }
         
         @media (max-width: 480px) {
+            .header-logo {
+                height: 88px;
+            }
+
             .container {
                 padding: 0 1rem;
             }
@@ -802,8 +813,30 @@
                 margin-bottom: 2rem;
             }
             
-            .section {
+            section {
                 padding: 6rem 0;
+            }
+
+            .subsection-title {
+                font-size: 1.5rem;
+                padding-left: 1rem;
+            }
+            
+            .subsection-title:before {
+                width: 4px;
+                height: 25px;
+            }
+
+            .partner-logos {
+                gap: 1.5rem;
+            }
+            
+            .partner-logos img {
+                height: 35px;
+            }
+
+            .footer-logo {
+                height: 198px;
             }
             
             .event-header {
@@ -833,23 +866,6 @@
                 font-size: 1.5rem;
                 bottom: 2rem;
                 right: 2rem;
-            }
-
-            .partner-logos {
-                gap: 2rem;
-            }
-            
-            .partner-logos img {
-                height: 50px;
-            }
-
-            .partner-logos img[src="msg.png"] {
-                height: 100px;
-            }
-
-            .footer-links-col-1,
-            .footer-links-col-2 {
-                padding: 0;
             }
         }
     </style>
