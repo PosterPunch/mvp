@@ -16,6 +16,8 @@
             --gold: #D4AF37;
             --white: #FFFFFF;
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --green: #4CAF50;
+            --red: #E53935;
         }
         
         * {
@@ -29,10 +31,9 @@
             background-color: var(--black);
             color: var(--white);
             overflow-x: hidden;
-            position: relative;
         }
         
-        h1, h2, h3, h4, .nav-links a, .footer-links a {
+        h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name {
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -53,7 +54,7 @@
         
         .btn {
             display: inline-block;
-            padding: 15px 32px;
+            padding: 12px 28px;
             background-color: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
@@ -61,8 +62,9 @@
             text-transform: uppercase;
             transition: var(--transition);
             cursor: pointer;
-            font-size: 1.2rem;
-            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
         }
         
         .btn:hover {
@@ -71,16 +73,38 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
         }
         
+        .btn span {
+            display: inline-block;
+        }
+
+        .view-all-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 3rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--gold);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .view-all-btn:hover {
+            transform: translateX(5px);
+        }
+        
         section {
-            padding: 6rem 0;
+            padding: 12rem 0;
             position: relative;
         }
         
         .section-title {
             font-size: 3.5rem;
             color: var(--gold);
-            margin-bottom: 4rem;
-            text-align: center;
+            margin-bottom: 6rem;
+            text-align: left;
             position: relative;
         }
         
@@ -90,41 +114,49 @@
             width: 120px;
             height: 4px;
             background-color: var(--gold);
-            margin: 25px auto;
+            margin: 25px 0;
             transition: var(--transition);
         }
-
-        /* ===== BACKGROUND EFFECTS ===== */
-        .fighter-profile-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        
+        /* ===== BANNER STYLES ===== */
+        .banner-container {
             width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.2) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.2;
-            z-index: -1;
+            overflow: hidden;
+            background-color: var(--black);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 2rem 0;
         }
-
-        .bg-text {
-            position: absolute;
-            color: transparent;
-            -webkit-text-stroke: 1px var(--gold);
-            opacity: 0.7;
-            z-index: -1;
+        
+        .banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scrollBanner 20s linear infinite;
+        }
+        
+        .banner-item {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
             font-family: 'Bebas Neue', sans-serif;
-            font-weight: 3px;
+            font-size: 1.5rem;
+            color: var(--gold);
             text-transform: uppercase;
+            flex-shrink: 0;
         }
-
-        .bg-text {
-            bottom: 10%;
-            right: 5%;
-            font-size: 15vw;
+        
+        .banner-logo {
+            height: 60px;
+            margin: 0 15px;
+            filter: brightness(0) invert(1);
         }
-
+        
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
         /* ===== HEADER ===== */
         header {
             position: fixed;
@@ -203,345 +235,216 @@
         header.hidden .hamburger {
             color: var(--white);
         }
-
-        /* ===== FIGHTER PROFILE SECTION ===== */
-        .fighter-profile-section {
-            margin-top: 70px;
-            padding: 6rem 0 2rem;
+        
+        /* ===== HERO SLIDER ===== */
+        .fighter-hero {
             position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 70px;
+            display: flex;
+            background-color: var(--black);
         }
-
-        .fighter-card-container {
+        
+        .hero-content {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 4rem;
+        }
+        
+        .fighter-hero-image {
+            height: 90%;
+            width: auto;
+            object-fit: contain;
+            object-position: left;
+        }
+        
+        .hero-info {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 2rem;
+            justify-content: center;
+            padding-right: 4rem;
+        }
+        
+        .fighter-name {
+            font-size: 6rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .fighter-nickname {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        
+        .fighter-details {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 3rem;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        
+        .fighter-record {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        
+        .record-item {
+            display: inline-block;
+            margin-right: 1.5rem;
+        }
+        
+        .record-number {
+            color: var(--gold);
+        }
+        
+        .fighter-stats {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 3rem;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .social-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            opacity: 0.8;
+        }
+        
+        /* ===== FIGHTER BIO SECTION ===== */
+        .fighter-bio {
+            padding: 80px 0;
+            background-color: var(--black);
+        }
+        
+        .bio-container {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .fighter-main-content {
+            padding: 0 30px;
             display: flex;
-            flex-direction: column;
-            width: 100%;
+            gap: 4rem;
+        }
+        
+        .bio-text-container {
+            flex: 1;
+        }
+        
+        .bio-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
             align-items: center;
-            position: relative;
         }
-
-        @media (min-width: 768px) {
-            .fighter-main-content {
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 3rem;
-                justify-content: center;
-            }
-        }
-
-        .fighter-card {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid var(--gold);
-            padding: 0;
-            width: 100%;
-            max-width: 350px;
+        
+        .bio-image {
+            max-width: 100%;
             height: auto;
-            aspect-ratio: 4/5;
-            position: relative;
-            box-shadow: 0 5px 30px rgba(212, 175, 55, 0.2);
+            border: 3px solid var(--gold);
+        }
+        
+        .bio-title {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            text-align: left;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        /* ===== FIGHTER GALLERY ===== */
+        .fighter-gallery {
+            padding: 60px 0;
+            background-color: var(--black);
+        }
+        
+        .gallery-title {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 3rem;
+            text-align: left;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .gallery-scroll {
             display: flex;
-            flex-direction: column;
-            margin: 0;
-        }
-
-        .fighter-card-image {
-            height: 80%;
-            width: 100%;
             overflow: hidden;
+            gap: 20px;
+            padding: 20px 0;
         }
-
-        .fighter-card-image img {
+        
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .gallery-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
+            transition: transform 0.5s ease;
         }
-
-        .fighter-card-info {
-            padding: 1rem;
-            text-align: center;
-            height: 20%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
         }
-
-        .fighter-name {
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 0.3rem;
-            line-height: 1;
-            font-family: 'Bebas Neue', sans-serif;
-            text-transform: uppercase;
-        }
-
-        .fighter-nickname {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5rem;
-            color: var(--gold);
-            font-family: 'Bebas Neue', sans-serif;
-            text-transform: uppercase;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            letter-spacing: 2px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 0.8rem 0.3rem;
-        }
-
-        .fighter-meta {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: var(--white);
-        }
-
-        .fighter-flag {
-            height: 14px;
-            width: 20px;
-        }
-
-        .fighter-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            width: 100%;
-            max-width: 350px;
-        }
-
-        .fighter-social a {
-            color: var(--gold);
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .fighter-social a:hover {
-            transform: translateY(-5px);
-        }
-
-        .fighter-stats-container {
-            width: 100%;
-            margin-top: 4rem;
-        }
-
-        @media (min-width: 768px) {
-            .fighter-stats-container {
-                margin-top: 2rem;
-                max-width: 500px;
-            }
-        }
-
-        .fighter-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            width: 100%;
-        }
-
-        .stats-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .stats-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            justify-content: center;
-        }
-
-        .stats-line {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 80px;
-        }
-
-        .stat-label {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 3rem;
-            color: var(--gold);
-            font-weight: bold;
-            text-align: center;
-            line-height: 1;
-            font-style: italic;
-        }
-
-        /* ===== BANNER STYLES ===== */
-        .banner-container {
-            width: 100%;
-            overflow: hidden;
+        
+        /* ===== FIGHT HISTORY ===== */
+        .fight-history {
+            padding: 80px 0;
             background-color: var(--black);
-            border-top: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
-            padding: 15px 0;
-            margin: 4rem 0;
         }
         
-        .banner {
-            display: flex;
-            white-space: nowrap;
-            animation: scrollBanner 10s linear infinite;
+        .history-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
         
-        .banner-item {
-            display: flex;
-            align-items: center;
-            margin: 0 20px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            flex-shrink: 0;
-        }
-        
-        .banner-logo {
-            height: 60px;
-            margin: 0 15px;
-            filter: brightness(0) invert(1);
-        }
-        
-        @keyframes scrollBanner {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        .about-section {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (min-width: 1024px) {
-            .about-section {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-            
-            .about-content {
-                flex: 2;
-            }
-            
-            .polaroid-gallery {
-                flex: 1;
-                margin-top: 0;
-                padding-left: 3rem;
-            }
-        }
-
-        .about-content {
-            flex: 1;
-        }
-
-        .about-content p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-            text-align: left;
-        }
-
-        .polaroid-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 800px;
-            margin: 3rem auto 0;
-        }
-
-        @media (min-width: 768px) {
-            .polaroid-gallery {
-                justify-content: center;
-            }
-        }
-
-        .polaroid {
-            background: var(--white);
-            padding: 1rem 1rem 2rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transform: rotate(-5deg);
-            width: calc(50% - 1rem);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid var(--gold);
-            max-width: 280px;
-        }
-
-        .polaroid:nth-child(even) {
-            transform: rotate(3deg);
-        }
-
-        .polaroid:nth-child(3n) {
-            transform: rotate(7deg);
-        }
-
-        .polaroid:hover {
-            transform: rotate(0deg) scale(1.05);
-            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
-        }
-
-        .polaroid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border: 1px solid var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        .polaroid-info {
-            text-align: center;
-            color: var(--black);
-        }
-
-        .polaroid-opponent {
-            font-size: 1.5rem;
-            color: var(--black);
-            margin-bottom: 0.5rem;
-            font-family: 'Bebas Neue', sans-serif;
-        }
-
-        .polaroid-date {
-            font-size: 1rem;
-            color: var(--black);
-            opacity: 0.8;
-        }
-
-        /* ===== CAREER SECTION ===== */
-        .career-table {
+        .fight-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 2rem;
         }
-
-        .career-table th {
+        
+        .fight-table th {
             background-color: var(--gold);
             color: var(--black);
             padding: 1rem;
@@ -549,52 +452,30 @@
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.2rem;
         }
-
-        .career-table td {
+        
+        .fight-table td {
             padding: 1rem;
-            border-bottom: 1px solid rgba(212,175,55,0.3);
-            transition: background-color 0.3s ease;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         }
-
-        .career-table tr:hover td {
-            background-color: rgba(212,175,55,0.1);
+        
+        .fight-table tr:last-child td {
+            border-bottom: none;
         }
-
-        .result-win {
-            color: #4CAF50;
-            font-weight: 700;
+        
+        .result-W {
+            color: var(--green);
+            font-weight: bold;
         }
-
-        .result-loss {
-            color: #F44336;
-            font-weight: 700;
+        
+        .result-L {
+            color: var(--red);
+            font-weight: bold;
         }
-
-        .view-more {
-            text-align: center;
-            margin-top: 5rem;
-            margin-bottom: 3rem;
+        
+        .hidden-fights {
+            display: none;
         }
-
-        /* ===== INSTAGRAM SECTION ===== */
-        .instagram-section {
-            margin-top: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .instagram-embed {
-            width: 100%;
-            height: 500px;
-            border: 1px solid var(--gold);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
-        }
-
-        /* ===== VIEW ALL FIGHTERS ===== */
-        .view-all-fighters {
-            text-align: center;
-            margin: 6rem 0;
-        }
-
+        
         /* ===== PARTNERS SECTION ===== */
         .partners-title {
             text-align: center;
@@ -757,7 +638,7 @@
             opacity: 0.8;
             transform: translateY(-2px);
         }
-
+        
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {
             position: fixed;
@@ -788,15 +669,71 @@
         .scroll-top:hover {
             transform: translateY(-8px) scale(1.1);
         }
-
-        /* ===== RESPONSIVE STYLES ===== */
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* ===== NUMBER COUNT ANIMATION ===== */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .counting {
+            animation: countUp 0.5s ease-out forwards;
+        }
+        
+        /* ===== MOBILE RESPONSIVENESS ===== */
         @media (max-width: 1200px) {
             .container {
                 padding: 0 3rem;
             }
             
             section {
-                padding: 5rem 0;
+                padding: 10rem 0;
+            }
+            
+            .fighter-name {
+                font-size: 4.5rem;
+            }
+            
+            .fighter-nickname {
+                font-size: 2rem;
+            }
+            
+            .fighter-record {
+                font-size: 3rem;
             }
         }
         
@@ -804,29 +741,37 @@
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
-        }
-
-        @media (max-width: 900px) {
-            .fighter-card {
-                height: auto;
+            
+            .hero-content {
+                flex-direction: column;
             }
             
-            .fighter-card-image {
-                height: 80%;
-            }
-            
-            .stats-row {
+            .hero-image-container {
+                padding-left: 0;
                 justify-content: center;
+                height: 50%;
             }
-
-            .polaroid {
-                transform: rotate(0deg) !important;
-                width: 100%;
-                max-width: 300px;
+            
+            .fighter-hero-image {
+                height: 100%;
+                width: auto;
+                object-position: center;
             }
-
-            .polaroid:hover {
-                transform: scale(1.05) !important;
+            
+            .hero-info {
+                padding: 2rem;
+                height: 50%;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .bio-container {
+                flex-direction: column;
+            }
+            
+            .bio-image-container {
+                order: -1;
+                margin-bottom: 2rem;
             }
         }
 
@@ -868,22 +813,40 @@
             
             .section-title {
                 font-size: 2.8rem;
-                margin-bottom: 3rem;
+                margin-bottom: 4rem;
             }
             
             .section-title:after {
                 width: 80px;
                 height: 3px;
             }
-
-            .polaroid {
-                width: 100%;
+            
+            .fighter-hero {
+                height: 100vh;
             }
-
-            .polaroid:nth-child(3) {
-                width: 100%;
-                max-width: 400px;
-                margin-top: 2rem;
+            
+            .fighter-name {
+                font-size: 3.5rem;
+            }
+            
+            .fighter-nickname {
+                font-size: 1.5rem;
+            }
+            
+            .fighter-record {
+                font-size: 2.5rem;
+            }
+            
+            .fighter-details, .fighter-stats {
+                font-size: 1.2rem;
+            }
+            
+            .bio-title, .gallery-title {
+                font-size: 2rem;
+            }
+            
+            .bio-text {
+                font-size: 1rem;
             }
             
             .footer-content {
@@ -941,41 +904,6 @@
             .partner-logos img {
                 height: 40px;
             }
-
-            .stats-row {
-                justify-content: center;
-            }
-
-            .stats-line {
-                align-items: center;
-            }
-
-            .stat-label, .stat-value {
-                text-align: center;
-            }
-
-            .about-content p {
-                text-align: center;
-            }
-            
-            .banner-item {
-                font-size: 1.5rem;
-            }
-            
-            .banner-logo {
-                height: 40px;
-            }
-            
-            .btn {
-                padding: 12px 28px;
-                font-size: 1.1rem;
-            }
-
-            .fighter-nickname {
-                font-size: 1.2rem;
-                top: 5px;
-                right: 5px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -992,25 +920,38 @@
                 margin-bottom: 3rem;
             }
             
-            .section-subtitle {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
+            .fighter-hero {
+                height: 100vh;
+            }
+            
+            .fighter-name {
+                font-size: 2.5rem;
+            }
+            
+            .fighter-nickname {
+                font-size: 1.2rem;
+            }
+            
+            .fighter-record {
+                font-size: 2rem;
+            }
+            
+            .fighter-details, .fighter-stats {
+                font-size: 1rem;
             }
             
             section {
                 padding: 6rem 0;
             }
-
-            .subsection-title {
+            
+            .scroll-top {
+                width: 60px;
+                height: 60px;
                 font-size: 1.5rem;
-                padding-left: 1rem;
+                bottom: 2rem; 
+                right: 2rem;
             }
             
-            .subsection-title:before {
-                width: 4px;
-                height: 25px;
-            }
-
             .partner-logos {
                 gap: 1.5rem;
             }
@@ -1023,79 +964,9 @@
                 height: 198px;
             }
             
-            .fighter-name {
-                font-size: 1.8rem;
-            }
-            
-            .fighter-nickname {
-                font-size: 1rem;
-            }
-            
-            .fighter-meta {
-                font-size: 0.8rem;
-            }
-            
-            .instagram-embed {
-                height: 400px;
-            }
-            
-            .scroll-top {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-                bottom: 2rem;
-                right: 2rem;
-            }
-
-            .stat-label {
-                font-size: 1.2rem;
-            }
-
-            .stat-value {
-                font-size: 2rem;
-            }
-
-            .stats-row {
-                gap: 1.5rem;
-            }
-
-            .polaroid img {
-                height: 180px;
-            }
-
-            .fighter-profile-section .container,
-            .about-section .container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .fighter-main-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .fighter-card-image {
-                height: 80%;
-            }
-            
-            .banner-item {
-                font-size: 1.2rem;
-            }
-            
-            .banner-logo {
-                height: 30px;
-            }
-            
-            .about-content p {
-                font-size: 1.1rem;
-            }
-
-            .bg-text.jake,
-            .bg-text.paul {
-                font-size: 20vw;
+            .gallery-item {
+                width: 250px;
+                height: 150px;
             }
         }
     </style>
@@ -1108,8 +979,8 @@
         </a>
         
         <nav class="nav-links">
-            <a href="/" class="active">Home</a>
-            <a href="box.html">Athletes</a>
+            <a href="/">Home</a>
+            <a href="box.html" class="active">Athletes</a>
             <a href="events.html">Events</a>
             <a href="news.html">News</a>
             <a href="about.html">About</a>
@@ -1120,210 +991,238 @@
             <i class="fas fa-bars"></i>
         </div>
     </header>
-
-    <!-- ===== FIGHTER PROFILE SECTION ===== -->
-    <section class="fighter-profile-section">
-        <!-- Background text elements -->
-        <div class="bg-text">El Gallo</div>
-        
+    
+    <!-- ===== FIGHTER HERO ===== -->
+    <div class="fighter-hero">
+        <div class="hero-content">
+            <div class="hero-image-container">
+                <img src="jp.png" alt="Jake Paul" class="fighter-hero-image">
+            </div>
+            <div class="hero-info">
+                <h1 class="fighter-name animate">Jake Paul</h1>
+                <h2 class="fighter-nickname animate delay-1">The Problem Child</h2>
+                <p class="fighter-details animate delay-2">Age: 28 | Cleveland, OH</p>
+                <div class="fighter-record animate delay-3">
+                    <span class="record-item"><span class="record-number" id="wins">0</span> W</span>
+                    <span class="record-item"><span class="record-number" id="kos">0</span> KO</span>
+                    <span class="record-item"><span class="record-number" id="losses">0</span> L</span>
+                    <span class="record-item"><span class="record-number" id="draws">0</span> D</span>
+                </div>
+                <p class="fighter-stats animate delay-3">Stance: Orthodox | Height: 6'1" | Reach: 76"</p>
+                <div class="social-icons animate delay-3">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Moving Banner Between Sections -->
+    <div class="banner-container">
+        <div class="banner">
+            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
+            <div class="banner-item">ATHLETE</div>
+        </div>
+    </div>
+    
+    <!-- ===== FIGHTER BIO SECTION ===== -->
+    <section class="fighter-bio">
+        <div class="bio-container">
+            <div class="bio-text-container">
+                <h2 class="bio-title animate">About</h2>
+                
+                <p class="bio-text animate delay-1">
+                    Jake Paul, known as "The Problem Child," is an American professional boxer, social media personality, and entrepreneur. 
+                    Born on January 17, 1997, in Cleveland, Ohio, Paul first gained fame on the now-defunct video-sharing platform Vine before 
+                    transitioning to YouTube where he amassed millions of followers.
+                </p>
+                
+                <p class="bio-text animate delay-2">
+                    Paul made his professional boxing debut in 2020 and quickly established himself as a serious contender in the cruiserweight division. 
+                    With an impressive record of 11 wins (8 by knockout) and only 1 loss, Paul has become one of the most talked-about figures in combat sports.
+                </p>
+                
+                <p class="bio-text animate delay-3">
+                    Known for his explosive power, athleticism, and relentless work ethic, Paul has dedicated himself to the sport of boxing, training 
+                    with some of the best coaches in the business. His fights consistently draw massive pay-per-view audiences, making him one of the most 
+                    valuable athletes in combat sports today.
+                </p>
+            </div>
+            <div class="bio-image-container animate delay-3">
+                <img src="jp.png" alt="Jake Paul" class="bio-image">
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FIGHTER GALLERY ===== -->
+    <section class="fighter-gallery">
         <div class="container">
-            <div class="fighter-card-container">
-                <div class="fighter-main-content">
-                    <div class="fighter-card">
-                        <div class="fighter-card-image">
-                            <img src="jp.png" alt="Jake Paul">
-                        </div>
-                        <div class="fighter-card-info">
-                            <h2 class="fighter-name">Jake Paul</h2>
-                            <p class="fighter-nickname">THE PROBLEM CHILD</p>
-                            <p class="fighter-meta">Age: 28 • Cleveland, OH<img src="usa.png" alt="USA Flag" class="fighter-flag"></p>
-                        </div>
-                    </div>
-                    
-                    <div class="fighter-stats-container">
-                        <div class="fighter-stats">
-                            <div class="stats-row">
-                                <div class="stats-line">
-                                    <span class="stat-label">W</span>
-                                    <span class="stat-value">24</span>
-                                </div>
-                                <div class="stats-line">
-                                    <span class="stat-label">KO</span>
-                                    <span class="stat-value">6</span>
-                                </div>
-                                <div class="stats-line">
-                                    <span class="stat-label">L</span>
-                                    <span class="stat-value">1</span>
-                                </div>
-                                <div class="stats-line">
-                                    <span class="stat-label">D</span>
-                                    <span class="stat-value">0</span>
-                                </div>
-                            </div>
-                            <div class="stats-row">
-                                <div class="stats-line">
-                                    <span class="stat-label">Stance</span>
-                                    <span class="stat-value">Orthodox</span>
-                                </div>
-                                <div class="stats-line">
-                                    <span class="stat-label">Height</span>
-                                    <span class="stat-value">6'1"</span>
-                                </div>
-                                <div class="stats-line">
-                                    <span class="stat-label">Reach</span>
-                                    <span class="stat-value">76"</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="fighter-social">
-                    <a href="https://instagram.com/jakepaul" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com/jakepaul" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://tiktok.com/@jakepaul" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://youtube.com/jakepaul" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Moving Banner -->
-    <div class="banner-container">
-        <div class="banner">
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MVP ATHLETE</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">THE PROBLEM CHILD</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MVP ATHLETE</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-        </div>
-    </div>
-
-    <!-- ===== ABOUT SECTION ===== -->
-    <section class="container">
-        <h2 class="section-title">About The Fighter</h2>
-        <div class="about-section">
-            <div class="about-content">
-                <p>Nicknamed "The Problem Child," Jake Paul made a sensational professional debut in January 2020, securing a first-round TKO against AnEsonGib. Since then, he has achieved an impressive 11-1 record, with notable victories over former MMA stars such as Ben Askren, Tyron Woodley (twice), Anderson Silva, and Nate Diaz.</p>
-                <p>In November 2024, Paul secured a unanimous decision win over boxing legend Mike Tyson, further solidifying his status in the boxing world. Known for his dynamic presence and commitment to the sport, Paul continues to be a compelling and influential figure in modern boxing.</p>
-                <p>Born in Cleveland, Ohio, Paul now resides and trains in Dorado, Puerto Rico. Standing 6'1" with a 76" reach, the orthodox fighter has shown continuous improvement since transitioning from social media fame to professional boxing.</p>
-            </div>
+            <h2 class="gallery-title animate">Gallery</h2>
             
-            <div class="polaroid-gallery">
-                <div class="polaroid">
-                    <img src="jp.png" alt="Jake Paul vs Mike Tyson">
-                    <div class="polaroid-info">
-                        <div class="polaroid-opponent">vs Mike Tyson</div>
-                        <div class="polaroid-date">2024-11-15 • AT&T Stadium</div>
-                    </div>
+            <div class="gallery-scroll">
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
                 </div>
                 
-                <div class="polaroid">
-                    <img src="jp.png" alt="Jake Paul vs Nate Diaz">
-                    <div class="polaroid-info">
-                        <div class="polaroid-opponent">vs Nate Diaz</div>
-                        <div class="polaroid-date">2023-08-05 • Dallas, TX</div>
-                    </div>
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
                 </div>
                 
-                <div class="polaroid">
-                    <img src="jp.png" alt="Jake Paul vs Tyron Woodley">
-                    <div class="polaroid-info">
-                        <div class="polaroid-opponent">vs Tyron Woodley</div>
-                        <div class="polaroid-date">2021-12-18 • Tampa, FL</div>
-                    </div>
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item animate">
+                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Moving Banner -->
-    <div class="banner-container">
-        <div class="banner">
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MVP ATHLETE</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">THE PROBLEM CHILD</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MVP ATHLETE</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-        </div>
-    </div>
-
-    <!-- ===== CAREER SECTION ===== -->
-    <section class="container">
-        <h2 class="section-title">Career Highlights</h2>
-        
-        <table class="career-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Opponent</th>
-                    <th>Venue</th>
-                    <th>Result</th>
-                    <th>Round</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2025-06-28</td>
-                    <td>Julio Cesar Chavez Jr</td>
-                    <td>Honda Center, Anaheim</td>
-                    <td class="result-win">W</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>2024-11-15</td>
-                    <td>Mike Tyson</td>
-                    <td>AT&T Stadium, Arlington</td>
-                    <td class="result-win">W-UD</td>
-                    <td>8/8</td>
-                </tr>
-                <tr>
-                    <td>2024-07-20</td>
-                    <td>Michael Perry</td>
-                    <td>Amalie Arena, Tampa</td>
-                    <td class="result-win">W-TKO</td>
-                    <td>6/8</td>
-                </tr>
-                <tr>
-                    <td>2024-03-02</td>
-                    <td>Ryan Bourland</td>
-                    <td>Coliseo Jose Miguel Agrelot, San Juan</td>
-                    <td class="result-win">W-TKO</td>
-                    <td>1/8</td>
-                </tr>
-                <tr>
-                    <td>2023-12-15</td>
-                    <td>Andre August</td>
-                    <td>Caribe Royale Orlando, Orlando</td>
-                    <td class="result-win">W-KO</td>
-                    <td>1/8</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <div class="view-more">
-            <button class="btn">View Full Career</button>
+    
+    <!-- ===== FIGHT HISTORY ===== -->
+    <section class="fight-history">
+        <div class="history-container">
+            <h2 class="section-title">Fight History</h2>
+            
+            <table class="fight-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Opponent</th>
+                        <th>Venue</th>
+                        <th>Result</th>
+                        <th>Round</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-06-28</td>
+                        <td>Julio Cesar Chavez Jr</td>
+                        <td>Honda Center, Anaheim</td>
+                        <td class="result-W">W</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>2024-11-15</td>
+                        <td>Mike Tyson</td>
+                        <td>AT&T Stadium, Arlington</td>
+                        <td class="result-W">W-UD</td>
+                        <td>8/8</td>
+                    </tr>
+                    <tr>
+                        <td>2024-07-20</td>
+                        <td>Michael Perry</td>
+                        <td>Amalie Arena, Tampa</td>
+                        <td class="result-W">W-TKO</td>
+                        <td>6/8</td>
+                    </tr>
+                    <tr>
+                        <td>2024-03-02</td>
+                        <td>Ryan Bourland</td>
+                        <td>Coliseo Jose Miguel Agrelot, San Juan</td>
+                        <td class="result-W">W-TKO</td>
+                        <td>1/8</td>
+                    </tr>
+                    <tr>
+                        <td>2023-12-15</td>
+                        <td>Andre August</td>
+                        <td>Caribe Royale Orlando, Orlando</td>
+                        <td class="result-W">W-KO</td>
+                        <td>1/8</td>
+                    </tr>
+                </tbody>
+                <tbody class="hidden-fights">
+                    <tr>
+                        <td>2023-08-05</td>
+                        <td>Nate Diaz</td>
+                        <td>American Airlines Center, Dallas</td>
+                        <td class="result-W">W-UD</td>
+                        <td>10/10</td>
+                    </tr>
+                    <tr>
+                        <td>2023-02-26</td>
+                        <td>Tommy Fury</td>
+                        <td>Diriyah Arena, Diriyah</td>
+                        <td class="result-L">L-SD</td>
+                        <td>8/8</td>
+                    </tr>
+                    <tr>
+                        <td>2022-10-29</td>
+                        <td>Anderson Silva</td>
+                        <td>Gila River Arena, Glendale</td>
+                        <td class="result-W">W-UD</td>
+                        <td>8/8</td>
+                    </tr>
+                    <tr>
+                        <td>2021-12-18</td>
+                        <td>Tyron Woodley</td>
+                        <td>Amalie Arena, Tampa</td>
+                        <td class="result-W">W-KO</td>
+                        <td>6/8</td>
+                    </tr>
+                    <tr>
+                        <td>2021-08-29</td>
+                        <td>Tyron Woodley</td>
+                        <td>Rocket Mortgage FieldHouse, Cleveland</td>
+                        <td class="result-W">W-SD</td>
+                        <td>8/8</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="view-all-btn" id="view-more-btn">
+                <span>View More</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
     </section>
-
-    <!-- ===== INSTAGRAM SECTION ===== -->
-    <section class="instagram-section container">
-        <h2 class="section-title">Instagram</h2>
-        
-        <div class="instagram-embed">
-            <iframe src="https://www.instagram.com/jakepaul/embed" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-        </div>
-    </section>
-
-    <!-- ===== VIEW ALL FIGHTERS ===== -->
-    <div class="view-all-fighters">
-        <a href="box.html" class="btn">View All Fighters</a>
-    </div>
-
+    
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
@@ -1384,7 +1283,6 @@
                 <div>
                     <a href="terms.html" class="animate delay-3">Terms & Conditions</a>
                     <a href="pp.html" class="animate delay-4">Privacy Policy</a>
-
                 </div>
             </div>
         </div>
@@ -1394,7 +1292,7 @@
     <div class="scroll-top">
         <i class="fas fa-arrow-up"></i>
     </div>
-
+    
     <script>
         // Mobile Menu Toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
@@ -1405,14 +1303,10 @@
         // Scroll to Top Button
         window.addEventListener('scroll', function() {
             const scrollTop = document.querySelector('.scroll-top');
-            const header = document.getElementById('main-header');
-            
             if (window.pageYOffset > 300) {
                 scrollTop.classList.add('active');
-                header.classList.add('hidden');
             } else {
                 scrollTop.classList.remove('active');
-                header.classList.remove('hidden');
             }
         });
         
@@ -1432,58 +1326,79 @@
             });
         });
         
-        // View Full Career functionality
-        document.querySelector('.view-more .btn').addEventListener('click', function() {
-            const tableBody = document.querySelector('.career-table tbody');
-            const hiddenFights = `
-                <tr>
-                    <td>2023-08-05</td>
-                    <td>Nate Diaz</td>
-                    <td>American Airlines Center, Dallas</td>
-                    <td class="result-win">W-UD</td>
-                    <td>10/10</td>
-                </tr>
-                <tr>
-                    <td>2023-02-26</td>
-                    <td>Tommy Fury</td>
-                    <td>Diriyah Arena, Diriyah</td>
-                    <td class="result-loss">L-SD</td>
-                    <td>8/8</td>
-                </tr>
-                <tr>
-                    <td>2022-10-29</td>
-                    <td>Anderson Silva</td>
-                    <td>Gila River Arena, Glendale</td>
-                    <td class="result-win">W-UD</td>
-                    <td>8/8</td>
-                </tr>               
-                <tr>
-                    <td>2021-12-18</td>
-                    <td>Tyron Woodley</td>
-                    <td>Amalie Arena, Tampa</td>
-                    <td class="result-win">W-KO</td>
-                    <td>6/8</td>
-                </tr>
-                <tr>
-                    <td>2021-08-29</td>
-                    <td>Tyron Woodley</td>
-                    <td>Rocket Mortgage FieldHouse, Cleveland</td>
-                    <td class="result-win">W-SD</td>
-                    <td>8/8</td>
-                </tr>
-            `;
-            
-            if (this.textContent.includes('View')) {
-                tableBody.innerHTML += hiddenFights;
-                this.textContent = 'Show Less';
-            } else {
-                const rows = tableBody.querySelectorAll('tr');
-                for (let i = 5; i < rows.length; i++) {
-                    rows[i].remove();
+        // Scroll Animations
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fadeInUp');
                 }
-                this.textContent = 'View Full Career';
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Count-up animation for record numbers
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                obj.classList.add('counting');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.classList.remove('counting');
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Only animate when hero section comes into view
+        const heroSection = document.querySelector('.fighter-hero');
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate each number with slight delay between them
+                    setTimeout(() => animateValue('wins', 0, 11, 1000), 500);
+                    setTimeout(() => animateValue('kos', 0, 8, 1000), 1000);
+                    setTimeout(() => animateValue('losses', 0, 1, 500), 1500);
+                    setTimeout(() => animateValue('draws', 0, 0, 100), 2000);
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        heroObserver.observe(heroSection);
+        
+        // View More/Less toggle for fight history
+        const viewMoreBtn = document.getElementById('view-more-btn');
+        const hiddenFights = document.querySelector('.hidden-fights');
+        const chevronIcon = viewMoreBtn.querySelector('i');
+        
+        viewMoreBtn.addEventListener('click', function() {
+            if (hiddenFights.style.display === 'none' || !hiddenFights.style.display) {
+                hiddenFights.style.display = 'table-row-group';
+                viewMoreBtn.querySelector('span').textContent = 'View Less';
+                chevronIcon.classList.remove('fa-chevron-down');
+                chevronIcon.classList.add('fa-chevron-up');
+            } else {
+                hiddenFights.style.display = 'none';
+                viewMoreBtn.querySelector('span').textContent = 'View More';
+                chevronIcon.classList.remove('fa-chevron-up');
+                chevronIcon.classList.add('fa-chevron-down');
             }
         });
+        
+        // Initialize with fights hidden
+        hiddenFights.style.display = 'none';
     </script>
 </body>
 </html>
