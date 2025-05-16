@@ -31,6 +31,16 @@
             background-color: var(--black);
             color: var(--white);
             overflow-x: hidden;
+            /* Add animated gold gradient background */
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.03) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 70%, rgba(212, 175, 55, 0.03) 100%);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name {
@@ -82,13 +92,14 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-top: 3rem;
+            margin: 3rem auto;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.2rem;
             letter-spacing: 1px;
             color: var(--gold);
             transition: var(--transition);
             cursor: pointer;
+            max-width: 200px;
         }
 
         .view-all-btn:hover {
@@ -247,10 +258,23 @@
             background-color: var(--black);
         }
         
+        .hero-bg-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            height: 100%;
+            width: auto;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
         .hero-content {
             display: flex;
             width: 100%;
             height: 100%;
+            position: relative;
+            z-index: 2;
         }
         
         .hero-image-container {
@@ -259,6 +283,7 @@
             justify-content: flex-start;
             align-items: center;
             padding-left: 4rem;
+            position: relative;
         }
         
         .fighter-hero-image {
@@ -266,6 +291,8 @@
             width: auto;
             object-fit: contain;
             object-position: left;
+            position: relative;
+            z-index: 2;
         }
         
         .hero-info {
@@ -274,6 +301,40 @@
             flex-direction: column;
             justify-content: center;
             padding-right: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-gradient {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.3), transparent);
+            z-index: 1;
+            animation: gradientMove 15s ease infinite;
+        }
+        
+        .hero-text-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 15rem;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(212, 175, 55, 0.2);
+            text-align: center;
+            line-height: 0.8;
+            z-index: 0;
+            white-space: nowrap;
+        }
+        
+        @keyframes gradientMove {
+            0% { transform: translate(0, 0); opacity: 0.3; }
+            50% { transform: translate(20px, -20px); opacity: 0.2; }
+            100% { transform: translate(0, 0); opacity: 0.3; }
         }
         
         .fighter-name {
@@ -364,7 +425,6 @@
         .bio-image {
             max-width: 100%;
             height: auto;
-            border: 3px solid var(--gold);
         }
         
         .bio-title {
@@ -384,10 +444,59 @@
             text-align: left;
         }
         
+        .stats-chart {
+            display: flex;
+            margin-bottom: 3rem;
+            gap: 1rem;
+        }
+        
+        .stat-bar {
+            height: 30px;
+            position: relative;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+        
+        .wins-bar {
+            background-color: rgba(76, 175, 80, 0.3);
+        }
+        
+        .kos-bar {
+            background-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .stat-fill {
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: width 1s ease-out;
+        }
+        
+        .wins-fill {
+            background-color: var(--green);
+            width: 0;
+        }
+        
+        .kos-fill {
+            background-color: var(--gold);
+            width: 0;
+        }
+        
+        .stat-label {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Bebas Neue', sans-serif;
+            color: var(--white);
+        }
+        
         /* ===== FIGHTER GALLERY ===== */
         .fighter-gallery {
-            padding: 60px 0;
+            padding: 60px 0 0;
             background-color: var(--black);
+            overflow: hidden;
         }
         
         .gallery-title {
@@ -399,20 +508,42 @@
             letter-spacing: 1px;
         }
         
+        .gallery-container {
+            width: 100%;
+            overflow: hidden;
+        }
+        
         .gallery-scroll {
             display: flex;
-            overflow: hidden;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
             padding: 20px 0;
+        }
+        
+        .gallery-row {
+            display: flex;
+            width: 100%;
+            animation: scrollGallery 40s linear infinite;
         }
         
         .gallery-item {
             flex: 0 0 auto;
-            width: 300px;
             height: 200px;
             position: relative;
             overflow: hidden;
             border-radius: 8px;
+        }
+        
+        .gallery-item.wide {
+            width: 400px;
+        }
+        
+        .gallery-item.medium {
+            width: 300px;
+        }
+        
+        .gallery-item.narrow {
+            width: 200px;
         }
         
         .gallery-img {
@@ -424,6 +555,11 @@
         
         .gallery-item:hover .gallery-img {
             transform: scale(1.05);
+        }
+        
+        @keyframes scrollGallery {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         
         /* ===== FIGHT HISTORY ===== */
@@ -469,6 +605,11 @@
         
         .result-L {
             color: var(--red);
+            font-weight: bold;
+        }
+        
+        .result-VS {
+            color: var(--gold);
             font-weight: bold;
         }
         
@@ -735,6 +876,10 @@
             .fighter-record {
                 font-size: 3rem;
             }
+            
+            .hero-text-bg {
+                font-size: 12rem;
+            }
         }
         
         @media (max-width: 1024px) {
@@ -772,6 +917,10 @@
             .bio-image-container {
                 order: -1;
                 margin-bottom: 2rem;
+            }
+            
+            .hero-text-bg {
+                font-size: 10rem;
             }
         }
 
@@ -904,6 +1053,14 @@
             .partner-logos img {
                 height: 40px;
             }
+            
+            .hero-text-bg {
+                font-size: 8rem;
+            }
+            
+            .bio-image-container {
+                display: none;
+            }
         }
         
         @media (max-width: 480px) {
@@ -922,6 +1079,31 @@
             
             .fighter-hero {
                 height: 100vh;
+                flex-direction: row;
+            }
+            
+            .hero-bg-image {
+                display: none;
+            }
+            
+            .hero-image-container {
+                flex: 0 0 50%;
+                height: 100%;
+                padding-left: 0;
+                overflow: hidden;
+            }
+            
+            .fighter-hero-image {
+                height: 100%;
+                width: auto;
+                object-position: left;
+            }
+            
+            .hero-info {
+                flex: 0 0 50%;
+                padding: 1rem;
+                align-items: flex-start;
+                text-align: left;
             }
             
             .fighter-name {
@@ -968,6 +1150,18 @@
                 width: 250px;
                 height: 150px;
             }
+            
+            .hero-text-bg {
+                font-size: 5rem;
+                white-space: normal;
+                line-height: 1;
+            }
+            
+            .gallery-item.wide,
+            .gallery-item.medium,
+            .gallery-item.narrow {
+                width: 150px;
+            }
         }
     </style>
 </head>
@@ -994,6 +1188,9 @@
     
     <!-- ===== FIGHTER HERO ===== -->
     <div class="fighter-hero">
+        <img src="jp.png" alt="Jake Paul Background" class="hero-bg-image">
+        <div class="hero-gradient"></div>
+        <div class="hero-text-bg">PRBLM<br>CHILD</div>
         <div class="hero-content">
             <div class="hero-image-container">
                 <img src="jp.png" alt="Jake Paul" class="fighter-hero-image">
@@ -1033,6 +1230,17 @@
             <div class="bio-text-container">
                 <h2 class="bio-title animate">About</h2>
                 
+                <div class="stats-chart animate">
+                    <div class="stat-bar wins-bar">
+                        <div class="stat-fill wins-fill"></div>
+                        <span class="stat-label">WINS: <span id="wins-percent">0</span>%</span>
+                    </div>
+                    <div class="stat-bar kos-bar">
+                        <div class="stat-fill kos-fill"></div>
+                        <span class="stat-label">KOs: <span id="kos-percent">0</span>%</span>
+                    </div>
+                </div>
+                
                 <p class="bio-text animate delay-1">
                     Jake Paul, known as "The Problem Child," is an American professional boxer, social media personality, and entrepreneur. 
                     Born on January 17, 1997, in Cleveland, Ohio, Paul first gained fame on the now-defunct video-sharing platform Vine before 
@@ -1041,7 +1249,7 @@
                 
                 <p class="bio-text animate delay-2">
                     Paul made his professional boxing debut in 2020 and quickly established himself as a serious contender in the cruiserweight division. 
-                    With an impressive record of 11 wins (8 by knockout) and only 1 loss, Paul has become one of the most talked-about figures in combat sports.
+                    With an impressive record of 11 wins (7 by knockout) and only 1 loss, Paul has become one of the most talked-about figures in combat sports.
                 </p>
                 
                 <p class="bio-text animate delay-3">
@@ -1052,75 +1260,6 @@
             </div>
             <div class="bio-image-container animate delay-3">
                 <img src="jp.png" alt="Jake Paul" class="bio-image">
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===== FIGHTER GALLERY ===== -->
-    <section class="fighter-gallery">
-        <div class="container">
-            <h2 class="gallery-title animate">Gallery</h2>
-            
-            <div class="gallery-scroll">
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
-                </div>
-                
-                <div class="gallery-item animate">
-                    <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
-                </div>
             </div>
         </div>
     </section>
@@ -1145,7 +1284,7 @@
                         <td>2025-06-28</td>
                         <td>Julio Cesar Chavez Jr</td>
                         <td>Honda Center, Anaheim</td>
-                        <td class="result-W">W</td>
+                        <td class="result-VS">VS</td>
                         <td>10</td>
                     </tr>
                     <tr>
@@ -1220,6 +1359,115 @@
                 <span>View More</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
+        </div>
+    </section>
+    
+    <!-- ===== FIGHTER GALLERY ===== -->
+    <section class="fighter-gallery">
+        <div class="container">
+            <h2 class="gallery-title animate">Gallery</h2>
+            
+            <div class="gallery-container">
+                <div class="gallery-row">
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                </div>
+                <div class="gallery-row">
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                    <div class="gallery-item narrow animate">
+                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                    </div>
+                    <div class="gallery-item medium animate">
+                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                    </div>
+                    <div class="gallery-item wide animate">
+                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+            
+            <a href="events.html" class="view-all-btn">
+                <span>View All Fights</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
         </div>
     </section>
     
@@ -1361,6 +1609,41 @@
             window.requestAnimationFrame(step);
         }
         
+        // Animate stats bars
+        function animateStats() {
+            const winsFill = document.querySelector('.wins-fill');
+            const kosFill = document.querySelector('.kos-fill');
+            const winsPercent = document.getElementById('wins-percent');
+            const kosPercent = document.getElementById('kos-percent');
+            
+            let winsValue = 0;
+            let kosValue = 0;
+            const winsTarget = 92; // 11 wins out of 12 fights = 92%
+            const kosTarget = 58; // 7 KOs out of 12 fights = 58%
+            const interval = 20;
+            const increment = 1;
+            
+            const winsInterval = setInterval(() => {
+                winsValue += increment;
+                winsFill.style.width = winsValue + '%';
+                winsPercent.textContent = winsValue;
+                
+                if (winsValue >= winsTarget) {
+                    clearInterval(winsInterval);
+                }
+            }, interval);
+            
+            const kosInterval = setInterval(() => {
+                kosValue += increment;
+                kosFill.style.width = kosValue + '%';
+                kosPercent.textContent = kosValue;
+                
+                if (kosValue >= kosTarget) {
+                    clearInterval(kosInterval);
+                }
+            }, interval);
+        }
+        
         // Only animate when hero section comes into view
         const heroSection = document.querySelector('.fighter-hero');
         const heroObserver = new IntersectionObserver((entries) => {
@@ -1368,9 +1651,10 @@
                 if (entry.isIntersecting) {
                     // Animate each number with slight delay between them
                     setTimeout(() => animateValue('wins', 0, 11, 1000), 500);
-                    setTimeout(() => animateValue('kos', 0, 8, 1000), 1000);
+                    setTimeout(() => animateValue('kos', 0, 7, 1000), 1000);
                     setTimeout(() => animateValue('losses', 0, 1, 500), 1500);
                     setTimeout(() => animateValue('draws', 0, 0, 100), 2000);
+                    setTimeout(animateStats, 2500);
                     heroObserver.unobserve(entry.target);
                 }
             });
@@ -1399,6 +1683,25 @@
         
         // Initialize with fights hidden
         hiddenFights.style.display = 'none';
+        
+        // Auto-scroll gallery
+        function setupGalleryScroll() {
+            const galleryRows = document.querySelectorAll('.gallery-row');
+            galleryRows.forEach(row => {
+                const rowWidth = row.scrollWidth;
+                row.style.width = rowWidth + 'px';
+                
+                // Duplicate items for seamless looping
+                const items = row.querySelectorAll('.gallery-item');
+                items.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    row.appendChild(clone);
+                });
+            });
+        }
+        
+        window.addEventListener('load', setupGalleryScroll);
+        window.addEventListener('resize', setupGalleryScroll);
     </script>
 </body>
 </html>
