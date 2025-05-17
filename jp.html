@@ -551,7 +551,8 @@
             height: 200px;
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 0; /* Changed from 8px to 0 for sharp corners */
+            margin: 2px; /* Added small spacing */
         }
         
         .gallery-item.wide {
@@ -1025,14 +1026,17 @@
             
             .fighter-nickname {
                 font-size: 1.5rem;
+                margin-bottom: 1rem;
             }
             
             .fighter-record {
                 font-size: 2.5rem;
+                margin-bottom: 1rem;
             }
             
             .fighter-details, .fighter-stats {
                 font-size: 1.2rem;
+                margin-bottom: 1.5rem;
             }
             
             .gallery-title {
@@ -1106,6 +1110,43 @@
             .footer-social {
                 justify-content: center;
             }
+
+            /* Center fight history table on mobile */
+            .fight-history {
+                text-align: center;
+            }
+
+            .history-container {
+                padding: 0 15px;
+                max-width: 100%;
+                overflow-x: auto;
+            }
+
+            .fight-table {
+                width: auto;
+                margin: 0 auto;
+                display: inline-block;
+                text-align: left;
+            }
+
+            /* Disable gallery animation on mobile */
+            .gallery-row {
+                animation: none !important;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .gallery-item {
+                flex: 0 0 calc(50% - 10px);
+                height: 150px;
+                margin: 5px;
+            }
+
+            .gallery-item.wide,
+            .gallery-item.medium,
+            .gallery-item.narrow {
+                width: 100%;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1146,22 +1187,28 @@
                 padding: 1rem;
                 align-items: center;
                 text-align: center;
+                justify-content: flex-start; /* Move content higher */
+                padding-top: 2rem; /* Add padding at top */
             }
             
             .fighter-name {
                 font-size: 2.5rem;
+                margin-bottom: 0.25rem;
             }
             
             .fighter-nickname {
                 font-size: 1.2rem;
+                margin-bottom: 0.5rem;
             }
             
             .fighter-record {
                 font-size: 2rem;
+                margin-bottom: 0.5rem;
             }
             
             .fighter-details, .fighter-stats {
                 font-size: 1rem;
+                margin-bottom: 1rem;
             }
             
             .social-icon {
@@ -1199,14 +1246,15 @@
             }
             
             .gallery-item {
-                width: 150px;
+                width: calc(50% - 10px);
                 height: 150px;
+                margin: 5px;
             }
             
             .gallery-item.wide,
             .gallery-item.medium,
             .gallery-item.narrow {
-                width: 150px;
+                width: calc(50% - 10px);
             }
             
             .gallery-title {
@@ -1225,6 +1273,23 @@
             .fight-table {
                 margin-left: auto;
                 margin-right: auto;
+                width: auto;
+                display: inline-block;
+                text-align: left;
+            }
+
+            /* Hero gradient fix for mobile */
+            .hero-image-overlay {
+                background: linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.7) 70%) !important;
+            }
+
+            /* Move social icons under nickname */
+            .hero-info {
+                flex-direction: column;
+            }
+            .social-icons {
+                order: 5;
+                margin-top: 1rem;
             }
         }
     </style>
@@ -1267,6 +1332,7 @@
                     <h1 class="fighter-name fighter-name-clear">Jake Paul</h1>
                 </div>
                 <h2 class="fighter-nickname animate delay-1">The Problem Child</h2>
+
                 <p class="fighter-details animate delay-2">Age: 28 | Cleveland, OH <img src="usa.png" alt="USA Flag" class="usa-flag"></p>
                 <div class="fighter-record animate delay-3">
                     <span class="record-item"><span class="record-letter">W</span> <span class="record-number" id="wins">0</span></span>
