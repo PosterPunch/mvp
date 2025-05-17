@@ -133,7 +133,7 @@
         .banner {
             display: flex;
             white-space: nowrap;
-            animation: scrollBanner 10s linear infinite;
+            animation: scrollBanner 8s linear infinite;
         }
         
         .banner-item {
@@ -283,17 +283,17 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%),
-                        linear-gradient(180deg, rgba(212,175,55,0.3) 0%, rgba(0,0,0,1) 70%);
+                        linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.7) 70%);
             z-index: 2;
         }
         
         .fighter-hero-image {
-            height: 125%;
+            height: 110%;
             width: auto;
             object-fit: contain;
             position: relative;
             z-index: 1;
-            transform: translateY(20%);
+            transform: translateY(10%);
         }
         
         .hero-info {
@@ -317,9 +317,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            filter: blur(5px);
+            filter: blur(8px);
             opacity: 0.7;
             z-index: 1;
+            animation: pulseGlow 2s infinite alternate;
+        }
+        
+        @keyframes pulseGlow {
+            0% {
+                opacity: 0.5;
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            }
+            100% {
+                opacity: 0.8;
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            }
         }
         
         .fighter-name-clear {
@@ -362,6 +374,7 @@
             font-size: 4rem;
             margin-bottom: 2rem;
             font-family: 'Bebas Neue', sans-serif;
+            font-style: italic;
         }
         
         .record-item {
@@ -375,6 +388,7 @@
         
         .record-number {
             color: var(--gold);
+            font-style: italic;
         }
         
         .fighter-stats {
@@ -391,7 +405,7 @@
         }
         
         .social-icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--gold);
             transition: var(--transition);
         }
@@ -405,6 +419,7 @@
         .fighter-bio {
             padding: 80px 0;
             background-color: var(--black);
+            background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(20,20,20,1) 100%);
         }
         
         .bio-container {
@@ -413,10 +428,12 @@
             padding: 0 30px;
             display: flex;
             gap: 4rem;
+            align-items: center;
         }
         
         .bio-text-container {
             flex: 1;
+            padding: 3rem;
         }
         
         .bio-image-container {
@@ -437,12 +454,24 @@
             color: var(--white);
             margin-bottom: 1.5rem;
             text-align: left;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .bio-text:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            height: 1em;
+            width: 4px;
+            background-color: var(--gold);
         }
         
         .stats-chart-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 3rem;
+            margin: 3rem 0;
         }
         
         .chart-container {
@@ -472,10 +501,15 @@
             margin-bottom: 0.5rem;
         }
         
+        .chart-percent:after {
+            content: '%';
+        }
+        
         .chart-label {
             font-size: 1rem;
             font-family: 'Roboto Condensed', sans-serif;
             color: var(--white);
+            text-transform: uppercase;
         }
         
         /* ===== FIGHTER GALLERY ===== */
@@ -509,7 +543,7 @@
         .gallery-row {
             display: flex;
             width: 100%;
-            animation: scrollGallery 60s linear infinite;
+            animation: scrollGallery 20s linear infinite;
         }
         
         .gallery-item {
@@ -931,7 +965,7 @@
             }
             
             .hero-image-overlay {
-                background: linear-gradient(180deg, rgba(212,175,55,0.3) 0%, rgba(0,0,0,1) 70%);
+                background: linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.7) 70%);
             }
         }
 
@@ -1130,6 +1164,10 @@
                 font-size: 1rem;
             }
             
+            .social-icon {
+                font-size: 1rem;
+            }
+            
             section {
                 padding: 6rem 0;
             }
@@ -1264,14 +1302,14 @@
                         <canvas id="winsChart" class="chart" width="200" height="200"></canvas>
                         <div class="chart-center">
                             <div class="chart-percent" id="wins-percent">0</div>
-                            <div class="chart-label">WINS</div>
+                            <div class="chart-label">WIN RATE</div>
                         </div>
                     </div>
                     <div class="chart-container">
                         <canvas id="kosChart" class="chart" width="200" height="200"></canvas>
                         <div class="chart-center">
                             <div class="chart-percent" id="kos-percent">0</div>
-                            <div class="chart-label">KOs</div>
+                            <div class="chart-label">KO RATE</div>
                         </div>
                     </div>
                 </div>
@@ -1405,96 +1443,96 @@
             <div class="gallery-container">
                 <div class="gallery-row">
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg1.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg2.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg3.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg4.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg5.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg6.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg7.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg8.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg9.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg10.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg11.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg12.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg13.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg14.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg15.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                 </div>
                 <div class="gallery-row">
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg16.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg17.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg18.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg19.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg20.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg21.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg22.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg23.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg24.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg25.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg26.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg27.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                     <div class="gallery-item narrow animate">
-                        <img src="jp.png" alt="Jake Paul in training" class="gallery-img">
+                        <img src="jpimg28.png" alt="Jake Paul in training" class="gallery-img">
                     </div>
                     <div class="gallery-item medium animate">
-                        <img src="jp.png" alt="Jake Paul fight night" class="gallery-img">
+                        <img src="jpimg29.png" alt="Jake Paul fight night" class="gallery-img">
                     </div>
                     <div class="gallery-item wide animate">
-                        <img src="jp.png" alt="Jake Paul victory" class="gallery-img">
+                        <img src="jpimg30.png" alt="Jake Paul victory" class="gallery-img">
                     </div>
                 </div>
             </div>
@@ -1784,24 +1822,50 @@
         // Initialize with fights hidden
         hiddenFights.style.display = 'none';
         
-        // Auto-scroll gallery
+        // Optimized gallery scroll for mobile performance
         function setupGalleryScroll() {
+            if (window.innerWidth <= 768) {
+                // Disable animation on mobile to prevent crashing
+                document.querySelectorAll('.gallery-row').forEach(row => {
+                    row.style.animation = 'none';
+                });
+                return;
+            }
+            
             const galleryRows = document.querySelectorAll('.gallery-row');
             galleryRows.forEach(row => {
-                const rowWidth = row.scrollWidth;
-                row.style.width = rowWidth + 'px';
-                
-                // Duplicate items for seamless looping
                 const items = row.querySelectorAll('.gallery-item');
-                items.forEach(item => {
-                    const clone = item.cloneNode(true);
-                    row.appendChild(clone);
-                });
+                if (items.length > 0) {
+                    const rowWidth = row.scrollWidth;
+                    row.style.width = rowWidth + 'px';
+                    
+                    // Only duplicate if we have less than 30 items (to prevent excessive DOM elements)
+                    if (items.length < 30) {
+                        items.forEach(item => {
+                            const clone = item.cloneNode(true);
+                            row.appendChild(clone);
+                        });
+                    }
+                }
             });
         }
         
-        window.addEventListener('load', setupGalleryScroll);
-        window.addEventListener('resize', setupGalleryScroll);
+        // Debounce function to prevent excessive resize events
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this, args = arguments;
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    func.apply(context, args);
+                }, wait);
+            };
+        }
+        
+        const debouncedSetup = debounce(setupGalleryScroll, 100);
+        
+        window.addEventListener('load', debouncedSetup);
+        window.addEventListener('resize', debouncedSetup);
         
         // Touch device hover effects
         document.addEventListener('touchstart', function() {}, true);
