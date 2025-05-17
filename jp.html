@@ -31,16 +31,6 @@
             background-color: var(--black);
             color: var(--white);
             overflow-x: hidden;
-            /* Add animated gold gradient background */
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.03) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 70%, rgba(212, 175, 55, 0.03) 100%);
-            background-size: 200% 200%;
-            animation: gradientAnimation 15s ease infinite;
-        }
-        
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
         
         h1, h2, h3, h4, .nav-links a, .footer-links a, .video-title, .fighter-name {
@@ -143,7 +133,7 @@
         .banner {
             display: flex;
             white-space: nowrap;
-            animation: scrollBanner 20s linear infinite;
+            animation: scrollBanner 10s linear infinite;
         }
         
         .banner-item {
@@ -256,22 +246,13 @@
             margin-top: 70px;
             display: flex;
             background-color: var(--black);
-        }
-        
-        .hero-bg-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.5);
-            height: 100%;
-            width: auto;
-            opacity: 0.3;
-            z-index: 1;
+            justify-content: center;
         }
         
         .hero-content {
             display: flex;
             width: 100%;
+            max-width: 1440px;
             height: 100%;
             position: relative;
             z-index: 2;
@@ -281,17 +262,38 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
             padding-left: 4rem;
             position: relative;
         }
         
+        .hero-image-wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%),
+                        linear-gradient(180deg, rgba(212,175,55,0.3) 0%, rgba(0,0,0,1) 70%);
+            z-index: 2;
+        }
+        
         .fighter-hero-image {
-            height: 90%;
+            height: 125%;
             width: auto;
             object-fit: contain;
             position: relative;
-            z-index: 2;
+            z-index: 1;
+            transform: translateY(20%);
         }
         
         .hero-info {
@@ -301,35 +303,7 @@
             justify-content: center;
             padding-right: 4rem;
             position: relative;
-            z-index: 2;
-        }
-        
-        .hero-gradient {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(212, 175, 55, 0.3), transparent);
-            z-index: 1;
-            animation: gradientMove 15s ease infinite;
-            opacity: 0.3;
-        }
-        
-        .hero-text-bg {
-            position: absolute;
-            bottom: -100px;
-            left: 0;
-            width: 100%;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 20vw;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(212, 175, 55, 0.2);
-            text-align: center;
-            line-height: 0.8;
-            z-index: 0;
-            white-space: nowrap;
-            opacity: 0.2;
+            z-index: 3;
         }
         
         .fighter-name-container {
@@ -351,12 +325,6 @@
         .fighter-name-clear {
             position: relative;
             z-index: 2;
-        }
-        
-        @keyframes gradientMove {
-            0% { transform: translate(0, 0); opacity: 0.3; }
-            50% { transform: translate(20px, -20px); opacity: 0.2; }
-            100% { transform: translate(0, 0); opacity: 0.3; }
         }
         
         .fighter-name {
@@ -402,11 +370,11 @@
         }
         
         .record-letter {
-            color: var(--gold);
+            color: var(--white);
         }
         
         .record-number {
-            color: var(--white);
+            color: var(--gold);
         }
         
         .fighter-stats {
@@ -463,15 +431,6 @@
             height: auto;
         }
         
-        .bio-title {
-            font-size: 3.5rem;
-            color: var(--gold);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1px;
-        }
-        
         .bio-text {
             font-size: 1.1rem;
             line-height: 1.8;
@@ -507,9 +466,10 @@
         }
         
         .chart-percent {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-family: 'Bebas Neue', sans-serif;
             color: var(--gold);
+            margin-bottom: 0.5rem;
         }
         
         .chart-label {
@@ -549,7 +509,7 @@
         .gallery-row {
             display: flex;
             width: 100%;
-            animation: scrollGallery 40s linear infinite;
+            animation: scrollGallery 60s linear infinite;
         }
         
         .gallery-item {
@@ -926,10 +886,6 @@
             .fighter-record {
                 font-size: 3rem;
             }
-            
-            .hero-text-bg {
-                font-size: 15vw;
-            }
         }
         
         @media (max-width: 1024px) {
@@ -951,6 +907,7 @@
                 height: 100%;
                 width: auto;
                 object-position: center;
+                transform: none;
             }
             
             .hero-info {
@@ -969,12 +926,12 @@
                 margin-bottom: 2rem;
             }
             
-            .hero-text-bg {
-                font-size: 20vw;
-            }
-            
             .social-icons {
                 justify-content: center;
+            }
+            
+            .hero-image-overlay {
+                background: linear-gradient(180deg, rgba(212,175,55,0.3) 0%, rgba(0,0,0,1) 70%);
             }
         }
 
@@ -1044,7 +1001,7 @@
                 font-size: 1.2rem;
             }
             
-            .bio-title, .gallery-title {
+            .gallery-title {
                 font-size: 2.8rem;
             }
             
@@ -1108,10 +1065,6 @@
                 height: 40px;
             }
             
-            .hero-text-bg {
-                font-size: 25vw;
-            }
-            
             .bio-image-container {
                 display: none;
             }
@@ -1140,10 +1093,6 @@
                 flex-direction: row;
             }
             
-            .hero-bg-image {
-                display: none;
-            }
-            
             .hero-image-container {
                 flex: 0 0 50%;
                 height: 100%;
@@ -1155,13 +1104,14 @@
                 height: 100%;
                 width: auto;
                 object-position: left;
+                transform: none;
             }
             
             .hero-info {
                 flex: 0 0 50%;
                 padding: 1rem;
-                align-items: flex-start;
-                text-align: left;
+                align-items: center;
+                text-align: center;
             }
             
             .fighter-name {
@@ -1204,16 +1154,15 @@
                 height: 198px;
             }
             
-            .gallery-item {
-                width: 250px;
-                height: 150px;
+            .gallery-container {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                width: calc(100% + 2rem);
             }
             
-            .hero-text-bg {
-                font-size: 30vw;
-                white-space: normal;
-                line-height: 1;
-                bottom: -50px;
+            .gallery-item {
+                width: 150px;
+                height: 150px;
             }
             
             .gallery-item.wide,
@@ -1222,13 +1171,22 @@
                 width: 150px;
             }
             
-            .bio-title, .gallery-title {
+            .gallery-title {
                 font-size: 2.2rem;
             }
             
             .chart-container {
                 width: 150px;
                 height: 150px;
+            }
+            
+            .fight-history {
+                text-align: center;
+            }
+            
+            .fight-table {
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     </style>
@@ -1256,11 +1214,12 @@
     
     <!-- ===== FIGHTER HERO ===== -->
     <div class="fighter-hero">
-        <img src="jp.png" alt="Jake Paul Background" class="hero-bg-image">
-        <div class="hero-gradient"></div>
         <div class="hero-content">
             <div class="hero-image-container">
-                <img src="jp.png" alt="Jake Paul" class="fighter-hero-image">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-overlay"></div>
+                    <img src="jp.png" alt="Jake Paul" class="fighter-hero-image">
+                </div>
             </div>
             <div class="hero-info">
                 <div class="fighter-name-container">
@@ -1286,7 +1245,6 @@
                 </div>
             </div>
         </div>
-        <div class="hero-text-bg">PRBLM<br>CHILD</div>
     </div>
     
     <!-- Moving Banner Between Sections -->
@@ -1301,8 +1259,6 @@
     <section class="fighter-bio">
         <div class="bio-container">
             <div class="bio-text-container">
-                <h2 class="bio-title animate">About</h2>
-                
                 <div class="stats-chart-container animate">
                     <div class="chart-container">
                         <canvas id="winsChart" class="chart" width="200" height="200"></canvas>
@@ -1700,16 +1656,16 @@
                     datasets: [{
                         data: [0, 100],
                         backgroundColor: [
-                            'rgba(76, 175, 80, 0.8)',
-                            'rgba(76, 175, 80, 0.1)'
+                            'rgba(212, 175, 55, 0.8)',
+                            'rgba(212, 175, 55, 0.1)'
                         ],
                         borderWidth: 0
                     }]
                 },
                 options: {
                     cutout: '70%',
-                    rotation: -90,
-                    circumference: 180,
+                    rotation: 0,
+                    circumference: 360,
                     plugins: {
                         legend: {
                             display: false
@@ -1735,8 +1691,8 @@
                 },
                 options: {
                     cutout: '70%',
-                    rotation: -90,
-                    circumference: 180,
+                    rotation: 0,
+                    circumference: 360,
                     plugins: {
                         legend: {
                             display: false
