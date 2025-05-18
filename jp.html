@@ -127,7 +127,7 @@
             border-top: 1px solid var(--gold);
             border-bottom: 1px solid var(--gold);
             padding: 10px 0;
-            margin: 0rem 0;
+            margin: -0rem 0 0;
         }
         
         .banner {
@@ -446,6 +446,8 @@
         .bio-image {
             max-width: 90%;
             height: auto;
+            border: 5px solid var(--black);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
         
         .bio-text {
@@ -464,13 +466,16 @@
             display: flex;
             justify-content: center;
             margin: 3rem 0;
+            gap: 2rem;
         }
         
         .chart-container {
             position: relative;
             width: 200px;
             height: 200px;
-            margin: 0 20px;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
         
         .chart {
@@ -535,7 +540,7 @@
         .gallery-row {
             display: flex;
             width: 100%;
-            animation: scrollGallery 35s linear infinite; /* Slowed down from 20s to 35s */
+            animation: scrollGallery 35s linear infinite;
         }
         
         .gallery-item {
@@ -1041,8 +1046,9 @@
             
             .bio-text {
                 font-size: 1rem;
-                text-align: center;
+                text-align: left;
                 padding-left: 0;
+                max-width: 100%;
             }
             
             .bio-text:before {
@@ -1165,9 +1171,52 @@
 
             /* Stats chart centering */
             .stats-chart-container {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
-                gap: 2rem;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .chart-container {
+                width: 150px;
+                height: 150px;
+                margin: 0;
+            }
+
+            .chart-percent {
+                font-size: 2rem;
+            }
+
+            /* Banner positioning */
+            .banner-container {
+                margin-top: -1rem;
+            }
+
+            /* About section spacing */
+            .fighter-bio {
+                padding-top: 4rem;
+            }
+
+            /* Text alignment for about section */
+            .bio-text-container {
+                text-align: center;
+            }
+
+            .bio-text {
+                text-align: left;
+                display: inline-block;
+                max-width: 100%;
+            }
+
+            /* Hero section positioning */
+            .hero-info {
+                padding-top: 0;
+                justify-content: flex-start;
+            }
+
+            .fighter-name {
+                margin-top: 0;
             }
         }
         
@@ -1211,12 +1260,13 @@
                 align-items: center;
                 text-align: center;
                 justify-content: flex-start;
-                padding-top: 1rem; /* Pushed content higher */
+                padding-top: 0.5rem;
             }
             
             .fighter-name {
                 font-size: 2.5rem;
                 margin-bottom: 0.25rem;
+                margin-top: 0;
             }
             
             .fighter-nickname {
@@ -1285,8 +1335,12 @@
             }
             
             .chart-container {
-                width: 150px;
-                height: 150px;
+                width: 130px;
+                height: 130px;
+            }
+            
+            .chart-percent {
+                font-size: 1.8rem;
             }
             
             .fight-history {
@@ -1302,20 +1356,30 @@
                 display: table;
             }
 
-            /* Hero gradient fix for mobile */
+            /* Hero gradient line fix */
             .hero-image-overlay {
-                background: linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.7) 70%) !important;
+                background: linear-gradient(180deg, rgba(212,175,55,0.3) 0%, rgba(0,0,0,0.8) 50%) !important;
             }
 
             /* Move social icons under nickname */
-            .hero-info {
-                flex-direction: column;
-                padding-top: 1rem; /* Pushed content higher */
-            }
             .social-icons {
                 order: 5;
                 margin-top: 1rem;
                 justify-content: center;
+            }
+
+            /* Two-row gallery layout */
+            .gallery-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .gallery-row {
+                width: 100%;
+                animation: scrollGallery 35s linear infinite;
+                display: flex;
+                flex-wrap: nowrap;
             }
 
             /* Center all content on mobile */
