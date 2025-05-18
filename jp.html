@@ -441,13 +441,33 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         
+        /* Polaroid frame style for desktop */
         .bio-image {
             max-width: 90%;
             height: auto;
-            border: 5px solid var(--black);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            border: 15px solid white;
+            border-bottom: 60px solid white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            background: white;
+            padding: 10px;
+            transform: rotate(2deg);
+        }
+        
+        /* Polaroid description text */
+        .polaroid-desc {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            color: black;
+            font-size: 1.5rem;
+            text-transform: uppercase;
         }
         
         .bio-text {
@@ -459,8 +479,6 @@
             position: relative;
             padding-left: 1.5rem;
         }
-        
-
         
         .stats-chart-container {
             display: flex;
@@ -1169,23 +1187,24 @@
                 width: 200px;
             }
 
-            /* Stats chart centering */
+            /* Stats chart adjustments for mobile */
             .stats-chart-container {
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
                 flex-wrap: wrap;
                 gap: 1rem;
+                margin: 1rem 0;
             }
 
             .chart-container {
-                width: 150px;
-                height: 150px;
+                width: 120px;
+                height: 120px;
                 margin: 0;
             }
 
             .chart-percent {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             /* Banner positioning */
@@ -1201,12 +1220,14 @@
             /* Text alignment for about section */
             .bio-text-container {
                 text-align: center;
+                padding: 1rem;
             }
 
             .bio-text {
                 text-align: left;
                 display: inline-block;
                 max-width: 100%;
+                margin-bottom: 1rem;
             }
 
             /* Hero section positioning */
@@ -1335,12 +1356,12 @@
             }
             
             .chart-container {
-                width: 130px;
-                height: 130px;
+                width: 100px;
+                height: 100px;
             }
             
             .chart-percent {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
             .fight-history {
@@ -1402,6 +1423,47 @@
             #view-more-btn {
                 margin-left: auto;
                 margin-right: auto;
+            }
+
+            /* Make hero section taller on phone */
+            .fighter-hero {
+                height: 120vh;
+            }
+
+            /* Adjust hero content positioning */
+            .hero-content {
+                height: 100%;
+            }
+
+            /* Make about text wider on phone */
+            .bio-text-container {
+                padding: 0;
+                width: 100%;
+            }
+
+            .bio-text {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        /* Performance optimizations to prevent crashing */
+        .gallery-img {
+            will-change: transform;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        /* Reduce animation intensity on mobile */
+        @media (max-width: 768px) {
+            .gallery-row {
+                animation: none;
+            }
+            
+            .banner {
+                animation: none;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
         }
     </style>
@@ -1511,6 +1573,7 @@
             </div>
             <div class="bio-image-container animate delay-3">
                 <img src="jpabout.png" alt="Jake Paul" class="bio-image">
+                <div class="polaroid-desc">JAKE PAUL VS MIKE TYSON<br>NOVEMBER 12 2025</div>
             </div>
         </div>
     </section>
@@ -2036,6 +2099,22 @@
         
         // Touch device hover effects
         document.addEventListener('touchstart', function() {}, true);
+
+        // Performance optimizations
+        window.addEventListener('load', function() {
+            // Disable animations on low-end devices
+            if (navigator.hardwareConcurrency < 4 || navigator.deviceMemory < 4) {
+                const animatedElements = document.querySelectorAll('.animate, .delay-1, .delay-2, .delay-3');
+                animatedElements.forEach(el => {
+                    el.style.animation = 'none';
+                });
+                
+                const charts = document.querySelectorAll('.chart-container');
+                charts.forEach(chart => {
+                    chart.style.display = 'none';
+                });
+            }
+        });
     </script>
 </body>
 </html>
