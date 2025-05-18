@@ -459,17 +459,24 @@
         }
         
         .fighter-profile-btn {
+            padding: 12px 30px;
             background-color: transparent;
             color: var(--gold);
             border: 2px solid var(--gold);
-            padding: 0.5rem 1rem;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
             width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .fighter-profile-btn:hover {
@@ -1075,9 +1082,9 @@
             }
 
             .fighter-profile-btn {
-                margin-top: 1rem;
-                padding: 8px 16px;
+                padding: 8px 12px;
                 font-size: 0.9rem;
+                max-width: 180px;
             }
 
             /* Event card adjustments */
@@ -1194,10 +1201,6 @@
 
             .fighter-overlay {
                 padding: 1rem;
-            }
-
-            .fighter-profile-btn {
-                padding: 0.5rem;
             }
 
 
