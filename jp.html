@@ -97,7 +97,7 @@
         }
         
         section {
-            padding: 6rem 0; /* Reduced from 12rem to make gaps smaller */
+            padding: 12rem 0;
             position: relative;
         }
         
@@ -127,7 +127,7 @@
             border-top: 1px solid var(--gold);
             border-bottom: 1px solid var(--gold);
             padding: 10px 0;
-            margin: 1rem 0; /* Reduced margin */
+            margin: 2rem 0;
         }
         
         .banner {
@@ -283,7 +283,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%),
-                        linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.9) 70%); /* Adjusted gradient */
+                        linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.7) 70%);
             z-index: 2;
         }
         
@@ -350,14 +350,14 @@
             font-size: 2.5rem;
             color: var(--gold);
             font-style: italic;
-            margin-bottom: 1rem; /* Reduced margin */
+            margin-bottom: 2rem;
             font-family: 'Roboto Condensed', sans-serif;
         }
         
         .fighter-details {
             font-size: 1.5rem;
             color: var(--white);
-            margin-bottom: 2rem; /* Reduced margin */
+            margin-bottom: 3rem;
             font-family: 'Roboto Condensed', sans-serif;
             display: flex;
             align-items: center;
@@ -372,7 +372,7 @@
         
         .fighter-record {
             font-size: 4rem;
-            margin-bottom: 1.5rem; /* Reduced margin */
+            margin-bottom: 2rem;
             font-family: 'Bebas Neue', sans-serif;
             font-style: italic;
         }
@@ -394,7 +394,7 @@
         .fighter-stats {
             font-size: 1.5rem;
             color: var(--white);
-            margin-bottom: 2rem; /* Reduced margin */
+            margin-bottom: 3rem;
             font-family: 'Roboto Condensed', sans-serif;
         }
         
@@ -417,7 +417,7 @@
         
         /* ===== FIGHTER BIO SECTION ===== */
         .fighter-bio {
-            padding: 60px 0; /* Reduced padding */
+            padding: 80px 0;
             background-color: var(--black);
             background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(20,20,20,1) 100%);
         }
@@ -454,6 +454,18 @@
             color: var(--white);
             margin-bottom: 1.5rem;
             text-align: left;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .bio-text:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            height: 1em;
+            width: 4px;
+            background-color: var(--gold);
         }
         
         .stats-chart-container {
@@ -531,7 +543,7 @@
         .gallery-row {
             display: flex;
             width: 100%;
-            animation: scrollGallery 20s linear infinite;
+            animation: scrollGallery 35s linear infinite; /* Slowed down from 20s to 35s */
         }
         
         .gallery-item {
@@ -574,7 +586,7 @@
         
         /* ===== FIGHT HISTORY ===== */
         .fight-history {
-            padding: 60px 0; /* Reduced padding */
+            padding: 80px 0;
             background-color: var(--black);
         }
         
@@ -582,15 +594,12 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 30px;
-            text-align: center; /* Center content */
         }
         
         .fight-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 2rem;
-            display: inline-block; /* Center table */
-            text-align: left;
         }
         
         .fight-table th {
@@ -898,7 +907,7 @@
             }
             
             section {
-                padding: 5rem 0;
+                padding: 10rem 0;
             }
             
             .fighter-name {
@@ -957,7 +966,7 @@
             }
             
             .hero-image-overlay {
-                background: linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.9) 70%);
+                background: linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.7) 70%);
             }
         }
 
@@ -1000,41 +1009,38 @@
             .section-title {
                 font-size: 2.8rem;
                 margin-bottom: 4rem;
+                text-align: center;
+                width: 100%;
             }
             
             .section-title:after {
                 width: 80px;
                 height: 3px;
+                margin-left: auto;
+                margin-right: auto;
             }
             
             .fighter-hero {
                 height: 100vh;
-                margin-top: 60px; /* Match header height */
             }
             
             .fighter-name {
                 font-size: 3.5rem;
-                margin-bottom: 0.25rem;
             }
             
             .fighter-nickname {
                 font-size: 1.5rem;
-                margin-bottom: 0.5rem;
+                margin-bottom: 1rem;
             }
             
             .fighter-record {
                 font-size: 2.5rem;
-                margin-bottom: 0.5rem;
+                margin-bottom: 1rem;
             }
             
             .fighter-details, .fighter-stats {
                 font-size: 1.2rem;
-                margin-bottom: 1rem;
-            }
-
-            /* Larger social icons on mobile */
-            .social-icon {
-                font-size: 1.875rem; /* 25% larger than 1.5rem */
+                margin-bottom: 1.5rem;
             }
             
             .gallery-title {
@@ -1043,6 +1049,12 @@
             
             .bio-text {
                 font-size: 1rem;
+                text-align: center;
+                padding-left: 0;
+            }
+            
+            .bio-text:before {
+                display: none;
             }
             
             .footer-content {
@@ -1085,7 +1097,7 @@
             }
             
             section {
-                padding: 4rem 0;
+                padding: 8rem 0;
             }
             
             .footer-logo {
@@ -1109,35 +1121,61 @@
                 justify-content: center;
             }
 
-            /* Fight history table adjustments */
-            .fight-table {
-                width: auto;
-                display: inline-block;
-                text-align: left;
+            /* Center fight history table on mobile */
+            .fight-history {
+                text-align: center;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
-            /* Gallery adjustments */
+            .history-container {
+                padding: 0 15px;
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .fight-table {
+                width: auto;
+                margin: 0 auto;
+                display: table;
+            }
+
+            /* Enable gallery animation on mobile with touch scrolling */
+            .gallery-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 20px;
+                width: 100%;
+            }
+
             .gallery-row {
-                animation: scrollGallery 20s linear infinite !important;
+                animation: scrollGallery 35s linear infinite;
                 flex-wrap: nowrap;
+                width: max-content;
+                padding: 0 10px;
             }
 
             .gallery-item {
                 flex: 0 0 auto;
-                height: 200px;
+                height: 150px;
                 width: 200px;
+                margin: 0 5px;
             }
 
-            .gallery-item.wide {
-                width: 300px;
-            }
-
-            .gallery-item.medium {
-                width: 250px;
-            }
-
+            .gallery-item.wide,
+            .gallery-item.medium,
             .gallery-item.narrow {
                 width: 200px;
+            }
+
+            /* Stats chart centering */
+            .stats-chart-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
             }
         }
         
@@ -1153,6 +1191,7 @@
             .section-title {
                 font-size: 2.2rem;
                 margin-bottom: 3rem;
+                text-align: center;
             }
             
             .fighter-hero {
@@ -1180,7 +1219,7 @@
                 align-items: center;
                 text-align: center;
                 justify-content: flex-start;
-                padding-top: 2rem;
+                padding-top: 1rem; /* Pushed content higher */
             }
             
             .fighter-name {
@@ -1200,15 +1239,15 @@
             
             .fighter-details, .fighter-stats {
                 font-size: 1rem;
-                margin-bottom: 0.75rem;
+                margin-bottom: 1rem;
             }
             
             .social-icon {
-                font-size: 1.25rem; /* 25% larger than 1rem */
+                font-size: 1rem;
             }
             
             section {
-                padding: 3rem 0;
+                padding: 6rem 0;
             }
             
             .scroll-top {
@@ -1238,20 +1277,15 @@
             }
             
             .gallery-item {
-                width: 200px;
-                height: 200px;
+                width: 150px;
+                height: 150px;
+                margin: 0 5px;
             }
             
-            .gallery-item.wide {
-                width: 250px;
-            }
-            
-            .gallery-item.medium {
-                width: 225px;
-            }
-            
+            .gallery-item.wide,
+            .gallery-item.medium,
             .gallery-item.narrow {
-                width: 200px;
+                width: 150px;
             }
             
             .gallery-title {
@@ -1265,28 +1299,53 @@
             
             .fight-history {
                 text-align: center;
+                width: 100%;
+                overflow-x: auto;
             }
             
             .fight-table {
                 margin-left: auto;
                 margin-right: auto;
                 width: auto;
-                display: inline-block;
-                text-align: left;
+                display: table;
             }
 
             /* Hero gradient fix for mobile */
             .hero-image-overlay {
-                background: linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.9) 70%) !important;
+                background: linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.7) 70%) !important;
             }
 
             /* Move social icons under nickname */
             .hero-info {
                 flex-direction: column;
+                padding-top: 1rem; /* Pushed content higher */
             }
             .social-icons {
                 order: 5;
                 margin-top: 1rem;
+                justify-content: center;
+            }
+
+            /* Center all content on mobile */
+            .bio-text-container,
+            .stats-chart-container,
+            .history-container,
+            .gallery-title,
+            .section-title {
+                text-align: center;
+                width: 100%;
+            }
+
+            /* Ensure fight history is properly centered */
+            .fight-table {
+                margin: 0 auto;
+                display: table;
+            }
+
+            /* Center the view more button */
+            #view-more-btn {
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     </style>
@@ -1329,12 +1388,7 @@
                     <h1 class="fighter-name fighter-name-clear">Jake Paul</h1>
                 </div>
                 <h2 class="fighter-nickname animate delay-1">The Problem Child</h2>
-                <div class="social-icons animate delay-3">
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                </div>
+
                 <p class="fighter-details animate delay-2">Age: 28 | Cleveland, OH <img src="usa.png" alt="USA Flag" class="usa-flag"></p>
                 <div class="fighter-record animate delay-3">
                     <span class="record-item"><span class="record-letter">W</span> <span class="record-number" id="wins">0</span></span>
@@ -1343,6 +1397,12 @@
                     <span class="record-item"><span class="record-letter">D</span> <span class="record-number" id="draws">0</span></span>
                 </div>
                 <p class="fighter-stats animate delay-3">Stance: Orthodox | Height: 6'1" | Reach: 76"</p>
+                <div class="social-icons animate delay-3">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -1886,57 +1946,18 @@
         
         // Optimized gallery scroll for mobile performance
         function setupGalleryScroll() {
-            const galleryRows = document.querySelectorAll('.gallery-row');
+            const galleryContainer = document.querySelector('.gallery-container');
+            const galleryRow = document.querySelector('.gallery-row');
             
-            // Shuffle gallery items for both rows
-            const galleryItems1 = Array.from(document.querySelectorAll('.gallery-row:nth-child(1) .gallery-item'));
-            const galleryItems2 = Array.from(document.querySelectorAll('.gallery-row:nth-child(2) .gallery-item'));
+            // Enable touch scrolling on mobile
+            galleryContainer.style.overflowX = 'auto';
+            galleryContainer.style.webkitOverflowScrolling = 'touch';
             
-            // Shuffle function
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-                return array;
-            }
-            
-            // Shuffle and reinsert items
-            if (galleryItems1.length > 0) {
-                const shuffledItems1 = shuffleArray([...galleryItems1]);
-                galleryRows[0].innerHTML = '';
-                shuffledItems1.forEach(item => galleryRows[0].appendChild(item));
-            }
-            
-            if (galleryItems2.length > 0) {
-                const shuffledItems2 = shuffleArray([...galleryItems2]);
-                galleryRows[1].innerHTML = '';
-                shuffledItems2.forEach(item => galleryRows[1].appendChild(item));
-            }
-            
-            if (window.innerWidth <= 768) {
-                // On mobile, ensure animation continues
-                galleryRows.forEach(row => {
-                    row.style.animation = 'scrollGallery 20s linear infinite';
-                    row.style.flexWrap = 'nowrap';
-                });
-                return;
-            }
-            
-            galleryRows.forEach(row => {
-                const items = row.querySelectorAll('.gallery-item');
-                if (items.length > 0) {
-                    const rowWidth = row.scrollWidth;
-                    row.style.width = rowWidth + 'px';
-                    
-                    // Only duplicate if we have less than 30 items (to prevent excessive DOM elements)
-                    if (items.length < 30) {
-                        items.forEach(item => {
-                            const clone = item.cloneNode(true);
-                            row.appendChild(clone);
-                        });
-                    }
-                }
+            // Duplicate items for infinite scrolling effect
+            const items = galleryRow.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                galleryRow.appendChild(clone);
             });
         }
         
