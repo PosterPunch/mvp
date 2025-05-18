@@ -758,6 +758,10 @@
             .partner-logos img {
                 height: 40px;
             }
+
+            .footer-social {
+                justify-content: center;
+            }
         
         @media (max-width: 480px) {
             .header-logo {
@@ -1026,9 +1030,10 @@
             <!-- H2O Sylve -->
             <a href="/athletes/h2o-sylve" class="fighter-card animate delay-1">
                 <img src="sh.png" alt="H2O Sylve" class="fighter-img">
+                <div class="fighter-nickname">H2O</div>
                 <div class="fighter-name-container">
                     <div class="fighter-name">
-                        <span class="fighter-first-name">H2O</span>
+                        <span class="fighter-first-name">ASHTON</span>
                         <span class="fighter-last-name">SYLVE</span>
                     </div>
                 </div>
@@ -1642,14 +1647,7 @@
             });
         });
         
-        // Header logo scroll to top
-        document.querySelector('.header-logo').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+
         
         // Scroll Animations
         const animateElements = document.querySelectorAll('.animate');

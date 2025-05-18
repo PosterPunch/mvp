@@ -450,7 +450,7 @@
             height: auto;
             border: 15px solid white;
             border-bottom: 60px solid white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--gold);
             position: relative;
             background: white;
             padding: 10px;
@@ -460,14 +460,15 @@
         /* Polaroid description text */
         .polaroid-desc {
             position: absolute;
-            bottom: -40px;
-            left: 0;
+            bottom: 15px;
+            left: -15px;
             width: 100%;
             text-align: center;
             font-family: 'Bebas Neue', sans-serif;
             color: black;
-            font-size: 1.5rem;
-            text-transform: uppercase;
+            font-size: 1.75rem;
+            text-transform: uppercase;	
+            transform: rotate(2deg);
         }
         
         .bio-text {
@@ -1573,7 +1574,7 @@
             </div>
             <div class="bio-image-container animate delay-3">
                 <img src="jpabout.png" alt="Jake Paul" class="bio-image">
-                <div class="polaroid-desc">JAKE PAUL VS MIKE TYSON<br>NOVEMBER 12 2025</div>
+                <div class="polaroid-desc">JAKE PAUL VS MIKE TYSON | NOVEMBER 15, 2024 </div>
             </div>
         </div>
     </section>

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Roboto+Condensed:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <style>
+    <style>
         /* ===== GLOBAL STYLES ===== */
         :root {
             --black: #000000;
@@ -62,7 +62,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            transform: skewX(-20deg);
+
         }
         
         .btn:hover {
@@ -387,50 +387,45 @@
         }
         
         /* ===== PARTNERS SECTION ===== */
-        .partners {
+        .partners-title {
             text-align: center;
-            padding: 10rem 0;
-        }
-        
-        .partners h3 {
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
             color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2rem;
         }
         
         .partner-logos {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-        }
-        
-        .partner-logos-top, .partner-logos-bottom {
-            display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 4rem;
+            gap: 3rem;
+            padding: 2rem 0;
         }
         
         .partner-logos img {
-            height: 70px;
-            opacity: 1;
+            height: 50px;
             transition: var(--transition);
         }
-
-        .partner-logos img[src="msg.png"] {
-            height: 160px;
+        
+        /* Specific partner logo styles to maintain original colors */
+        .partner-logos img:not([src="dazn.png"]):not([src="clogo.png"]) {
+            filter: none;
         }
         
+        /* DAZN and Celsius logos should be white */
         .partner-logos img[src="dazn.png"],
-        .partner-logos img[src="clogo.png"],
-        .partner-logos img[src="netflix.png"] {
+        .partner-logos img[src="clogo.png"] {
             filter: brightness(0) invert(1);
         }
         
         .partner-logos img:hover {
-            transform: scale(1.15);
+            transform: scale(1.1);
         }
         
         /* ===== FOOTER ===== */
@@ -539,26 +534,20 @@
 
         .footer-social {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
-
-	.footer-social {
-	    display: flex;
-	    gap: 1.5rem;
-	    margin-top: 2rem;
-	}
-	
-	.footer-social a {
-	    color: var(--gold);
-	    font-size: 1.5rem;
-    	transition: var(--transition);
-	}
-
-	.footer-social a:hover {
-	    opacity: 0.8;
-	    transform: translateY(-2px);
-	}
+        
+        .footer-social a {
+            color: var(--gold);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
         
         /* ===== SCROLL TO TOP ===== */
         .scroll-top {
@@ -738,10 +727,16 @@
             .footer-links-col-2 {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-                text-align: left;
-                padding: 0 2rem;
+                grid-template-rows: auto auto auto;
+                gap: 1rem;
             }
+            
+            .footer-links-col-1 a:nth-child(1) { order: 1; }
+            .footer-links-col-1 a:nth-child(2) { order: 3; }
+            .footer-links-col-1 a:nth-child(3) { order: 5; }
+            .footer-links-col-1 a:nth-child(4) { order: 2; }
+            .footer-links-col-2 a:nth-child(1) { order: 4; }
+            .footer-links-col-2 a:nth-child(2) { order: 6; }
             
             .footer-links a {
                 padding-left: 0;
@@ -765,16 +760,17 @@
                 padding: 8rem 0;
             }
             
-            .partners {
-                padding: 8rem 0;
-            }
-            
             .footer-logo {
                 height: 198px;
             }
-
-            .footer-social {
-                justify-content: center;
+            
+            .partner-logos {
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+            
+            .partner-logos img {
+                height: 40px;
             }
 
             .event-info-with-poster {
@@ -836,20 +832,15 @@
             }
 
             .partner-logos {
-                gap: 2rem;
+                gap: 1.5rem;
             }
             
             .partner-logos img {
-                height: 50px;
+                height: 35px;
             }
 
-            .partner-logos img[src="msg.png"] {
-                height: 100px;
-            }
-
-            .footer-links-col-1,
-            .footer-links-col-2 {
-                padding: 0;
+            .footer-logo {
+                height: 198px;
             }
         }
     </style>
@@ -964,8 +955,13 @@
                     </div>
                     
                     <div class="event-info-item">
-                        <div class="event-info-label">Main Card</div>
-                        <div>8:00 PM ET</div>
+                        <div class="event-info-label">Promoters</div>
+                        <div>Most Valuable Promotions</div>
+                    </div>
+
+                    <div class="event-info-item">
+                        <div class="event-info-label">Watch Event Highlights</div>
+                        <a href="https://www.netflix.com/ca/title/82035642" target="_blank" class="btn" style="width: 100%; text-align: center; margin-top: 1.5rem;"><span>Watch Event Highlights</span></a>
                     </div>
                     
                 </div>
@@ -987,77 +983,6 @@
     </div>
 
 
-
-    <!-- Moving Banner Between Sections -->
-    <div class="banner-container">
-        <div class="banner">
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-            <div class="banner-item"><img src="mvpb.png" alt="MVP Logo" class="banner-logo"></div>
-            <div class="banner-item">MOST VALUABLE PROSPECTS 12 • LIVE ON DAZN • MAY 9, 2025</div>
-
-        </div>
-    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>
@@ -1153,14 +1078,6 @@
             });
         });
         
-        // Header logo scroll to top
-        document.querySelector('.header-logo').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
         
         // Scroll Animations
         const animateElements = document.querySelectorAll('.animate');

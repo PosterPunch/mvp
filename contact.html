@@ -37,6 +37,12 @@
             text-transform: uppercase;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+
+        h1, h2, h3, h5, .nav-links a, .footer-links a {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
         
         a {
             text-decoration: none;
@@ -626,6 +632,10 @@
                 bottom: 2rem;
                 right: 2rem;
             }
+
+            .footer-social {
+                justify-content: center;
+            }
         }
         
         @media (max-width: 480px) {
@@ -731,7 +741,7 @@
                 
                 <!-- Contact Form -->
                 <div class="contact-form">
-                    <h3 class="form-title">Send an email to us</h3>
+                    <h5 class="form-title">Send an email to us</h5>
                     <form action="#" method="POST">
                         <div class="form-group">
                             <label for="name">NAME</label>
