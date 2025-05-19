@@ -1496,8 +1496,8 @@
             <a href="box.html" class="active">Athletes</a>
             <a href="events.html">Events</a>
             <a href="news.html">News</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
         </nav>
         
         <div class="hamburger">
@@ -2047,8 +2047,8 @@
                 
                 <div class="footer-col">
                     <div class="footer-links-col-2">
-                        <a href="about.html" class="animate">About</a>
-                        <a href="contact.html" class="animate delay-1">Contact</a>
+                        <a href="about.html" class="animate">About Us</a>
+                        <a href="contact.html" class="animate delay-1">Contact Us</a>
                     </div>
                     
                     <div class="contact-info" style="margin-top: 2rem;">
@@ -2252,9 +2252,9 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     // Animate each number with slight delay between them
-                    setTimeout(() => animateValue('wins', 0, 11, 1000), 500);
-                    setTimeout(() => animateValue('kos', 0, 7, 1000), 1000);
-                    setTimeout(() => animateValue('losses', 0, 1, 500), 1500);
+                    setTimeout(() => animateValue('wins', 0, 10, 1000), 500);
+                    setTimeout(() => animateValue('kos', 0, 0, 1000), 1000);
+                    setTimeout(() => animateValue('losses', 0, 0, 500), 1500);
                     setTimeout(() => animateValue('draws', 0, 0, 100), 2000);
                     setTimeout(animateStats, 2500);
                     heroObserver.unobserve(entry.target);
