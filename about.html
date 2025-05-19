@@ -243,11 +243,12 @@
             transform: translateY(-5px);
         }
 
-        /* Instagram Embed Styles */
+        /* Updated Instagram Embed Styles */
         .instagram-embed-container {
             margin: 3rem auto 0;
             text-align: center;
-            max-width: 500px;
+            max-width: 800px; /* Increased from 500px to 800px */
+            width: 100%;
         }
 
         .instagram-embed-title {
@@ -263,8 +264,12 @@
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
+
+        .instagram-embed iframe {
+            width: 100% !important;
+            min-width: 100% !important;
+        }
        
-        
         /* ===== PARTNERS SECTION ===== */
         .partners-title {
             text-align: center;
@@ -587,7 +592,15 @@
                 justify-content: center;
             }
 
+            /* Mobile Instagram Embed Adjustments */
+            .instagram-embed-container {
+                max-width: 200%;
+                padding: 0 1rem;
+            }
 
+            .instagram-embed-title {
+                font-size: 2rem;
+            }
         }
         
         @media (max-width: 480px) {
